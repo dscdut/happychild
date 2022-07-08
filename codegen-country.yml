@@ -1,0 +1,25 @@
+overwrite: true
+schema:
+  - https://countries.trevorblades.com/:
+      headers:
+config:
+  namingConvention:
+    transformUnderscore: true
+hooks:
+  afterAllFileWrite:
+    - eslint --fix
+    - prettier --write
+
+generates:
+  src/generated/country-schemas.tsx:
+    documents: 'src/graphql/country/**/**.gql'
+    plugins:
+      - typescript
+      - typescript-react-apollo
+      - typescript-operations
+    config:
+      withHOC: false
+      withComponent: false
+      withHooks: true
+      withRefetchFn: true
+      skipTypename: true
