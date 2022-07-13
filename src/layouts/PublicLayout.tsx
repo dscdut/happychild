@@ -13,7 +13,7 @@ export function PublicLayout({ children }: Props) {
       <div className="flex h-[5rem] items-center justify-between px-8 shadow-md">
         <Header />
       </div>
-      <div className="h-screen px-8 py-4">{children}</div>
+      <div className="min-h-screen px-8 py-4">{children}</div>
       <Divider className="bg-primary-color" />
       <div className="px-8 py-8">
         <Footer />

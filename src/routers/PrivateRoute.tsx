@@ -7,7 +7,7 @@ const Index = loadable(import('#/pages/index'));
 function PrivateRoute() {
   const routes = useRoutes([{ path: '/', element: <Index /> }]);
 
-  return <PublicLayout>{routes}</PublicLayout>;
+  return routes;
 }
 
 export default PrivateRoute;
