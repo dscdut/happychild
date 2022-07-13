@@ -1,13 +1,15 @@
 import { useRoutes } from 'react-router-dom';
-import { PublicLayout } from '../layouts/PublicLayout';
 import { loadable } from '#/shared/utils/loadable';
 
 const Index = loadable(import('#/pages/index'));
 
 function PrivateRoute() {
-  const routes = useRoutes([{ path: '/', element: <Index /> }]);
+  const routes = useRoutes([
+    { path: '/', element: <Index /> },
+    { path: '*', element: <p>Not Found</p> },
+  ]);
 
-  return <PublicLayout>{routes}</PublicLayout>;
+  return routes;
 }
 
 export default PrivateRoute;

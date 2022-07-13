@@ -1,9 +1,10 @@
 import { HomeFilled, HomeOutlined } from '@ant-design/icons';
 import { Button, Typography } from 'antd';
-import { Link, useLocation } from 'react-router-dom';
+import { Link, useLocation, useNavigate } from 'react-router-dom';
 
 export function Header() {
   const { pathname } = useLocation();
+  const navigate = useNavigate();
 
   const MENU_ITEMS = [
     {
@@ -31,7 +32,9 @@ export function Header() {
               <Typography>Sign Up</Typography>
             </Link>
           </div>
-          <Button type="primary">Sign In</Button>
+          <Button type="primary" onClick={() => navigate('/sign-in')}>
+            Sign In
+          </Button>
         </div>
       ),
     },
