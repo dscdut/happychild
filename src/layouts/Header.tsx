@@ -1,6 +1,7 @@
 import { HomeFilled, HomeOutlined } from '@ant-design/icons';
 import { Button, Typography } from 'antd';
 import { Link, useLocation, useNavigate } from 'react-router-dom';
+import UserInfo from './UserInfo';
 
 export function Header() {
   const { pathname } = useLocation();
@@ -8,9 +9,13 @@ export function Header() {
 
   const MENU_ITEMS = [
     {
+      title: 'Home',
+      to: '/',
+      icon: <HomeFilled />,
+    },
+    {
       title: 'Blogs',
       to: '/blogs',
-      icon: <HomeFilled />,
     },
     {
       title: 'Courses',
@@ -25,18 +30,21 @@ export function Header() {
       to: '/about-us',
     },
     {
-      render: () => (
-        <div className="flex items-center gap-4">
-          <div className="border-b-primary-color transition-all hover:border-b-4">
-            <Link to="/">
-              <Typography>Sign Up</Typography>
-            </Link>
+      render: () =>
+        localStorage?.getItem('unihack-access-token') ? (
+          <UserInfo />
+        ) : (
+          <div className="flex items-center gap-4">
+            <div className="border-b-primary-color transition-all hover:border-b-4">
+              <Link to="/">
+                <Typography>Sign Up</Typography>
+              </Link>
+            </div>
+            <Button type="primary" onClick={() => navigate('/sign-in')}>
+              Sign In
+            </Button>
           </div>
-          <Button type="primary" onClick={() => navigate('/sign-in')}>
-            Sign In
-          </Button>
-        </div>
-      ),
+        ),
     },
   ];
 

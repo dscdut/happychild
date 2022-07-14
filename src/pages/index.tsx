@@ -5,7 +5,7 @@ import { getDatabase, ref, onValue } from 'firebase/database';
 function Index() {
   useEffect(() => {
     const db = getDatabase();
-    const starCountRef = ref(db, 'tests');
+    const starCountRef = ref(db, 'courses');
     onValue(starCountRef, snapshot => {
       const data = snapshot.val();
       console.log(data);

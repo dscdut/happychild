@@ -3,9 +3,9 @@ import { PublicLayout } from '../layouts/PublicLayout';
 import GuardRoute from './GuardRoute';
 import PrivateRoute from './PrivateRoute';
 import { loadable } from '#/shared/utils/loadable';
-import BlogPage from '#/pages/Blog';
-import BlogDetail from '#/pages/BlogDetail';
 
+const BlogPage = loadable(import('#/pages/Blog'));
+const BlogDetail = loadable(import('#/pages/BlogDetail'));
 const Index = loadable(import('#/pages/index'));
 const SignInPage = loadable(import('#/pages/SignIn'));
 
