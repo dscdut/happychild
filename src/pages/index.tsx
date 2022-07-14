@@ -1,9 +1,11 @@
 import { useEffect, useState } from 'react';
-import { RightOutlined } from '@ant-design/icons';
+import { ProfileOutlined, RightOutlined } from '@ant-design/icons';
 import { Button, Card } from 'antd';
 import { getDatabase, onValue, ref } from 'firebase/database';
+import { useNavigate } from 'react-router-dom';
 
 function Index() {
+  const navigate = useNavigate();
   useEffect(() => {
     const db = getDatabase();
     const starCountRef = ref(db, 'courses');
@@ -64,6 +66,15 @@ function Index() {
         >
           <span>{`Khi trẻ em được xác định có nguy cơ chậm phát triển hoặc tự kỷ tôi cần
           làm gì?`}</span>
+          <RightOutlined style={{ fontSize: '20px', color: '#fff' }} />
+        </Button>
+        <Button
+          shape="round"
+          className="flex h-14 w-[26rem] items-center justify-center gap-4 whitespace-normal bg-secondary-color text-[white]"
+          onClick={() => navigate('/assessment')}
+        >
+          <ProfileOutlined />
+          Bắt đầu kiểm tra và đánh giá
           <RightOutlined style={{ fontSize: '20px', color: '#fff' }} />
         </Button>
       </div>
