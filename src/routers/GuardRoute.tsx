@@ -13,7 +13,7 @@ function GuardRoute({ isPrivate = false, children }: Props) {
   useEffect(() => {
     (async () => {
       setLoading(true);
-      const accessToken = '';
+      const accessToken = localStorage?.getItem('access-token');
       if (!accessToken && isPrivate) {
         navigate('/login', {
           replace: true,

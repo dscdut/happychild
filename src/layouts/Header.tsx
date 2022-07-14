@@ -1,15 +1,21 @@
 import { HomeFilled, HomeOutlined } from '@ant-design/icons';
 import { Button, Typography } from 'antd';
-import { Link, useLocation } from 'react-router-dom';
+import { Link, useLocation, useNavigate } from 'react-router-dom';
+import UserInfo from './UserInfo';
 
 export function Header() {
   const { pathname } = useLocation();
+  const navigate = useNavigate();
 
   const MENU_ITEMS = [
     {
+      title: 'Home',
+      to: '/',
+      icon: <HomeFilled />,
+    },
+    {
       title: 'Blogs',
       to: '/blogs',
-      icon: <HomeFilled />,
     },
     {
       title: 'Courses',
@@ -24,16 +30,21 @@ export function Header() {
       to: '/about-us',
     },
     {
-      render: () => (
-        <div className="flex items-center gap-4">
-          <div className="border-b-primary-color transition-all hover:border-b-4">
-            <Link to="/">
-              <Typography>Sign Up</Typography>
-            </Link>
+      render: () =>
+        localStorage?.getItem('unihack-access-token') ? (
+          <UserInfo />
+        ) : (
+          <div className="flex items-center gap-4">
+            <div className="border-b-primary-color transition-all hover:border-b-4">
+              <Link to="/sign-up">
+                <Typography>Sign Up</Typography>
+              </Link>
+            </div>
+            <Button type="primary" onClick={() => navigate('/sign-in')}>
+              Sign In
+            </Button>
           </div>
-          <Button type="primary">Sign In</Button>
-        </div>
-      ),
+        ),
     },
   ];
 
@@ -47,12 +58,15 @@ export function Header() {
           ) : (
             <div
               className={`transition-all hover:border-b-4 hover:border-b-primary-color ${
-                pathname === item?.to
-                  ? 'border-b-4 border-b-primary-color text-primary-color'
-                  : ''
+                pathname === item?.to ? 'border-b-4 border-b-primary-color' : ''
               }`}
             >
-              <Link to={item?.to}>
+              <Link
+                to={item?.to}
+                className={
+                  pathname === item?.to ? 'text-primary-color' : 'text-[black]'
+                }
+              >
                 {item?.icon ? <HomeOutlined /> : item?.title}
               </Link>
             </div>

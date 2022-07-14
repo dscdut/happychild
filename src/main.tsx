@@ -1,3 +1,4 @@
+import 'antd/dist/antd.css';
 import '#/configs/theme/index.less';
 import '#/shared/utils/style.css';
 import { ApolloProvider } from '@apollo/client';
@@ -14,7 +15,6 @@ import App from './routers/App';
 import i18n from './shared/i18n';
 import { getPopupContainer } from './shared/utils/tools';
 import '#/shared/utils/firebase';
-import 'antd/dist/antd.css';
 
 createRoot(document.getElementById('root')!).render(
   <Sentry.ErrorBoundary fallback={<p>An error has occurred</p>}>

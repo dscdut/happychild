@@ -1,8 +1,17 @@
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import { RightOutlined } from '@ant-design/icons';
 import { Button, Card } from 'antd';
+import { getDatabase, onValue, ref } from 'firebase/database';
 
 function Index() {
+  useEffect(() => {
+    const db = getDatabase();
+    const starCountRef = ref(db, 'courses');
+    onValue(starCountRef, snapshot => {
+      const data = snapshot.val();
+      console.log(data);
+    });
+  }, []);
   const [isSubmit, setIsSubmit] = useState(1);
   const handleSubmit = (value: number) => {
     setIsSubmit(value);
