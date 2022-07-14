@@ -1,5 +1,4 @@
 import { useRoutes } from 'react-router-dom';
-import GuardRoute from './GuardRoute';
 import { loadable } from '#/shared/utils/loadable';
 
 const Index = loadable(import('#/pages/index'));
@@ -14,19 +13,11 @@ function PrivateRoute() {
       children: [
         {
           index: true,
-          element: (
-            <GuardRoute>
-              <BlogPage />
-            </GuardRoute>
-          ),
+          element: <BlogPage />,
         },
         {
           path: ':id',
-          element: (
-            <GuardRoute>
-              <BlogDetail />
-            </GuardRoute>
-          ),
+          element: <BlogDetail />,
         },
       ],
     },

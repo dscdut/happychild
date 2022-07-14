@@ -9,6 +9,7 @@ const BlogPage = loadable(import('#/pages/Blog'));
 const BlogDetail = loadable(import('#/pages/BlogDetail'));
 const Index = loadable(import('#/pages/index'));
 const SignInPage = loadable(import('#/pages/SignIn'));
+const SignUpPage = loadable(import('#/pages/SignUp'));
 
 function App() {
   const routes = useRoutes([
@@ -17,19 +18,11 @@ function App() {
       children: [
         {
           index: true,
-          element: (
-            <GuardRoute>
-              <BlogPage />
-            </GuardRoute>
-          ),
+          element: <BlogPage />,
         },
         {
           path: ':id',
-          element: (
-            <GuardRoute>
-              <BlogDetail />
-            </GuardRoute>
-          ),
+          element: <BlogDetail />,
         },
       ],
     },
@@ -57,6 +50,10 @@ function App() {
     {
       path: '/sign-in',
       element: <SignInPage />,
+    },
+    {
+      path: '/sign-up',
+      element: <SignUpPage />,
     },
     {
       path: '/*',

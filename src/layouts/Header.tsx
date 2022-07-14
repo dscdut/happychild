@@ -36,7 +36,7 @@ export function Header() {
         ) : (
           <div className="flex items-center gap-4">
             <div className="border-b-primary-color transition-all hover:border-b-4">
-              <Link to="/">
+              <Link to="/sign-up">
                 <Typography>Sign Up</Typography>
               </Link>
             </div>
@@ -58,12 +58,15 @@ export function Header() {
           ) : (
             <div
               className={`transition-all hover:border-b-4 hover:border-b-primary-color ${
-                pathname === item?.to
-                  ? 'border-b-4 border-b-primary-color text-primary-color'
-                  : ''
+                pathname === item?.to ? 'border-b-4 border-b-primary-color' : ''
               }`}
             >
-              <Link to={item?.to}>
+              <Link
+                to={item?.to}
+                className={
+                  pathname === item?.to ? 'text-primary-color' : 'text-[black]'
+                }
+              >
                 {item?.icon ? <HomeOutlined /> : item?.title}
               </Link>
             </div>
