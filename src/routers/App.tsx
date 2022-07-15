@@ -2,7 +2,6 @@ import { useRoutes } from 'react-router-dom';
 import { PublicLayout } from '../layouts/PublicLayout';
 import GuardRoute from './GuardRoute';
 import PrivateRoute from './PrivateRoute';
-import Courses from '#/pages/Courses/index';
 import { loadable } from '#/shared/utils/loadable';
 
 const BlogPage = loadable(import('#/pages/Blog'));
@@ -10,6 +9,8 @@ const BlogDetail = loadable(import('#/pages/BlogDetail'));
 const Index = loadable(import('#/pages/index'));
 const SignInPage = loadable(import('#/pages/SignIn'));
 const SignUpPage = loadable(import('#/pages/SignUp'));
+const Courses = loadable(import('#/pages/Courses/index'));
+const CoursesDetail = loadable(import('#/pages/Courses/CoursesDetail'));
 
 function App() {
   const routes = useRoutes([
@@ -35,11 +36,7 @@ function App() {
         },
         {
           path: ':id',
-          element: (
-            <GuardRoute>
-              <p>Hello</p>
-            </GuardRoute>
-          ),
+          element: <CoursesDetail />,
         },
       ],
     },

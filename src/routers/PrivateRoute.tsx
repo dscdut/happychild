@@ -6,7 +6,8 @@ const BlogPage = loadable(import('#/pages/Blog'));
 const BlogDetail = loadable(import('#/pages/BlogDetail'));
 const Assessment = loadable(import('#/pages/Assessment'));
 const AssessmentStart = loadable(import('#/pages/Assessment/Start'));
-
+const Courses = loadable(import('#/pages/Courses'));
+const CoursesDetail = loadable(import('#/pages/Courses/CoursesDetail'));
 function PrivateRoute() {
   const routes = useRoutes([
     { path: '/', element: <Index /> },
@@ -27,6 +28,19 @@ function PrivateRoute() {
         {
           path: ':id',
           element: <BlogDetail />,
+        },
+      ],
+    },
+    {
+      path: 'courses',
+      children: [
+        {
+          index: true,
+          element: <Courses />,
+        },
+        {
+          path: ':id',
+          element: <CoursesDetail />,
         },
       ],
     },
