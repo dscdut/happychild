@@ -10,7 +10,9 @@ const Index = loadable(import('#/pages/index'));
 const SignInPage = loadable(import('#/pages/SignIn'));
 const SignUpPage = loadable(import('#/pages/SignUp'));
 const Courses = loadable(import('#/pages/Courses/index'));
-const CoursesDetail = loadable(import('#/pages/Courses/CoursesDetail'));
+const CoursesDetail = loadable(
+  import('#/pages/Courses/CoursesDetail/CoursesDetail'),
+);
 
 function App() {
   const routes = useRoutes([
