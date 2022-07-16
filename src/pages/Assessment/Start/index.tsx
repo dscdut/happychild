@@ -1,15 +1,17 @@
 import { Button, Card, Col, Form, Row, Tabs, Typography } from 'antd';
 import { useState } from 'react';
 import { Store } from 'antd/lib/form/interface';
+import { useNavigate } from 'react-router-dom';
 import QuestionsCard from './QuestionsCard';
 import Introduction from './Introduction';
 import { stages } from '#/shared/utils/localData';
 
 export default function AssessmentStart() {
+  const navigate = useNavigate();
   const [currentTab, setCurrentTab] = useState<string | undefined>(undefined);
-
   const onSubmit = ({ results }: Store) => {
-    console.log(results);
+    localStorage.setItem('results', JSON.stringify(results));
+    navigate('/assessment/results');
   };
 
   return (

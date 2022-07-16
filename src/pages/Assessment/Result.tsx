@@ -1,7 +1,34 @@
-import { UserOutlined } from '@ant-design/icons';
+/* eslint-disable @typescript-eslint/naming-convention */
+import {
+  FrownOutlined,
+  MehOutlined,
+  SmileOutlined,
+  UserOutlined,
+} from '@ant-design/icons';
 import { Col, Row, Typography } from 'antd';
+import Slider, { SliderMarks } from 'antd/lib/slider';
 
+interface ResultProps {
+  name: string;
+  result: number;
+  stageId: number;
+}
+interface ChildInformation {
+  name: string;
+  address: string;
+  phoneNumber: string;
+  isLearning: string;
+  schoolName: string;
+}
 export default function Result() {
+  const results: ResultProps[] = JSON.parse(
+    localStorage.getItem('results') as string,
+  );
+  const childInformation: ChildInformation = JSON.parse(
+    localStorage.getItem('childInformation') as string,
+  );
+  const date = Date().toString();
+
   return (
     <Col span={24}>
       <div className="h-full w-full rounded-xl border-[1px] border-color-gray-50 px-12">
@@ -25,7 +52,7 @@ export default function Result() {
             </Col>
             <Col span={12}>
               <Typography.Text className="text-gray flex justify-start text-lg font-semibold text-color-gray-30">
-                Kiem Tran Van
+                {childInformation.name}
               </Typography.Text>
             </Col>
             <Col span={12}>
@@ -50,12 +77,12 @@ export default function Result() {
             </Col>
             <Col span={12}>
               <Typography.Text className="text-gray flex justify-start text-lg font-medium">
-                Người trả lời:
+                SDT người trả lời:
               </Typography.Text>
             </Col>
             <Col span={12}>
               <Typography.Text className="text-gray flex justify-start text-lg font-semibold text-color-gray-30">
-                +84 343108398
+                {childInformation.phoneNumber}
               </Typography.Text>
             </Col>
             <Col span={12}>
@@ -65,7 +92,7 @@ export default function Result() {
             </Col>
             <Col span={12}>
               <Typography.Text className="text-gray flex justify-start text-lg font-semibold text-color-gray-30">
-                16-07-2022 08:54
+                {date}
               </Typography.Text>
             </Col>
           </Row>
@@ -88,25 +115,31 @@ export default function Result() {
               Mỗi lĩnh vực ở một độ tuổi nhất định có một ngưỡng giới hạn.
             </Typography.Text>
           </Col>
-          <Row className="m-4 rounded-lg border-[1px] border-color-gray-50 bg-color-gray-60 p-4">
-            <Col span={4}>
-              <UserOutlined className="ml-6 mb-4 flex text-3xl" />
+          <Row className="m-4 space-y-4 rounded-lg border-[1px] border-color-gray-50 bg-color-gray-60 p-4">
+            <Col span={4} className="flex items-center justify-center text-3xl">
+              <UserOutlined />
             </Col>
             <Col span={20}>
               <Typography.Text className="text-gray flex justify-start text-lg text-color-gray-30">
                 Điểm của trẻ
               </Typography.Text>
             </Col>
-            <Col span={4}>
-              <div className="h-4 w-24 bg-primary-color-dark-30" />
+            <Col
+              span={4}
+              className="flex items-center justify-center text-3xl text-error-color"
+            >
+              <FrownOutlined />
             </Col>
             <Col span={20}>
               <Typography.Text className="text-gray flex justify-start text-lg text-color-gray-30">
                 Vùng điểm thể hiện trẻ đang gặp khó khăn
               </Typography.Text>
             </Col>
-            <Col span={4}>
-              <div className="h-4 w-24 bg-primary-color-light-20" />
+            <Col
+              span={4}
+              className="flex items-center justify-center text-3xl text-color-dark-mode-40"
+            >
+              <MehOutlined />
             </Col>
             <Col span={20}>
               <Typography.Text className="text-gray flex justify-start text-lg text-color-gray-30">
@@ -114,8 +147,11 @@ export default function Result() {
                 lại do một số kỹ năng chưa thành thục
               </Typography.Text>
             </Col>
-            <Col span={4}>
-              <div className="h-4 w-24 bg-primary-color-light-50" />
+            <Col
+              span={4}
+              className="flex items-center justify-center text-3xl text-primary-color"
+            >
+              <SmileOutlined />
             </Col>
             <Col span={20}>
               <Typography.Text className="text-gray flex justify-start text-lg text-color-gray-30">
@@ -134,12 +170,7 @@ export default function Result() {
                 Lĩnh vực
               </Typography.Text>
             </Col>
-            <Col span={3}>
-              <Typography.Text className="text-gray flex justify-start text-lg text-color-gray-30">
-                Ngưỡng
-              </Typography.Text>
-            </Col>
-            <Col span={3}>
+            <Col span={6}>
               <Typography.Text className="text-gray flex justify-start text-lg text-color-gray-30">
                 Điểm của trẻ
               </Typography.Text>
@@ -170,121 +201,61 @@ export default function Result() {
               </Typography.Text>
             </Col>
             {/*  */}
-            <Col span={3}>
-              <Typography.Text className="text-gray flex justify-start text-lg text-color-gray-30">
-                Giao tiếp
-              </Typography.Text>
-            </Col>
-            <Col span={3}>
-              <Typography.Text className="text-gray flex justify-start text-lg text-color-gray-30">
-                30.99
-              </Typography.Text>
-            </Col>
-            <Col span={3}>
-              <Typography.Text className="text-gray flex justify-start text-lg text-color-gray-30">
-                35
-              </Typography.Text>
-            </Col>
-            <Col span={13}>
-              <Row>
-                <div className="h-4 w-80 bg-primary-color-dark-30" />
-                <div className="h-4 w-32 bg-primary-color-light-20" />
-                <div className="h-4 w-48 bg-primary-color-light-50" />
-              </Row>
-            </Col>
-            {/*  */}
-            <Col span={3}>
-              <Typography.Text className="text-gray flex justify-start text-lg text-color-gray-30">
-                Vận động thô
-              </Typography.Text>
-            </Col>
-            <Col span={3}>
-              <Typography.Text className="text-gray flex justify-start text-lg text-color-gray-30">
-                30.99
-              </Typography.Text>
-            </Col>
-            <Col span={3}>
-              <Typography.Text className="text-gray flex justify-start text-lg text-color-gray-30">
-                35
-              </Typography.Text>
-            </Col>
-            <Col span={13}>
-              <Row>
-                <div className="h-4 w-60 bg-primary-color-dark-30" />
-                <div className="h-4 w-56 bg-primary-color-light-20" />
-                <div className="h-4 w-44 bg-primary-color-light-50" />
-              </Row>
-            </Col>
-            {/*  */}
-            <Col span={3}>
-              <Typography.Text className="text-gray flex justify-start text-lg text-color-gray-30">
-                Vận động tinh
-              </Typography.Text>
-            </Col>
-            <Col span={3}>
-              <Typography.Text className="text-gray flex justify-start text-lg text-color-gray-30">
-                30.99
-              </Typography.Text>
-            </Col>
-            <Col span={3}>
-              <Typography.Text className="text-gray flex justify-start text-lg text-color-gray-30">
-                35
-              </Typography.Text>
-            </Col>
-            <Col span={13}>
-              <Row>
-                <div className="h-4 w-40 bg-primary-color-dark-30" />
-                <div className="h-4 w-60 bg-primary-color-light-20" />
-                <div className="h-4 w-60 bg-primary-color-light-50" />
-              </Row>
-            </Col>
-            {/*  */}
-            <Col span={3}>
-              <Typography.Text className="text-gray flex justify-start text-lg text-color-gray-30">
-                Giải quyết vấn đề
-              </Typography.Text>
-            </Col>
-            <Col span={3}>
-              <Typography.Text className="text-gray flex justify-start text-lg text-color-gray-30">
-                30.99
-              </Typography.Text>
-            </Col>
-            <Col span={3}>
-              <Typography.Text className="text-gray flex justify-start text-lg text-color-gray-30">
-                35
-              </Typography.Text>
-            </Col>
-            <Col span={13}>
-              <Row>
-                <div className="h-4 w-20 bg-primary-color-dark-30" />
-                <div className="h-4 w-60 bg-primary-color-light-20" />
-                <div className="h-4 w-80 bg-primary-color-light-50" />
-              </Row>
-            </Col>
-            {/*  */}
-            <Col span={3}>
-              <Typography.Text className="text-gray flex justify-start text-lg text-color-gray-30">
-                Cá nhân xã hội
-              </Typography.Text>
-            </Col>
-            <Col span={3}>
-              <Typography.Text className="text-gray flex justify-start text-lg text-color-gray-30">
-                30.99
-              </Typography.Text>
-            </Col>
-            <Col span={3}>
-              <Typography.Text className="text-gray flex justify-start text-lg text-color-gray-30">
-                35
-              </Typography.Text>
-            </Col>
-            <Col span={13}>
-              <Row>
-                <div className="h-4 w-40 bg-primary-color-dark-30" />
-                <div className="h-4 w-80 bg-primary-color-light-20" />
-                <div className="h-4 w-40 bg-primary-color-light-50" />
-              </Row>
-            </Col>
-            {/*  */}
+            {results.map(result => {
+              const marks: SliderMarks = {
+                0: {
+                  style: {
+                    color: '#f50',
+                    fontSize: '1rem',
+                  },
+                  label: <FrownOutlined />,
+                },
+                24: {
+                  style: {
+                    color: '#f50',
+                    fontSize: '1rem',
+                  },
+                  label: <FrownOutlined />,
+                },
+                47: {
+                  style: {
+                    fontSize: '1rem',
+                  },
+                  label: <MehOutlined />,
+                },
+                70: {
+                  style: {
+                    color: '#ffcd17',
+                    fontSize: '1rem',
+                  },
+                  label: <SmileOutlined />,
+                },
+                100: {
+                  style: {
+                    color: '#ffcd17',
+                    fontSize: '1rem',
+                  },
+                  label: <SmileOutlined />,
+                },
+              };
+              return (
+                <>
+                  <Col span={4}>
+                    <Typography.Text className="text-gray flex justify-start text-lg text-color-gray-30">
+                      {result.name}
+                    </Typography.Text>
+                  </Col>
+                  <Col span={5}>
+                    <Typography.Text className="text-gray flex justify-start text-lg text-color-gray-30">
+                      {result.result}
+                    </Typography.Text>
+                  </Col>
+                  <Col span={13}>
+                    <Slider marks={marks} defaultValue={result.result} />
+                  </Col>
+                </>
+              );
+            })}
           </Row>
         </div>
         <div>
