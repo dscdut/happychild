@@ -88,7 +88,8 @@ export function Header() {
           ) : (
             <div
               className={`transition-all hover:border-b-4 hover:border-b-primary-color ${
-                pathname?.includes(item?.to)
+                (item?.to !== '/' && pathname?.includes(item?.to)) ||
+                (item?.to === '/' && pathname === item?.to)
                   ? 'border-b-4 border-b-primary-color'
                   : ''
               }`}
@@ -96,7 +97,8 @@ export function Header() {
               <Link
                 to={item?.to}
                 className={
-                  pathname?.includes(item?.to)
+                  (item?.to !== '/' && pathname?.includes(item?.to)) ||
+                  (item?.to === '/' && pathname === item?.to)
                     ? 'text-primary-color'
                     : 'text-[black]'
                 }

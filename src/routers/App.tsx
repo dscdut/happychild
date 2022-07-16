@@ -14,6 +14,7 @@ const Courses = loadable(import('#/pages/Courses/index'));
 const CoursesDetail = loadable(
   import('#/pages/Courses/CoursesDetail/CoursesDetail'),
 );
+const Assessment = loadable(import('#/pages/Assessment'));
 
 function App() {
   const routes = useRoutes([
@@ -29,6 +30,10 @@ function App() {
           element: <BlogDetail />,
         },
       ],
+    },
+    {
+      path: 'assessment',
+      element: <Assessment />,
     },
     {
       path: 'courses',
