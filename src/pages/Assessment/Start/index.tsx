@@ -1,60 +1,82 @@
-import { LeftOutlined, RightOutlined } from '@ant-design/icons';
-import { Button, Card, Carousel, Col, Form, Row, Typography } from 'antd';
-import { CarouselRef } from 'antd/lib/carousel';
-import { useRef } from 'react';
+import { Button, Card, Col, Form, Row, Tabs, Typography } from 'antd';
+import { useState } from 'react';
 import { Store } from 'antd/lib/form/interface';
-import QuestionCard from './QuestionCard';
-import { questions } from '#/shared/utils/localData';
+import QuestionsCard from './QuestionsCard';
+import Introduction from './Introduction';
+import { stages } from '#/shared/utils/localData';
 
 export default function AssessmentStart() {
-  const carouselRef = useRef<CarouselRef | null>(null);
+  const [currentTab, setCurrentTab] = useState<string | undefined>(undefined);
 
   const onSubmit = ({ results }: Store) => {
-    console.log(
-      results?.reduce((sum: number, current: number) => sum + current, 0),
-    );
+    console.log(results);
   };
 
   return (
     <div className="flex h-full w-full items-center justify-center">
-      <Card className="w-[80rem] shadow-sm">
+      <Card className="w-[70rem] shadow-sm">
         <Form onFinish={onSubmit}>
           <Row>
             <Col span={24}>
               <Typography className="text-3xl font-bold text-primary-color">
-                Assessment
+                Bài đánh giá khảo sát sự phát triển theo độ tuổi ASQ-3
               </Typography>
             </Col>
-            <Col span={24} className="relative ">
-              <div className="bg-slate-100 max-h-[40rem] min-h-[30rem]">
-                <div className="absolute left-0 z-30 ml-1 flex h-full items-center">
-                  <LeftOutlined
-                    className="cursor-pointer text-xl"
-                    onClick={() => carouselRef?.current?.prev()}
-                  />
-                </div>
-                <div className="absolute right-0 z-30 mr-1 flex h-full items-center">
-                  <RightOutlined
-                    className="cursor-pointer text-xl"
-                    onClick={() => {
-                      carouselRef?.current?.next();
-                    }}
-                  />
-                </div>
-                <Carousel
-                  ref={carouselRef}
-                  className="bg-slate-100 px-6 py-12"
-                  infinite={false}
-                  draggable
+            <Col span={24} className="relative">
+              <div className="bg-slate-100">
+                <Tabs
+                  activeKey={currentTab}
+                  defaultActiveKey="introduction"
+                  onTabClick={tabKey =>
+                    tabKey === 'introduction' && setCurrentTab('introduction')
+                  }
                 >
-                  <div>Introduction</div>
-                  {questions?.map((question, index) => (
-                    <Form.Item key={index} name={['results', index]} noStyle>
-                      <QuestionCard index={index} question={question} />
-                    </Form.Item>
+                  <Tabs.TabPane
+                    tabKey="introduction"
+                    key="introduction"
+                    tab={<Typography>Hướng dẫn khảo sát</Typography>}
+                  >
+                    <Introduction />
+                    <Button
+                      onClick={() => setCurrentTab(stages?.[0]?.stageName)}
+                    >
+                      Bắt đầu
+                    </Button>
+                  </Tabs.TabPane>
+                  {stages?.map((stage, index) => (
+                    <Tabs.TabPane
+                      key={stage?.stageName}
+                      tabKey={stage?.stageName}
+                      tab={stage?.stageName}
+                    >
+                      <Form.Item
+                        key={index}
+                        name={['results', index, 'result']}
+                        noStyle
+                      >
+                        <QuestionsCard
+                          index={index}
+                          stageName={stage?.stageName}
+                          questions={stage?.questions}
+                          setCurrentTab={setCurrentTab}
+                          totalStages={stages?.length}
+                          nextStageName={stages?.[index + 1]?.stageName ?? ''}
+                          prevStageName={stages?.[index - 1]?.stageName ?? ''}
+                        />
+                      </Form.Item>
+                      <Form.Item
+                        name={['results', index, 'name']}
+                        initialValue={stage?.stageName}
+                        hidden
+                      />
+                      <Form.Item
+                        name={['results', index, 'stageId']}
+                        initialValue={stage?.id}
+                        hidden
+                      />
+                    </Tabs.TabPane>
                   ))}
-                  <Button htmlType="submit">Finish</Button>
-                </Carousel>
+                </Tabs>
               </div>
             </Col>
           </Row>

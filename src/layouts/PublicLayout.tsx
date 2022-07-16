@@ -9,11 +9,11 @@ interface Props {
 
 export function PublicLayout({ children }: Props) {
   return (
-    <div className="flex flex-col">
-      <div className="flex h-[5rem] items-center justify-between px-8 shadow-md">
+    <div className="relative flex flex-col">
+      <div className="fixed z-50 flex h-[5rem] w-full items-center justify-between bg-[white] px-8 shadow-md">
         <Header />
       </div>
-      <div className="min-h-screen px-8 py-4">{children}</div>
+      <div className="mt-[5rem] min-h-screen px-8 py-4">{children}</div>
       <Divider className="bg-primary-color" />
       <div className="px-8 py-8">
         <Footer />
