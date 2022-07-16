@@ -1,3 +1,4 @@
+import { questions4, questions5 } from './localData2';
 import Image1 from '#/assets/images/image1.jpg';
 import Image3 from '#/assets/images/image2.jpg';
 import Image4 from '#/assets/images/image4.jpg';
@@ -481,8 +482,18 @@ export const stages: Stage[] = [
     questions: questions2,
   },
   {
-    id: 1,
+    id: 3,
     stageName: 'Vận Động Tinh',
     questions: questions3,
+  },
+  {
+    id: 4,
+    stageName: 'Giải Quyết Vấn Đề',
+    questions: questions4,
+  },
+  {
+    id: 4,
+    stageName: 'Cá Nhân Xã Hội',
+    questions: questions5,
   },
 ];
