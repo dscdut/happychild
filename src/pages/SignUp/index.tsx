@@ -36,39 +36,39 @@ export default function SignUpPage() {
           <Row justify="center" gutter={[16, 16]}>
             <Col span={24}>
               <Typography className="flex justify-center text-3xl font-bold text-primary-color">
-                SIGN UP
+                ĐĂNG KÝ
               </Typography>
             </Col>
             <Col span={24} className="mt-4 flex flex-col gap-2">
-              <Typography className="text-base">Your name:</Typography>
+              <Typography className="text-base">Tên:</Typography>
               <Form.Item noStyle>
-                <Input placeholder="Enter your name" />
+                <Input placeholder="Nhập tên của bạn" />
               </Form.Item>
             </Col>
             <Col span={24} className="flex flex-col gap-2">
-              <Typography className="text-base">Your email:</Typography>
+              <Typography className="text-base">Email:</Typography>
               <Form.Item noStyle>
-                <Input placeholder="Enter your email" />
+                <Input placeholder="Nhập email của bạn" />
               </Form.Item>
             </Col>
             <Col span={24} className="flex flex-col gap-2">
-              <Typography className="text-base">Your password:</Typography>
+              <Typography className="text-base">Mật khẩu</Typography>
               <Form.Item noStyle>
-                <Input.Password placeholder="Enter your password" />
+                <Input.Password placeholder="Nhập mật khẩu" />
               </Form.Item>
             </Col>
             <Col span={24} className="flex flex-col gap-2">
               <Row gutter={[16, 16]}>
                 <Col span={8}>
-                  <Typography className="text-base">Country:</Typography>
+                  <Typography className="text-base">Quốc gia:</Typography>
                   <Form.Item noStyle>
-                    <Select placeholder="Select country" className="w-full" />
+                    <Select placeholder="Chọn quốc gia" className="w-full" />
                   </Form.Item>
                 </Col>
                 <Col span={16}>
-                  <Typography className="text-base">Address:</Typography>
+                  <Typography className="text-base">Địa chỉ:</Typography>
                   <Form.Item noStyle>
-                    <Input.Password placeholder="Enter your address" />
+                    <Input.Password placeholder="Nhập địa chỉ" />
                   </Form.Item>
                 </Col>
               </Row>
@@ -76,25 +76,22 @@ export default function SignUpPage() {
             <Col span={24} className="mb-4 flex flex-col gap-2">
               <Row gutter={[16, 16]}>
                 <Col span={12}>
-                  <Typography className="text-base">Phone number:</Typography>
+                  <Typography className="text-base">Số điện thoại:</Typography>
                   <Form.Item noStyle>
-                    <Input placeholder="Enter your phone number" />
+                    <Input placeholder="Nhập số điện thoại" />
                   </Form.Item>
                 </Col>
                 <Col span={12}>
-                  <Typography className="text-base">Age:</Typography>
+                  <Typography className="text-base">Tuổi:</Typography>
                   <Form.Item noStyle>
-                    <InputNumber
-                      className="w-full"
-                      placeholder="Enter your age"
-                    />
+                    <InputNumber className="w-full" placeholder="Nhập tuổi" />
                   </Form.Item>
                 </Col>
               </Row>
             </Col>
             <Col span={24}>
               <Button type="primary" block htmlType="submit">
-                Create your account
+                Tạo tài khoản
               </Button>
             </Col>
           </Row>

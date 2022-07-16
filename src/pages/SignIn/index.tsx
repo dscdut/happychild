@@ -36,36 +36,33 @@ export default function SignInPage() {
           <Row justify="center" gutter={[16, 16]}>
             <Col span={24}>
               <Typography className="flex justify-center text-3xl font-bold text-primary-color">
-                SIGN IN
+                ĐĂNG NHẬP
               </Typography>
             </Col>
             <Col span={24} className="mt-4 flex flex-col gap-2">
-              <Typography className="text-base">Your email:</Typography>
+              <Typography className="text-base">Email:</Typography>
               <Form.Item noStyle>
-                <Input placeholder="Enter your email" />
+                <Input placeholder="Nhập email" />
               </Form.Item>
             </Col>
             <Col span={24} className="mb-4 flex flex-col gap-2">
-              <Typography className="text-base">Your password:</Typography>
+              <Typography className="text-base">Mật khẩu:</Typography>
               <Form.Item noStyle>
-                <Input.Password placeholder="Enter your password" />
+                <Input.Password placeholder="Nhập mật khẩu" />
               </Form.Item>
             </Col>
             <Col span={24} className="flex items-center justify-between">
-              <Typography className="flex gap-2 border-surface-white">
-                Forgot your password?
-                <span className="cursor-pointer text-primary-color">
-                  Get it back!
-                </span>
+              <Typography className="flex cursor-pointer gap-2 border-surface-white text-primary-color">
+                Quên mật khẩu?
               </Typography>
               <div className="flex items-center gap-2">
                 <Checkbox />
-                Remember me
+                Lưu mật khẩu
               </div>
             </Col>
             <Col span={24}>
               <Button type="primary" block htmlType="submit">
-                Sign In
+                Đăng nhập
               </Button>
             </Col>
             <Col span={24}>
@@ -74,12 +71,12 @@ export default function SignInPage() {
                 block
                 className="border-none bg-color-accent-blue"
               >
-                Login with Facebook <FacebookFilled />
+                Đăng nhập với Facebook <FacebookFilled />
               </Button>
             </Col>
             <Col span={24}>
               <Button block className="bg-[white] text-[black]">
-                Login with Google
+                Đăng nhập với Google
                 <GoogleOutlined className="text-error-color" />
               </Button>
             </Col>

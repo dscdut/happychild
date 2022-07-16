@@ -3,6 +3,7 @@ import { PublicLayout } from '../layouts/PublicLayout';
 import GuardRoute from './GuardRoute';
 import PrivateRoute from './PrivateRoute';
 import { loadable } from '#/shared/utils/loadable';
+import Result from '#/pages/Assessment/Result';
 
 const BlogPage = loadable(import('#/pages/Blog'));
 const BlogDetail = loadable(import('#/pages/BlogDetail'));
@@ -39,6 +40,15 @@ function App() {
         {
           path: ':id',
           element: <CoursesDetail />,
+        },
+      ],
+    },
+    {
+      path: 'result',
+      children: [
+        {
+          index: true,
+          element: <Result />,
         },
       ],
     },

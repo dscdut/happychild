@@ -10,24 +10,24 @@ export function Header() {
 
   const MENU_ITEMS = [
     {
-      title: 'Home',
+      title: 'Trang chủ',
       to: '/',
       icon: <HomeFilled />,
     },
     {
-      title: 'Blogs',
+      title: 'Bài viết',
       to: '/blogs',
     },
     {
-      title: 'Courses',
+      title: 'Khoá học',
       to: '/courses',
     },
     {
-      title: 'Contact Specialists',
+      title: 'Liên hệ chuyên gia',
       to: '/contact-specialists',
     },
     {
-      title: 'About Us',
+      title: 'Về chúng tôi',
       to: '/about-us',
     },
     {
@@ -36,13 +36,13 @@ export function Header() {
           <UserInfo />
         ) : (
           <div className="flex items-center gap-4">
-            <div className="border-b-primary-color transition-all hover:border-b-4">
+            <div className="mr-4 border-b-primary-color transition-all hover:border-b-4">
               <Link to="/sign-up">
-                <Typography>Sign Up</Typography>
+                <Typography>Đăng ký</Typography>
               </Link>
             </div>
             <Button type="primary" onClick={() => navigate('/sign-in')}>
-              Sign In
+              Đăng nhập
             </Button>
           </div>
         ),

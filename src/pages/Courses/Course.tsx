@@ -1,4 +1,9 @@
-import { LeftOutlined, RightOutlined, UserOutlined } from '@ant-design/icons';
+import {
+  CalendarOutlined,
+  LeftOutlined,
+  RightOutlined,
+  UserOutlined,
+} from '@ant-design/icons';
 import {
   Avatar,
   Button,
@@ -22,7 +27,7 @@ function Course() {
   const navigate = useNavigate();
   return (
     <Row gutter={[24, 24]}>
-      <Input placeholder="search program" />
+      <Input placeholder="Tìm kiếm khoá học" />
       <Col span={24} className="mb-2">
         <Row gutter={[24, 24]}>
           <Col span={24} className="relative ">
@@ -42,7 +47,7 @@ function Course() {
                 />
               </div>
               <Title level={1} className="text-center">
-                Course
+                Khoá học
               </Title>
               <Carousel
                 ref={carouselRef}
@@ -62,7 +67,7 @@ function Course() {
                             icon={<UserOutlined />}
                           />
                           <Paragraph className="">
-                            {'Date: 22/2/2222'}
+                            <CalendarOutlined /> 22/2/2022
                           </Paragraph>
                         </div>
                         <Rate allowHalf defaultValue={2.5} />
@@ -95,12 +100,12 @@ function Course() {
                         danger
                         className="float-right"
                       >
-                        Click Me
+                        Chi tiết
                       </Button>
                     </StyledCard>
                   </Col>
                 ))}
-                <Button htmlType="submit">Finish</Button>
+                <Button htmlType="submit">Hoàn thành</Button>
               </Carousel>
             </div>
           </Col>
