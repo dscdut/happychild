@@ -9,7 +9,7 @@ function CourseHeader() {
       span={24}
       className="relative h-[30rem] w-full"
       style={{
-        background: `linear-gradient(90deg, #4cadd5, #1890ff)`,
+        background: `linear-gradient(90deg, #4cadd5, #3c9bf3)`,
       }}
     >
       <div className="flex flex-wrap items-center justify-between px-20 py-12">
@@ -24,7 +24,7 @@ function CourseHeader() {
             </Text>
           </div>
           <Row className="flex items-center">
-            <Card className="ml-5 border-color-accent-sky bg-info-color">
+            <Card className="ml-5 border-color-accent-sky bg-secondary-color">
               <div className="mb-5 flex">
                 <Avatar
                   size={100}
@@ -43,8 +43,8 @@ function CourseHeader() {
                   </Text>
                 </div>
               </div>
-              <Button className="w-full bg-error-color  hover:bg-color-accent-sky hover:text-color-gray-10">
-                Learn
+              <Button className="w-full bg-color-accent-sky  hover:bg-primary-color hover:text-color-gray-10">
+                Tìm hiểu thêm
               </Button>
             </Card>
           </Row>
