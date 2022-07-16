@@ -9,7 +9,7 @@ export const AuthorList = [
       'https://www.openaccessgovernment.org/wp-content/uploads/2022/05/dreamstime_m_8685934-scaled.jpg',
     name: 'John Doe',
     work: 'Department of Psychology',
-    des: 'Alan E. Kazdin, PhD, ABPP is Sterling Professor of Psychology and Child Psychiatry at Yale University. At Yale, he has been Chairman of the Psychology Department, Director of the Child Study Center at the School of Medicine, and Chair of the Publications Committee of the Yale University Press. His 750+ publications include 49 books that focus on parenting and child rearing, psychosocial interventions, interpersonal violence, and research methodology. His parenting work has been featured on NPR, PBS, BBC, CNN, Good Morning America, 20/20, Dr. Phil, and the Today Show. In 2008, he was President of the American Psychological Association. Quisquam, quidem.',
+    des: 'Khóa học dành cho bố mẹ của trẻ nghi ngờ hoặc có tự kỷ, chậm phát triển, chậm nói, v.v. được xây dựng từ các phương pháp can thiệp có nhiều bằng chứng và từ kinh nghiệm hướng dẫn can thiệp trên hơn 400 gia đình tại các tỉnh thành Việt Nam',
   },
   {
     id: 2,
@@ -17,7 +17,7 @@ export const AuthorList = [
       'https://www.openaccessgovernment.org/wp-content/uploads/2022/05/dreamstime_m_8685934-scaled.jpg',
     name: 'John Doe',
     work: 'Department of Psychology',
-    des: 'Alan E. Kazdin, PhD, ABPP is Sterling Professor of Psychology and Child Psychiatry at Yale University. At Yale, he has been Chairman of the Psychology Department, Director of the Child Study Center at the School of Medicine, and Chair of the Publications Committee of the Yale University Press. His 750+ publications include 49 books that focus on parenting and child rearing, psychosocial interventions, interpersonal violence, and research methodology. His parenting work has been featured on NPR, PBS, BBC, CNN, Good Morning America, 20/20, Dr. Phil, and the Today Show. In 2008, he was President of the American Psychological Association. Quisquam, quidem.',
+    des: 'Khóa học dành cho bố mẹ của trẻ nghi ngờ hoặc có tự kỷ, chậm phát triển, chậm nói, v.v. được xây dựng từ các phương pháp can thiệp có nhiều bằng chứng và từ kinh nghiệm hướng dẫn can thiệp trên hơn 400 gia đình tại các tỉnh thành Việt Nam',
   },
   {
     id: 3,
@@ -25,7 +25,7 @@ export const AuthorList = [
       'https://www.openaccessgovernment.org/wp-content/uploads/2022/05/dreamstime_m_8685934-scaled.jpg',
     name: 'John Doe',
     work: 'Department of Psychology',
-    des: 'Alan E. Kazdin, PhD, ABPP is Sterling Professor of Psychology and Child Psychiatry at Yale University. At Yale, he has been Chairman of the Psychology Department, Director of the Child Study Center at the School of Medicine, and Chair of the Publications Committee of the Yale University Press. His 750+ publications include 49 books that focus on parenting and child rearing, psychosocial interventions, interpersonal violence, and research methodology. His parenting work has been featured on NPR, PBS, BBC, CNN, Good Morning America, 20/20, Dr. Phil, and the Today Show. In 2008, he was President of the American Psychological Association. Quisquam, quidem.',
+    des: 'Khóa học dành cho bố mẹ của trẻ nghi ngờ hoặc có tự kỷ, chậm phát triển, chậm nói, v.v. được xây dựng từ các phương pháp can thiệp có nhiều bằng chứng và từ kinh nghiệm hướng dẫn can thiệp trên hơn 400 gia đình tại các tỉnh thành Việt Nam',
   },
   {
     id: 4,
@@ -33,7 +33,7 @@ export const AuthorList = [
       'https://www.openaccessgovernment.org/wp-content/uploads/2022/05/dreamstime_m_8685934-scaled.jpg',
     name: 'John Doe',
     work: 'Department of Psychology',
-    des: 'Alan E. Kazdin, PhD, ABPP is Sterling Professor of Psychology and Child Psychiatry at Yale University. At Yale, he has been Chairman of the Psychology Department, Director of the Child Study Center at the School of Medicine, and Chair of the Publications Committee of the Yale University Press. His 750+ publications include 49 books that focus on parenting and child rearing, psychosocial interventions, interpersonal violence, and research methodology. His parenting work has been featured on NPR, PBS, BBC, CNN, Good Morning America, 20/20, Dr. Phil, and the Today Show. In 2008, he was President of the American Psychological Association. Quisquam, quidem.',
+    des: 'Khóa học dành cho bố mẹ của trẻ nghi ngờ hoặc có tự kỷ, chậm phát triển, chậm nói, v.v. được xây dựng từ các phương pháp can thiệp có nhiều bằng chứng và từ kinh nghiệm hướng dẫn can thiệp trên hơn 400 gia đình tại các tỉnh thành Việt Nam',
   },
 ];
 
@@ -46,56 +46,56 @@ export const myData = [
 
 export const treeData = [
   {
-    title: 'Back-end',
-    key: 'Back-end',
+    title: 'Trẻ Sơ Sinh',
+    key: 'Trẻ Sơ Sinh',
     children: [
       {
-        title: 'Node-js',
-        key: 'Node-js',
+        title: 'Sách',
+        key: 'Sách',
       },
       {
-        title: 'Python',
-        key: 'Python',
+        title: 'Chăm Sóc',
+        key: 'Chăm Sóc',
       },
       {
-        title: 'Java',
-        key: 'Java',
+        title: 'Quan Tâm ',
+        key: 'Quan Tâm ',
       },
     ],
   },
   {
-    title: 'Back-end1',
-    key: 'Back-end1',
+    title: 'Trẻ Từ 6 - 10 Tuổi',
+    key: 'Trẻ Từ 6 - 10 Tuổi',
     children: [
       {
-        title: 'Node-js1',
-        key: 'Node-js1',
+        title: 'Sách Dạy',
+        key: 'Sách Dạy',
       },
       {
-        title: 'Python1',
-        key: 'Python1',
+        title: 'Chăm Sóc1',
+        key: 'Chăm Sóc1',
       },
       {
-        title: 'Java1',
-        key: 'Java1',
+        title: 'Tâm Sự',
+        key: 'Tâm Sự ',
       },
     ],
   },
   {
-    title: 'Back-end2',
-    key: 'Back-end2',
+    title: 'Trẻ Vị Thanh Niên',
+    key: 'Trẻ Vị Thanh Niên',
     children: [
       {
-        title: 'Node-js2',
-        key: 'Node-js2',
+        title: 'Trò Chơi',
+        key: 'Trò Chơi',
       },
       {
-        title: 'Python2',
-        key: 'Python2',
+        title: 'Chăm Sóc2',
+        key: 'Chăm Sóc2',
       },
       {
-        title: 'Java2',
-        key: 'Java2',
+        title: 'Chia Sẽ ',
+        key: 'Chia Sẽ ',
       },
     ],
   },

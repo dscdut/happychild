@@ -126,7 +126,7 @@ export default function Assessment() {
                 Hiện bé có đang theo học trường mầm non nào không? (
                 <span className="text-error-color">*</span>)
               </Typography>
-              <Form.Item noStyle name="isLearning">
+              <Form.Item noStyle name="isTìm hiểu thêming">
                 <Radio.Group>
                   <Row align="middle" gutter={[16, 16]}>
                     <Col>

@@ -7,6 +7,9 @@ export const CourseStyledCard = styled(Card)`
     display: flex;
     flex-direction: column;
   }
+  ul > li {
+    margin: 0;
+  }
 `;
 
 export const StyledCard = styled(Card)`

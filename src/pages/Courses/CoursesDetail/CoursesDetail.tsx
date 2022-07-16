@@ -16,14 +16,11 @@ function CoursesDetail() {
           <CourseHeader />
           <Col span={24} className="mt-5">
             <Breadcrumb className="m-5 flex items-center text-base">
-              <Breadcrumb.Item>Home</Breadcrumb.Item>
+              <Breadcrumb.Item>Trang Chủ</Breadcrumb.Item>
               <Breadcrumb.Item>
-                <Link to="">About </Link>
+                <Link to="/courses">Khóa Học</Link>
               </Breadcrumb.Item>
-              <Breadcrumb.Item>
-                <Link to="">Instructors</Link>
-              </Breadcrumb.Item>
-              <Breadcrumb.Item>Reviews</Breadcrumb.Item>
+              <Breadcrumb.Item>Chi Tiết </Breadcrumb.Item>
             </Breadcrumb>
             <Divider />
             <Content />
