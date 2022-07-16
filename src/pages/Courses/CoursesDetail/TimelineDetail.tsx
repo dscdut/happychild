@@ -36,7 +36,6 @@ function TimelineDetail() {
           <p>Custom color testing</p>
         </Timeline.Item>
       </Timeline>
-      ;
     </StyledCard>
   );
 }
