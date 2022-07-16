@@ -24,3 +24,7 @@ export const getPopupContainer = (
   if (node && parent?.contains(node)) return node?.parentNode as HTMLElement;
   return document.body;
 };
+
+export const scrollToTop = () => {
+  window.scrollTo(0, 0);
+};

@@ -1,10 +1,11 @@
+import { LinkOutlined } from '@ant-design/icons';
 import { Col, Row, Typography } from 'antd';
 
 export default function Introduction() {
   return (
     <Row gutter={[16, 16]}>
       <Col span={24} className="flex flex-col gap-2">
-        <Typography className="text-xl font-bold">1, ASQ là gì?</Typography>
+        <Typography className="text-lg font-bold">1, ASQ là gì?</Typography>
         <Typography className="ml-4">
           <strong>ASQ (Ages and Stages Questionnaires)</strong> - Bảng câu hỏi
           Độ tuổi và Giai đoạn phát triển là hệ thống câu hỏi dành cho cha
@@ -24,7 +25,7 @@ export default function Introduction() {
         </Typography>
       </Col>
       <Col span={24} className="flex flex-col gap-2">
-        <Typography className="text-xl font-bold">
+        <Typography className="text-lg font-bold">
           2, Mất bao lâu để thực hiện ASQ-3?
         </Typography>
         <Typography className="ml-4">
@@ -36,7 +37,7 @@ export default function Introduction() {
         </Typography>
       </Col>
       <Col span={24} className="flex flex-col gap-2">
-        <Typography className="text-xl font-bold">
+        <Typography className="text-lg font-bold">
           3, ASQ-3 có dễ sử dụng không?
         </Typography>
         <Typography className="ml-4">
@@ -47,7 +48,7 @@ export default function Introduction() {
         </Typography>
       </Col>
       <Col span={24} className="flex flex-col gap-2">
-        <Typography className="text-xl font-bold">
+        <Typography className="text-lg font-bold">
           4, Cha mẹ tham gia vào ASQ-3 như thế nào?
         </Typography>
         <Typography className="ml-4">
@@ -56,6 +57,49 @@ export default function Introduction() {
         </Typography>
         <Typography className="ml-4">
           Việc hoàn thành bộ câu hỏi còn giúp cha mẹ hiểu hơn về con mình.
+        </Typography>
+      </Col>
+      <Col span={24} className="flex flex-col gap-2">
+        <Typography className="text-lg font-bold">
+          5, Hướng dẫn về bộ câu hỏi ASQ-3:
+        </Typography>
+        <Typography className="ml-4">
+          Với mỗi hoạt động, hãy đánh dấu vào ô:
+        </Typography>
+        <Typography className="ml-8">
+          - CÓ (nếu trẻ thực hiện thường xuyên),
+        </Typography>
+        <Typography className="ml-8">
+          - THỈNH THOẢNG (nếu trẻ thỉnh thoảng thực hiện được hoạt động), và
+        </Typography>
+        <Typography className="ml-8">
+          - CHƯA (nếu trẻ chưa thực hiện được hoạt động).
+        </Typography>
+        <Typography className="ml-4">
+          Bạn cần để cho trẻ thực hiện thử mỗi hoạt động trước khi bạn đánh dấu
+          vào ô.
+        </Typography>
+        <Typography className="ml-4">
+          Hãy hoàn thành bảng câu hỏi này như một trò chơi vui vẻ đối với bạn và
+          trẻ.
+        </Typography>
+        <Typography className="ml-4">
+          Đảm bảo rằng trẻ được nghỉ ngơi, ăn uống đầy đủ và sẵn sàng tham gia
+          cùng bạn.
+        </Typography>
+      </Col>
+      <Col span={24} className="flex flex-col gap-2">
+        <Typography className="text-lg font-bold">
+          6, Xem thêm chi tiết về ASQ-3:
+        </Typography>
+        <Typography className="ml-4">
+          <a
+            href="http://vci.vnu.edu.vn/upload/15022/pdf/576382617f8b9a62578b4595.pdf"
+            target="_blank"
+            rel="noreferrer"
+          >
+            <LinkOutlined /> Chi tiết về ASQ-3
+          </a>
         </Typography>
       </Col>
     </Row>

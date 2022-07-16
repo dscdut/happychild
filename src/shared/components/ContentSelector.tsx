@@ -6,16 +6,17 @@ const options = [
     value: 1,
   },
   {
-    label: 'Vì sao theo dõi và sàng lọc phát triển lại quan trọng?',
+    label: 'Vì sao cần theo dõi và sàng lọc phát triển lại quan trọng?',
     value: 2,
   },
   {
-    label: 'Chậm phát triển là gì?',
+    label: 'Để theo dõi sự phát triển của trẻ tôi cần làm gì?',
     value: 3,
   },
 
   {
-    label: 'Để theo dõi sự phát triển của trẻ tôi cần làm gì?',
+    label:
+      'Các bộ câu hỏi chuyên môn dùng cho việc đánh giá mức độ chậm phát triển, chậm nói, tự kỷ ở trẻ',
     value: 4,
   },
   {

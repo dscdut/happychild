@@ -2,9 +2,11 @@ import { Button, Card, Col, Form, Row, Tabs, Typography } from 'antd';
 import { useState } from 'react';
 import { Store } from 'antd/lib/form/interface';
 import { useNavigate } from 'react-router-dom';
+import { RightCircleFilled } from '@ant-design/icons';
 import QuestionsCard from './QuestionsCard';
 import Introduction from './Introduction';
 import { stages } from '#/shared/utils/localData';
+import { scrollToTop } from '#/shared/utils/tools';
 
 export default function AssessmentStart() {
   const navigate = useNavigate();
@@ -28,7 +30,6 @@ export default function AssessmentStart() {
               <div className="bg-slate-100">
                 <Tabs
                   activeKey={currentTab}
-                  defaultActiveKey="introduction"
                   onTabClick={tabKey =>
                     tabKey === 'introduction' && setCurrentTab('introduction')
                   }
@@ -39,11 +40,18 @@ export default function AssessmentStart() {
                     tab={<Typography>Hướng dẫn khảo sát</Typography>}
                   >
                     <Introduction />
-                    <Button
-                      onClick={() => setCurrentTab(stages?.[0]?.stageName)}
-                    >
-                      Bắt đầu
-                    </Button>
+                    <div className="mt-4 flex items-center justify-end">
+                      <Button
+                        type="primary"
+                        onClick={() => {
+                          scrollToTop();
+                          setCurrentTab(stages?.[0]?.stageName);
+                        }}
+                      >
+                        Bắt đầu khảo sát
+                        <RightCircleFilled />
+                      </Button>
+                    </div>
                   </Tabs.TabPane>
                   {stages?.map((stage, index) => (
                     <Tabs.TabPane
