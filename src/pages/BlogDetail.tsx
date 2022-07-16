@@ -172,7 +172,7 @@ function BlogDetail() {
           className="flex flex-col gap-4"
           style={{
             position: 'sticky',
-            top: 16,
+            top: 'calc(5rem + 16px)',
           }}
         >
           <Card
