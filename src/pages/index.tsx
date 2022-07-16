@@ -20,7 +20,9 @@ function Index() {
           className="flex h-14 w-[26rem] flex-row items-center justify-between whitespace-normal"
           onClick={() => handleSubmit(1)}
         >
-          <span className="w-full text-center font-medium">{`Theo dõi và sàng lọc phát triển là gì ?`}</span>
+          <span className="w-full text-center font-medium">
+            Chậm phát triển ở trẻ nhỏ là gì?
+          </span>
           <RightOutlined style={{ fontSize: '20px', color: '#fff' }} />
         </Button>
         <Button
@@ -74,120 +76,22 @@ function Index() {
         {isSubmit === 1 && (
           <Card className="h-fit w-full rounded-3xl p-4 text-base shadow-lg">
             <p>
-              Theo dõi phát triển là quá trình quan sát trẻ lớn lên để xem liệu
-              trẻ có đạt các mốc phát triển thông thường khi chơi, học, nói, vận
-              động và ứng xử với người khác.
+              Tình trạng chậm phát triển ở trẻ xảy ra khi bé bị tụt lại đằng sau
+              so với các bạn đồng trang lứa trong một hoặc nhiều lĩnh vực về mặt
+              cảm xúc, thể chất hoặc tinh thần. Nếu trẻ bị chậm phát triển, việc
+              điều trị bệnh sớm là cách tốt nhất giúp bé tiến bộ và bắt kịp với
+              những đứa trẻ khác.
             </p>
             <p>
-              Sàng lọc phát triển là việc đánh giá cẩn thận hơn sự phát triển
-              của trẻ, để xác định liệu trẻ có nguy cơ rối loạn phát triển hay
-              không. A365.vn cung cấp các bài đánh giá sàng lọc phát triển khoa
-              học và uy tín cho phụ huynh, giáo viên và cán bộ y tế:
+              Thực tế, có nhiều dạng chậm phát triển ở trẻ sơ sinh và trẻ nhỏ,
+              bao gồm các vấn đề sau đây:
             </p>
-            <ul className="list-disc space-y-2 pl-4">
-              <li>
-                <span className="font-semibold">Bộ câu hỏi ASQ®-3</span> là một
-                trong những công cụ sàng lọc phát triển quy chuẩn được khuyến
-                cáo sử dụng cho trẻ từ 01 đến 66 tháng tuổi.{' '}
-                <a
-                  href="https://a365.vn/kien-thuc/bai-viet/gioi-thieu-bo-cong-cu-theo-doi-phat-trien-asq-3-df1c54e3f5"
-                  className="text-primary-color"
-                >
-                  Đọc thêm về ASQ®-3
-                </a>{' '}
-                hoặc{' '}
-                <a
-                  href="https://a365.vn/theo-doi-phat-trien/lua-chon-sang-loc?t=ASQ"
-                  className="text-primary-color"
-                >
-                  Làm ASQ ngay
-                </a>
-              </li>
-              <li>
-                <span className="font-semibold">
-                  Bảng kiểm M-CHAT-R và MCHAT R/F
-                </span>{' '}
-                là công cụ sàng lọc nguy cơ rối loạn tự kỷ cho trẻ từ 16-30
-                tháng.{' '}
-                <a
-                  href="https://a365.vn/kien-thuc/bai-viet/gioi-thieu-bo-cong-cu-sang-loc-nguy-co-tu-ky-m-chat-r-9549a30878"
-                  className="text-primary-color"
-                >
-                  Đọc thêm về M-CHAT-R
-                </a>
-                {' hoặc '}
-                <a
-                  href="https://a365.vn/theo-doi-phat-trien/lua-chon-sang-loc?t=MCHATR"
-                  className="text-primary-color"
-                >
-                  Làm M-CHAT-R ngay
-                </a>
-              </li>
-              <li>
-                <span className="font-semibold">Bảng kiểm PSC</span> là công cụ
-                sàng lọc những vấn đề về cảm xúc và hành vi cho trẻ từ 4 đến 16
-                tuổi.{' '}
-                <a
-                  href="https://a365.vn/kien-thuc/bai-viet/gioi-thieu-bo-cong-cu-sang-loc-nhung-van-de-ve-cam-xuc-va-hanh-vi-psc-6c4e17a922"
-                  className="text-primary-color"
-                >
-                  Đọc thêm về PSC
-                </a>
-                {' hoặc '}
-                <a
-                  href="https://a365.vn/kien-thuc/bai-viet/gioi-thieu-bo-cong-cu-sang-loc-nhung-van-de-ve-cam-xuc-va-hanh-vi-psc-6c4e17a922"
-                  className="text-primary-color"
-                >
-                  Làm PSC ngay
-                </a>
-              </li>
-              <li>
-                <span className="font-semibold">
-                  Bộ sàng lọc các vấn đề về giấc ngủ CSHQ{' '}
-                </span>
-                là công cụ sàng lọc những vấn đề liên quan đến giấc ngủ cho trẻ
-                từ 48 tháng đến 12 tuổi.{' '}
-                <a
-                  href="https://a365.vn/kien-thuc/bai-viet/gioi-thieu-bo-cong-cu-sang-loc-nhung-van-de-ve-cam-xuc-va-hanh-vi-psc-6c4e17a922"
-                  className="text-primary-color"
-                >
-                  Đọc thêm về CSHQ
-                </a>
-                {' hoặc '}
-                <a
-                  href="https://a365.vn/kien-thuc/bai-viet/gioi-thieu-bo-cong-cu-sang-loc-nhung-van-de-ve-cam-xuc-va-hanh-vi-psc-6c4e17a922"
-                  className="text-primary-color"
-                >
-                  Làm CSHQ ngay
-                </a>
-              </li>
-              <li>
-                <span className="font-semibold">Bảng kiểm BAMBI </span>
-                là bộ công cụ sàng lọc những vấn đề hành vi liên quan đến ăn
-                uống ở trẻ tự kỷ từ 2 đến dưới 11 tuổi. Đọc thêm về BAMBI hoặc
-                Làm BAMBI ngay
-              </li>
-              <li>
-                <span className="font-semibold">
-                  Bộ công cụ sàng lọc nguy cơ rối loạn Tăng động- Giảm chú ý:
-                </span>
-                Bộ công cụ sàng lọc nguy cơ rối loạn Tăng động- Giảm chú ý: là
-                công cụ giúp sàng lọc nguy cơ Tăng động- Giảm chú ý và các rối
-                loạn liên quan dành cho trẻ từ 6-12 tuổi.{' '}
-                <a
-                  href="https://a365.vn/kien-thuc/bai-viet/gioi-thieu-bo-cong-cu-sang-loc-nhung-van-de-ve-cam-xuc-va-hanh-vi-psc-6c4e17a922"
-                  className="text-primary-color"
-                >
-                  Đọc thêm về VADRS
-                </a>
-                {' và '}
-                <a
-                  href="https://a365.vn/kien-thuc/bai-viet/gioi-thieu-bo-cong-cu-sang-loc-nhung-van-de-ve-cam-xuc-va-hanh-vi-psc-6c4e17a922"
-                  className="text-primary-color"
-                >
-                  làm VADRS ngay
-                </a>
-              </li>
+            <ul className="ml-4 flex flex-col gap-2">
+              <li>- Thị lực hoặc tầm nhìn</li>
+              <li>- Ngôn ngữ hoặc lời nói</li>
+              <li>- Kỹ năng vận động</li>
+              <li>- Kỹ năng tư duy - nhận thức</li>
+              <li>- Kỹ năng xã hội – tình cảm</li>
             </ul>
           </Card>
         )}

@@ -10,6 +10,8 @@ const Courses = loadable(import('#/pages/Courses'));
 const CoursesDetail = loadable(
   import('#/pages/Courses/CoursesDetail/CoursesDetail'),
 );
+const AssessmentForm = loadable(import('#/pages/Assessment/Form'));
+
 function PrivateRoute() {
   const routes = useRoutes([
     { path: '/', element: <Index /> },
@@ -17,6 +19,10 @@ function PrivateRoute() {
       path: 'assessment',
       children: [
         { index: true, element: <Assessment /> },
+        {
+          path: 'form',
+          element: <AssessmentForm />,
+        },
         { path: 'start', element: <AssessmentStart /> },
       ],
     },
