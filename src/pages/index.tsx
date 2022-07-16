@@ -1,268 +1,159 @@
-import { ProfileOutlined, RightOutlined } from '@ant-design/icons';
-import { Button, Card } from 'antd';
-import { useState } from 'react';
-import { useNavigate } from 'react-router-dom';
+import { LineChartOutlined } from '@ant-design/icons';
+import { Button, Card, Col, Divider, Row, Typography } from 'antd';
+import { CourseStyledCard, StyledDiv } from './Courses/styles';
 
 export default function Index() {
-  const navigate = useNavigate();
-
-  const [isSubmit, setIsSubmit] = useState(1);
-  const handleSubmit = (value: number) => {
-    setIsSubmit(value);
-  };
-
   return (
-    <div className="grid grid-cols-3 gap-3 p-6">
-      <div className="col-span-1 ml-4 space-y-3">
-        <Button
-          type={isSubmit === 1 ? 'primary' : 'default'}
-          shape="round"
-          className="flex h-14 w-[26rem] flex-row items-center justify-between whitespace-normal"
-          onClick={() => handleSubmit(1)}
-        >
-          <span className="w-full text-center font-medium">
-            Chậm phát triển ở trẻ nhỏ là gì?
-          </span>
-          <RightOutlined style={{ fontSize: '20px', color: '#fff' }} />
-        </Button>
-        <Button
-          type={isSubmit === 2 ? 'primary' : 'default'}
-          shape="round"
-          className="flex h-14 w-[26rem] flex-row items-center justify-between whitespace-normal"
-          onClick={() => handleSubmit(2)}
-        >
-          <span className="w-full text-center font-medium">{`Vì sao theo dõi và sàng lọc phát triển lại quan trọng?`}</span>
-          <RightOutlined style={{ fontSize: '20px', color: '#fff' }} />
-        </Button>
-        <Button
-          type={isSubmit === 3 ? 'primary' : 'default'}
-          shape="round"
-          className="flex h-14 w-[26rem] flex-row items-center justify-between whitespace-normal"
-          onClick={() => handleSubmit(3)}
-        >
-          <span className="w-full text-center font-medium">{`Chậm phát triển là gì?`}</span>
-          <RightOutlined style={{ fontSize: '20px', color: '#fff' }} />
-        </Button>
-        <Button
-          type={isSubmit === 4 ? 'primary' : 'default'}
-          shape="round"
-          className="flex h-14 w-[26rem] flex-row items-center justify-between whitespace-normal"
-          onClick={() => handleSubmit(4)}
-        >
-          <span className="w-full text-center font-medium">{`Để theo dõi sự phát triển của trẻ tôi cần làm gì?`}</span>
-          <RightOutlined style={{ fontSize: '20px', color: '#fff' }} />
-        </Button>
-        <Button
-          type={isSubmit === 5 ? 'primary' : 'default'}
-          shape="round"
-          className="flex h-14 w-[26rem] flex-row items-center justify-between whitespace-normal"
-          onClick={() => handleSubmit(5)}
-        >
-          <span>{`Khi trẻ em được xác định có nguy cơ chậm phát triển hoặc tự kỷ tôi cần
-          làm gì?`}</span>
-          <RightOutlined style={{ fontSize: '20px', color: '#fff' }} />
-        </Button>
-        <Button
-          shape="round"
-          className="flex h-14 w-[26rem] items-center justify-center gap-4 whitespace-normal bg-secondary-color text-[white]"
-          onClick={() => navigate('/assessment')}
-        >
-          <ProfileOutlined />
-          Bắt đầu kiểm tra và đánh giá
-          <RightOutlined style={{ fontSize: '20px', color: '#fff' }} />
-        </Button>
-      </div>
-      <div className="col-span-2 ml-6">
-        {isSubmit === 1 && (
-          <Card className="h-fit w-full rounded-3xl p-4 text-base shadow-lg">
-            <p>
-              Tình trạng chậm phát triển ở trẻ xảy ra khi bé bị tụt lại đằng sau
-              so với các bạn đồng trang lứa trong một hoặc nhiều lĩnh vực về mặt
-              cảm xúc, thể chất hoặc tinh thần. Nếu trẻ bị chậm phát triển, việc
-              điều trị bệnh sớm là cách tốt nhất giúp bé tiến bộ và bắt kịp với
-              những đứa trẻ khác.
-            </p>
-            <p>
-              Thực tế, có nhiều dạng chậm phát triển ở trẻ sơ sinh và trẻ nhỏ,
-              bao gồm các vấn đề sau đây:
-            </p>
-            <ul className="ml-4 flex flex-col gap-2">
-              <li>- Thị lực hoặc tầm nhìn</li>
-              <li>- Ngôn ngữ hoặc lời nói</li>
-              <li>- Kỹ năng vận động</li>
-              <li>- Kỹ năng tư duy - nhận thức</li>
-              <li>- Kỹ năng xã hội – tình cảm</li>
-            </ul>
-          </Card>
-        )}
-        {isSubmit === 2 && (
-          <Card className="h-fit w-full rounded-3xl p-4 text-base shadow-lg">
-            <ul className="space-y-4">
-              <li>
-                Nếu vấn đề chậm phát triển ở trẻ không được phát hiện sớm, trẻ
-                sẽ không nhận được sự hỗ trợ cần thiết và kịp thời. Điều này
-                khiến trẻ gặp khó khăn khi đến trường, hòa nhập xã hội và sống
-                độc lập về sau.
-              </li>
-              <li>
-                Theo số liệu thống kê của Mỹ, có tới 17% trẻ trong độ tuổi từ
-                3-17 có một hoặc nhiều khuyết tật phát triển và hành vi, như{' '}
-                <a
-                  href="https://a365.vn/kien-thuc/bai-viet/gioi-thieu-bo-cong-cu-theo-doi-phat-trien-asq-3-df1c54e3f5"
-                  className="text-primary-color"
-                >
-                  rối loạn phổ tự kỷ
-                </a>{' '}
-                ,{' '}
-                <a
-                  href="https://a365.vn/kien-thuc/bai-viet/gioi-thieu-bo-cong-cu-theo-doi-phat-trien-asq-3-df1c54e3f5"
-                  className="text-primary-color"
-                >
-                  khuyết tật trí tuệ
-                </a>{' '}
-                (còn được gọi là chậm phát triển trí tuệ) , khó khăn về học,
-                <a
-                  href="https://a365.vn/kien-thuc/bai-viet/gioi-thieu-bo-cong-cu-theo-doi-phat-trien-asq-3-df1c54e3f5"
-                  className="text-primary-color"
-                >
-                  tăng động giảm chú ý (ADHD)
-                </a>{' '}
-                . Bên cạnh đó, có nhiều trẻ có các rối loạn về phát triển về
-                ngôn ngữ cũng như những lĩnh vực khác. Tuy nhiên, chưa đến một
-                nửa những trẻ{' '}
-                <a
-                  href="https://a365.vn/kien-thuc/bai-viet/gioi-thieu-bo-cong-cu-theo-doi-phat-trien-asq-3-df1c54e3f5"
-                  className="text-primary-color"
-                >
-                  khuyết tật phát triển
-                </a>{' '}
-                này được phát hiện trước khi vào cấp 1.
-              </li>
-            </ul>
-          </Card>
-        )}
-        {isSubmit === 3 && (
-          <Card className="h-fit w-full rounded-3xl p-4 text-base shadow-lg">
-            <ul className="space-y-4">
-              <li>
-                Các thể hiện về nhận thức, cảm xúc, và kỹ năng như mỉm cười, với
-                tay, chỉ tay, vẫy tay “tạm biệt”, bước đi đầu tiên được gọi là
-                những mốc phát triển. Trẻ sẽ thể hiện và đạt được các mốc phát
-                triển này thông qua các hoạt động hàng ngày như: chơi, ăn, học,
-                nói, cư xử và vận động.
-              </li>
-              <li className="font-semibold">
-                Khi trẻ của bạn không đạt được những mốc phát triển tại cùng
-                thời điểm như những trẻ em khác có cùng độ tuổi, thì có thể coi
-                là chậm phát triển.
-              </li>
-            </ul>
-          </Card>
-        )}
-        {isSubmit === 4 && (
-          <Card className="h-fit w-full rounded-3xl p-4 text-base shadow-lg">
-            <p>
-              Nếu bạn là người trực tiếp chăm sóc trẻ, bạn có thể kiểm tra các
-              mốc phát triển của trẻ do Trung tâm phòng chống dịch bệnh (CDC)
-              của Mỹ xây dựng. Bạn cũng có thể tự thực hiện{' '}
-              <a
-                href="https://a365.vn/kien-thuc/bai-viet/gioi-thieu-bo-cong-cu-theo-doi-phat-trien-asq-3-df1c54e3f5"
-                className="text-primary-color"
-              >
-                bộ câu hỏi ASQ®-3
-              </a>{' '}
-              để biết được con mình có phát triển tương đương với các trẻ khác
-              hay có nguy cơ chậm phát triển hay không. Nếu bạn băn khoăn liệu
-              con mình có nguy cơ tự kỷ hay không, bạn có thể làm bài . Hay nếu
-              bạn lo lắng về các vấn đề về cảm xúc và hành vi của con, bạn có
-              thể làm bài . Dựa vào kết quả ban đầu của bài kiểm tra, bạn sẽ có
-              cơ sở để quyết định có nên đưa trẻ đến gặp cán bộ y tế hay không?
-            </p>
-            <div className="my-2">Nếu bạn băn khoăn liệu con mình:</div>
-            <ul className="my-3 list-disc space-y-2 pl-4">
-              <li>
-                Có nguy cơ tự kỷ hay không, bạn có thể làm bộ công cụ{' '}
-                <a
-                  href="https://a365.vn/kien-thuc/bai-viet/gioi-thieu-bo-cong-cu-sang-loc-nhung-van-de-ve-cam-xuc-va-hanh-vi-psc-6c4e17a922"
-                  className="text-primary-color"
-                >
-                  M-CHAT.
-                </a>
-              </li>
-              <li>
-                Có các vấn đề về cảm xúc và hành vi, bạn có thể làm làm bộ công
-                cụ{' '}
-                <a
-                  href="https://a365.vn/kien-thuc/bai-viet/gioi-thieu-bo-cong-cu-sang-loc-nhung-van-de-ve-cam-xuc-va-hanh-vi-psc-6c4e17a922"
-                  className="text-primary-color"
-                >
-                  PSC.
-                </a>
-              </li>
-              <li>
-                Có các vấn đề về giấc ngủ, bạn có thể làm bộ làm bộ công cụ{' '}
-                <a
-                  href="https://a365.vn/kien-thuc/bai-viet/gioi-thieu-bo-cong-cu-sang-loc-nhung-van-de-ve-cam-xuc-va-hanh-vi-psc-6c4e17a922"
-                  className="text-primary-color"
-                >
-                  CSHQ.
-                </a>
-              </li>
-              <li>
-                Có các vấn đề về ăn uống, bạn có thể làm bộ sàng lọc về hành vi
-                trong lúc ăn ở trẻ tự kỷ{' '}
-                <a
-                  href="https://a365.vn/kien-thuc/bai-viet/gioi-thieu-bo-cong-cu-sang-loc-nhung-van-de-ve-cam-xuc-va-hanh-vi-psc-6c4e17a922"
-                  className="text-primary-color"
-                >
-                  BAMBI.
-                </a>
-              </li>
-              <li>
-                Có vấn đề về Tăng động- giảm chú ý, bạn có thể làm bộ{' '}
-                <a
-                  href="https://a365.vn/kien-thuc/bai-viet/gioi-thieu-bo-cong-cu-sang-loc-nhung-van-de-ve-cam-xuc-va-hanh-vi-psc-6c4e17a922"
-                  className="text-primary-color"
-                >
-                  VADRS.
-                </a>
-              </li>
-            </ul>
-            <p>
-              Dựa vào kết quả ban đầu của bài kiểm tra, bạn sẽ có cơ sở để quyết
-              định có nên đưa trẻ đến gặp cán bộ y tế hay không?
-            </p>
-          </Card>
-        )}
-        {isSubmit === 5 && (
-          <Card className="h-fit w-full rounded-3xl p-4 text-base shadow-lg">
-            <ul className="space-y-3">
-              <li>
-                Các cán bộ y tế (có thể là một nhóm đa ngành về nhi khoa, tâm
-                lý, phục hồi chức năng) sẽ thực hiện thêm các đánh giá chuyên
-                sâu về các lĩnh vực cần quan tâm, sử dụng các bảng hỏi, bản kiểm
-                quan sát chi tiết nhằm đưa ra được kết luận về sự phát triển của
-                trẻ. Thông qua đó cán bộ y tế có thể xác định tình trạng rối
-                loạn phát triển của trẻ và gợi ý liệu trẻ có cần can thiệp hay
-                không và nên can thiệp như thế nào.
-              </li>
-              <li>
-                Khi trẻ được chẩn đoán rối loạn phát triển, hoặc tự kỷ, hoặc
-                ngay khi trẻ mới có kết quả có nguy cơ chậm phát triển, hoặc
-                nguy cơ tự kỷ, Hãy vào mục{' '}
-                <a
-                  href="https://a365.vn/kien-thuc/bai-viet/gioi-thieu-bo-cong-cu-theo-doi-phat-trien-asq-3-df1c54e3f5"
-                  className="text-primary-color"
-                >
-                  Hướng dẫn can thiệp
-                </a>{' '}
-                để tiếp cận với các kiến thức, chiến lược can thiệp và các video
-                bài tập can thiệp mẫu cho trẻ tại nhà.
-              </li>
-            </ul>
-          </Card>
-        )}
-      </div>
-    </div>
+    <Row gutter={[24, 24]}>
+      <Col
+        span={24}
+        className="relative h-[70vh]"
+        style={{
+          backgroundImage: `url(https://a365reportstorage.blob.core.windows.net/public-blobs/72b9c63b6562d38ab3321d7de9fcb12a___slider-1.jpg)`,
+          backgroundPosition: 'center',
+          backgroundSize: 'cover',
+          backgroundRepeat: 'no-repeat',
+        }}
+      >
+        <Card className="absolute top-[9.375rem] right-[9.375rem] w-2/6 bg-primary-color-dark p-6 ">
+          <Typography.Title level={3}>HAPPYCHILD</Typography.Title>
+          <Typography.Paragraph>
+            Cung cấp miễn phí công cụ theo dõi và đánh giá sự phát triển của
+            trẻ; Đồng hành và hỗ trợ cha mẹ/người chăm sóc trẻ trong việc can
+            thiệp tại nhà cho các trẻ tự kỷ và có rối loạn phát triển.
+          </Typography.Paragraph>
+          <Button type="primary">Xem Thêm</Button>
+        </Card>
+      </Col>
+      <Col span={24}>
+        <Typography.Title level={2} className="text-center">
+          HAPPYCHILD
+        </Typography.Title>
+        <Divider />
+        <StyledDiv className="flex">
+          <CourseStyledCard className="mx-2 h-fit w-1/3 bg-primary-color p-4 text-base shadow-xl">
+            <div className="flex items-center justify-between px-6">
+              <Typography.Text className="py-4 text-lg font-bold">
+                Theo dõi phát triển
+              </Typography.Text>
+              <LineChartOutlined style={{ fontSize: '35px' }} />
+            </div>
+            <div className="bg-info-color-light py-4 px-6">
+              <Typography.Paragraph className="mb-20">
+                Tình trạng chậm phát triển ở trẻ xảy ra khi bé bị tụt lại đằng
+                sau so với các bạn đồng trang lứa trong một hoặc nhiều lĩnh vực
+                về mặt cảm xúc, thể chất hoặc tinh thần. Nếu trẻ bị chậm phát
+                triển, việc điều trị bệnh sớm là cách tốt nhất giúp bé tiến bộ
+                và bắt kịp với những đứa trẻ khác.
+              </Typography.Paragraph>
+              <Button className="w-full bg-error-color  hover:bg-color-accent-sky hover:text-color-gray-10">
+                Learn
+              </Button>
+            </div>
+          </CourseStyledCard>
+          <CourseStyledCard className="mx-2  h-fit w-1/3 bg-primary-color p-4 text-base shadow-xl">
+            <div className="flex items-center justify-between px-6">
+              <Typography.Text className="py-4 text-lg font-bold">
+                Theo dõi phát triển
+              </Typography.Text>
+              <LineChartOutlined style={{ fontSize: '35px' }} />
+            </div>
+            <div className="bg-info-color-light py-4 px-6">
+              <Typography.Paragraph className="mb-20">
+                Tình trạng chậm phát triển ở trẻ xảy ra khi bé bị tụt lại đằng
+                sau so với các bạn đồng trang lứa trong một hoặc nhiều lĩnh vực
+                về mặt cảm xúc, thể chất hoặc tinh thần. Nếu trẻ bị chậm phát
+                triển, việc điều trị bệnh sớm là cách tốt nhất giúp bé tiến bộ
+                và bắt kịp với những đứa trẻ khác.
+              </Typography.Paragraph>
+              <Button className="w-full bg-error-color  hover:bg-color-accent-sky hover:text-color-gray-10">
+                Learn
+              </Button>
+            </div>
+          </CourseStyledCard>
+          <CourseStyledCard className="mx-2  h-fit w-1/3 bg-primary-color p-4 text-base shadow-xl">
+            <div className="flex items-center justify-between px-6">
+              <Typography.Text className="py-4 text-lg font-bold">
+                Theo dõi phát triển
+              </Typography.Text>
+              <LineChartOutlined style={{ fontSize: '35px' }} />
+            </div>
+            <div className="bg-info-color-light py-4 px-6">
+              <Typography.Paragraph className="mb-20">
+                Tình trạng chậm phát triển ở trẻ xảy ra khi bé bị tụt lại đằng
+                sau so với các bạn đồng trang lứa trong một hoặc nhiều lĩnh vực
+                về mặt cảm xúc, thể chất hoặc tinh thần. Nếu trẻ bị chậm phát
+                triển, việc điều trị bệnh sớm là cách tốt nhất giúp bé tiến bộ
+                và bắt kịp với những đứa trẻ khác.
+              </Typography.Paragraph>
+              <Button className="w-full bg-error-color  hover:bg-color-accent-sky hover:text-color-gray-10">
+                Learn
+              </Button>
+            </div>
+          </CourseStyledCard>
+        </StyledDiv>
+        <Divider />
+        <div className="my-5 flex items-center justify-between">
+          <div className="relative ml-5 min-h-fit w-[38.3125rem]">
+            <img
+              src="https://a365.vn/assets/icons-v2/home/rainbow.png"
+              className="absolute right-56 w-56"
+            />
+            <div className="mb-5 flex items-center">
+              <img
+                src="https://a365.vn/assets/icons-v2/home/boy.png"
+                className="mr-2 w-56"
+              />
+              <div className="z-10 text-center">
+                <Typography.Title>201425+</Typography.Title>
+                perferendis accusamus, modi saepe omnis asperiores consequuntur
+                harum similique amet, animi commodi quas, cupiditate eveniet
+                vero minus. Quaerat, excepturi tempore.
+              </div>
+            </div>
+            <Button className="w-full bg-color-accent-sky  hover:bg-color-accent-sky hover:text-color-gray-10">
+              Hướng Dẫn Sử Dụng
+            </Button>
+          </div>
+          <div className="relative ml-5 min-h-fit w-[38.3125rem]">
+            <img
+              src="https://a365.vn/assets/icons-v2/home/balloon.png"
+              className="absolute left-6 w-32"
+            />
+            <div className="mb-5 flex items-center">
+              <div className="z-10 text-center">
+                <Typography.Title>201425+</Typography.Title>
+                perferendis accusamus, modi saepe omnis asperiores consequuntur
+                harum similique amet, animi commodi quas, cupiditate eveniet
+                vero minus. Quaerat, excepturi tempore.
+              </div>
+              <img
+                src="https://a365.vn/assets/icons-v2/home/boy.png"
+                className="mr-2 w-56"
+              />
+            </div>
+            <Button className="w-full bg-color-accent-sky  hover:bg-color-accent-sky hover:text-color-gray-10">
+              Hướng Dẫn Sử Dụng
+            </Button>
+          </div>
+        </div>
+      </Col>
+
+      <Col span={24}>
+        <div className="bg-error-color p-6 text-center">
+          <Typography.Title level={3}>HAPPYCHILD</Typography.Title>
+          <Typography.Paragraph className="text-justify text-lg">
+            Cung cấp miễn phí công cụ theo dõi và đánh giá sự phát triển của
+            trẻ; Đồng hành và hỗ trợ cha mẹ/người chăm sóc trẻ trong việc can
+            thiệp tại nhà cho các trẻ tự kỷ và có rối loạn phát triển. Lorem
+            ipsum dolor sit amet consectetur adipisicing elit. Doloribus
+            accusantium distinctio perspiciatis corporis harum labore, sunt,
+            laboriosam earum ex veniam quos, deleniti odit maxime atque! Officia
+            repellat voluptatem vel nobis?
+          </Typography.Paragraph>
+          <Button type="primary">Xem Thêm</Button>
+        </div>
+      </Col>
+    </Row>
   );
 }

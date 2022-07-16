@@ -28,3 +28,12 @@ export const StyledGirl = styled.div`
     justify-content: center;
   }
 `;
+
+export const StyledDiv = styled.div`
+  .ant-card {
+    padding: 0 !important;
+    border-radius: 0;
+    border-top-left-radius: 1.25rem !important;
+    border-top-right-radius: 1.25rem !important ;
+  }
+`;
