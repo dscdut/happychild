@@ -55,7 +55,7 @@ function Course() {
       <Col span={24} className="mb-2">
         <Row gutter={[24, 24]}>
           <Col span={24} className="relative">
-            <div className="">
+            <div>
               <div className="absolute left-0 z-30 ml-1 flex h-full items-center">
                 <LeftOutlined
                   className="cursor-pointer text-xl"
