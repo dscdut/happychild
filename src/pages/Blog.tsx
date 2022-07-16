@@ -18,14 +18,13 @@ function BlogPage() {
     const starCountRef = ref(db, 'blog');
     onValue(starCountRef, snapshot => {
       const data = snapshot.val();
-      console.log(data);
       setBlogList(data);
     });
   }, []);
 
   return (
     <div className="mt-6 columns-3 gap-8">
-      {blogList.length &&
+      {blogList.length > 0 &&
         blogList.map(blog => (
           <Card
             key={blog.id}

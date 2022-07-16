@@ -10,7 +10,7 @@ import {
 } from 'antd';
 import { useNavigate } from 'react-router-dom';
 import { FacebookFilled, GoogleOutlined } from '@ant-design/icons';
-import LoginImage from '#/assets/images/login.png';
+import LoginImage from '#/assets/images/login.jpg';
 
 export default function SignInPage() {
   const navigate = useNavigate();
@@ -22,15 +22,14 @@ export default function SignInPage() {
 
   return (
     <Form className="flex items-center" onFinish={onSubmit} layout="vertical">
-      <Row
-        className="w-full rounded-lg border-2 border-secondary-color"
-        align="middle"
-      >
-        <Col
-          span={14}
-          className="flex items-center justify-center bg-secondary-color p-8"
-        >
-          <Image src={LoginImage} width={600} preview={false} />
+      <Row className="w-full rounded-xl shadow-2xl" align="middle">
+        <Col span={14} className="flex items-center justify-center">
+          <Image
+            src={LoginImage}
+            width={1000}
+            preview={false}
+            className="rounded-l-xl"
+          />
         </Col>
         <Col span={10} className="flex items-center px-8">
           <Row justify="center" gutter={[16, 16]}>
@@ -39,7 +38,7 @@ export default function SignInPage() {
                 ĐĂNG NHẬP
               </Typography>
             </Col>
-            <Col span={24} className="mt-4 flex flex-col gap-2">
+            <Col span={24} className="mt-2 flex flex-col gap-2">
               <Typography className="text-base">Email:</Typography>
               <Form.Item noStyle>
                 <Input placeholder="Nhập email" />

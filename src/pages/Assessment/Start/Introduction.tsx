@@ -46,6 +46,16 @@ export default function Introduction() {
           Kết quả sàng lọc gồm điểm từng lĩnh vực và nhận xét chung.
         </Typography>
       </Col>
+      <Col span={24} className="flex flex-col gap-2">
+        <Typography className="text-xl font-bold">
+          4, Cha mẹ tham gia vào ASQ-3 như thế nào?
+        </Typography>
+        <Typography className="ml-4">
+          ASQ-3 dựa trên việc cha mẹ quan sát trẻ, sau đó hoàn thành các bộ câu
+          hỏi để đánh giá khả năng của trẻ. Việc hoàn thành bộ câu hỏi còn giúp
+          cha mẹ hiểu hơn về con mình.
+        </Typography>
+      </Col>
     </Row>
   );
 }

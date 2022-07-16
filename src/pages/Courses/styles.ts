@@ -3,6 +3,14 @@ import { Card } from 'antd';
 
 export const StyledCard = styled(Card)`
   .ant-card-body {
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+  }
+`;
+
+export const FilterStyledCard = styled(Card)`
+  .ant-card-body {
     padding: 1rem;
   }
 `;
