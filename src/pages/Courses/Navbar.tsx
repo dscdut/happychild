@@ -6,7 +6,7 @@ const { Title } = Typography;
 
 function Navbar() {
   return (
-    <StyledCard className="rounded-md shadow-xl">
+    <StyledCard className="shadow-xl">
       {myData.map((item, i) => (
         <>
           <Title level={5}>{item.title}</Title>

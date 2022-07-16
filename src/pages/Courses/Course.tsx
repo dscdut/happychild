@@ -51,7 +51,7 @@ function Course() {
   }, []);
   return (
     <Row gutter={[24, 24]}>
-      <Input placeholder="Tìm kiếm khoá học" />
+      <Input placeholder="Tìm kiếm khoá học" className="p-3" />
       <Col span={24} className="mb-2">
         <Row gutter={[24, 24]}>
           <Col span={24} className="relative">
@@ -113,6 +113,9 @@ function Course() {
                           </Typography>
                         </Col>
                         <Col span={24}>
+                          <Typography.Title level={3} className="text-center">
+                            Khóa Học: {course.title}
+                          </Typography.Title>
                           <Paragraph
                             ellipsis={{
                               rows: 3,

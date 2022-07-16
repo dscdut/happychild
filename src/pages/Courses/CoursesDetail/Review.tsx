@@ -38,7 +38,7 @@ function Review() {
             {AuthorList.map((author, i) => (
               <Col span={24} key={i}>
                 <StyledCard className="border-color-accent-sky">
-                  <div className="items flex justify-between px-5">
+                  <div className="items flex justify-between px-2">
                     <Image
                       className="w-52 rounded-2xl"
                       src={author.avatar}
@@ -54,20 +54,11 @@ function Review() {
                         }}
                         className="mb-2 text-base"
                       >
-                        Autism spectrum disorder (ASD) is a developmental
-                        disability caused by differences in the brain. People
-                        with ASD often have problems with social communication
-                        and interaction, and restricted or repetitive behaviors
-                        or interests. Lorem ipsum dolor sit amet consectetur
-                        adipisicing elit. Eveniet, nam repudiandae? Ducimus
-                        fugiat corporis, officiis quos possimus quia unde
-                        accusamus. Sint temporibus quam dicta! Omnis excepturi
-                        corporis consequatur suscipit? Exercitationem. Lorem
-                        ipsum dolor sit amet consectetur adipisicing elit.
-                        Magnam, architecto porro blanditiis harum dignissimos
-                        modi, voluptatum veritatis nostrum quas eligendi
-                        officiis. Optio debitis cumque sunt illo in,
-                        voluptatibus soluta voluptates!
+                        Khóa học dành cho bố mẹ của trẻ nghi ngờ hoặc có tự kỷ,
+                        chậm phát triển, chậm nói, v.v. được xây dựng từ các
+                        phương pháp can thiệp có nhiều bằng chứng và từ kinh
+                        nghiệm hướng dẫn can thiệp trên hơn 400 gia đình tại các
+                        tỉnh thành Việt Nam
                       </Paragraph>
                     </div>
                   </div>
