@@ -19,7 +19,7 @@ import React, { useRef } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { StyledCard } from './styles';
 
-export const { Paragraph, Title } = Typography;
+const { Paragraph, Title } = Typography;
 
 function Course() {
   const carouselRef = useRef<CarouselRef | null>(null);

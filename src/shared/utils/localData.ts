@@ -25,6 +25,14 @@ export type Question = {
   images?: string;
 };
 
+export type Author = {
+  id: number;
+  avatar: string;
+  name: string;
+  work: string;
+  des: string;
+};
+
 export type Stage = {
   id: number;
   stageName: string;
