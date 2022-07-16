@@ -38,7 +38,7 @@ export default function SignInPage() {
                 ĐĂNG NHẬP
               </Typography>
             </Col>
-            <Col span={24} className="mt-4 flex flex-col gap-2">
+            <Col span={24} className="mt-2 flex flex-col gap-2">
               <Typography className="text-base">Email:</Typography>
               <Form.Item noStyle>
                 <Input placeholder="Nhập email" />
