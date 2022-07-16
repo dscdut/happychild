@@ -1,9 +1,8 @@
-import React from 'react';
 import { Divider, Tree, Typography } from 'antd';
 import { StyledCard } from './styles';
 import { myData, treeData } from '.';
 
-export const { Paragraph, Title } = Typography;
+const { Title } = Typography;
 
 function Navbar() {
   return (

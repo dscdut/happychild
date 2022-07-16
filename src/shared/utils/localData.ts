@@ -12,6 +12,14 @@ export type Question = {
   answers: Answer[];
 };
 
+export type Author = {
+  id: number;
+  avatar: string;
+  name: string;
+  work: string;
+  des: string;
+};
+
 export const questions: Question[] = [
   {
     id: 1,

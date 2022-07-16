@@ -1,8 +1,41 @@
-import { Col, Input, Row, Typography } from 'antd';
+import { Col, Input, Row } from 'antd';
 import Course from './Course';
 import Navbar from './Navbar';
 
-export const { Paragraph, Title } = Typography;
+export const AuthorList = [
+  {
+    id: 1,
+    avatar:
+      'https://www.openaccessgovernment.org/wp-content/uploads/2022/05/dreamstime_m_8685934-scaled.jpg',
+    name: 'John Doe',
+    work: 'Department of Psychology',
+    des: 'Alan E. Kazdin, PhD, ABPP is Sterling Professor of Psychology and Child Psychiatry at Yale University. At Yale, he has been Chairman of the Psychology Department, Director of the Child Study Center at the School of Medicine, and Chair of the Publications Committee of the Yale University Press. His 750+ publications include 49 books that focus on parenting and child rearing, psychosocial interventions, interpersonal violence, and research methodology. His parenting work has been featured on NPR, PBS, BBC, CNN, Good Morning America, 20/20, Dr. Phil, and the Today Show. In 2008, he was President of the American Psychological Association. Quisquam, quidem.',
+  },
+  {
+    id: 2,
+    avatar:
+      'https://www.openaccessgovernment.org/wp-content/uploads/2022/05/dreamstime_m_8685934-scaled.jpg',
+    name: 'John Doe',
+    work: 'Department of Psychology',
+    des: 'Alan E. Kazdin, PhD, ABPP is Sterling Professor of Psychology and Child Psychiatry at Yale University. At Yale, he has been Chairman of the Psychology Department, Director of the Child Study Center at the School of Medicine, and Chair of the Publications Committee of the Yale University Press. His 750+ publications include 49 books that focus on parenting and child rearing, psychosocial interventions, interpersonal violence, and research methodology. His parenting work has been featured on NPR, PBS, BBC, CNN, Good Morning America, 20/20, Dr. Phil, and the Today Show. In 2008, he was President of the American Psychological Association. Quisquam, quidem.',
+  },
+  {
+    id: 3,
+    avatar:
+      'https://www.openaccessgovernment.org/wp-content/uploads/2022/05/dreamstime_m_8685934-scaled.jpg',
+    name: 'John Doe',
+    work: 'Department of Psychology',
+    des: 'Alan E. Kazdin, PhD, ABPP is Sterling Professor of Psychology and Child Psychiatry at Yale University. At Yale, he has been Chairman of the Psychology Department, Director of the Child Study Center at the School of Medicine, and Chair of the Publications Committee of the Yale University Press. His 750+ publications include 49 books that focus on parenting and child rearing, psychosocial interventions, interpersonal violence, and research methodology. His parenting work has been featured on NPR, PBS, BBC, CNN, Good Morning America, 20/20, Dr. Phil, and the Today Show. In 2008, he was President of the American Psychological Association. Quisquam, quidem.',
+  },
+  {
+    id: 4,
+    avatar:
+      'https://www.openaccessgovernment.org/wp-content/uploads/2022/05/dreamstime_m_8685934-scaled.jpg',
+    name: 'John Doe',
+    work: 'Department of Psychology',
+    des: 'Alan E. Kazdin, PhD, ABPP is Sterling Professor of Psychology and Child Psychiatry at Yale University. At Yale, he has been Chairman of the Psychology Department, Director of the Child Study Center at the School of Medicine, and Chair of the Publications Committee of the Yale University Press. His 750+ publications include 49 books that focus on parenting and child rearing, psychosocial interventions, interpersonal violence, and research methodology. His parenting work has been featured on NPR, PBS, BBC, CNN, Good Morning America, 20/20, Dr. Phil, and the Today Show. In 2008, he was President of the American Psychological Association. Quisquam, quidem.',
+  },
+];
 
 export const myData = [
   { title: 'Category', input: <Input placeholder="search" /> },
@@ -71,10 +104,10 @@ export const treeData = [
 function Courses() {
   return (
     <Row gutter={[24, 24]}>
-      <Col span={4}>
+      <Col span={6}>
         <Navbar />
       </Col>
-      <Col span={20}>
+      <Col span={18}>
         <Course />
       </Col>
     </Row>
