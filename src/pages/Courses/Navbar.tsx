@@ -1,12 +1,12 @@
 import { Divider, Tree, Typography } from 'antd';
-import { StyledCard } from './styles';
+import { FilterStyledCard } from './styles';
 import { myData, treeData } from '.';
 
 const { Title } = Typography;
 
 function Navbar() {
   return (
-    <StyledCard className="rounded-md shadow-xl">
+    <FilterStyledCard className="rounded-md shadow-xl">
       {myData.map((item, i) => (
         <>
           <Title level={5}>{item.title}</Title>
@@ -15,7 +15,7 @@ function Navbar() {
           <Divider />
         </>
       ))}
-    </StyledCard>
+    </FilterStyledCard>
   );
 }
 
