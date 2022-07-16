@@ -1,7 +1,7 @@
-import { UserOutlined } from '@ant-design/icons';
-import { Avatar, Button, Col, Image, Rate, Row, Typography } from 'antd';
+import { Avatar, Button, Card, Col, Image, Rate, Row, Typography } from 'antd';
+import { AuthorList } from '..';
 
-const { Paragraph, Title, Text } = Typography;
+const { Title, Text } = Typography;
 
 function CourseHeader() {
   return (
@@ -9,7 +9,7 @@ function CourseHeader() {
       span={24}
       className="relative h-[30rem] w-full"
       style={{
-        background: `linear-gradient(90deg, rgb(19, 41, 75), rgb(19, 41, 75))`,
+        background: `linear-gradient(90deg, #4cadd5, #1890ff)`,
       }}
     >
       <div className="flex flex-wrap items-center justify-between px-20 py-12">
@@ -24,28 +24,30 @@ function CourseHeader() {
             </Text>
           </div>
           <Row className="flex items-center">
-            <Col span={6} className="flex items-center justify-center">
-              <Avatar
-                size={100}
-                icon={<UserOutlined />}
-                src="https://d3njjcbhbojbot.cloudfront.net/api/utilities/v1/imageproxy/https://coursera-instructor-photos.s3.amazonaws.com/21/d8c5a0671811e789eb49e04ec58dac/Kazdin_headhsot.jpg?auto=format%2Ccompress&dpr=1&w=200&h=200"
-              />
-            </Col>
-            <Col span={18}>
-              <Paragraph
-                ellipsis={{
-                  rows: 2,
-                  expandable: false,
-                  symbol: 'label.etc',
-                }}
-                className="m-0 inline-block text-2xl font-bold text-primary-color-dark"
-              >
-                Lorem ipsum dolor, sit amet consectetur adipisicing elit.
-              </Paragraph>
-            </Col>
+            <Card className="ml-5 border-color-accent-sky bg-info-color">
+              <div className="mb-5 flex">
+                <Avatar
+                  size={100}
+                  src={AuthorList[0].avatar}
+                  className="mr-2"
+                />
+                <div className="text-justify">
+                  <Title level={4} className=" m-0 text-color-gray-60">
+                    {AuthorList[0].name}
+                  </Title>
+                  <Text className="block text-color-gray-60">
+                    {AuthorList[0].work}
+                  </Text>
+                  <Text className="text-base font-normal text-color-accent-blue">
+                    {`${'105,291'}`} recent views
+                  </Text>
+                </div>
+              </div>
+              <Button className="w-full bg-error-color  hover:bg-color-accent-sky hover:text-color-gray-10">
+                Learn
+              </Button>
+            </Card>
           </Row>
-
-          <Button className="my-[2.5rem] ml-4">Enroll for Free</Button>
         </div>
 
         <div className="w-1/2 text-center">
