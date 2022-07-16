@@ -1,6 +1,5 @@
-import { Divider } from 'antd';
 import { ReactNode } from 'react';
-import { Footer } from './Footer';
+import Footer from './Footer';
 import { Header } from './Header';
 
 interface Props {
@@ -14,8 +13,7 @@ export function PublicLayout({ children }: Props) {
         <Header />
       </div>
       <div className="mt-[5rem] min-h-screen px-8 py-4">{children}</div>
-      <Divider className="bg-primary-color" />
-      <div className="px-8 py-8">
+      <div>
         <Footer />
       </div>
     </div>
