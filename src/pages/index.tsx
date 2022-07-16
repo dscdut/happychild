@@ -1,6 +1,7 @@
-import { LineChartOutlined } from '@ant-design/icons';
-import { Button, Card, Col, Divider, Row, Typography } from 'antd';
+import { LineChartOutlined, PlusCircleFilled } from '@ant-design/icons';
+import { Button, Card, Col, Divider, Image, Row, Typography } from 'antd';
 import { CourseStyledCard, StyledDiv } from './Courses/styles';
+import HappyChild from '#/assets/images/happychild.jpg';
 
 export default function Index() {
   return (
@@ -15,22 +16,27 @@ export default function Index() {
           backgroundRepeat: 'no-repeat',
         }}
       >
-        <Card className="absolute top-[9.375rem] right-[9.375rem] w-2/6 border-color-accent-sky bg-secondary-color p-6 ">
-          <Typography.Title level={3}>HAPPYCHILD</Typography.Title>
-          <Typography.Paragraph>
+        <Card
+          className="absolute top-[9.375rem] right-[9.375rem] w-2/6 bg-secondary-color p-6 shadow-xl"
+          bordered={false}
+        >
+          <Typography.Title level={2} className="text-center text-[white]">
+            HAPPYCHILD
+          </Typography.Title>
+          <Typography.Paragraph className="text-[white]">
             Cung cấp miễn phí công cụ theo dõi và đánh giá sự phát triển của
             trẻ; Đồng hành và hỗ trợ cha mẹ/người chăm sóc trẻ trong việc can
             thiệp tại nhà cho các trẻ tự kỷ và có rối loạn phát triển.
           </Typography.Paragraph>
-          <Button className="w-full bg-primary-color  hover:bg-color-accent-sky hover:text-color-gray-10">
-            Tìm hiểu thêm
+          <Button block>
+            Tìm hiểu thêm <PlusCircleFilled />
           </Button>
         </Card>
       </Col>
       <Col span={24}>
-        <Typography.Title level={2} className="text-center">
-          HAPPYCHILD
-        </Typography.Title>
+        <div className="flex items-center justify-center">
+          <Image src={HappyChild} preview={false} width={150} />
+        </div>
         <Divider />
         <StyledDiv className="flex">
           <CourseStyledCard className="mx-2  h-fit w-1/3 bg-secondary-color p-4 text-base shadow-xl">

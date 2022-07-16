@@ -1,5 +1,11 @@
-import { LeftOutlined, RightOutlined } from '@ant-design/icons';
-import { Col, Image, Rate, Row, Typography } from 'antd';
+import {
+  DislikeOutlined,
+  LeftOutlined,
+  LikeOutlined,
+  RightOutlined,
+} from '@ant-design/icons';
+import { Col, Rate, Row, Typography } from 'antd';
+import Avatar from 'antd/lib/avatar/avatar';
 import Carousel, { CarouselRef } from 'antd/lib/carousel';
 import { useRef } from 'react';
 
@@ -37,15 +43,11 @@ function Review() {
           >
             {AuthorList.map((author, i) => (
               <Col span={24} key={i}>
-                <StyledCard className="border-color-accent-sky">
-                  <div className="items flex justify-between px-2">
-                    <Image
-                      className="w-52 rounded-2xl"
-                      src={author.avatar}
-                      preview={false}
-                    />
+                <StyledCard className="border-primary-color">
+                  <div className="items flex gap-4 px-2">
+                    <Avatar src={author?.avatar} size={100} />
                     <div className="w-3/4">
-                      <Rate allowHalf defaultValue={2.5} />
+                      <Rate disabled allowHalf defaultValue={2.5} />
                       <Paragraph
                         ellipsis={{
                           rows: 4,
@@ -61,6 +63,10 @@ function Review() {
                         tỉnh thành Việt Nam
                       </Paragraph>
                     </div>
+                  </div>
+                  <div>
+                    <DislikeOutlined />
+                    <LikeOutlined />
                   </div>
                 </StyledCard>
               </Col>
