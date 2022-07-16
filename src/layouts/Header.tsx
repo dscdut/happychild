@@ -1,7 +1,8 @@
 import { HomeFilled, HomeOutlined } from '@ant-design/icons';
-import { Button, Typography } from 'antd';
+import { Button, Typography, Image } from 'antd';
 import { Link, useLocation, useNavigate } from 'react-router-dom';
 import UserInfo from './UserInfo';
+import HappyChild from '#/assets/images/happychild.jpg';
 
 export function Header() {
   const { pathname } = useLocation();
@@ -50,7 +51,15 @@ export function Header() {
 
   return (
     <>
-      <div>LOGO</div>
+      <div>
+        <Image
+          src={HappyChild}
+          preview={false}
+          width={100}
+          height={80}
+          className="object-contain"
+        />
+      </div>
       <div className="flex items-center justify-center gap-10">
         {MENU_ITEMS?.map(item =>
           item?.render ? (
