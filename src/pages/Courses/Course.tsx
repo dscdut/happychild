@@ -18,7 +18,7 @@ import {
 import { CarouselRef } from 'antd/lib/carousel';
 import { useRef } from 'react';
 import { useNavigate } from 'react-router-dom';
-import { StyledCard } from './styles';
+import { CourseStyledCard } from './styles';
 import Children from '#/assets/images/children.jpg';
 
 const { Paragraph, Title } = Typography;
@@ -59,7 +59,7 @@ function Course() {
               >
                 {[...Array.from({ length: 15 }, (_, i) => i)].map(i => (
                   <Col span={24} key={i}>
-                    <StyledCard className="relative shadow-xl">
+                    <CourseStyledCard className="relative shadow-xl">
                       <img
                         src={Children}
                         className="rounded-t-xl object-contain"
@@ -124,7 +124,7 @@ function Course() {
                           </Button>
                         </Col>
                       </Row>
-                    </StyledCard>
+                    </CourseStyledCard>
                   </Col>
                 ))}
                 <Button htmlType="submit">Hoàn thành</Button>
