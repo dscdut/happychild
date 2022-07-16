@@ -1,6 +1,6 @@
 <p align="center">
   <a href="https://nextjs.org">
-    <h1 align="center">Smartos Web Super admin</h1>
+    <h1 align="center">HappyChild</h1>
   </a>
 </p>
 
