@@ -1,19 +1,11 @@
-import { useEffect, useState } from 'react';
 import { ProfileOutlined, RightOutlined } from '@ant-design/icons';
 import { Button, Card } from 'antd';
-import { getDatabase, onValue, ref } from 'firebase/database';
+import { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 
 function Index() {
   const navigate = useNavigate();
-  useEffect(() => {
-    const db = getDatabase();
-    const starCountRef = ref(db, 'courses');
-    onValue(starCountRef, snapshot => {
-      const data = snapshot.val();
-      console.log(data);
-    });
-  }, []);
+
   const [isSubmit, setIsSubmit] = useState(1);
   const handleSubmit = (value: number) => {
     setIsSubmit(value);
