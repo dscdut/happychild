@@ -21,24 +21,24 @@ const menus: MenuType[] = [
     key: 'profile',
     to: '/profile',
     icon: <UserOutlined />,
-    title: 'Profile',
+    title: 'Thông tin cá nhân',
   },
   {
     key: 'reservations',
     to: '/reservations',
     icon: <ShoppingCartOutlined />,
-    title: 'Reservations',
+    title: 'Nhật ký theo dõi',
   },
   {
     key: 'activity',
     to: '/activity',
     icon: <BarsOutlined />,
-    title: 'Activity',
+    title: 'Hoạt động',
   },
   {
     key: 'logout',
     icon: <LogoutOutlined />,
-    title: 'Logout',
+    title: 'Đăng xuất',
   },
 ];
 
@@ -54,7 +54,7 @@ export default function UserInfo() {
     <div className="flex items-center gap-2">
       <Avatar size={60} src={UserImage} />
       <div className="flex flex-col items-end justify-end gap-2">
-        <Typography className="text-sm">Hello, Minh Nguyen</Typography>
+        <Typography className="text-sm">Xin chào, Minh Nguyen</Typography>
         <Dropdown
           overlay={
             <Menu

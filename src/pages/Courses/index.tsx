@@ -38,10 +38,10 @@ export const AuthorList = [
 ];
 
 export const myData = [
-  { title: 'Category', input: <Input placeholder="search" /> },
-  { title: 'Position', input: <Input placeholder="search" /> },
-  { title: 'Levels' },
-  { title: 'Types' },
+  { title: 'Danh mục', input: <Input placeholder="Tìm kiếm" /> },
+  { title: 'Vị trí', input: <Input placeholder="Tìm kiếm" /> },
+  { title: 'Khả năng' },
+  { title: 'Thể loại' },
 ];
 
 export const treeData = [
