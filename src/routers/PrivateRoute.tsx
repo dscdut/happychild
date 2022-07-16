@@ -6,6 +6,7 @@ const BlogPage = loadable(import('#/pages/Blog'));
 const BlogDetail = loadable(import('#/pages/BlogDetail'));
 const Assessment = loadable(import('#/pages/Assessment'));
 const AssessmentStart = loadable(import('#/pages/Assessment/Start'));
+const Result = loadable(import('#/pages/Assessment/Result'));
 const Courses = loadable(import('#/pages/Courses'));
 const CoursesDetail = loadable(
   import('#/pages/Courses/CoursesDetail/CoursesDetail'),
@@ -18,6 +19,7 @@ function PrivateRoute() {
       children: [
         { index: true, element: <Assessment /> },
         { path: 'start', element: <AssessmentStart /> },
+        { path: 'results', element: <Result /> },
       ],
     },
     {
