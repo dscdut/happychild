@@ -1,7 +1,7 @@
 import styled from '@emotion/styled';
 import { Card } from 'antd';
 
-export const StyledCard = styled(Card)`
+export const CourseStyledCard = styled(Card)`
   .ant-card-body {
     padding: 0;
     display: flex;
@@ -9,7 +9,7 @@ export const StyledCard = styled(Card)`
   }
 `;
 
-export const FilterStyledCard = styled(Card)`
+export const StyledCard = styled(Card)`
   .ant-card-body {
     padding: 1rem;
   }

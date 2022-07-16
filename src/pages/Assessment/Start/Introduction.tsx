@@ -52,8 +52,10 @@ export default function Introduction() {
         </Typography>
         <Typography className="ml-4">
           ASQ-3 dựa trên việc cha mẹ quan sát trẻ, sau đó hoàn thành các bộ câu
-          hỏi để đánh giá khả năng của trẻ. Việc hoàn thành bộ câu hỏi còn giúp
-          cha mẹ hiểu hơn về con mình.
+          hỏi để đánh giá khả năng của trẻ.
+        </Typography>
+        <Typography className="ml-4">
+          Việc hoàn thành bộ câu hỏi còn giúp cha mẹ hiểu hơn về con mình.
         </Typography>
       </Col>
     </Row>

@@ -22,6 +22,11 @@ export function Header() {
       icon: <HomeFilled className="mr-2" />,
     },
     {
+      title: 'Đánh giá',
+      to: '/assessment',
+      icon: <ProfileFilled className="mr-2" />,
+    },
+    {
       title: 'Bài viết',
       to: '/blogs',
       icon: <ProfileFilled className="mr-2" />,
@@ -83,13 +88,17 @@ export function Header() {
           ) : (
             <div
               className={`transition-all hover:border-b-4 hover:border-b-primary-color ${
-                pathname === item?.to ? 'border-b-4 border-b-primary-color' : ''
+                pathname?.includes(item?.to)
+                  ? 'border-b-4 border-b-primary-color'
+                  : ''
               }`}
             >
               <Link
                 to={item?.to}
                 className={
-                  pathname === item?.to ? 'text-primary-color' : 'text-[black]'
+                  pathname?.includes(item?.to)
+                    ? 'text-primary-color'
+                    : 'text-[black]'
                 }
               >
                 {item?.icon}
