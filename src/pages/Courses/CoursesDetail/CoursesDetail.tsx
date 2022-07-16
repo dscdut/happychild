@@ -1,9 +1,14 @@
 import { Breadcrumb, Col, Divider, Row } from 'antd';
-import { Link } from 'react-router-dom';
+import { Link, useLocation } from 'react-router-dom';
 import Content from './Content';
+
 import CourseHeader from './CourseHeader';
 
 function CoursesDetail() {
+  const location = useLocation();
+  const id = location.pathname;
+  console.log(id);
+
   return (
     <Row gutter={[24, 24]}>
       <Col span={24} className="mb-2">

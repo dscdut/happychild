@@ -3,7 +3,7 @@ import { Button, Card } from 'antd';
 import { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 
-function Index() {
+export default function Index() {
   const navigate = useNavigate();
 
   const [isSubmit, setIsSubmit] = useState(1);
@@ -266,5 +266,3 @@ function Index() {
     </div>
   );
 }
-
-export default Index;
