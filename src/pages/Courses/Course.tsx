@@ -3,7 +3,6 @@ import {
   FieldTimeOutlined,
   LeftOutlined,
   RightOutlined,
-  UserOutlined,
 } from '@ant-design/icons';
 import {
   Avatar,
@@ -16,17 +15,40 @@ import {
   Typography,
 } from 'antd';
 import { CarouselRef } from 'antd/lib/carousel';
-import { useRef } from 'react';
+import { getDatabase, onValue, ref } from 'firebase/database';
+import { useEffect, useRef, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { CourseStyledCard } from './styles';
-import Children from '#/assets/images/children.jpg';
 
 const { Paragraph, Title } = Typography;
 
+export interface Course {
+  id: number;
+  title: string;
+  author: string;
+  description: string;
+  image: string;
+  avatar: string;
+  rate: number;
+  date: string;
+  time: string;
+  email: string;
+}
+
 function Course() {
+  const [courseList, setCourseList] = useState<Course[]>([]);
   const carouselRef = useRef<CarouselRef | null>(null);
 
   const navigate = useNavigate();
+
+  useEffect(() => {
+    const db = getDatabase();
+    const starCountRef = ref(db, 'course');
+    onValue(starCountRef, snapshot => {
+      const data = snapshot.val();
+      setCourseList(data);
+    });
+  }, []);
   return (
     <Row gutter={[24, 24]}>
       <Input placeholder="Tìm kiếm khoá học" />
@@ -51,27 +73,28 @@ function Course() {
               <Title level={1} className="text-center">
                 Khoá học
               </Title>
-              <Carousel
-                ref={carouselRef}
-                className="px-6 py-6"
-                infinite={false}
-                draggable
-              >
-                {[...Array.from({ length: 15 }, (_, i) => i)].map(i => (
-                  <Col span={24} key={i}>
-                    <CourseStyledCard className="relative shadow-xl">
-                      <img
-                        src={Children}
-                        className="rounded-t-xl object-contain"
-                        height={300}
+              <Carousel ref={carouselRef} className="px-6 py-6" draggable>
+                {courseList.map(course => (
+                  <Col span={24} key={course.id}>
+                    <CourseStyledCard className="relative">
+                      <div
+                        style={{
+                          backgroundImage: `url(${course.image})`,
+                          backgroundPosition: 'center',
+                          backgroundSize: 'cover',
+                          backgroundRepeat: 'no-repeat',
+                        }}
+                        className="h-64 rounded-t-xl object-contain"
                       />
                       <div className="absolute top-[230px] ml-4 flex items-end gap-4">
-                        <Avatar size={100} icon={<UserOutlined />} />
+                        <Avatar size={100} src={course.avatar} />
                         <div className="flex flex-col">
                           <Typography className="text-lg font-bold">
-                            Nguyen Chau Quang Minh
+                            {course.author}
                           </Typography>
-                          <Typography>mnhngn20@gmail.com</Typography>
+                          <Typography className="text-base">
+                            {course.email}
+                          </Typography>
                         </div>
                       </div>
                       <Row className="mt-12 p-4" gutter={[16, 16]}>
@@ -80,44 +103,34 @@ function Course() {
                           className="flex items-center justify-between"
                         >
                           <Typography className="text-base">
-                            <CalendarOutlined className="mr-2" /> 22/2/2022
+                            <CalendarOutlined className="mr-2" /> {course.date}
                           </Typography>
-                          <Rate allowHalf disabled defaultValue={2.5} />
+                          <Rate allowHalf disabled defaultValue={course.rate} />
                         </Col>
                         <Col span={24}>
                           <Typography className="text-base">
-                            <FieldTimeOutlined className="mr-2" /> 30 giờ
+                            <FieldTimeOutlined className="mr-2" /> {course.time}
                           </Typography>
                         </Col>
                         <Col span={24}>
                           <Paragraph
                             ellipsis={{
-                              rows: 4,
+                              rows: 3,
                               expandable: false,
                               symbol: 'label.etc',
                             }}
                             className="mb-2 text-base "
                           >
-                            Autism spectrum disorder (ASD) is a developmental
-                            disability caused by differences in the brain.
-                            People with ASD often have problems with social
-                            communication and interaction, and restricted or
-                            repetitive behaviors or interests. Lorem ipsum dolor
-                            sit amet consectetur adipisicing elit. Eveniet, nam
-                            repudiandae? Ducimus fugiat corporis, officiis quos
-                            possimus quia unde accusamus. Sint temporibus quam
-                            dicta! Omnis excepturi corporis consequatur
-                            suscipit? Exercitationem. Lorem ipsum dolor sit amet
-                            consectetur adipisicing elit. Magnam, architecto
-                            porro blanditiis harum dignissimos modi, voluptatum
-                            veritatis nostrum quas eligendi officiis. Optio
-                            debitis cumque sunt illo in, voluptatibus soluta
-                            voluptates!
+                            {course.description}
                           </Paragraph>
                         </Col>
                         <Col span={24} className="flex justify-end">
                           <Button
-                            onClick={() => navigate(`/courses/${i}`)}
+                            onClick={() =>
+                              navigate(`/courses/${course.id}`, {
+                                state: course.id,
+                              })
+                            }
                             type="primary"
                           >
                             Chi tiết khóa học
@@ -127,7 +140,6 @@ function Course() {
                     </CourseStyledCard>
                   </Col>
                 ))}
-                <Button htmlType="submit">Hoàn thành</Button>
               </Carousel>
             </div>
           </Col>
