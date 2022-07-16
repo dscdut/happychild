@@ -1,7 +1,12 @@
+import { Image } from 'antd';
+import HappyChild from '#/assets/images/happychild.jpg';
+
 export function Footer() {
   return (
     <div className="flex items-center justify-between">
-      <div>Content</div>
+      <div>
+        <Image width={150} src={HappyChild} />
+      </div>
       <div>Content</div>
       <div>Content</div>
     </div>
