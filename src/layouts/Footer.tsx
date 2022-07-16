@@ -23,7 +23,7 @@ const IconWrapper = styled.div`
   width: 44px;
   height: 44px;
   border-radius: 50%;
-  border: 1px solid white;
+  border: 1px solid #81ceed;
   padding: 0.375rem;
 `;
 const Title = styled.span`
@@ -46,51 +46,64 @@ const Category = styled.span`
 
 function FooterComponent() {
   return (
-    <StyledFooter className="bg-primary-color text-surface-primary">
+    <StyledFooter className=" bg-surface-primary text-surface-primary">
       <Row gutter={[0, 40]} className="grid grid-cols-10">
         <Col className="col-span-3">
           <Link to="/">
             <img
               src={HappyChild}
               alt="Happy child"
-              style={{
-                width: 220,
-                height: 60,
-              }}
+              className="w-56 object-contain"
             />
           </Link>
         </Col>
         <Col className="col-span-2">
           <div className="flex flex-col space-y-2 text-surface-primary">
-            <Title className="font-semibold">Công ty</Title>
-            <Category>Về chúng tôi</Category>
-            <Category>Bài viết</Category>
-            <Category>Sự nghiệp</Category>
-            <Category>Liên hệ</Category>
+            <Title className="font-semibold text-primary-color">Công ty</Title>
+            <Category className="cursor-pointer text-color-dark-mode-80 hover:text-primary-color">
+              Về chúng tôi
+            </Category>
+            <Category className="cursor-pointer text-color-dark-mode-80 hover:text-primary-color">
+              Bài viết
+            </Category>
+            <Category className="cursor-pointer text-color-dark-mode-80 hover:text-primary-color">
+              Sự nghiệp
+            </Category>
+            <Category className="cursor-pointer text-color-dark-mode-80 hover:text-primary-color">
+              Liên hệ
+            </Category>
           </div>
         </Col>
         <Col className="col-span-2">
           <div className="flex flex-col space-y-2 text-surface-primary">
-            <Title className="font-semibold">Liên kết</Title>
-            <Category>Cuộc họp</Category>
-            <Category>Văn phòng</Category>
-            <Category>Từ xa</Category>
-            <Category>Sự kiện</Category>
+            <Title className="font-semibold text-primary-color">Liên kết</Title>
+            <Category className="cursor-pointer text-color-dark-mode-80 hover:text-primary-color">
+              Cuộc họp
+            </Category>
+            <Category className="cursor-pointer text-color-dark-mode-80 hover:text-primary-color">
+              Văn phòng
+            </Category>
+            <Category className="cursor-pointer text-color-dark-mode-80 hover:text-primary-color">
+              Từ xa
+            </Category>
+            <Category className="cursor-pointer text-color-dark-mode-80 hover:text-primary-color">
+              Sự kiện
+            </Category>
           </div>
         </Col>
         <Col className="col-span-3">
           <div className="flex flex-col space-y-3 text-surface-primary">
-            <Title className="font-semibold">Liên hệ</Title>
-            <Category className="flex items-start">
-              <p className="mb-0">
+            <Title className="font-semibold text-primary-color">Liên hệ</Title>
+            <Category className="flex items-start text-color-dark-mode-80">
+              <p className="mb-0 cursor-pointer hover:text-primary-color">
                 {`Toà nhà TPBank - 57 Lý Thường Kiệt - P.Trần Hưng Đạo - Q.Hoàn Kiếm - Tp.Hà Nội`}
               </p>
             </Category>
-            <Category className="flex items-start">
-              <p className="mb-0">{`tpbankdemo@gmail.com`}</p>
+            <Category className="flex items-start text-color-dark-mode-80">
+              <p className="mb-0 cursor-pointer hover:text-primary-color">{`tpbankdemo@gmail.com`}</p>
             </Category>
-            <Category className="flex items-start">
-              <p className="mb-0">{`0909 0909 0909 - 0808 080 0808`}</p>
+            <Category className="flex items-start text-color-dark-mode-80">
+              <p className="mb-0 cursor-pointer hover:text-primary-color">{`0909 0909 0909 - 0808 080 0808`}</p>
             </Category>
           </div>
         </Col>
@@ -100,34 +113,22 @@ function FooterComponent() {
         <Space>
           <a target="_blank" href="https://twitter.com/" rel="noreferrer">
             <IconWrapper>
-              <TwitterOutlined
-                style={{
-                  color: '#ffffff',
-                }}
-              />
+              <TwitterOutlined />
             </IconWrapper>
           </a>
           <a target="_blank" href="https://www.facebook.com/" rel="noreferrer">
             <IconWrapper>
-              <FacebookOutlined
-                style={{
-                  color: '#ffffff',
-                }}
-              />
+              <FacebookOutlined />
             </IconWrapper>
           </a>
           <a rel="noreferrer" href="https://linkedin.com/" target="_blank">
             <IconWrapper>
-              <LinkedinOutlined
-                style={{
-                  color: '#ffffff',
-                }}
-              />
+              <LinkedinOutlined />
             </IconWrapper>
           </a>
         </Space>
         <div className="mt-4 flex justify-center">
-          <Typography.Paragraph className="text-surface-primary">
+          <Typography.Paragraph className="text-xl">
             Happy Child
           </Typography.Paragraph>
         </div>
