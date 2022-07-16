@@ -76,11 +76,13 @@ function Index() {
         {isSubmit === 1 && (
           <Card className="h-fit w-full rounded-3xl p-4 text-base shadow-lg">
             <p>
-              Tình trạng chậm phát triển ở trẻ xảy ra khi bé bị tụt lại đằng sau
-              so với các bạn đồng trang lứa trong một hoặc nhiều lĩnh vực về mặt
-              cảm xúc, thể chất hoặc tinh thần. Nếu trẻ bị chậm phát triển, việc
-              điều trị bệnh sớm là cách tốt nhất giúp bé tiến bộ và bắt kịp với
-              những đứa trẻ khác.
+              <span className="text-lg font-bold text-secondary-color">
+                Tình trạng chậm phát triển
+              </span>{' '}
+              ở trẻ xảy ra khi bé bị tụt lại đằng sau so với các bạn đồng trang
+              lứa trong một hoặc nhiều lĩnh vực về mặt cảm xúc, thể chất hoặc
+              tinh thần. Nếu trẻ bị chậm phát triển, việc điều trị bệnh sớm là
+              cách tốt nhất giúp bé tiến bộ và bắt kịp với những đứa trẻ khác.
             </p>
             <p>
               Thực tế, có nhiều dạng chậm phát triển ở trẻ sơ sinh và trẻ nhỏ,
@@ -93,6 +95,19 @@ function Index() {
               <li>- Kỹ năng tư duy - nhận thức</li>
               <li>- Kỹ năng xã hội – tình cảm</li>
             </ul>
+            <p>
+              Đôi khi, sự chậm phát triển đáng kể ở trẻ có thể xảy ra ở hai hoặc
+              nhiều lĩnh vực trên. Tình trạng này thường được gọi là chậm phát
+              triển toàn diện (GDD), chủ yếu đề cập đến trẻ sơ sinh và trẻ mẫu
+              giáo đến 5 tuổi có dấu hiệu chậm phát triển kéo dài ít nhất 6
+              tháng.
+            </p>
+            <p>
+              Tuy nhiên, chúng ta cần phân biệt được rằng chậm phát triển ở trẻ
+              không giống với khuyết tật phát triển. Tình trạng khuyết tật phát
+              triển thường bao gồm các vấn đề như khiếm thính, bại não hoặc rối
+              loạn phổ tự kỷ, có xu hướng kéo dài suốt đời.
+            </p>
           </Card>
         )}
         {isSubmit === 2 && (
