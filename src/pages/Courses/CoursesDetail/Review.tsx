@@ -1,18 +1,12 @@
-import {
-  DislikeOutlined,
-  LeftOutlined,
-  LikeOutlined,
-  RightOutlined,
-} from '@ant-design/icons';
-import { Col, Rate, Row, Typography } from 'antd';
-import Avatar from 'antd/lib/avatar/avatar';
+import { LeftOutlined, RightOutlined } from '@ant-design/icons';
+import { Col, Rate, Row, Typography, Image } from 'antd';
 import Carousel, { CarouselRef } from 'antd/lib/carousel';
 import { useRef } from 'react';
 
-import { AuthorList } from '..';
+import { ReviewList } from '..';
 import { StyledCard } from '../styles';
 
-const { Paragraph } = Typography;
+const { Paragraph, Title } = Typography;
 
 function Review() {
   const carouselRef = useRef<CarouselRef | null>(null);
@@ -41,20 +35,28 @@ function Review() {
             className="bg-slate-100 px-6 py-6"
             draggable
           >
-            {AuthorList.map((author, i) => (
+            {ReviewList.map((review, i) => (
               <Col span={24} key={i}>
-                <StyledCard className="border-primary-color">
-                  <div className="items flex gap-4 px-2">
-                    <Avatar src={author?.avatar} size={100} />
+                <StyledCard className="border-color-accent-sky">
+                  <div className="items flex items-center justify-around px-2">
+                    <Image
+                      className="max-h-[12rem] w-52 rounded-2xl object-cover"
+                      src={review.avatar}
+                      preview={false}
+                    />
                     <div className="w-3/4">
-                      <Rate disabled allowHalf defaultValue={2.5} />
+                      <Title level={2}>{review.name}</Title>
+                      <Title level={5} className="m-0 text-primary-color">
+                        {review.work}
+                      </Title>
+                      <Rate allowHalf disabled defaultValue={review.rate} />
                       <Paragraph
                         ellipsis={{
                           rows: 4,
                           expandable: false,
                           symbol: 'label.etc',
                         }}
-                        className="mb-2 text-base"
+                        className="mb-2 text-lg"
                       >
                         Khóa học dành cho bố mẹ của trẻ nghi ngờ hoặc có tự kỷ,
                         chậm phát triển, chậm nói, v.v. được xây dựng từ các
@@ -63,10 +65,6 @@ function Review() {
                         tỉnh thành Việt Nam
                       </Paragraph>
                     </div>
-                  </div>
-                  <div>
-                    <DislikeOutlined />
-                    <LikeOutlined />
                   </div>
                 </StyledCard>
               </Col>

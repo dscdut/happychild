@@ -102,13 +102,14 @@ function Course() {
                           span={24}
                           className="flex items-center justify-between"
                         >
-                          <Typography className="text-base">
-                            <CalendarOutlined className="mr-2" /> {course.date}
+                          <Typography className="text-lg">
+                            <CalendarOutlined className="mr-2 mt-5" />
+                            {course.date}
                           </Typography>
                           <Rate allowHalf disabled defaultValue={course.rate} />
                         </Col>
                         <Col span={24}>
-                          <Typography className="text-base">
+                          <Typography className="text-lg">
                             <FieldTimeOutlined className="mr-2" /> {course.time}
                           </Typography>
                         </Col>
@@ -119,7 +120,7 @@ function Course() {
                               expandable: false,
                               symbol: 'label.etc',
                             }}
-                            className="mb-2 text-base "
+                            className="mb-2 text-lg "
                           >
                             {course.description}
                           </Paragraph>

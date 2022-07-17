@@ -9,9 +9,14 @@ function Navbar() {
     <StyledCard className="shadow-xl">
       {myData.map((item, i) => (
         <>
-          <Title level={5}>{item.title}</Title>
-          {item.input}
-          <Tree className="my-5" key={i} checkable treeData={treeData} />
+          <Title level={5}>{item.label}</Title>
+          {/* {item.input} */}
+          <Tree
+            className="my-5 text-base"
+            key={i}
+            checkable
+            treeData={treeData}
+          />
           <Divider />
         </>
       ))}

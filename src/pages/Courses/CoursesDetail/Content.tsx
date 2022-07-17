@@ -6,7 +6,7 @@ import TimelineDetail from './TimelineDetail';
 function Content() {
   return (
     <Row gutter={[24, 24]}>
-      <Col span={18} className="text-base">
+      <Col span={18} className="text-lg">
         <AboutAuthor />
       </Col>
       <Col span={6}>
