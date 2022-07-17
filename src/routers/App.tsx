@@ -15,9 +15,14 @@ const CoursesDetail = loadable(
   import('#/pages/Courses/CoursesDetail/CoursesDetail'),
 );
 const Assessment = loadable(import('#/pages/Assessment'));
+const ContactSpecialist = loadable(import('#/pages/ContactSpecialists'));
 
 function App() {
   const routes = useRoutes([
+    {
+      path: 'contact-specialists',
+      element: <ContactSpecialist />,
+    },
     {
       path: 'blogs',
       children: [

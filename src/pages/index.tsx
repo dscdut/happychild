@@ -1,7 +1,12 @@
-import { LineChartOutlined, PlusCircleFilled } from '@ant-design/icons';
+import {
+  LineChartOutlined,
+  PlusCircleFilled,
+  SmileOutlined,
+} from '@ant-design/icons';
 import { Button, Card, Col, Divider, Image, Row, Typography } from 'antd';
 import { CourseStyledCard, StyledDiv } from './Courses/styles';
 import HappyChild from '#/assets/images/happychild.jpg';
+import Thumbnail from '#/assets/images/thumbnail.jpg';
 
 export default function Index() {
   return (
@@ -10,23 +15,26 @@ export default function Index() {
         span={24}
         className="relative h-[70vh]"
         style={{
-          backgroundImage: `url(https://a365reportstorage.blob.core.windows.net/public-blobs/72b9c63b6562d38ab3321d7de9fcb12a___slider-1.jpg)`,
+          backgroundImage: `url(${Thumbnail})`,
           backgroundPosition: 'center',
           backgroundSize: 'cover',
           backgroundRepeat: 'no-repeat',
         }}
       >
         <Card
-          className="absolute top-[9.375rem] right-[9.375rem] w-2/6 bg-secondary-color p-6 shadow-xl"
+          className="absolute top-[10rem] right-[9.375rem] w-2/6 rounded-xl bg-[black] bg-opacity-[64%] p-4 shadow-xl"
           bordered={false}
         >
-          <Typography.Title level={2} className="text-center text-[white]">
+          <Typography.Title
+            level={2}
+            className="text-center italic text-[white]"
+          >
             HAPPYCHILD
           </Typography.Title>
-          <Typography.Paragraph className="text-[white]">
-            Cung cấp miễn phí công cụ theo dõi và đánh giá sự phát triển của
-            trẻ; Đồng hành và hỗ trợ cha mẹ/người chăm sóc trẻ trong việc can
-            thiệp tại nhà cho các trẻ tự kỷ và có rối loạn phát triển.
+          <Typography.Paragraph className="text-base text-[white]">
+            Nền tảng hỗ trợ phụ huynh đánh giá, tham khảo đề xuất giải pháp và
+            cách thức giáo dục trẻ gặp vấn đề chậm nói, chậm phát triển và tự
+            kỷ.
           </Typography.Paragraph>
           <Button block>
             Tìm hiểu thêm <PlusCircleFilled />
@@ -34,21 +42,25 @@ export default function Index() {
         </Card>
       </Col>
       <Col span={24}>
-        <div className="flex items-center justify-center">
+        <div className="flex flex-col items-center justify-center">
           <Image src={HappyChild} preview={false} width={150} />
+          <Typography className="text-3xl font-bold text-primary-color">
+            Có những gì? <SmileOutlined />
+          </Typography>
         </div>
         <Divider />
         <StyledDiv className="flex">
-          <CourseStyledCard className="mx-2  h-fit w-1/3 bg-secondary-color p-4 text-base shadow-xl">
-            <div className="flex items-center justify-between px-6">
-              <Typography.Text className="py-4 text-lg font-bold text-surface-primary">
-                Theo dõi phát triển
+          <CourseStyledCard
+            className="mx-2 w-1/3 text-base shadow-xl hover:scale-105"
+            title={
+              <Typography.Text className="py-4 text-lg font-bold">
+                Theo dõi phát triển, phối hợp đánh giá <br /> mức độ phát triển,
+                tự kỷ của trẻ nhỏ
               </Typography.Text>
-              <LineChartOutlined
-                style={{ fontSize: '35px', color: '#ffb710' }}
-              />
-            </div>
-            <div className="bg-info-color-light py-4 px-3">
+            }
+            extra={<LineChartOutlined className="text-4xl" />}
+          >
+            <div className="py-4 px-3">
               <Typography.Paragraph className="mb-20">
                 <ul className="m-0 list-none space-y-4 p-0">
                   <li>
@@ -58,39 +70,9 @@ export default function Index() {
                     và sống độc lập về sau.
                   </li>
                   <li>
-                    Theo số liệu thống kê của Mỹ, có tới 17% trẻ trong độ tuổi
-                    từ 3-17 có một hoặc nhiều khuyết tật phát triển và hành vi,
-                    như{' '}
-                    <a
-                      href="https://a365.vn/kien-thuc/bai-viet/gioi-thieu-bo-cong-cu-theo-doi-phat-trien-asq-3-df1c54e3f5"
-                      className="text-primary-color"
-                    >
-                      rối loạn phổ tự kỷ
-                    </a>{' '}
-                    ,{' '}
-                    <a
-                      href="https://a365.vn/kien-thuc/bai-viet/gioi-thieu-bo-cong-cu-theo-doi-phat-trien-asq-3-df1c54e3f5"
-                      className="text-primary-color"
-                    >
-                      khuyết tật trí tuệ
-                    </a>{' '}
-                    (còn được gọi là chậm phát triển trí tuệ) , khó khăn về học,
-                    <a
-                      href="https://a365.vn/kien-thuc/bai-viet/gioi-thieu-bo-cong-cu-theo-doi-phat-trien-asq-3-df1c54e3f5"
-                      className="text-primary-color"
-                    >
-                      tăng động giảm chú ý (ADHD)
-                    </a>{' '}
-                    . Bên cạnh đó, có nhiều trẻ có các rối loạn về phát triển về
-                    ngôn ngữ cũng như những lĩnh vực khác. Tuy nhiên, chưa đến
-                    một nửa những trẻ{' '}
-                    <a
-                      href="https://a365.vn/kien-thuc/bai-viet/gioi-thieu-bo-cong-cu-theo-doi-phat-trien-asq-3-df1c54e3f5"
-                      className="text-primary-color"
-                    >
-                      khuyết tật phát triển
-                    </a>{' '}
-                    này được phát hiện trước khi vào cấp 1.
+                    Hệ thống cung cấp những công cụ và những bài đánh giá chuyên
+                    môn giúp phụ huynh có định hướng cũng như cách thức quan
+                    sát, theo dõi những hoạt động con trẻ nhỏ.
                   </li>
                 </ul>
               </Typography.Paragraph>
