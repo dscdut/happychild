@@ -15,7 +15,7 @@ function CoursesDetail() {
         <Row gutter={[24, 0]}>
           <CourseHeader />
           <Col span={24} className="mt-5">
-            <Breadcrumb className="m-5 flex items-center text-base">
+            <Breadcrumb className="m-5 flex items-center text-lg">
               <Breadcrumb.Item>Trang Chủ</Breadcrumb.Item>
               <Breadcrumb.Item>
                 <Link to="/courses">Khóa Học</Link>

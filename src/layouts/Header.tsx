@@ -1,8 +1,9 @@
 import {
-  ContactsFilled,
-  HomeFilled,
-  ProfileFilled,
-  ReadFilled,
+  ContactsOutlined,
+  HomeOutlined,
+  ProfileOutlined,
+  ReadOutlined,
+  ScheduleOutlined,
   UsergroupAddOutlined,
   UserOutlined,
 } from '@ant-design/icons';
@@ -19,22 +20,22 @@ export function Header() {
     {
       title: 'Trang chủ',
       to: '/',
-      icon: <HomeFilled className="mr-2" />,
+      icon: <HomeOutlined className="mr-2" />,
     },
     {
       title: 'Đánh giá',
       to: '/assessment',
-      icon: <ProfileFilled className="mr-2" />,
+      icon: <ScheduleOutlined className="mr-2" />,
     },
     {
       title: 'Bài viết',
       to: '/blogs',
-      icon: <ProfileFilled className="mr-2" />,
+      icon: <ProfileOutlined className="mr-2" />,
     },
     {
       title: 'Khoá học',
       to: '/courses',
-      icon: <ReadFilled className="mr-2" />,
+      icon: <ReadOutlined className="mr-2" />,
     },
     {
       title: 'Liên hệ chuyên gia',
@@ -49,7 +50,7 @@ export function Header() {
     {
       title: 'Về chúng tôi',
       to: '/about-us',
-      icon: <ContactsFilled className="mr-2" />,
+      icon: <ContactsOutlined className="mr-2" />,
     },
     {
       render: () =>
@@ -78,7 +79,8 @@ export function Header() {
           preview={false}
           width={100}
           height={80}
-          className="object-contain"
+          className="cursor-pointer object-contain"
+          onClick={() => navigate('/')}
         />
       </div>
       <div className="flex items-center justify-center gap-10">

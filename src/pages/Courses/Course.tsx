@@ -86,14 +86,14 @@ function Course() {
                         }}
                         className="h-64 rounded-t-xl object-contain"
                       />
-                      <div className="absolute top-[230px] ml-4 flex items-end gap-4">
+                      <div className="absolute ml-4 mt-2 flex h-[300px] items-end gap-4">
                         <Avatar size={100} src={course.avatar} />
                         <div className="flex flex-col">
                           <Typography className="text-lg font-bold">
-                            {course.author}
+                            {course.title}
                           </Typography>
                           <Typography className="text-base">
-                            {course.email}
+                            {course.author}
                           </Typography>
                         </div>
                       </div>
@@ -102,27 +102,25 @@ function Course() {
                           span={24}
                           className="flex items-center justify-between"
                         >
-                          <Typography className="text-base">
-                            <CalendarOutlined className="mr-2" /> {course.date}
+                          <Typography className="text-lg">
+                            <CalendarOutlined className="mr-2 mt-5" />
+                            {course.date}
                           </Typography>
                           <Rate allowHalf disabled defaultValue={course.rate} />
                         </Col>
                         <Col span={24}>
-                          <Typography className="text-base">
+                          <Typography className="text-lg">
                             <FieldTimeOutlined className="mr-2" /> {course.time}
                           </Typography>
                         </Col>
                         <Col span={24}>
-                          <Typography.Title level={3} className="text-center">
-                            Khóa Học: {course.title}
-                          </Typography.Title>
                           <Paragraph
                             ellipsis={{
                               rows: 3,
                               expandable: false,
                               symbol: 'label.etc',
                             }}
-                            className="mb-2 text-base "
+                            className="mb-2 text-lg "
                           >
                             {course.description}
                           </Paragraph>

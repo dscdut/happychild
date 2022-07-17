@@ -10,6 +10,7 @@ import {
 } from 'antd';
 import { Dispatch, SetStateAction, useEffect, useState } from 'react';
 import { Question } from '#/shared/utils/localData';
+import { scrollToTop } from '#/shared/utils/tools';
 
 interface QuestionProps {
   onChange?: (value?: number) => void;
@@ -130,7 +131,10 @@ export default function QuestionsCard({
           <Button
             disabled={currentResults?.some(result => !result?.selected)}
             type="primary"
-            onClick={() => setCurrentTab(nextStageName)}
+            onClick={() => {
+              scrollToTop();
+              setCurrentTab(nextStageName);
+            }}
           >
             Tiếp theo
           </Button>
