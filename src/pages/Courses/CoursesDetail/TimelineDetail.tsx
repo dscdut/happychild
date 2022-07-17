@@ -7,33 +7,28 @@ function TimelineDetail() {
     <StyledCard>
       <Timeline>
         <Timeline.Item color="green">
-          Create a services site 2015-09-01
-        </Timeline.Item>
-        <Timeline.Item color="green">
-          Create a services site 2015-09-01
+          <p>Tổng Quan</p>
+          <p>
+            Khám phá sức khỏe tâm thần và hỗ trợ tâm lý xã hội (MHPSS) và các
+            chiến lược SEL
+          </p>
+          <p>Bạn sẽ bao gồm những chủ đề nào?</p>
+          <p>Tầm quan trọng của MHPSS / SEL trong Khủng hoảng</p>
+          <p>Sức khỏe trẻ em</p>
+          <p>Kiến thức và hoạt động SEL nhạy cảm với lứa tuổi</p>
         </Timeline.Item>
         <Timeline.Item color="red">
-          <p>Solve initial network problems 1</p>
-          <p>Solve initial network problems 2</p>
-          <p>Solve initial network problems 3 2015-09-01</p>
+          <p>Bắt Đầu</p>
+          <p>Khi nào bạn muốn bắt đầu?</p>
+          <p>Bạn sẽ đạt được gì?</p>
         </Timeline.Item>
         <Timeline.Item>
-          <p>Technical testing 1</p>
-          <p>Technical testing 2</p>
-          <p>Technical testing 3 2015-09-01</p>
-        </Timeline.Item>
-        <Timeline.Item color="gray">
-          <p>Technical testing 1</p>
-          <p>Technical testing 2</p>
-          <p>Technical testing 3 2015-09-01</p>
-        </Timeline.Item>
-        <Timeline.Item color="gray">
-          <p>Technical testing 1</p>
-          <p>Technical testing 2</p>
-          <p>Technical testing 3 2015-09-01</p>
+          <p>Yêu Cầu</p>
+          <p>Ai đã phát triển khóa học?</p>
+          <p>Bạn sẽ học với ai?</p>
         </Timeline.Item>
         <Timeline.Item color="#00CCFF" dot={<SmileOutlined />}>
-          <p>Custom color testing</p>
+          <p>Chứng Chỉ</p>
         </Timeline.Item>
       </Timeline>
     </StyledCard>

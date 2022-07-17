@@ -33,7 +33,7 @@ export default function Index() {
         </Typography.Title>
         <Divider />
         <StyledDiv className="flex">
-          <CourseStyledCard className="mx-2  h-fit w-1/3 bg-secondary-color p-4 text-base shadow-xl">
+          <CourseStyledCard className="mx-2  h-fit w-1/3 bg-secondary-color p-4 text-lg shadow-xl">
             <div className="flex items-center justify-between px-6">
               <Typography.Text className="py-4 text-lg font-bold text-surface-primary">
                 Theo dõi phát triển
@@ -93,7 +93,7 @@ export default function Index() {
               </Button>
             </div>
           </CourseStyledCard>
-          <CourseStyledCard className="mx-2  h-fit w-1/3 bg-secondary-color p-4 text-base shadow-xl">
+          <CourseStyledCard className="mx-2  h-fit w-1/3 bg-secondary-color p-4 text-lg shadow-xl">
             <div className="flex items-center justify-between px-6">
               <Typography.Text className="py-4 text-lg font-bold text-surface-primary">
                 Theo dõi phát triển
@@ -153,7 +153,7 @@ export default function Index() {
               </Button>
             </div>
           </CourseStyledCard>
-          <CourseStyledCard className="mx-2  h-fit w-1/3 bg-secondary-color p-4 text-base shadow-xl">
+          <CourseStyledCard className="mx-2  h-fit w-1/3 bg-secondary-color p-4 text-lg shadow-xl">
             <div className="flex items-center justify-between px-6">
               <Typography.Text className="py-4 text-lg font-bold text-surface-primary">
                 Theo dõi phát triển
