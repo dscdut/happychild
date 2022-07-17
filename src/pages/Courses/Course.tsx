@@ -92,9 +92,6 @@ function Course() {
                           <Typography className="text-lg font-bold">
                             {course.author}
                           </Typography>
-                          <Typography className="text-base">
-                            {course.email}
-                          </Typography>
                         </div>
                       </div>
                       <Row className="mt-12 p-4" gutter={[16, 16]}>
@@ -102,27 +99,25 @@ function Course() {
                           span={24}
                           className="flex items-center justify-between"
                         >
-                          <Typography className="text-base">
-                            <CalendarOutlined className="mr-2" /> {course.date}
+                          <Typography className="text-lg">
+                            <CalendarOutlined className="mr-2 mt-5" />
+                            {course.date}
                           </Typography>
                           <Rate allowHalf disabled defaultValue={course.rate} />
                         </Col>
                         <Col span={24}>
-                          <Typography className="text-base">
+                          <Typography className="text-lg">
                             <FieldTimeOutlined className="mr-2" /> {course.time}
                           </Typography>
                         </Col>
                         <Col span={24}>
-                          <Typography.Title level={3} className="text-center">
-                            Khóa Học: {course.title}
-                          </Typography.Title>
                           <Paragraph
                             ellipsis={{
                               rows: 3,
                               expandable: false,
                               symbol: 'label.etc',
                             }}
-                            className="mb-2 text-base "
+                            className="mb-2 text-lg "
                           >
                             {course.description}
                           </Paragraph>

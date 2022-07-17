@@ -15,10 +15,10 @@ function CourseHeader() {
       <div className="flex flex-wrap items-center justify-between px-20 py-12">
         <div className="w-1/2 ">
           <Title level={1} className="m-0 text-color-gray-60">
-            Everyday Parenting: The ABCs of Child Rearing
+            Good Practice in Autism Education
           </Title>
           <div className="mb-10 flex items-center">
-            <Rate allowHalf defaultValue={2.5} className="mb-1 mr-2" />
+            <Rate allowHalf defaultValue={4} className="mb-1 mr-2" />
             <Text className="m-0 inline-block text-2xl font-bold text-primary-color-dark">
               4.8
             </Text>
@@ -38,7 +38,7 @@ function CourseHeader() {
                   <Text className="block text-color-gray-60">
                     {AuthorList[0].work}
                   </Text>
-                  <Text className="text-base font-normal text-color-accent-blue">
+                  <Text className="text-lg font-normal text-color-accent-blue">
                     {`${'105,291'}`} recent views
                   </Text>
                 </div>
