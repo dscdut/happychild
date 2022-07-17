@@ -12,6 +12,7 @@ const CoursesDetail = loadable(
   import('#/pages/Courses/CoursesDetail/CoursesDetail'),
 );
 const AssessmentForm = loadable(import('#/pages/Assessment/Form'));
+const ComingSoon = loadable(import('#/pages/ComingSoon'));
 
 function PrivateRoute() {
   const routes = useRoutes([
@@ -54,7 +55,7 @@ function PrivateRoute() {
         },
       ],
     },
-    { path: '*', element: <p>Not Found</p> },
+    { path: '*', element: <ComingSoon /> },
   ]);
 
   return routes;

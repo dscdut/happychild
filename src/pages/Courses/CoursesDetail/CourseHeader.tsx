@@ -18,13 +18,16 @@ function CourseHeader() {
             Good Practice in Autism Education
           </Title>
           <div className="mb-10 flex items-center">
-            <Rate allowHalf defaultValue={4} className="mb-1 mr-2" />
-            <Text className="m-0 inline-block text-2xl font-bold text-primary-color-dark">
+            <Rate allowHalf disabled defaultValue={2.5} className="mb-1 mr-2" />
+            <Text className="m-0 inline-block text-2xl font-bold text-primary-color-light-10">
               4.8
             </Text>
           </div>
           <Row className="flex items-center">
-            <Card className="ml-5 border-color-accent-sky bg-secondary-color">
+            <Card
+              bordered={false}
+              className="ml-5 bg-secondary-color shadow-xl"
+            >
               <div className="mb-5 flex">
                 <Avatar
                   size={100}
@@ -38,14 +41,12 @@ function CourseHeader() {
                   <Text className="block text-color-gray-60">
                     {AuthorList[0].work}
                   </Text>
-                  <Text className="text-lg font-normal text-color-accent-blue">
-                    {`${'105,291'}`} recent views
+                  <Text className="text-base font-normal text-[white]">
+                    {`${'105,291'}`} recent registration
                   </Text>
                 </div>
               </div>
-              <Button className="w-full bg-color-accent-sky  hover:bg-primary-color hover:text-color-gray-10">
-                Tìm hiểu thêm
-              </Button>
+              <Button block>Tìm hiểu thêm</Button>
             </Card>
           </Row>
         </div>

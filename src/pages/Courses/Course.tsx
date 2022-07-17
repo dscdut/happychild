@@ -86,10 +86,13 @@ function Course() {
                         }}
                         className="h-64 rounded-t-xl object-contain"
                       />
-                      <div className="absolute top-[230px] ml-4 flex items-end gap-4">
+                      <div className="absolute ml-4 mt-2 flex h-[300px] items-end gap-4">
                         <Avatar size={100} src={course.avatar} />
                         <div className="flex flex-col">
                           <Typography className="text-lg font-bold">
+                            {course.title}
+                          </Typography>
+                          <Typography className="text-base">
                             {course.author}
                           </Typography>
                         </div>

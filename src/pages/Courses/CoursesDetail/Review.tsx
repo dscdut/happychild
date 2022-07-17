@@ -1,5 +1,5 @@
 import { LeftOutlined, RightOutlined } from '@ant-design/icons';
-import { Col, Image, Rate, Row, Typography } from 'antd';
+import { Col, Rate, Row, Typography, Image } from 'antd';
 import Carousel, { CarouselRef } from 'antd/lib/carousel';
 import { useRef } from 'react';
 
