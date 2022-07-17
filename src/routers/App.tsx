@@ -15,6 +15,7 @@ const CoursesDetail = loadable(
   import('#/pages/Courses/CoursesDetail/CoursesDetail'),
 );
 const Assessment = loadable(import('#/pages/Assessment'));
+const Community = loadable(import('#/pages/Community'));
 const ContactSpecialist = loadable(import('#/pages/ContactSpecialists'));
 
 function App() {
@@ -39,6 +40,10 @@ function App() {
     {
       path: 'assessment',
       element: <Assessment />,
+    },
+    {
+      path: 'community',
+      element: <Community />,
     },
     {
       path: 'courses',
