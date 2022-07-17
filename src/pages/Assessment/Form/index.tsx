@@ -1,4 +1,3 @@
-import { RightOutlined } from '@ant-design/icons';
 import {
   Button,
   Card,
@@ -11,6 +10,7 @@ import {
   Image,
   Radio,
 } from 'antd';
+import { RightOutlined } from '@ant-design/icons';
 import { useNavigate } from 'react-router-dom';
 import styled from '@emotion/styled';
 import { Store } from 'antd/lib/form/interface';
