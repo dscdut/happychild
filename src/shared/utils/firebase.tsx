@@ -2,13 +2,14 @@ import { initializeApp, FirebaseOptions } from 'firebase/app';
 import { getDatabase } from 'firebase/database';
 
 const firebaseConfig: FirebaseOptions = {
-  apiKey: 'AIzaSyDcxUIX65MB8oUgnjH4aHwQJuE7vCcbtcM',
-  authDomain: 'chemical-equation-2ada6.firebaseapp.com',
-  projectId: 'chemical-equation-2ada6',
-  storageBucket: 'chemical-equation-2ada6.appspot.com',
-  messagingSenderId: '271204846946',
-  appId: '1:271204846946:web:64b9099fa1c1f73df0303b',
-  databaseURL: 'https://chemical-equation-2ada6-default-rtdb.firebaseio.com/',
+  apiKey: 'AIzaSyCl1xM5PryrwJzYveYxexoa9mPyj1P7URU',
+  authDomain: 'gdsc-happychild.firebaseapp.com',
+  databaseURL: 'https://gdsc-happychild-default-rtdb.firebaseio.com',
+  projectId: 'gdsc-happychild',
+  storageBucket: 'gdsc-happychild.appspot.com',
+  messagingSenderId: '1093276526033',
+  appId: '1:1093276526033:web:216b59b211983fa85becf0',
+  measurementId: 'G-LK1BRHPMXD',
 };
 
 const app = initializeApp(firebaseConfig);
