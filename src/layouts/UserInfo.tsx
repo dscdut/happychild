@@ -7,7 +7,8 @@ import {
   UserOutlined,
 } from '@ant-design/icons';
 import { useNavigate } from 'react-router-dom';
-import UserImage from '#/assets/images/user.png';
+import { signOut } from 'firebase/auth';
+import { auth } from '../shared/utils/firebase';
 
 type MenuType = {
   key: string | number;
@@ -45,16 +46,27 @@ const menus: MenuType[] = [
 export default function UserInfo() {
   const navigate = useNavigate();
 
-  const logout = () => {
-    localStorage?.removeItem('unihack-access-token');
+  /*
+   * const logout = () => {
+   *   localStorage?.removeItem('unihack-access-token');
+   *   navigate('/sign-in');
+   * };
+   */
+
+  const user = auth.currentUser;
+
+  const logout = async () => {
+    await signOut(auth);
     navigate('/sign-in');
   };
 
   return (
     <div className="flex items-center gap-2">
-      <Avatar size={60} src={UserImage} />
+      <Avatar size={60} src={user?.photoURL} />
       <div className="flex flex-col items-end justify-end gap-2">
-        <Typography className="text-sm">Xin chào, Minh Nguyen</Typography>
+        <Typography className="text-sm">
+          Xin chào, {user?.displayName || 'Khách'}
+        </Typography>
         <Dropdown
           overlay={
             <Menu

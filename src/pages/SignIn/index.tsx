@@ -10,14 +10,36 @@ import {
 } from 'antd';
 import { useNavigate } from 'react-router-dom';
 import { FacebookFilled, GoogleOutlined } from '@ant-design/icons';
+import { onAuthStateChanged, signInWithPopup } from 'firebase/auth';
+import { auth, googleProvider } from '../../shared/utils/firebase';
 import LoginImage from '#/assets/images/login.jpg';
 
 export default function SignInPage() {
   const navigate = useNavigate();
 
+  onAuthStateChanged(auth, currUser => {
+    if (currUser) {
+      navigate('/');
+    }
+  });
+
   const onSubmit = () => {
-    localStorage?.setItem('unihack-access-token', 'granted');
-    navigate('/');
+    /*
+     * localStorage?.setItem('unihack-access-token', 'granted');
+     * navigate('/');
+     */
+  };
+
+  const loginWithGoogleAccount = async () => {
+    try {
+      if (!auth.currentUser) {
+        await signInWithPopup(auth, googleProvider);
+        navigate('/');
+      }
+      navigate('/');
+    } catch (error) {
+      navigate('/sign-in');
+    }
   };
 
   return (
@@ -74,7 +96,11 @@ export default function SignInPage() {
               </Button>
             </Col>
             <Col span={24}>
-              <Button block className="bg-[white] text-[black]">
+              <Button
+                block
+                className="bg-[white] text-[black]"
+                onClick={loginWithGoogleAccount}
+              >
                 Đăng nhập với Google
                 <GoogleOutlined className="text-error-color" />
               </Button>
