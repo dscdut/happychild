@@ -9,6 +9,7 @@ import {
 import { useNavigate } from 'react-router-dom';
 import { signOut } from 'firebase/auth';
 import { auth } from '../shared/utils/firebase';
+import UserImage from '#/assets/images/user.png';
 
 type MenuType = {
   key: string | number;
@@ -46,13 +47,6 @@ const menus: MenuType[] = [
 export default function UserInfo() {
   const navigate = useNavigate();
 
-  /*
-   * const logout = () => {
-   *   localStorage?.removeItem('unihack-access-token');
-   *   navigate('/sign-in');
-   * };
-   */
-
   const user = auth.currentUser;
 
   const logout = async () => {
@@ -62,10 +56,10 @@ export default function UserInfo() {
 
   return (
     <div className="flex items-center gap-2">
-      <Avatar size={60} src={user?.photoURL} />
+      <Avatar size={60} src={user?.photoURL || UserImage} />
       <div className="flex flex-col items-end justify-end gap-2">
         <Typography className="text-sm">
-          Xin chào, {user?.displayName || 'Khách'}
+          Xin chào, {user?.displayName || user?.email || 'Khách'}
         </Typography>
         <Dropdown
           overlay={
