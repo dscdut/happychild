@@ -1,6 +1,7 @@
 import { useEffect, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { Loading } from '#/shared/utils/loadable';
+import { auth } from '#/shared/utils/firebase';
 
 interface Props {
   isPrivate?: boolean;
@@ -13,13 +14,13 @@ function GuardRoute({ isPrivate = false, children }: Props) {
   useEffect(() => {
     (async () => {
       setLoading(true);
-      const accessToken = localStorage?.getItem('unihack-access-token');
-      if (!accessToken && isPrivate) {
-        navigate('/login', {
+      const user = await auth?.currentUser;
+      if (!user && isPrivate) {
+        navigate('/sign-in', {
           replace: true,
         });
       }
-      if (accessToken && !isPrivate) {
+      if (user && !isPrivate) {
         navigate('/', {
           replace: true,
         });

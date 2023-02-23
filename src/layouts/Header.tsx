@@ -9,12 +9,28 @@ import {
 } from '@ant-design/icons';
 import { Button, Typography, Image } from 'antd';
 import { Link, useLocation, useNavigate } from 'react-router-dom';
+import { onAuthStateChanged } from 'firebase/auth';
+import { useEffect, useState } from 'react';
+import { auth } from '../shared/utils/firebase';
 import UserInfo from './UserInfo';
 import HappyChild from '#/assets/images/happychild.jpg';
 
 export function Header() {
   const { pathname } = useLocation();
   const navigate = useNavigate();
+  const [loggedIn, setLoggedIn] = useState(false);
+
+  const setAuth = () => {
+    onAuthStateChanged(auth, user => {
+      if (user) {
+        setLoggedIn(true);
+      }
+    });
+  };
+
+  useEffect(() => {
+    setAuth();
+  }, []);
 
   const MENU_ITEMS = [
     {
@@ -54,7 +70,7 @@ export function Header() {
     },
     {
       render: () =>
-        localStorage?.getItem('unihack-access-token') ? (
+        loggedIn && auth.currentUser ? (
           <UserInfo />
         ) : (
           <div className="flex items-center gap-4">

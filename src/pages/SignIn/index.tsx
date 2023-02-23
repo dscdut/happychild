@@ -10,18 +10,51 @@ import {
 } from 'antd';
 import { useNavigate } from 'react-router-dom';
 import { FacebookFilled, GoogleOutlined } from '@ant-design/icons';
+import {
+  onAuthStateChanged,
+  signInWithEmailAndPassword,
+  signInWithPopup,
+} from 'firebase/auth';
+import { useState } from 'react';
+import { auth, googleProvider } from '../../shared/utils/firebase';
 import LoginImage from '#/assets/images/login.jpg';
 
 export default function SignInPage() {
   const navigate = useNavigate();
+  const [email, setEmail] = useState('');
+  const [password, setPassword] = useState('');
 
-  const onSubmit = () => {
-    localStorage?.setItem('unihack-access-token', 'granted');
-    navigate('/');
+  onAuthStateChanged(auth, currUser => {
+    if (currUser) {
+      navigate('/');
+    }
+  });
+
+  const loginWithEmailAndPassword = async () => {
+    try {
+      if (!auth.currentUser) {
+        await signInWithEmailAndPassword(auth, email, password);
+        navigate('/');
+      }
+    } catch (error) {
+      navigate('/sign-in');
+    }
+  };
+
+  const loginWithGoogleAccount = async () => {
+    try {
+      if (!auth.currentUser) {
+        await signInWithPopup(auth, googleProvider);
+        navigate('/');
+      }
+      navigate('/');
+    } catch (error) {
+      navigate('/sign-in');
+    }
   };
 
   return (
-    <Form className="flex items-center" onFinish={onSubmit} layout="vertical">
+    <Form className="flex items-center" layout="vertical">
       <Row className="w-full rounded-xl shadow-2xl" align="middle">
         <Col span={14} className="flex items-center justify-center">
           <Image
@@ -41,13 +74,23 @@ export default function SignInPage() {
             <Col span={24} className="mt-2 flex flex-col gap-2">
               <Typography className="text-base">Email:</Typography>
               <Form.Item noStyle>
-                <Input placeholder="Nhập email" />
+                <Input
+                  placeholder="Nhập email"
+                  onChange={e => {
+                    setEmail(e.target.value);
+                  }}
+                />
               </Form.Item>
             </Col>
             <Col span={24} className="mb-4 flex flex-col gap-2">
               <Typography className="text-base">Mật khẩu:</Typography>
               <Form.Item noStyle>
-                <Input.Password placeholder="Nhập mật khẩu" />
+                <Input.Password
+                  placeholder="Nhập mật khẩu"
+                  onChange={e => {
+                    setPassword(e.target.value);
+                  }}
+                />
               </Form.Item>
             </Col>
             <Col span={24} className="flex items-center justify-between">
@@ -60,7 +103,12 @@ export default function SignInPage() {
               </div>
             </Col>
             <Col span={24}>
-              <Button type="primary" block htmlType="submit">
+              <Button
+                type="primary"
+                block
+                htmlType="button"
+                onClick={loginWithEmailAndPassword}
+              >
                 Đăng nhập
               </Button>
             </Col>
@@ -74,7 +122,11 @@ export default function SignInPage() {
               </Button>
             </Col>
             <Col span={24}>
-              <Button block className="bg-[white] text-[black]">
+              <Button
+                block
+                className="bg-[white] text-[black]"
+                onClick={loginWithGoogleAccount}
+              >
                 Đăng nhập với Google
                 <GoogleOutlined className="text-error-color" />
               </Button>
