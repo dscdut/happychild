@@ -76,6 +76,10 @@ export default function SignInPage() {
               <Typography className="flex justify-center text-3xl font-bold text-primary-color">
                 ĐĂNG NHẬP
               </Typography>
+              <Typography className="flex justify-center text-base text-secondary-color">
+                Bạn chưa có tài khoản ?&nbsp;
+                <Typography.Link href="/sign-up">Đăng ký</Typography.Link>
+              </Typography>
               <Typography.Text type="danger" className="flex justify-center">
                 {errorMessage}
               </Typography.Text>
