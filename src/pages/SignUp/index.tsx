@@ -11,7 +11,7 @@ import {
   Checkbox,
 } from 'antd';
 import { useNavigate } from 'react-router-dom';
-import { createUserWithEmailAndPassword } from 'firebase/auth';
+import { createUserWithEmailAndPassword, updateProfile } from 'firebase/auth';
 import { useState } from 'react';
 import { auth } from '../../shared/utils/firebase';
 import SignUp from '#/assets/images/signup.jpg';
@@ -21,15 +21,22 @@ export default function SignUpPage() {
   const navigate = useNavigate();
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
+  const [fullName, setFullName] = useState('');
 
   const onSubmit = async () => {
-    console.log('user created');
     try {
-      await createUserWithEmailAndPassword(auth, email, password);
+      await createUserWithEmailAndPassword(auth, email, password).then(
+        async userCredential => {
+          await updateProfile(userCredential.user, {
+            displayName: fullName,
+          });
 
-      navigate('/');
+          navigate('/');
+        },
+      );
     } catch (error) {
       console.log(error);
+
       navigate('/sign-up');
     }
   };
@@ -69,7 +76,12 @@ export default function SignUpPage() {
                 ]}
                 style={{ marginBottom: 0 }}
               >
-                <Input placeholder="Nhập tên của bạn" />
+                <Input
+                  placeholder="Nhập tên của bạn"
+                  onChange={e => {
+                    setFullName(e.target.value);
+                  }}
+                />
               </Form.Item>
             </Col>
             <Col span={24} className="flex flex-col gap-2">
