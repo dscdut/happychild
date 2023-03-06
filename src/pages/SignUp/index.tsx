@@ -6,23 +6,32 @@ import {
   Typography,
   Row,
   Col,
-  Select,
   InputNumber,
-  Avatar,
   Radio,
   Checkbox,
 } from 'antd';
 import { useNavigate } from 'react-router-dom';
+import { createUserWithEmailAndPassword } from 'firebase/auth';
+import { useState } from 'react';
+import { auth } from '../../shared/utils/firebase';
 import SignUp from '#/assets/images/signup.jpg';
-import UserImage from '#/assets/images/avatar.png';
 import { DatePicker } from '#/shared/components/DatePicker';
 
 export default function SignUpPage() {
   const navigate = useNavigate();
+  const [email, setEmail] = useState('');
+  const [password, setPassword] = useState('');
 
-  const onSubmit = () => {
-    localStorage?.setItem('unihack-access-token', 'granted');
-    navigate('/');
+  const onSubmit = async () => {
+    console.log('user created');
+    try {
+      await createUserWithEmailAndPassword(auth, email, password);
+
+      navigate('/');
+    } catch (error) {
+      console.log(error);
+      navigate('/sign-up');
+    }
   };
 
   return (
@@ -43,34 +52,106 @@ export default function SignUpPage() {
                 ĐĂNG KÝ
               </Typography>
             </Col>
-            <Col
-              span={24}
-              className="flex flex-col items-center justify-center"
-            >
-              <Avatar size={90} src={UserImage} />
-              <Typography>Chọn ảnh đại diện</Typography>
-            </Col>
             <Col span={24} className="flex flex-col gap-2">
-              <Typography className="text-base">Họ và Tên:</Typography>
-              <Form.Item noStyle>
+              <Typography className="text-base">
+                <span style={{ color: 'red' }} className="mr-1">
+                  *
+                </span>
+                Họ và Tên:
+              </Typography>
+              <Form.Item
+                name="fullName"
+                rules={[
+                  {
+                    required: true,
+                    message: 'Vui lòng nhập họ và tên của bạn',
+                  },
+                ]}
+                style={{ marginBottom: 0 }}
+              >
                 <Input placeholder="Nhập tên của bạn" />
               </Form.Item>
             </Col>
             <Col span={24} className="flex flex-col gap-2">
-              <Typography className="text-base">Mật khẩu</Typography>
-              <Form.Item noStyle>
-                <Input.Password placeholder="Nhập mật khẩu" />
+              <Typography className="text-base">
+                <span style={{ color: 'red' }} className="mr-1">
+                  *
+                </span>
+                Email:
+              </Typography>
+              <Form.Item
+                name="email"
+                rules={[
+                  {
+                    required: true,
+                    message: 'Vui lòng nhập email của bạn',
+                  },
+                  {
+                    type: 'email',
+                    message: 'Email không hợp lệ',
+                  },
+                ]}
+                style={{ marginBottom: 0 }}
+              >
+                <Input
+                  placeholder="Nhập email của bạn"
+                  onChange={e => {
+                    setEmail(e.target.value);
+                  }}
+                />
               </Form.Item>
             </Col>
             <Col span={24} className="flex flex-col gap-2">
-              <Typography className="text-base">Email:</Typography>
-              <Form.Item noStyle>
-                <Input placeholder="Nhập email của bạn" />
+              <Typography className="text-base">
+                <span style={{ color: 'red' }} className="mr-1">
+                  *
+                </span>
+                Mật khẩu
+              </Typography>
+              <Form.Item
+                name="password"
+                rules={[
+                  {
+                    required: true,
+                    message: 'Vui lòng nhập mật khẩu của bạn',
+                  },
+                  {
+                    min: 8,
+                    message: 'Mật khẩu phải có ít nhất 8 ký tự',
+                  },
+                  {
+                    pattern: /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)[a-zA-Z\d]{8,}$/,
+                    message:
+                      'Mật khẩu phải có ít nhất 1 chữ hoa, 1 chữ thường và 1 số',
+                  },
+                ]}
+                style={{ marginBottom: 0 }}
+              >
+                <Input.Password
+                  placeholder="Nhập mật khẩu"
+                  onChange={e => {
+                    setPassword(e.target.value);
+                  }}
+                />
               </Form.Item>
             </Col>
             <Col span={24} className="flex flex-col justify-start gap-2">
-              <Typography className="text-base">Giới tính:</Typography>
-              <Form.Item noStyle>
+              <Typography className="text-base">
+                <span style={{ color: 'red' }} className="mr-1">
+                  *
+                </span>
+                Giới tính:
+              </Typography>
+              <Form.Item
+                name="gender"
+                rules={[
+                  {
+                    required: true,
+                    message: 'Vui lòng chọn giới tính của bạn',
+                  },
+                ]}
+                style={{ marginBottom: 0 }}
+              >
                 <Radio.Group>
                   <Row align="middle" gutter={[16, 16]}>
                     <Col>
@@ -88,12 +169,6 @@ export default function SignUpPage() {
             </Col>
             <Col span={24} className="flex flex-col gap-2">
               <Row gutter={[16, 16]}>
-                <Col span={8}>
-                  <Typography className="text-base">Quốc gia:</Typography>
-                  <Form.Item noStyle>
-                    <Select placeholder="Chọn quốc gia" className="w-full" />
-                  </Form.Item>
-                </Col>
                 <Col span={16}>
                   <Typography className="text-base">Địa chỉ:</Typography>
                   <Form.Item noStyle>
@@ -105,14 +180,50 @@ export default function SignUpPage() {
             <Col span={24} className="flex flex-col gap-2">
               <Row gutter={[16, 16]}>
                 <Col span={12}>
-                  <Typography className="text-base">Số điện thoại:</Typography>
-                  <Form.Item noStyle>
+                  <Typography className="text-base">
+                    <span style={{ color: 'red' }} className="mr-1">
+                      *
+                    </span>
+                    Số điện thoại:
+                  </Typography>
+                  <Form.Item
+                    name="address"
+                    rules={[
+                      {
+                        required: true,
+                        message: 'Vui lòng nhập số điện thoại của bạn',
+                      },
+                      {
+                        pattern: /^0[0-9]{9,10}$/,
+                        message: 'Số điện thoại không hợp lệ',
+                      },
+                    ]}
+                    style={{ marginBottom: 0 }}
+                  >
                     <Input placeholder="Nhập số điện thoại" />
                   </Form.Item>
                 </Col>
                 <Col span={12}>
-                  <Typography className="text-base">CMND / CCCD:</Typography>
-                  <Form.Item noStyle>
+                  <Typography className="text-base">
+                    <span style={{ color: 'red' }} className="mr-1">
+                      *
+                    </span>
+                    CMND / CCCD:
+                  </Typography>
+                  <Form.Item
+                    name="citizenId"
+                    rules={[
+                      {
+                        required: true,
+                        message: 'Vui lòng nhập số CMND / CCCD của bạn',
+                      },
+                      {
+                        pattern: /^[0-9]{9,12}$/,
+                        message: 'Số CMND / CCCD không hợp lệ',
+                      },
+                    ]}
+                    style={{ marginBottom: 0 }}
+                  >
                     <InputNumber
                       className="w-full"
                       placeholder="Nhập CCCD / CMND"
@@ -122,8 +233,22 @@ export default function SignUpPage() {
               </Row>
             </Col>
             <Col span={24} className="flex flex-col gap-2">
-              <Typography className="text-base">Ngày sinh:</Typography>
-              <Form.Item noStyle>
+              <Typography className="text-base">
+                <span style={{ color: 'red' }} className="mr-1">
+                  *
+                </span>
+                Ngày sinh:
+              </Typography>
+              <Form.Item
+                name="birthday"
+                rules={[
+                  {
+                    required: true,
+                    message: 'Vui lòng chọn ngày sinh của bạn',
+                  },
+                ]}
+                style={{ marginBottom: 0 }}
+              >
                 <DatePicker className="w-full" placeholder="Chọn ngày sinh" />
               </Form.Item>
             </Col>
@@ -136,16 +261,16 @@ export default function SignUpPage() {
                 <Checkbox.Group>
                   <Row align="middle" gutter={[16, 16]}>
                     <Col>
-                      <Checkbox value="male">Mạng xã hội</Checkbox>
+                      <Checkbox value="social">Mạng xã hội</Checkbox>
                     </Col>
                     <Col>
-                      <Checkbox value="female">Báo chí, tin tức</Checkbox>
+                      <Checkbox value="news">Báo chí, tin tức</Checkbox>
                     </Col>
                     <Col>
-                      <Checkbox value="female">Quảng cáo</Checkbox>
+                      <Checkbox value="advertisement">Quảng cáo</Checkbox>
                     </Col>
                     <Col>
-                      <Checkbox value="other">Người thân</Checkbox>
+                      <Checkbox value="relationship">Người thân</Checkbox>
                     </Col>
                   </Row>
                 </Checkbox.Group>
