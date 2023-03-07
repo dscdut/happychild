@@ -9,7 +9,7 @@ import {
   Checkbox,
 } from 'antd';
 import { useNavigate } from 'react-router-dom';
-import { FacebookFilled, GoogleOutlined } from '@ant-design/icons';
+import { GoogleOutlined } from '@ant-design/icons';
 import {
   onAuthStateChanged,
   signInWithEmailAndPassword,
@@ -23,6 +23,7 @@ export default function SignInPage() {
   const navigate = useNavigate();
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
+  const [errorMessage, setErrorMessage] = useState('');
 
   onAuthStateChanged(auth, currUser => {
     if (currUser) {
@@ -33,8 +34,13 @@ export default function SignInPage() {
   const loginWithEmailAndPassword = async () => {
     try {
       if (!auth.currentUser) {
-        await signInWithEmailAndPassword(auth, email, password);
-        navigate('/');
+        await signInWithEmailAndPassword(auth, email, password)
+          .then(() => {
+            navigate('/');
+          })
+          .catch(() => {
+            setErrorMessage('Email hoặc mật khẩu không chính xác');
+          });
       }
     } catch (error) {
       navigate('/sign-in');
@@ -70,6 +76,13 @@ export default function SignInPage() {
               <Typography className="flex justify-center text-3xl font-bold text-primary-color">
                 ĐĂNG NHẬP
               </Typography>
+              <Typography className="flex justify-center text-base text-secondary-color">
+                Bạn chưa có tài khoản ?&nbsp;
+                <Typography.Link href="/sign-up">Đăng ký</Typography.Link>
+              </Typography>
+              <Typography.Text type="danger" className="flex justify-center">
+                {errorMessage}
+              </Typography.Text>
             </Col>
             <Col span={24} className="mt-2 flex flex-col gap-2">
               <Typography className="text-base">Email:</Typography>
@@ -110,15 +123,6 @@ export default function SignInPage() {
                 onClick={loginWithEmailAndPassword}
               >
                 Đăng nhập
-              </Button>
-            </Col>
-            <Col span={24}>
-              <Button
-                type="primary"
-                block
-                className="border-none bg-color-accent-blue"
-              >
-                Đăng nhập với Facebook <FacebookFilled />
               </Button>
             </Col>
             <Col span={24}>
