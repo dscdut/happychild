@@ -695,15 +695,15 @@ export default function Result() {
             </Col>
             <Col span={24} className=" mb-16">
               <Typography.Text className="text-gray text-lg">
-                Nếu có vấn đề gì thắc mắc gia đình có thể liên hệ trực tiếp với
-                các chuyên gia thông qua &nbsp;
+                If there are any concerns or queries, the family may directly
+                contact the experts through &nbsp;
                 <span
                   onClick={() => {
                     navigate('/contact-specialists');
                   }}
                   className="cursor-pointer font-semibold text-primary-color"
                 >
-                  đường link này
+                  this link
                 </span>{' '}
                 &nbsp; .
               </Typography.Text>
