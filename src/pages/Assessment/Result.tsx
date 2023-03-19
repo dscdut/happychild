@@ -47,38 +47,40 @@ export default function Result() {
           <Row className="flex items-center justify-center">
             <Col span={24} className="flex items-center justify-center">
               <Typography.Text className="m-4 text-2xl font-semibold text-primary-color">
-                Kết quả bài sàng lọc đánh giá phát triển theo độ tuổi - ASQ®-3
+                Results of the screening test to assess development by age-
+                ASQ®-3
               </Typography.Text>
             </Col>
             <Typography.Text className="text-gray mb-12 text-lg font-semibold text-color-gray-40">
-              (Bộ câu hỏi Ba mươi sáu tháng tuổi)
+              (Thirty-six month old questionnaire)
             </Typography.Text>
           </Row>
           <Typography.Text className="text-gray flex justify-start text-lg font-semibold text-primary-color">
-            1. Thông tin chung
+            1. General information
           </Typography.Text>
           <div className="flex flex-row justify-between space-x-8 px-12 py-8">
             <Card style={{ width: 300 }} className="flex justify-center">
               <p>
-                Tên trẻ:{' '}
+                The child's full name:{' '}
                 <span className="font-semibold">{childInformation.name}</span>
               </p>
               <p>
-                Mã trẻ: <span className="font-semibold">A0400033570001</span>
+                Child's code:{' '}
+                <span className="font-semibold">A0400033570001</span>
               </p>
               <p>
-                Ngày sinh của trẻ:{' '}
+                Child's date of birth:{' '}
                 <span className="font-semibold">5-7-2019</span>
               </p>
               <p>
-                SDT người trả lời:{' '}
+                Answerer's phone number:{' '}
                 <span className="font-semibold">
                   {childInformation.phoneNumber}
                 </span>
               </p>
               <p>
                 {' '}
-                Ngày trả lời:{' '}
+                Reply date:{' '}
                 <span className="font-semibold">
                   {dayjs(date).format('DD MMM YYYY, hh:mm')}
                 </span>
@@ -88,37 +90,37 @@ export default function Result() {
               <p className="flex flex-row items-center text-3xl text-error-color">
                 <FrownOutlined />
                 <Typography.Text className="text-gray ml-4 flex justify-start text-lg text-color-gray-30">
-                  Vùng điểm thể hiện trẻ đang gặp khó khăn
+                  The point area shows that the child is having difficulty.
                 </Typography.Text>
               </p>
               <p className="flex flex-row items-center text-3xl text-color-dark-mode-40">
                 <MehOutlined />
                 <Typography.Text className="text-gray ml-4 flex justify-start text-lg text-color-gray-30">
-                  Vùng điểm thể hiện trẻ cần được theo dõi thêm và làm sàng lọc
-                  lại do một số kỹ năng chưa thành thục
+                  The score area shows that the child needs further monitoring
+                  and re-screening due to some immature skills.
                 </Typography.Text>
               </p>
               <p className="flex items-center text-3xl text-primary-color">
                 <SmileOutlined />
                 <Typography.Text className="text-gray  ml-4 flex justify-start text-lg text-color-gray-30">
-                  Vùng điểm thể hiện trẻ có sự phát triển bình thường
+                  The score area shows that the child has normal development.
                 </Typography.Text>
               </p>
             </Card>
           </div>
           <div>
             <Typography.Text className="text-gray mb-4 flex justify-start text-lg font-semibold text-primary-color ">
-              2. Điểm của trẻ sau khi làm bài sàng lọc
+              2. The child's score after taking the screening test:
             </Typography.Text>
             <Row className="m-4 flex justify-start">
               <Col span={4}>
                 <Typography.Text className="text-gray flex justify-start text-lg text-color-gray-30">
-                  Lĩnh vực
+                  Field
                 </Typography.Text>
               </Col>
               <Col span={6}>
                 <Typography.Text className="text-gray flex justify-start text-lg text-color-gray-30">
-                  Điểm của trẻ
+                  Child's score
                 </Typography.Text>
               </Col>
               <Col span={4}>
@@ -199,180 +201,182 @@ export default function Result() {
           </div>
           <div>
             <Typography.Text className="text-gray mb-4 flex justify-start text-lg font-semibold text-primary-color ">
-              3. Kết quả và đánh giá
+              3. Results and reviews:
             </Typography.Text>
             <div className="flex flex-row space-x-8">
               <Card style={{ width: 450 }}>
                 <p className="text-gray text-lg">
-                  Tổng điểm <span className="font-semibold">{totalResult}</span>{' '}
-                  {' - '}
+                  Total score{' '}
+                  <span className="font-semibold">{totalResult}</span> {' - '}
                   <span className="font-semibold">
                     {totalResult < 20 ? (
-                      <span className="text-error-color">Mức độ nguy hiểm</span>
+                      <span className="text-error-color">Danger level</span>
                     ) : totalResult < 40 ? (
                       <span className="text-color-accent-yellow">
-                        Mức độ cảnh báo
+                        Warning level
                       </span>
                     ) : (
-                      <span className="text-success-color">Mức độ an toàn</span>
+                      <span className="text-success-color">Safety level</span>
                     )}
                   </span>
                 </p>
                 <p className="text-gray text-lg">
                   <span className="font-medium">
                     {totalResult < 20
-                      ? 'Con có dấu hiệu chậm phát triển nguy hiểm so với lứa tuổi, ba mẹ cần đến gặp chuyên gia hoặc bác sĩ để có thể chẩn đoán chuyên sâu và đồng hành cùng con.'
+                      ? 'Children have signs of dangerous retardation for their age, parents need to see a specialist or doctor for an in-depth diagnosis and accompany their child.'
                       : totalResult < 40
-                      ? 'Con có dấu hiệu chậm phát triển hơn so với lứa tuổi ở mức trung bình.'
-                      : 'Trẻ em đang phát triển bình thường.'}
+                      ? 'Children show signs of developmental delay than the average age.'
+                      : 'Children are developing normally.'}
                   </span>
                 </p>
                 <p className="text-gray text-lg">
-                  <span>Giao tiếp cơ bản:</span>
+                  <span>Basic communication:</span>
                   <span className="font-semibold">
                     {` ${results[0].result} - `}
                   </span>
                   <span className="font-semibold">
                     {results[0].result < 20 ? (
-                      <span className="text-error-color">Mức độ nguy hiểm</span>
+                      <span className="text-error-color">Danger level</span>
                     ) : results[0].result < 40 ? (
                       <span className="text-color-accent-yellow">
-                        Mức độ cảnh báo
+                        Warning level
                       </span>
                     ) : (
-                      <span className="text-success-color">Mức độ an toàn</span>
+                      <span className="text-success-color">Safety level</span>
                     )}
                   </span>
                 </p>
                 <p className="text-gray text-lg">
-                  <span>Vận động thô:</span>
+                  <span>Gross Motor Skills:</span>
                   <span className="font-semibold">
                     {` ${results[1].result} - `}
                   </span>
                   <span className="font-semibold">
                     {results[1].result < 20 ? (
-                      <span className="text-error-color">Mức độ nguy hiểm</span>
+                      <span className="text-error-color">Danger level</span>
                     ) : results[1].result < 40 ? (
                       <span className="text-color-accent-yellow">
-                        Mức độ cảnh báo
+                        Warning level
                       </span>
                     ) : (
-                      <span className="text-success-color">Mức độ an toàn</span>
+                      <span className="text-success-color">Safety level</span>
                     )}
                   </span>
                 </p>
                 <p className="text-gray text-lg">
-                  <span>Vận động tinh:</span>
+                  <span>Fine Motor Skills:</span>
                   <span className="font-semibold">
                     {` ${results[2].result} - `}
                   </span>
                   <span className="font-semibold">
                     {results[2].result < 20 ? (
-                      <span className="text-error-color">Mức độ nguy hiểm</span>
+                      <span className="text-error-color">Danger level</span>
                     ) : results[2].result < 40 ? (
                       <span className="text-color-accent-yellow">
-                        Mức độ cảnh báo
+                        Warning level
                       </span>
                     ) : (
-                      <span className="text-success-color">Mức độ an toàn</span>
+                      <span className="text-success-color">Safety level</span>
                     )}
                   </span>
                 </p>
                 <p className="text-gray text-lg">
-                  <span>Giải Quyết Vấn Đề:</span>
+                  <span>Problem Solving:</span>
                   <span className="font-semibold">
                     {` ${results[3].result} - `}
                   </span>
                   <span className="font-semibold">
                     {results[3].result < 20 ? (
-                      <span className="text-error-color">Mức độ nguy hiểm</span>
+                      <span className="text-error-color">Danger level</span>
                     ) : results[3].result < 40 ? (
                       <span className="text-color-accent-yellow">
-                        Mức độ cảnh báo
+                        Warning level
                       </span>
                     ) : (
-                      <span className="text-success-color">Mức độ an toàn</span>
+                      <span className="text-success-color">Safety level</span>
                     )}
                   </span>
                 </p>
                 <p className="text-gray text-lg">
-                  <span>Cá Nhân Xã Hội:</span>
+                  <span>Social Individual:</span>
                   <span className="font-semibold">
                     {` ${results[4].result} - `}
                   </span>
                   <span className="font-semibold">
                     {results[4].result < 20 ? (
-                      <span className="text-error-color">Mức độ nguy hiểm</span>
+                      <span className="text-error-color">Danger level</span>
                     ) : results[4].result < 40 ? (
                       <span className="text-color-accent-yellow">
-                        Mức độ cảnh báo
+                        Warning level
                       </span>
                     ) : (
-                      <span className="text-success-color">Mức độ an toàn</span>
+                      <span className="text-success-color">Safety level</span>
                     )}
                   </span>
                 </p>
               </Card>
               <Card style={{ width: 450 }}>
                 <p className=" text-lg font-semibold text-primary-color ">
-                  Nhận xét chung
+                  General comment
                 </p>
                 <p className="text-gray text-lg">
                   {totalResult < 20 ? (
                     <>
                       <span className="font-medium leading-4">
-                        Các lĩnh vực như Giao tiếp, Vận động thô, Vận động tinh,
-                        Giải quyết vấn đề, Cá nhân xã hội có điểm nằm trong vùng
-                        nguy hiểm. Điều đó có nghĩa có một số các kỹ năng trong
-                        các lĩnh vực này trẻ chưa thực hiện được, hoặc đã thực
-                        hiện được nhưng chưa thường xuyên tức là trẻ chậm so với
-                        các trẻ khác cùng tuổi ở lĩnh vực này.
+                        Areas such as Communication, Gross Motor, Fine Motor,
+                        Problem Solving, Social Individual have scores in the
+                        danger zone. It means that there are some skills in
+                        these areas that children have not yet performed, or
+                        have done but not often, that is, children are behind
+                        other children of the same age in this area.
                       </span>
                     </>
                   ) : totalResult < 40 ? (
                     <>
                       <Col span={24}>
                         <span className="font-medium">
-                          Trẻ{' '}
+                          Child{' '}
                           <span className="font-semibold">
                             {childInformation.name}
                           </span>{' '}
-                          có sự phát triển bình thường ở các lĩnh vực Vận động
-                          tinh, Giải quyết vấn đề. Điều này có nghĩa là trẻ phát
-                          triển tương đương với trẻ khác ở cùng độ tuổi trong
-                          các lĩnh vực này.
+                          normal development in the areas of fine motor and
+                          problem solving. This means that children develop at
+                          the same rate as other children of the same age in
+                          these areas.
                         </span>
                       </Col>
                       <Col span={24}>
                         <span className="font-medium">
-                          Các lĩnh vực như{' '}
+                          Areas like{' '}
                           <span className="font-semibold">
-                            Giao tiếp, Cá nhân xã hội
+                            Communication:, Social Individual
                           </span>{' '}
-                          có điểm nằm trong vùng báo động. Điều đó có nghĩa có
-                          một số các kỹ năng trong các lĩnh vực này trẻ chưa
-                          thực hiện được, hoặc đã thực hiện được nhưng chưa
-                          thường xuyên.
+                          point is in the alarm zone. That means that there are
+                          some skills in these areas that children have not yet
+                          performed, or have done, but not often.
                         </span>
                       </Col>
                       <Col span={24}>
                         <span className="font-medium">
-                          Các lĩnh vực như{' '}
-                          <span className="font-semibold">Vận động thô</span> có
-                          điểm nằm trong vùng nguy hiểm. Điều đó có nghĩa có một
-                          số các kỹ năng trong các lĩnh vực này trẻ chưa thực
-                          hiện được, hoặc đã thực hiện được nhưng chưa thường
-                          xuyên tức là trẻ chậm so với các trẻ khác cùng tuổi ở
-                          lĩnh vực này.
+                          Areas like{' '}
+                          <span className="font-semibold">
+                            Gross Motor Skills
+                          </span>{' '}
+                          point is in the danger zone. That means that there are
+                          some skills in these areas that children have not yet
+                          performed, or have done but not often, that is,
+                          children are behind other children of the same age in
+                          this area.
                         </span>
                       </Col>
                     </>
                   ) : (
                     <>
                       <span className="font-medium">
-                        Ba mẹ cần giao tiếp tương tác với cháu nhiều hơn Ba mẹ
-                        tránh cho bé sử dụng thiết bị điện tử, tối đa 1 tiếng/
-                        ngày. Ba mẹ cần kiểm tra bài test này định kỳ 6 tháng
+                        Parents need to communicate and interact with their
+                        children more. Parents should avoid letting their
+                        children use electronic devices, up to 1 hour/day.
+                        Parents need to check this test every 6 months
                       </span>
                     </>
                   )}
@@ -383,72 +387,75 @@ export default function Result() {
               span={24}
               className="my-2  text-lg font-semibold text-primary-color "
             >
-              Cách xử lý
+              Treatment
             </Col>
             <Col span={24}>
               <Typography.Text className="text-gray text-lg">
                 {totalResult < 20 ? (
                   <>
                     <p className="font-medium">
-                      Con có dấu hiệu chậm phát triển nguy hiểm so với lứa tuổi,
-                      ba mẹ cần đến gặp chuyên gia hoặc bác sĩ để có thể chẩn
-                      đoán chuyên sâu và đồng hành cùng con.
+                      Children have signs of dangerous retardation for their
+                      age, parents need to see a specialist or doctor for an
+                      in-depth diagnosis and accompany their child.
                     </p>
                     <p className="font-medium">
-                      Ba mẹ cần thực sự nghiêm túc nghiên cứu và tìm hiểu về sự
-                      phát triển con trẻ. Ba mẹ tiếp tục sử dụng bài kiểm tra
-                      chuyên sâu và nên liên hệ chuyên gia, bác sĩ để có thể
-                      chẩn đoán tốt nhất.
+                      Parents need to seriously study and learn about child
+                      development. Parents continue to use the in-depth test and
+                      should contact a specialist or doctor for the best
+                      diagnosis.
                     </p>
                     <p className="font-medium">
-                      Ba mẹ cần tương tác và luyện tập hành vi cơ bản cho con
-                      trẻ bắt chước.
+                      Parents need to interact and practice basic behaviors for
+                      children to imitate.
                     </p>
                     <p className="font-medium">
-                      Ba mẹ cần cho bé tập thể dục để giải tỏa năng lượng và
-                      tăng khả năng tập trung thông qua các môn thể thao: đạp
-                      xe, chạy bộ,... Ba mẹ có thể cho con chơi trò chơi, hướng
-                      dẫn con trẻ sử dụng đồ đạc an toàn để tăng khả năng xử lý
-                      vấn đề Bé có chỉ tương tác xã hội chưa đạt, ba mẹ cần giao
-                      tiếp tương tác với cháu nhiều hơn.
+                      Parents need to let their children exercise to release
+                      energy and increase concentration through sports: cycling,
+                      jogging,... Parents can let their children play games,
+                      guide them to use them. Using safety furniture to increase
+                      problem-solving ability Children have only poor social
+                      interaction, parents need to interact more with their
+                      children.
                     </p>
                     <p className="font-medium">
-                      Ba mẹ tránh cho bé sử dụng thiết bị điện tử, tối đa 1
-                      tiếng/ ngày.
+                      Parents should avoid letting children use electronic
+                      devices, up to 1 hour/day.
                     </p>
                   </>
                 ) : totalResult < 40 ? (
                   <>
                     <p className="font-medium">
-                      Ba mẹ tiếp tục sử dụng bài kiểm tra chuyên sâu và nên liên
-                      hệ chuyên gia, bác sĩ để có thể chẩn đoán tốt nhất.
+                      Parents continue to use the in-depth test and should
+                      contact a specialist or doctor for the best diagnosis.
                     </p>
                     <p className="font-medium">
-                      Ba mẹ cần tương tác và luyện tập hành vi cơ bản cho con
-                      trẻ bắt chước.
+                      Parents need to interact and practice basic behaviors for
+                      their children to imitate.
                     </p>
                     <p className="font-medium">
-                      Ba mẹ cần cho bé tập thể dục để giải tỏa năng lượng và
-                      tăng khả năng tập trung thông qua các môn thể thao: đạp
-                      xe, chạy bộ,...{' '}
+                      Parents need to give their children exercise to release
+                      energy and increase concentration through sports: cycling,
+                      jogging,...{' '}
                     </p>
                     <p className="font-medium">
-                      Ba mẹ có thể cho con chơi trò chơi, hướng dẫn con trẻ sử
-                      dụng đồ đạc an toàn để tăng khả năng xử lý vấn đề Bé có
-                      chỉ tương tác xã hội chưa đạt, ba mẹ cần giao tiếp tương
-                      tác với cháu nhiều hơn.
+                      Parents can let their children play games, guide their
+                      children to use safe furniture to increase their ability
+                      to handle problems. The child has only poor social
+                      interaction, parents need to communicate and interact with
+                      their grandchildren more.
                     </p>
                     <p className="font-medium">
-                      Ba mẹ tránh cho bé sử dụng thiết bị điện tử, tối đa 1
-                      tiếng/ ngày.
+                      Parents should avoid letting children use electronic
+                      devices, up to 1 hour/day.
                     </p>
                   </>
                 ) : (
                   <>
                     <span className="font-medium">
-                      Ba mẹ cần giao tiếp tương tác với cháu nhiều hơn Ba mẹ
-                      tránh cho bé sử dụng thiết bị điện tử, tối đa 1 tiếng/
-                      ngày. Ba mẹ cần kiểm tra bài test này định kỳ 6 tháng
+                      Parents need to communicate and interact with their
+                      children more. Parents should avoid letting their children
+                      use electronic devices, up to 1 hour/day. Parents need to
+                      check this test every 6 months.
                     </span>
                   </>
                 )}
@@ -459,15 +466,15 @@ export default function Result() {
                 {totalResult < 20 ? (
                   <>
                     <span className="font-semibold">
-                      Lưu ý: tài liệu bổ trợ cho ba mẹ đồng hành không phải giáo
-                      trình cho trẻ mức độ nguy hiểm
+                      Note: supporting documents for accompanying parents are
+                      not textbooks for children at a Danger level
                     </span>
                   </>
                 ) : totalResult < 40 ? (
                   <>
                     <span className="font-semibold">
-                      Lộ trình hướng dẫn ba mẹ đồng hành cùng con chậm phát
-                      triển
+                      The roadmap to guide parents to accompany their retarded
+                      children
                     </span>
                   </>
                 ) : null}
@@ -496,7 +503,7 @@ export default function Result() {
                 ) : (
                   <>
                     <span className="font-semibold">
-                      Ba mẹ cần kiểm tra bài test này định kỳ 6 tháng
+                      Parents need to check this test every 6 months.
                     </span>
                   </>
                 )}
@@ -506,27 +513,28 @@ export default function Result() {
           <div>
             <Col span={24}>
               <Typography.Text className="text-gray text-lg">
-                Gia đình nên đưa trẻ đi đến cơ sở y tế để đánh giá thêm về sự
-                phát triển của trẻ và{' '}
+                Families should take the child to a health facility for further
+                assessment of the child's development and{' '}
                 <span className="font-semibold">
-                  Khám chuyên khoa nhi (tâm bệnh, tâm lý, ngôn ngữ...), Kiểm tra
-                  về vận động của trẻ, Kiểm tra về thính lực cho trẻ, Khám
-                  chuyên khoa nhi (khoa tâm bệnh, khoa tâm lý, khoa phục hồi
-                  chức năng...), Khám chuyên khoa để kiểm tra thêm.
+                  Pediatric examination (psychology, psychology, language...),
+                  Checking children's movement, Checking children's hearing,
+                  Pediatric specialty examination (psychology, psychology,
+                  rehabilitation department) function..., Specialist examination
+                  for further examination.
                 </span>
               </Typography.Text>
             </Col>
             <Col span={24} className=" mb-16">
               <Typography.Text className="text-gray text-lg">
-                Gia đình có thể tham khảo một số khoá học hữu ích cho sự phát
-                triển của trẻ theo{' '}
+                Families can refer to a number of useful courses for their
+                child's development{' '}
                 <span
                   onClick={() => {
                     navigate('/courses');
                   }}
                   className="cursor-pointer font-semibold text-primary-color"
                 >
-                  đường link này
+                  this link
                 </span>{' '}
                 .
               </Typography.Text>

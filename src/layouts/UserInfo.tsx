@@ -23,24 +23,24 @@ const menus: MenuType[] = [
     key: 'profile',
     to: '/profile',
     icon: <UserOutlined />,
-    title: 'Thông tin cá nhân',
+    title: 'Profile',
   },
   {
     key: 'reservations',
     to: '/reservations',
     icon: <ShoppingCartOutlined />,
-    title: 'Nhật ký theo dõi',
+    title: 'Tracking Logs',
   },
   {
     key: 'activity',
     to: '/activity',
     icon: <BarsOutlined />,
-    title: 'Hoạt động',
+    title: 'Activities',
   },
   {
     key: 'logout',
     icon: <LogoutOutlined />,
-    title: 'Đăng xuất',
+    title: 'Log out',
   },
 ];
 
@@ -59,7 +59,7 @@ export default function UserInfo() {
       <Avatar size={60} src={user?.photoURL || UserImage} />
       <div className="flex flex-col items-end justify-end gap-2">
         <Typography className="text-sm">
-          Xin chào, {user?.displayName || user?.email || 'Khách'}
+          Hello, {user?.displayName || user?.email || 'Guest'}
         </Typography>
         <Dropdown
           overlay={

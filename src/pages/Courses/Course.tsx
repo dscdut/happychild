@@ -51,7 +51,7 @@ function Course() {
   }, []);
   return (
     <Row gutter={[24, 24]}>
-      <Input placeholder="Tìm kiếm khoá học" className="p-3" />
+      <Input placeholder="Course search" className="p-3" />
       <Col span={24} className="mb-2">
         <Row gutter={[24, 24]}>
           <Col span={24} className="relative">
@@ -71,7 +71,7 @@ function Course() {
                 />
               </div>
               <Title level={1} className="text-center">
-                Khoá học
+                Course
               </Title>
               <Carousel ref={carouselRef} className="px-6 py-6" draggable>
                 {courseList.map(course => (
@@ -134,7 +134,7 @@ function Course() {
                             }
                             type="primary"
                           >
-                            Chi tiết khóa học
+                            Courser Details:
                           </Button>
                         </Col>
                       </Row>

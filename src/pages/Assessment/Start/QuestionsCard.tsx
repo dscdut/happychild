@@ -85,7 +85,7 @@ export default function QuestionsCard({
         <Col span={24} key={String(questionIndex)}>
           <Row gutter={[16, 16]}>
             <Col span={24}>
-              <strong>{`Câu hỏi ${questionIndex + 1}:`}</strong>
+              <strong>{`Question ${questionIndex + 1}:`}</strong>
               <Typography>{question?.content}</Typography>
             </Col>
             {question?.images && (
@@ -125,7 +125,7 @@ export default function QuestionsCard({
       ))}
       <Col span={24} className="flex justify-end gap-4">
         {index > 0 && (
-          <Button onClick={() => setCurrentTab(prevStageName)}>Trở về</Button>
+          <Button onClick={() => setCurrentTab(prevStageName)}>Back</Button>
         )}
         {index < totalStages - 1 && (
           <Button
@@ -136,7 +136,7 @@ export default function QuestionsCard({
               setCurrentTab(nextStageName);
             }}
           >
-            Tiếp theo
+            Next
           </Button>
         )}
         {index === totalStages - 1 && (
@@ -145,7 +145,7 @@ export default function QuestionsCard({
             htmlType="submit"
             type="primary"
           >
-            Kết thúc và nhận kết quả
+            Finish and get results
           </Button>
         )}
       </Col>

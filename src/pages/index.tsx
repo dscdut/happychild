@@ -35,12 +35,12 @@ export default function Index() {
             HAPPYCHILD
           </Typography.Title>
           <Typography.Paragraph className="text-base text-[white]">
-            Nền tảng hỗ trợ phụ huynh đánh giá, tham khảo đề xuất giải pháp và
-            cách thức giáo dục trẻ gặp vấn đề chậm nói, chậm phát triển và tự
-            kỷ.
+            A platform that supports parents to evaluate, refer to suggested
+            solutions and methods of educating children with speech delay,
+            developmental delay and autism.
           </Typography.Paragraph>
           <Button block>
-            Tìm hiểu thêm <PlusCircleFilled />
+            Learn more <PlusCircleFilled />
           </Button>
         </Card>
       </Col>
@@ -48,7 +48,7 @@ export default function Index() {
         <div className="flex flex-col items-center justify-center">
           <Image src={HappyChild} preview={false} width={150} />
           <Typography className="text-3xl font-bold text-primary-color">
-            Có những gì? <SmileOutlined />
+            What are there? <SmileOutlined />
           </Typography>
         </div>
         <Divider />
@@ -57,8 +57,8 @@ export default function Index() {
             className="mx-2 w-1/3 text-base shadow-xl hover:scale-105"
             title={
               <Typography.Text className="py-4 text-lg font-bold">
-                Theo dõi phát triển, phối hợp đánh giá <br /> mức độ phát triển,
-                tự kỷ của trẻ nhỏ
+                Monitor the progress, coordinate the assessment of <br /> the
+                development level and autism of young children
               </Typography.Text>
             }
             extra={<LineChartOutlined className="text-4xl" />}
@@ -67,20 +67,20 @@ export default function Index() {
               <Typography.Paragraph className="mb-20">
                 <ul className="m-0 list-none space-y-4 p-0">
                   <li>
-                    Nếu vấn đề chậm phát triển ở trẻ không được phát hiện sớm,
-                    trẻ sẽ không nhận được sự hỗ trợ cần thiết và kịp thời. Điều
-                    này khiến trẻ gặp khó khăn khi đến trường, hòa nhập xã hội
-                    và sống độc lập về sau.
+                    If developmental delays in children are not detected early,
+                    they will not receive the necessary and timely support. This
+                    makes it difficult for them to go to school, integrate into
+                    society and live independently later on.
                   </li>
                   <li>
-                    Hệ thống cung cấp những công cụ và những bài đánh giá chuyên
-                    môn giúp phụ huynh có định hướng cũng như cách thức quan
-                    sát, theo dõi những hoạt động con trẻ nhỏ.
+                    The system provides tools and professional assessments to
+                    help parents have orientation and ways to observe and
+                    monitor the activities of young children.
                   </li>
                 </ul>
               </Typography.Paragraph>
               <Button className="w-full bg-primary-color  hover:bg-color-accent-sky hover:text-color-gray-10">
-                Tìm hiểu thêm
+                Learn more
               </Button>
             </div>
           </CourseStyledCard>
@@ -88,7 +88,7 @@ export default function Index() {
             className="mx-2 h-fit w-1/3 p-4 text-base shadow-xl hover:scale-105"
             title={
               <Typography.Text className="py-4 text-lg font-bold">
-                Blog kiến thức và các khóa học
+                Knowledge blog and courses
               </Typography.Text>
             }
             extra={<LineChartOutlined className="text-4xl" />}
@@ -97,19 +97,19 @@ export default function Index() {
               <Typography.Paragraph className="mb-20">
                 <ul className="m-0 list-none space-y-4 p-0">
                   <li>
-                    Cung cấp những blog kiến thức từ những chuyên gia đến từ
-                    những trung tâm y tế và các tổ chức thiện nguyên với mong
-                    muốn lan tỏa kiến thức về cách giáo dục trẻ nhỏ khi gặp phải
-                    các vấn đề chậm nói, chậm phát triển, tự kỷ
+                    Providing knowledge blogs from experts from health centers
+                    and charitable organizations with the desire to spread
+                    knowledge about how to educate young children when facing
+                    speech delays, developmental delays, autism
                   </li>
                   <li>
-                    Cung cấp các khóa học giúp phụ huynh có được lộ trình và
-                    kiến thức rõ ràng, chắc chắn
+                    Providing courses to help parents get a clear and confident
+                    roadmap and knowledge
                   </li>
                 </ul>
               </Typography.Paragraph>
               <Button className="w-full bg-primary-color  hover:bg-color-accent-sky hover:text-color-gray-10">
-                Tìm hiểu thêm
+                Learn more
               </Button>
             </div>
           </CourseStyledCard>
@@ -117,7 +117,7 @@ export default function Index() {
             className="mx-2 h-fit w-1/3 p-4 text-base shadow-xl hover:scale-105"
             title={
               <Typography.Text className="py-4 text-lg font-bold">
-                Và hơn thế nữa...
+                And more than that...
               </Typography.Text>
             }
             extra={<LineChartOutlined className="text-4xl" />}
@@ -126,18 +126,18 @@ export default function Index() {
               <Typography.Paragraph className="mb-20">
                 <ul className="m-0 list-none space-y-4 p-0">
                   <li>
-                    Nền tảng HappyChild còn nhắm tới việc lan tỏa kiến thức và
-                    nhận thức cho cộng đồng
+                    HappyChild also aims to spread knowledge and awareness to
+                    the community
                   </li>
                   <li>
-                    Giúp trẻ nhỏ gặp khó khăn về việc phát triển được hòa nhập
-                    cộng đồng, được đón nhận và yêu thương như những đứa trẻ
-                    bình thường
+                    Helping young children with developmental difficulties
+                    integrate into the community, receive and love like normal
+                    children
                   </li>
                 </ul>
               </Typography.Paragraph>
               <Button className="w-full bg-primary-color  hover:bg-color-accent-sky hover:text-color-gray-10">
-                Tìm hiểu thêm
+                Learn more
               </Button>
             </div>
           </CourseStyledCard>
@@ -146,45 +146,45 @@ export default function Index() {
       </Col>
       <Col span={24} className="flex flex-col items-center gap-4">
         <Typography className="text-3xl font-bold text-primary-color">
-          Đang trong giai đoạn phát triển
+          Progressing towards development
         </Typography>
         <div className="flex w-2/3 items-center justify-between rounded-xl bg-secondary-color p-8">
           <div className="flex flex-col justify-center gap-4">
             <Typography className="text-3xl font-bold text-[white]">
-              Liên hệ các chuyên gia
+              Contact the experts
             </Typography>
             <Typography className="text-base italic text-[white]">
-              Kết nối, trò chuyện, video call, xem các buổi livestream chuyên đề
-              và hỏi đáp,....
+              Connect, chat, video call, watch thematic livestreams and
+              Q&A,.......
             </Typography>
-            <Button className="w-[10rem]">Tìm hiểu thêm</Button>
+            <Button className="w-[10rem]">Learn more</Button>
           </div>
           <Image src={Specialist} preview={false} width={150} />
         </div>
         <div className="flex w-2/3 items-center justify-between rounded-xl bg-primary-color p-8">
           <div className="flex flex-col justify-center gap-4">
             <Typography className="text-3xl font-bold text-[white]">
-              Nhật ký theo dõi quá trình chữa trị của trẻ
+              Diary to monitor the child's treatment progress
             </Typography>
             <Typography className="text-base italic text-[white]">
-              Công cụ để ghi lại những hoạt động, đánh giá của trẻ nhỏ trong quá
-              trình điều trị và theo dõi từ bố mẹ
+              A tool to record the activities and assessment of young children
+              during treatment and follow-up from parents
             </Typography>
-            <Button className="w-[10rem]">Tìm hiểu thêm</Button>
+            <Button className="w-[10rem]">Learn more</Button>
           </div>
           <Image src={Assessment} preview={false} width={150} />
         </div>
         <div className="flex w-2/3 items-center justify-between rounded-xl bg-secondary-color p-8">
           <div className="flex flex-col justify-center gap-4">
             <Typography className="text-3xl font-bold text-[white]">
-              Cộng đồng
+              Community
             </Typography>
             <Typography className="text-base italic text-[white]">
-              Thông qua các diễn đàn, phụ huynh có thể chia sẻ những kinh nghiệm
-              và kiến thức để hỗ trợ lẫn nhau, từ đó lan tỏa nhận thức đến mọi
-              người xung quanh
+              Through forums, parents can share experiences and knowledge to
+              support each other, thereby spreading awareness to everyone around
+              them.
             </Typography>
-            <Button className="w-[10rem]">Tìm hiểu thêm</Button>
+            <Button className="w-[10rem]">Learn more</Button>
           </div>
           <Image src={Community} preview={false} width={200} />
         </div>

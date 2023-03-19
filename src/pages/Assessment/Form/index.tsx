@@ -79,37 +79,38 @@ export default function Assessment() {
           <Row gutter={[16, 16]} className="p-4">
             <Col span={24} className="flex flex-col gap-2">
               <Typography className="text-2xl font-bold text-primary-color">
-                Vui lòng điền chính xác thông tin trẻ nhỏ để hệ thống tiến hành
-                đánh giá
+                Please accurately fill in the child’s information for the system
+                to conduct an evaluation
               </Typography>
               <Typography className="text-xs font-bold italic text-error-color">
-                * Lưu ý những thông tin được điền vào ở đây không dùng cho mục
-                đích thương mại, hệ thống sẽ ghi nhận thông tin để thu thập thêm
-                dữ liệu cho việc cải tiến hệ thống đánh giá
+                * The information entered here is not for commercial purposes.
+                The system will record the information to collect additional
+                data for improving the evaluation system.
               </Typography>
             </Col>
             <Col span={24} className="mt-4 flex flex-col gap-2">
               <Typography className="text-base">
-                Tên bé (<span className="text-error-color">*</span>):
+                The child’s full name. (
+                <span className="text-error-color">*</span>):
               </Typography>
               <Form.Item
                 name="name"
                 rules={[
                   {
                     required: true,
-                    message: 'Vui lòng nhập tên của trẻ',
+                    message: 'Please enter the child’s full name.',
                   },
                 ]}
                 style={{ marginBottom: 0 }}
               >
-                <Input placeholder="Nhập họ và tên của trẻ" />
+                <Input placeholder="Enter the child’s full name." />
               </Form.Item>
             </Col>
             <Col span={24} className="flex flex-col gap-2">
               <Row gutter={[16, 16]}>
                 <Col span={12}>
                   <Typography className="text-base">
-                    Ngày sinh của bé (
+                    Baby’s Birthdate (
                     <span className="text-error-color">*</span>):
                   </Typography>
                   <Form.Item
@@ -118,7 +119,7 @@ export default function Assessment() {
                     rules={[
                       {
                         required: true,
-                        message: 'Vui lòng chọn ngày sinh của trẻ',
+                        message: 'Please select Baby’s Birthdate',
                       },
                       {
                         validator: (_, value) => {
@@ -129,7 +130,7 @@ export default function Assessment() {
                           // check if age is between 0 and 72 months
                           if (ageInMonths < 0 || ageInMonths > 72) {
                             return Promise.reject(
-                              'Tuổi của trẻ phải nằm trong khoảng từ 0 đến 72 tháng',
+                              'The child’s age must be between 0 and 72 months',
                             );
                           }
 
@@ -141,20 +142,20 @@ export default function Assessment() {
                   >
                     <DatePicker
                       className="w-full"
-                      placeholder="Chọn ngày sinh của trẻ"
+                      placeholder="Select Baby’s Birthdate"
                     />
                   </Form.Item>
                 </Col>
                 <Col span={12} className="flex flex-col justify-start gap-2">
                   <Typography className="text-base">
-                    Giới tính (<span className="text-error-color">*</span>):
+                    Sender (<span className="text-error-color">*</span>):
                   </Typography>
                   <Form.Item
                     name="gender"
                     rules={[
                       {
                         required: true,
-                        message: 'Vui lòng chọn giới tính của trẻ',
+                        message: 'Please seltect Baby’s Gender',
                       },
                     ]}
                     style={{ marginBottom: 0 }}
@@ -162,10 +163,10 @@ export default function Assessment() {
                     <Radio.Group>
                       <Row align="middle" gutter={[16, 16]}>
                         <Col>
-                          <Radio value={true}>Nam</Radio>
+                          <Radio value={true}>Male</Radio>
                         </Col>
                         <Col>
-                          <Radio value={false}>Nữ</Radio>
+                          <Radio value={false}>Female</Radio>
                         </Col>
                       </Row>
                     </Radio.Group>
@@ -175,7 +176,7 @@ export default function Assessment() {
             </Col>
             <Col span={24} className="flex flex-col gap-2">
               <Typography className="text-base">
-                Địa chỉ thường trú của phụ huynh / người bảo hộ (
+                Parent/Guardian’s Permanent Address (
                 <span className="text-error-color">*</span>):
               </Typography>
               <Form.Item
@@ -183,18 +184,17 @@ export default function Assessment() {
                 rules={[
                   {
                     required: true,
-                    message:
-                      'Vui lòng nhập địa chỉ thường trú của phụ huynh / nguời bảo hộ',
+                    message: 'Please Enter Permanent Address',
                   },
                 ]}
                 style={{ marginBottom: 0 }}
               >
-                <Input placeholder="Nhập địa chỉ thường trú" />
+                <Input placeholder="Enter Permanent Address" />
               </Form.Item>
             </Col>
             <Col span={24} className="flex flex-col gap-2">
               <Typography className="text-base">
-                Số điện thoại phụ huynh / người bảo hộ (
+                Parent/Guardian’s Phone Number (
                 <span className="text-error-color">*</span>):
               </Typography>
               <Form.Item
@@ -202,22 +202,21 @@ export default function Assessment() {
                 rules={[
                   {
                     required: true,
-                    message:
-                      'Vui lòng nhập số điện thoại của phụ huynh / nguời bảo hộ',
+                    message: 'Please enter Parent/Guardian’s Phone Number',
                   },
                   {
                     pattern: /^0[0-9]{9,10}$/,
-                    message: 'Số điện thoại không hợp lệ',
+                    message: 'Invalid Phone Number',
                   },
                 ]}
                 style={{ marginBottom: 0 }}
               >
-                <Input placeholder="Nhập số điện thoại" />
+                <Input placeholder="Enter Phone Number" />
               </Form.Item>
             </Col>
             <Col span={24} className="flex flex-col gap-2">
               <Typography className="text-base">
-                Bé được sinh vào tuần thứ mấy của thai kỳ? (
+                Baby was born in which week of pregnancy? (
                 <span className="text-error-color">*</span>)
               </Typography>
               <Form.Item
@@ -225,21 +224,24 @@ export default function Assessment() {
                 rules={[
                   {
                     required: true,
-                    message: 'Vui lòng nhập tuần thai kỳ của trẻ',
+                    message: 'Please enter week of pregnancy',
                   },
                   {
                     pattern: /^[0-9]{1,2}$/,
-                    message: 'Tuần thai kỳ không hợp lệ',
+                    message: 'Invalid week of pregnancy',
                   },
                 ]}
                 style={{ marginBottom: 0 }}
               >
-                <InputNumber className="w-full" placeholder="Nhập số tuần" />
+                <InputNumber
+                  className="w-full"
+                  placeholder="Enter week of pregnancy"
+                />
               </Form.Item>
             </Col>
             <Col span={24} className="flex flex-col gap-2">
               <Typography className="text-base">
-                Hiện bé có đang theo học trường mầm non nào không? (
+                Is the baby currently attending any kindergarten? (
                 <span className="text-error-color">*</span>)
               </Typography>
               <Form.Item
@@ -247,7 +249,7 @@ export default function Assessment() {
                 rules={[
                   {
                     required: true,
-                    message: 'Vui lòng chọn có hoặc không',
+                    message: 'Please select Yes or No',
                   },
                 ]}
                 style={{ marginBottom: 0 }}
@@ -255,10 +257,10 @@ export default function Assessment() {
                 <Radio.Group>
                   <Row align="middle" gutter={[16, 16]}>
                     <Col>
-                      <Radio value={true}>Có</Radio>
+                      <Radio value={true}>Yes</Radio>
                     </Col>
                     <Col>
-                      <Radio value={false}>Không</Radio>
+                      <Radio value={false}>No</Radio>
                     </Col>
                   </Row>
                 </Radio.Group>
@@ -266,21 +268,22 @@ export default function Assessment() {
             </Col>
             <Col span={24} className="flex flex-col gap-2">
               <Typography className="text-base">
-                Nếu có, vui lòng điền tên trường bé đang theo học:
+                If yes, please enter the name of the kindergarten the baby is
+                attending:
               </Typography>
               <Form.Item noStyle name="kindergartenName">
-                <Input placeholder="Nhập trường bé đang theo học" />
+                <Input placeholder="Enter kindergarten name" />
               </Form.Item>
             </Col>
             <Col span={24}>
               <Typography className="text-sm italic">
-                * Nếu có thông tin nào cần giải đáp, vui lòng liên hệ qua
-                hotline: 0935573483
+                * If you have any questions, please contact our hotline:
+                0935573483
               </Typography>
             </Col>
             <Col span={24} className="flex items-center justify-end">
               <Button type="primary" htmlType="submit">
-                Bắt đầu bài đánh giá <RightOutlined />
+                Start assessment <RightOutlined />
               </Button>
             </Col>
           </Row>

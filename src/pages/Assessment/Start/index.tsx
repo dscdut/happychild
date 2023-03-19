@@ -23,7 +23,7 @@ export default function AssessmentStart() {
           <Row>
             <Col span={24}>
               <Typography className="text-3xl font-bold text-primary-color">
-                Bài đánh giá khảo sát sự phát triển theo độ tuổi ASQ-3
+                ASQ-3 Age Development Survey Assessment
               </Typography>
             </Col>
             <Col span={24} className="relative">
@@ -37,7 +37,7 @@ export default function AssessmentStart() {
                   <Tabs.TabPane
                     tabKey="introduction"
                     key="introduction"
-                    tab={<Typography>Hướng dẫn khảo sát</Typography>}
+                    tab={<Typography>Survey Guide</Typography>}
                   >
                     <Introduction />
                     <div className="mt-4 flex items-center justify-end">
@@ -48,7 +48,7 @@ export default function AssessmentStart() {
                           setCurrentTab(stages?.[0]?.stageName);
                         }}
                       >
-                        Bắt đầu khảo sát
+                        Start the survey
                         <RightCircleFilled />
                       </Button>
                     </div>
