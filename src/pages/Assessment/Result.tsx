@@ -1,38 +1,114 @@
 /* eslint-disable max-lines */
 /* eslint-disable no-nested-ternary */
 /* eslint-disable @typescript-eslint/naming-convention */
-import { FrownOutlined, MehOutlined, SmileOutlined } from '@ant-design/icons';
+import {
+  FrownOutlined,
+  SmileOutlined,
+  RightCircleFilled,
+} from '@ant-design/icons';
 import { useNavigate } from 'react-router-dom';
-import { Col, Row, Typography, Image, Card } from 'antd';
+import { Col, Row, Typography, Image, Card, Button } from 'antd';
 import Slider, { SliderMarks } from 'antd/lib/slider';
 import dayjs from 'dayjs';
+import { onValue, ref } from 'firebase/database';
+import { useEffect, useState } from 'react';
 import Children from '#/assets/images/group-diverse-cheerful-kids_53876-138030.jpg';
+
+import { realTimeDatabase, auth } from '#/shared/utils/firebase';
 
 interface ResultProps {
   name: string;
   result: number;
   stageId: number;
 }
+
 interface ChildInformation {
   name: string;
-  address: string;
-  phoneNumber: string;
-  isLearning: string;
-  schoolName: string;
+  birthday: string;
+  gender: boolean;
+  addressOfParents: string;
+  isGoingToKindergarten: boolean;
+  weekOfPregnancy: number;
+  kinderGartenName?: string;
+  phoneNumberOfParents: string;
 }
+
 export default function Result() {
   const navigate = useNavigate();
+  const [childInformation, setChildInformation] = useState<ChildInformation>();
+  const [stageName, setStageName] = useState<string>('');
+  const [asqIndex, setAsqIndex] = useState<number>(0);
+
+  const calculateAgeInMonths = (birthday: string) => {
+    const birthDate = new Date(birthday);
+    const today = new Date();
+    const monthDiff = today.getMonth() - birthDate.getMonth();
+    const ageInMonths = today.getFullYear() - birthDate.getFullYear();
+
+    return ageInMonths * 12 + monthDiff;
+  };
+
   const results: ResultProps[] = JSON.parse(
     localStorage.getItem('results') as string,
   );
-  const childInformation: ChildInformation = JSON.parse(
-    localStorage.getItem('childInformation') as string,
-  );
+  const childRef = ref(realTimeDatabase, `children/${auth.currentUser?.uid}`);
+
+  useEffect(() => {
+    let ageInMonths = 0;
+    onValue(childRef, async snapshot => {
+      const child = snapshot.val();
+      const [childId] = Object.keys(child);
+
+      setChildInformation(child[childId].info);
+      ageInMonths = calculateAgeInMonths(child[childId].info.birthday);
+    });
+
+    let ASQ_INDEX;
+    if (ageInMonths >= 0 && ageInMonths < 3) {
+      ASQ_INDEX = '0';
+      setAsqIndex(0);
+    } else if (ageInMonths >= 3 && ageInMonths < 6) {
+      ASQ_INDEX = '1';
+      setAsqIndex(1);
+    } else if (ageInMonths >= 6 && ageInMonths < 9) {
+      ASQ_INDEX = '2';
+      setAsqIndex(2);
+    } else if (ageInMonths >= 9 && ageInMonths < 12) {
+      ASQ_INDEX = '3';
+      setAsqIndex(3);
+    } else if (ageInMonths >= 12 && ageInMonths <= 23) {
+      ASQ_INDEX = '4';
+      setAsqIndex(4);
+    } else if (ageInMonths >= 24 && ageInMonths <= 35) {
+      ASQ_INDEX = '5';
+      setAsqIndex(5);
+    } else if (ageInMonths >= 36 && ageInMonths <= 47) {
+      ASQ_INDEX = '6';
+      setAsqIndex(6);
+    } else if (ageInMonths >= 48 && ageInMonths <= 59) {
+      ASQ_INDEX = '7';
+      setAsqIndex(7);
+    } else if (ageInMonths >= 60 && ageInMonths <= 71) {
+      ASQ_INDEX = '8';
+      setAsqIndex(8);
+    }
+
+    // get ASQ
+    const asqRef = ref(realTimeDatabase, `asq/${ASQ_INDEX}/stageName`);
+    onValue(asqRef, snapshot => {
+      setStageName(snapshot.val());
+    });
+  }, []);
+
   const date = Date().toString();
-  const totalResult = Math.floor(
-    (results[0].result + results[1].result + results[2].result) / 3,
-  );
-  //   console.log(totalResult);
+  const totalResult =
+    results[0].result +
+    results[1].result +
+    results[2].result +
+    results[3].result +
+    results[4].result +
+    results[5].result;
+
   return (
     <Col span={24} className="px-32 py-12">
       <div className="h-full w-full rounded-xl border-[1px] border-color-gray-50">
@@ -47,12 +123,12 @@ export default function Result() {
           <Row className="flex items-center justify-center">
             <Col span={24} className="flex items-center justify-center">
               <Typography.Text className="m-4 text-2xl font-semibold text-primary-color">
-                Results of the screening test to assess development by age-
-                ASQ®-3
+                The result of the age-based developmental screening test - ASQ®
+                3
               </Typography.Text>
             </Col>
             <Typography.Text className="text-gray mb-12 text-lg font-semibold text-color-gray-40">
-              (Thirty-six month old questionnaire)
+              ({stageName} questionaire)
             </Typography.Text>
           </Row>
           <Typography.Text className="text-gray flex justify-start text-lg font-semibold text-primary-color">
@@ -61,26 +137,23 @@ export default function Result() {
           <div className="flex flex-row justify-between space-x-8 px-12 py-8">
             <Card style={{ width: 300 }} className="flex justify-center">
               <p>
-                The child's full name:{' '}
-                <span className="font-semibold">{childInformation.name}</span>
+                Name of baby: &nbsp;
+                <span className="font-semibold">{childInformation?.name}</span>
               </p>
               <p>
-                Child's code:{' '}
-                <span className="font-semibold">A0400033570001</span>
-              </p>
-              <p>
-                Child's date of birth:{' '}
-                <span className="font-semibold">5-7-2019</span>
-              </p>
-              <p>
-                Answerer's phone number:{' '}
+                Baby's birthday: &nbsp;
                 <span className="font-semibold">
-                  {childInformation.phoneNumber}
+                  {dayjs(childInformation?.birthday).format('DD MMM YYYY')}
                 </span>
               </p>
               <p>
-                {' '}
-                Reply date:{' '}
+                Phone number of parents: &nbsp;
+                <span className="font-semibold">
+                  {childInformation?.phoneNumberOfParents}
+                </span>
+              </p>
+              <p>
+                Date of response: &nbsp;
                 <span className="font-semibold">
                   {dayjs(date).format('DD MMM YYYY, hh:mm')}
                 </span>
@@ -90,293 +163,443 @@ export default function Result() {
               <p className="flex flex-row items-center text-3xl text-error-color">
                 <FrownOutlined />
                 <Typography.Text className="text-gray ml-4 flex justify-start text-lg text-color-gray-30">
-                  The point area shows that the child is having difficulty.
+                  The area of point indicates that the child is suspiciously
+                  experiencing a disorder
                 </Typography.Text>
               </p>
-              <p className="flex flex-row items-center text-3xl text-color-dark-mode-40">
-                <MehOutlined />
-                <Typography.Text className="text-gray ml-4 flex justify-start text-lg text-color-gray-30">
-                  The score area shows that the child needs further monitoring
-                  and re-screening due to some immature skills.
-                </Typography.Text>
-              </p>
+              <p className="flex flex-row items-center text-3xl text-color-dark-mode-40"></p>
               <p className="flex items-center text-3xl text-primary-color">
                 <SmileOutlined />
                 <Typography.Text className="text-gray  ml-4 flex justify-start text-lg text-color-gray-30">
-                  The score area shows that the child has normal development.
+                  The area of points indicates that the child has normal
+                  developmental progress
                 </Typography.Text>
               </p>
             </Card>
           </div>
           <div>
             <Typography.Text className="text-gray mb-4 flex justify-start text-lg font-semibold text-primary-color ">
-              2. The child's score after taking the screening test:
+              2. Score of baby after completing the screening test
             </Typography.Text>
             <Row className="m-4 flex justify-start">
               <Col span={4}>
                 <Typography.Text className="text-gray flex justify-start text-lg text-color-gray-30">
-                  Field
+                  <strong>Skills</strong>
                 </Typography.Text>
               </Col>
-              <Col span={6}>
+              <Col span={7}>
                 <Typography.Text className="text-gray flex justify-start text-lg text-color-gray-30">
-                  Child's score
+                  <strong>Number of "YES" answers</strong>
                 </Typography.Text>
               </Col>
-              <Col span={4}>
+              <Col span={2}>
                 <Typography.Text className="text-gray flex justify-start text-lg text-color-gray-30">
                   0
                 </Typography.Text>
               </Col>
-              <Col span={4}>
-                <Typography.Text className="text-gray flex justify-start text-lg text-color-gray-30">
-                  20
-                </Typography.Text>
+              <Col span={2}>
+                <Typography.Text className="text-gray flex justify-start text-lg text-color-gray-30"></Typography.Text>
               </Col>
-              <Col span={4}>
-                <Typography.Text className="text-gray flex justify-start text-lg text-color-gray-30">
-                  40
-                </Typography.Text>
+              <Col span={2}>
+                <Typography.Text className="text-gray flex justify-start text-lg text-color-gray-30"></Typography.Text>
+              </Col>
+              <Col span={2}>
+                <Typography.Text className="text-gray flex justify-start text-lg text-color-gray-30"></Typography.Text>
+              </Col>
+              <Col span={2}>
+                <Typography.Text className="text-gray flex justify-start text-lg text-color-gray-30"></Typography.Text>
               </Col>
               <Col span={1}>
-                <Typography.Text className="text-gray flex justify-start text-lg text-color-gray-30">
-                  60
-                </Typography.Text>
+                <Typography.Text className="text-gray flex justify-start text-lg text-color-gray-30"></Typography.Text>
               </Col>
-              {/*  */}
-              {results.map(result => {
-                const marks: SliderMarks = {
-                  0: {
-                    style: {
-                      color: '#f50',
-                      fontSize: '1rem',
-                    },
-                    label: <FrownOutlined />,
-                  },
-                  20: {
-                    style: {
-                      color: '#f50',
-                      fontSize: '1rem',
-                    },
-                    label: <FrownOutlined />,
-                  },
-                  40: {
-                    style: {
-                      fontSize: '1rem',
-                    },
-                    label: <MehOutlined />,
-                  },
-                  60: {
-                    style: {
-                      color: '#81ceed',
-                      fontSize: '1rem',
-                    },
-                    label: <SmileOutlined />,
-                  },
-                };
-                return (
-                  <>
-                    <Col span={4}>
-                      <Typography.Text className="text-gray flex justify-start text-lg text-color-gray-30">
-                        {result.name}
-                      </Typography.Text>
-                    </Col>
-                    <Col span={6}>
-                      <Typography.Text className="text-gray flex justify-start text-lg text-color-gray-30">
-                        {result.result}
-                      </Typography.Text>
-                    </Col>
-                    <Col span={12}>
-                      <Slider
-                        step={1}
-                        marks={marks}
-                        defaultValue={result.result}
-                        max={60}
-                      />
-                    </Col>
-                  </>
-                );
-              })}
+              {asqIndex == 0
+                ? results.map(result => {
+                    if (result.stageId == 6) {
+                      const marks: SliderMarks = {
+                        0: {
+                          style: {
+                            color: '#81ceed',
+                            fontSize: '1rem',
+                          },
+                          label: <SmileOutlined />,
+                        },
+                        1: {
+                          style: {
+                            color: '#f50',
+                            fontSize: '1rem',
+                          },
+                          label: <FrownOutlined />,
+                        },
+                        2: {
+                          style: {
+                            color: '#f50',
+                            fontSize: '1rem',
+                          },
+                          label: <FrownOutlined />,
+                        },
+                        3: {
+                          style: {
+                            color: '#f50',
+                            fontSize: '1rem',
+                          },
+                          label: <FrownOutlined />,
+                        },
+                        4: {
+                          style: {
+                            color: '#f50',
+                            fontSize: '1rem',
+                          },
+                          label: <FrownOutlined />,
+                        },
+                        5: {
+                          style: {
+                            color: '#f50',
+                            fontSize: '1rem',
+                          },
+                          label: <FrownOutlined />,
+                        },
+                      };
+
+                      return (
+                        <>
+                          <Col span={4}>
+                            <Typography.Text className="text-gray flex justify-start text-lg text-color-gray-30">
+                              {result.name}
+                            </Typography.Text>
+                          </Col>
+                          <Col span={7}>
+                            <Typography.Text className="text-gray flex justify-start text-lg text-color-gray-30">
+                              {result.result}
+                            </Typography.Text>
+                          </Col>
+                          <Col span={10}>
+                            <Slider
+                              step={1}
+                              marks={marks}
+                              defaultValue={result.result}
+                              max={5}
+                              disabled
+                            />
+                          </Col>
+                        </>
+                      );
+                    }
+                    const marks: SliderMarks = {
+                      0: {
+                        style: {
+                          color: '#81ceed',
+                          fontSize: '1rem',
+                        },
+                        label: <SmileOutlined />,
+                      },
+                      1: {
+                        style: {
+                          color: '#f50',
+                          fontSize: '1rem',
+                        },
+                        label: <FrownOutlined />,
+                      },
+                      2: {
+                        style: {
+                          color: '#f50',
+                          fontSize: '1rem',
+                        },
+                        label: <FrownOutlined />,
+                      },
+                      3: {
+                        style: {
+                          color: '#f50',
+                          fontSize: '1rem',
+                        },
+                        label: <FrownOutlined />,
+                      },
+                    };
+
+                    return (
+                      <>
+                        <Col span={4}>
+                          <Typography.Text className="text-gray flex justify-start text-lg text-color-gray-30">
+                            {result.name}
+                          </Typography.Text>
+                        </Col>
+                        <Col span={7}>
+                          <Typography.Text className="text-gray flex justify-start text-lg text-color-gray-30">
+                            {result.result}
+                          </Typography.Text>
+                        </Col>
+                        <Col span={10}>
+                          <Slider
+                            step={1}
+                            marks={marks}
+                            defaultValue={result.result}
+                            max={3}
+                            disabled
+                          />
+                        </Col>
+                      </>
+                    );
+                  })
+                : results.map(result => {
+                    if (result.stageId == 6) {
+                      const marks: SliderMarks = {
+                        0: {
+                          style: {
+                            color: '#81ceed',
+                            fontSize: '1rem',
+                          },
+                          label: <SmileOutlined />,
+                        },
+                        1: {
+                          style: {
+                            color: '#f50',
+                            fontSize: '1rem',
+                          },
+                          label: <FrownOutlined />,
+                        },
+                        2: {
+                          style: {
+                            color: '#f50',
+                            fontSize: '1rem',
+                          },
+                          label: <FrownOutlined />,
+                        },
+                        3: {
+                          style: {
+                            color: '#f50',
+                            fontSize: '1rem',
+                          },
+                          label: <FrownOutlined />,
+                        },
+                        4: {
+                          style: {
+                            color: '#f50',
+                            fontSize: '1rem',
+                          },
+                          label: <FrownOutlined />,
+                        },
+                        5: {
+                          style: {
+                            color: '#f50',
+                            fontSize: '1rem',
+                          },
+                          label: <FrownOutlined />,
+                        },
+                      };
+
+                      return (
+                        <>
+                          <Col span={4}>
+                            <Typography.Text className="text-gray flex justify-start text-lg text-color-gray-30">
+                              {result.name}
+                            </Typography.Text>
+                          </Col>
+                          <Col span={7}>
+                            <Typography.Text className="text-gray flex justify-start text-lg text-color-gray-30">
+                              {result.result}
+                            </Typography.Text>
+                          </Col>
+                          <Col span={10}>
+                            <Slider
+                              step={1}
+                              marks={marks}
+                              defaultValue={result.result}
+                              max={5}
+                              disabled
+                            />
+                          </Col>
+                        </>
+                      );
+                    }
+                    const marks: SliderMarks = {
+                      0: {
+                        style: {
+                          color: '#f50',
+                          fontSize: '1rem',
+                        },
+                        label: <FrownOutlined />,
+                      },
+                      1: {
+                        style: {
+                          color: '#f50',
+                          fontSize: '1rem',
+                        },
+                        label: <FrownOutlined />,
+                      },
+                      2: {
+                        style: {
+                          color: '#81ceed',
+                          fontSize: '1rem',
+                        },
+                        label: <SmileOutlined />,
+                      },
+                      3: {
+                        style: {
+                          color: '#81ceed',
+                          fontSize: '1rem',
+                        },
+                        label: <SmileOutlined />,
+                      },
+                    };
+
+                    return (
+                      <>
+                        <Col span={4}>
+                          <Typography.Text className="text-gray flex justify-start text-lg text-color-gray-30">
+                            {result.name}
+                          </Typography.Text>
+                        </Col>
+                        <Col span={7}>
+                          <Typography.Text className="text-gray flex justify-start text-lg text-color-gray-30">
+                            {result.result}
+                          </Typography.Text>
+                        </Col>
+                        <Col span={10}>
+                          <Slider
+                            step={1}
+                            marks={marks}
+                            defaultValue={result.result}
+                            max={3}
+                            disabled
+                          />
+                        </Col>
+                      </>
+                    );
+                  })}
             </Row>
           </div>
           <div>
             <Typography.Text className="text-gray mb-4 flex justify-start text-lg font-semibold text-primary-color ">
-              3. Results and reviews:
+              3. Results and Evaluations
             </Typography.Text>
             <div className="flex flex-row space-x-8">
               <Card style={{ width: 450 }}>
                 <p className="text-gray text-lg">
-                  Total score{' '}
-                  <span className="font-semibold">{totalResult}</span> {' - '}
                   <span className="font-semibold">
-                    {totalResult < 20 ? (
-                      <span className="text-error-color">Danger level</span>
-                    ) : totalResult < 40 ? (
-                      <span className="text-color-accent-yellow">
-                        Warning level
+                    {(asqIndex != 0 && results[0].result < 2) ||
+                    (asqIndex != 0 && results[1].result < 2) ||
+                    (asqIndex != 0 && results[2].result < 2) ||
+                    (asqIndex != 0 && results[3].result < 2) ||
+                    (asqIndex != 0 && results[4].result < 2) ||
+                    (asqIndex != 0 && results[5].result >= 1) ? (
+                      <span className="text-error-color">
+                        Your child may be experiencing developmental disorders
+                      </span>
+                    ) : asqIndex == 0 && totalResult >= 1 ? (
+                      <span className="text-error-color">
+                        Your child may be experiencing developmental disorders
                       </span>
                     ) : (
-                      <span className="text-success-color">Safety level</span>
+                      <span className="text-success-color">
+                        Your child is exhibiting normal developmental
+                        progression
+                      </span>
                     )}
                   </span>
                 </p>
                 <p className="text-gray text-lg">
                   <span className="font-medium">
-                    {totalResult < 20
-                      ? 'Children have signs of dangerous retardation for their age, parents need to see a specialist or doctor for an in-depth diagnosis and accompany their child.'
-                      : totalResult < 40
-                      ? 'Children show signs of developmental delay than the average age.'
-                      : 'Children are developing normally.'}
-                  </span>
-                </p>
-                <p className="text-gray text-lg">
-                  <span>Basic communication:</span>
-                  <span className="font-semibold">
-                    {` ${results[0].result} - `}
-                  </span>
-                  <span className="font-semibold">
-                    {results[0].result < 20 ? (
-                      <span className="text-error-color">Danger level</span>
-                    ) : results[0].result < 40 ? (
-                      <span className="text-color-accent-yellow">
-                        Warning level
-                      </span>
-                    ) : (
-                      <span className="text-success-color">Safety level</span>
-                    )}
-                  </span>
-                </p>
-                <p className="text-gray text-lg">
-                  <span>Gross Motor Skills:</span>
-                  <span className="font-semibold">
-                    {` ${results[1].result} - `}
-                  </span>
-                  <span className="font-semibold">
-                    {results[1].result < 20 ? (
-                      <span className="text-error-color">Danger level</span>
-                    ) : results[1].result < 40 ? (
-                      <span className="text-color-accent-yellow">
-                        Warning level
-                      </span>
-                    ) : (
-                      <span className="text-success-color">Safety level</span>
-                    )}
-                  </span>
-                </p>
-                <p className="text-gray text-lg">
-                  <span>Fine Motor Skills:</span>
-                  <span className="font-semibold">
-                    {` ${results[2].result} - `}
-                  </span>
-                  <span className="font-semibold">
-                    {results[2].result < 20 ? (
-                      <span className="text-error-color">Danger level</span>
-                    ) : results[2].result < 40 ? (
-                      <span className="text-color-accent-yellow">
-                        Warning level
-                      </span>
-                    ) : (
-                      <span className="text-success-color">Safety level</span>
-                    )}
-                  </span>
-                </p>
-                <p className="text-gray text-lg">
-                  <span>Problem Solving:</span>
-                  <span className="font-semibold">
-                    {` ${results[3].result} - `}
-                  </span>
-                  <span className="font-semibold">
-                    {results[3].result < 20 ? (
-                      <span className="text-error-color">Danger level</span>
-                    ) : results[3].result < 40 ? (
-                      <span className="text-color-accent-yellow">
-                        Warning level
-                      </span>
-                    ) : (
-                      <span className="text-success-color">Safety level</span>
-                    )}
-                  </span>
-                </p>
-                <p className="text-gray text-lg">
-                  <span>Social Individual:</span>
-                  <span className="font-semibold">
-                    {` ${results[4].result} - `}
-                  </span>
-                  <span className="font-semibold">
-                    {results[4].result < 20 ? (
-                      <span className="text-error-color">Danger level</span>
-                    ) : results[4].result < 40 ? (
-                      <span className="text-color-accent-yellow">
-                        Warning level
-                      </span>
-                    ) : (
-                      <span className="text-success-color">Safety level</span>
-                    )}
+                    {(((asqIndex != 0 && results[0].result < 2) ||
+                      (asqIndex != 0 && results[1].result < 2) ||
+                      (asqIndex != 0 && results[2].result < 2) ||
+                      (asqIndex != 0 && results[3].result < 2) ||
+                      (asqIndex != 0 && results[4].result < 2)) &&
+                      asqIndex != 0 &&
+                      results[5].result >= 1) ||
+                    (asqIndex == 0 && totalResult >= 1)
+                      ? 'Your child exhibits signs of delayed development that are concerning for their age. It is advisable for the parents to seek the assistance of a specialist or physician to obtain a thorough diagnosis and to provide ongoing support for your child.'
+                      : (asqIndex != 0 && results[0].result < 2) ||
+                        (asqIndex != 0 && results[1].result < 2) ||
+                        (asqIndex != 0 && results[2].result < 2) ||
+                        (asqIndex != 0 && results[3].result < 2) ||
+                        (asqIndex != 0 && results[4].result < 2) ||
+                        (asqIndex != 0 && results[5].result >= 1)
+                      ? 'Your child display signs of delayed development compared to his/her peers on average.'
+                      : 'Your child is developing normally. You may conduct a bi-annual developmental assessment to monitor his/her progress'}
                   </span>
                 </p>
               </Card>
               <Card style={{ width: 450 }}>
                 <p className=" text-lg font-semibold text-primary-color ">
-                  General comment
+                  Overall review
                 </p>
                 <p className="text-gray text-lg">
-                  {totalResult < 20 ? (
+                  {results[0].result +
+                    results[1].result +
+                    results[2].result +
+                    results[3].result +
+                    results[4].result <=
+                  13 ? (
                     <>
                       <span className="font-medium leading-4">
-                        Areas such as Communication, Gross Motor, Fine Motor,
-                        Problem Solving, Social Individual have scores in the
-                        danger zone. It means that there are some skills in
-                        these areas that children have not yet performed, or
-                        have done but not often, that is, children are behind
-                        other children of the same age in this area.
+                        Child name &nbsp;
+                        <span className="font-semibold">
+                          {childInformation?.name}
+                        </span>{' '}
+                        &nbsp; at some skills like &nbsp;
+                        <strong>
+                          Communication - Language, Gross motor, Fine motor,
+                          Imitation and learn, Personal - Social
+                        </strong>{' '}
+                        &nbsp; has point located within a dangerous area. This
+                        implies that some of the skills in these fields may not
+                        has been accomplished by your child yet, or has been
+                        accomplished but not regularly, which means that your
+                        child is lagging behind other children of the same age
+                        in this field.
                       </span>
                     </>
-                  ) : totalResult < 40 ? (
+                  ) : results[2].result + results[3].result >= 4 &&
+                    results[0].result + results[4].result < 4 &&
+                    results[1].result < 2 ? (
                     <>
                       <Col span={24}>
                         <span className="font-medium">
-                          Child{' '}
+                          Children name &nbsp;
                           <span className="font-semibold">
-                            {childInformation.name}
+                            {childInformation?.name}
                           </span>{' '}
-                          normal development in the areas of fine motor and
-                          problem solving. This means that children develop at
-                          the same rate as other children of the same age in
-                          these areas.
+                          &nbsp; has normal development in the fields of motor
+                          skills and problem-solving. This signifies that your
+                          child is progressing in parallel with his/her peers of
+                          the same age in these fields."
                         </span>
                       </Col>
                       <Col span={24}>
                         <span className="font-medium">
-                          Areas like{' '}
+                          Skills like &nbsp;
                           <span className="font-semibold">
-                            Communication:, Social Individual
+                            Communication - Language, Personal - Social
                           </span>{' '}
-                          point is in the alarm zone. That means that there are
-                          some skills in these areas that children have not yet
-                          performed, or have done, but not often.
+                          &nbsp; have points located within the alert zone. This
+                          implies that some skills in these fields has not been
+                          accomplished by your child, or has been accomplished
+                          irregularly
                         </span>
                       </Col>
                       <Col span={24}>
                         <span className="font-medium">
-                          Areas like{' '}
-                          <span className="font-semibold">
-                            Gross Motor Skills
-                          </span>{' '}
-                          point is in the danger zone. That means that there are
-                          some skills in these areas that children have not yet
-                          performed, or have done but not often, that is,
-                          children are behind other children of the same age in
-                          this area.
+                          Skills like &nbsp;
+                          <span className="font-semibold">Gross motor</span> has
+                          point lying within the alert zone. This denotes that
+                          there are certain competencies in these fields that
+                          your child are yet to acquire or have already achieved
+                          but with irregularity, thus resulting in his/her
+                          comparatively slower progress in these domains than
+                          other children at the same age."
                         </span>
                       </Col>
                     </>
                   ) : (
                     <>
                       <span className="font-medium">
-                        Parents need to communicate and interact with their
-                        children more. Parents should avoid letting their
-                        children use electronic devices, up to 1 hour/day.
-                        Parents need to check this test every 6 months
+                        Child name &nbsp;
+                        <span className="font-semibold">
+                          {childInformation?.name}
+                        </span>{' '}
+                        &nbsp; has normal development in most of the skills.
+                        This signifies that your child is progressing in
+                        parallel with his/her peers of the same age in these
+                        fields."
                       </span>
                     </>
                   )}
@@ -387,124 +610,50 @@ export default function Result() {
               span={24}
               className="my-2  text-lg font-semibold text-primary-color "
             >
-              Treatment
+              Method of handling
             </Col>
             <Col span={24}>
               <Typography.Text className="text-gray text-lg">
-                {totalResult < 20 ? (
+                {(((asqIndex != 0 && results[0].result < 2) ||
+                  (asqIndex != 0 && results[1].result < 2) ||
+                  (asqIndex != 0 && results[2].result < 2) ||
+                  (asqIndex != 0 && results[3].result < 2) ||
+                  (asqIndex != 0 && results[4].result < 2)) &&
+                  asqIndex != 0 &&
+                  results[5].result >= 1) ||
+                (asqIndex == 0 && totalResult >= 1) ? (
                   <>
                     <p className="font-medium">
-                      Children have signs of dangerous retardation for their
-                      age, parents need to see a specialist or doctor for an
-                      in-depth diagnosis and accompany their child.
+                      Your child displays signs of delayed development that pose
+                      a serious risk compared to his/her peers. It is imperative
+                      that you seek the guidance of a specialist or physician to
+                      conduct a thorough and comprehensive diagnosis and provide
+                      ongoing support for your child.
                     </p>
                     <p className="font-medium">
-                      Parents need to seriously study and learn about child
-                      development. Parents continue to use the in-depth test and
-                      should contact a specialist or doctor for the best
-                      diagnosis.
-                    </p>
-                    <p className="font-medium">
-                      Parents need to interact and practice basic behaviors for
-                      children to imitate.
-                    </p>
-                    <p className="font-medium">
-                      Parents need to let their children exercise to release
-                      energy and increase concentration through sports: cycling,
-                      jogging,... Parents can let their children play games,
-                      guide them to use them. Using safety furniture to increase
-                      problem-solving ability Children have only poor social
-                      interaction, parents need to interact more with their
-                      children.
-                    </p>
-                    <p className="font-medium">
-                      Parents should avoid letting children use electronic
-                      devices, up to 1 hour/day.
+                      Parents should earnestly delve into and investigate the
+                      development of their offspring. They ought to persist in
+                      utilizing comprehensive assessments and seek counsel from
+                      experts and physicians in order to obtain the most
+                      accurate diagnosis.
                     </p>
                   </>
-                ) : totalResult < 40 ? (
+                ) : (asqIndex != 0 && results[0].result < 2) ||
+                  (asqIndex != 0 && results[1].result < 2) ||
+                  (asqIndex != 0 && results[2].result < 2) ||
+                  (asqIndex != 0 && results[3].result < 2) ||
+                  (asqIndex != 0 && results[4].result < 2) ||
+                  (asqIndex != 0 && results[5].result >= 1) ? (
                   <>
                     <p className="font-medium">
-                      Parents continue to use the in-depth test and should
-                      contact a specialist or doctor for the best diagnosis.
-                    </p>
-                    <p className="font-medium">
-                      Parents need to interact and practice basic behaviors for
-                      their children to imitate.
-                    </p>
-                    <p className="font-medium">
-                      Parents need to give their children exercise to release
-                      energy and increase concentration through sports: cycling,
-                      jogging,...{' '}
-                    </p>
-                    <p className="font-medium">
-                      Parents can let their children play games, guide their
-                      children to use safe furniture to increase their ability
-                      to handle problems. The child has only poor social
-                      interaction, parents need to communicate and interact with
-                      their grandchildren more.
-                    </p>
-                    <p className="font-medium">
-                      Parents should avoid letting children use electronic
-                      devices, up to 1 hour/day.
+                      Parents should continue to utilize in-depth assessments
+                      and seek consultation from specialists or physicians to
+                      obtain the most accurate diagnosis.
                     </p>
                   </>
                 ) : (
                   <>
-                    <span className="font-medium">
-                      Parents need to communicate and interact with their
-                      children more. Parents should avoid letting their children
-                      use electronic devices, up to 1 hour/day. Parents need to
-                      check this test every 6 months.
-                    </span>
-                  </>
-                )}
-              </Typography.Text>
-            </Col>
-            <Col span={24} className="my-2">
-              <Typography.Text className="text-gray text-lg">
-                {totalResult < 20 ? (
-                  <>
-                    <span className="font-semibold">
-                      Note: supporting documents for accompanying parents are
-                      not textbooks for children at a Danger level
-                    </span>
-                  </>
-                ) : totalResult < 40 ? (
-                  <>
-                    <span className="font-semibold">
-                      The roadmap to guide parents to accompany their retarded
-                      children
-                    </span>
-                  </>
-                ) : null}
-              </Typography.Text>
-            </Col>
-            <Col span={24} className="py-6">
-              <Typography.Text className="text-gray text-lg">
-                {totalResult < 20 ? (
-                  <>
-                    <iframe
-                      className="my-2 rounded-lg"
-                      width={800}
-                      height={450}
-                      src={`https://www.youtube.com/embed/Kp8B0z5oBm4`}
-                    />
-                  </>
-                ) : totalResult < 40 ? (
-                  <>
-                    <iframe
-                      className="my-2 rounded-lg"
-                      width={800}
-                      height={450}
-                      src={`https://www.youtube.com/embed/Kp8B0z5oBm4`}
-                    />
-                  </>
-                ) : (
-                  <>
-                    <span className="font-semibold">
-                      Parents need to check this test every 6 months.
-                    </span>
+                    <span className="font-medium"></span>
                   </>
                 )}
               </Typography.Text>
@@ -512,31 +661,51 @@ export default function Result() {
           </div>
           <div>
             <Col span={24}>
+              {(asqIndex != 0 && results[0].result < 2) ||
+              (asqIndex != 0 && results[1].result < 2) ||
+              (asqIndex != 0 && results[2].result < 2) ||
+              (asqIndex != 0 && results[3].result < 2) ||
+              (asqIndex != 0 && results[4].result < 2) ||
+              (asqIndex != 0 && results[5].result >= 1) ||
+              (asqIndex == 0 && totalResult >= 1) ? (
+                <Typography.Text className="text-gray text-lg">
+                  If possible, families should take your child to healthcare
+                  facilities for further evaluation of his/her developmental
+                  progress. &nbsp;
+                </Typography.Text>
+              ) : (
+                <></>
+              )}
               <Typography.Text className="text-gray text-lg">
-                Families should take the child to a health facility for further
-                assessment of the child's development and{' '}
-                <span className="font-semibold">
-                  Pediatric examination (psychology, psychology, language...),
-                  Checking children's movement, Checking children's hearing,
-                  Pediatric specialty examination (psychology, psychology,
-                  rehabilitation department) function..., Specialist examination
-                  for further examination.
-                </span>
+                <p className="font-medium">
+                  Parents can refer to the intervention roadmap developed by
+                  HappyChild's experts to support their child's better
+                  development.
+                  <br />
+                  <Button
+                    className="hover:bg-primary-hover-color text-white rounded bg-primary-color py-2 px-4 font-semibold"
+                    onClick={() => {
+                      navigate('/contact-specialists');
+                    }}
+                  >
+                    INTERVENTION ROADMAP <RightCircleFilled />
+                  </Button>
+                </p>
               </Typography.Text>
             </Col>
             <Col span={24} className=" mb-16">
               <Typography.Text className="text-gray text-lg">
-                Families can refer to a number of useful courses for their
-                child's development{' '}
+                If there are any concerns or queries, the family may directly
+                contact the experts through &nbsp;
                 <span
                   onClick={() => {
-                    navigate('/courses');
+                    navigate('/contact-specialists');
                   }}
                   className="cursor-pointer font-semibold text-primary-color"
                 >
                   this link
                 </span>{' '}
-                .
+                &nbsp; .
               </Typography.Text>
             </Col>
           </div>
