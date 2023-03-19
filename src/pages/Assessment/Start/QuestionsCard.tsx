@@ -1,6 +1,5 @@
 import {
   Button,
-  Checkbox,
   Col,
   Image,
   Radio,
@@ -9,13 +8,13 @@ import {
   Typography,
 } from 'antd';
 import { Dispatch, SetStateAction, useEffect, useState } from 'react';
-import { Question } from '#/shared/utils/localData';
 import { scrollToTop } from '#/shared/utils/tools';
+import { Answer, Content } from '#/shared/utils/dataType';
 
 interface QuestionProps {
   onChange?: (value?: number) => void;
   value?: number;
-  questions: Question[];
+  questions: Content[];
   stageName: string;
   index: number;
   setCurrentTab: Dispatch<SetStateAction<string | undefined>>;
@@ -45,14 +44,14 @@ export default function QuestionsCard({
 
   const onSelectAnswer = (
     event: RadioChangeEvent,
-    currentQuestion: Question,
+    currentQuestion: Content,
     index: number,
   ) => {
     const selectedAnswer = currentQuestion.answers?.find(
       answer => answer.id === event.target.value,
     );
     if (selectedAnswer) {
-      const result = selectedAnswer?.takesUp * currentQuestion?.takesUp;
+      const result = selectedAnswer?.point;
       setCurrentResults(prev => {
         const clone = [...prev];
         clone[index] = {
@@ -81,51 +80,101 @@ export default function QuestionsCard({
           {`${index + 1}, ${stageName}`}
         </Typography>
       </Col>
-      {questions?.map((question, questionIndex) => (
+      {/* {questions?.map((question, questionIndex) => (
         <Col span={24} key={String(questionIndex)}>
           <Row gutter={[16, 16]}>
             <Col span={24}>
-              <strong>{`Câu hỏi ${questionIndex + 1}:`}</strong>
-              <Typography>{question?.content}</Typography>
+              <strong>{question?.title}</strong>
+              <Typography>{question?.description}</Typography>
             </Col>
-            {question?.images && (
+            {question?.image && (
               <Col span={24}>
-                <Image src={question?.images} />
+                <Image src={question?.image} className="w-60" />
               </Col>
             )}
             <Col span={24}>
-              {question?.hasMultiAnswers ? (
-                <Checkbox.Group>
-                  <Row gutter={[16, 16]}>
-                    {question?.answers?.map((answer, index) => (
-                      <Col key={String(index)}>
-                        <Checkbox value={answer?.id}>
-                          {answer?.content}
-                        </Checkbox>
-                      </Col>
-                    ))}
-                  </Row>
-                </Checkbox.Group>
-              ) : (
-                <Radio.Group
-                  onChange={e => onSelectAnswer(e, question, questionIndex)}
-                >
-                  <Row gutter={[16, 16]}>
-                    {question?.answers?.map((answer, index) => (
-                      <Col key={String(index)}>
-                        <Radio value={answer?.id}>{answer?.content}</Radio>
-                      </Col>
-                    ))}
-                  </Row>
-                </Radio.Group>
-              )}
+              <Radio.Group
+                onChange={e => onSelectAnswer(e, question, questionIndex)}
+              >
+                <Row gutter={[16, 16]}>
+                  {question?.answers?.map((answer: Answer, index: number) => (
+                    <Col key={String(index)}>
+                      <Radio value={answer?.id}>{answer?.content}</Radio>
+                    </Col>
+                  ))}
+                </Row>
+              </Radio.Group>
             </Col>
           </Row>
         </Col>
+      ))} */}
+
+      {questions?.map((question, questionIndex) => (
+        <Col span={24} key={String(questionIndex)}>
+          <Row gutter={[16, 16]}>
+            {question?.image ? (
+              <>
+                <Col span={12}>
+                  <strong>{question?.title}</strong>
+                  <Typography>{question?.description}</Typography>
+                  <Col span={6} className="mt-5">
+                    <Radio.Group
+                      onChange={e => onSelectAnswer(e, question, questionIndex)}
+                    >
+                      <Row gutter={[16, 16]} justify="center" align="middle">
+                        {question?.answers?.map(
+                          (answer: Answer, index: number) => (
+                            <Col key={String(index)}>
+                              <Radio value={answer?.id}>
+                                {answer?.content}
+                              </Radio>
+                            </Col>
+                          ),
+                        )}
+                      </Row>
+                    </Radio.Group>
+                  </Col>
+                </Col>
+                <Col span={12}>
+                  <Image src={question?.image} className="w-60" />
+                </Col>
+                <Col span={24}>
+                  <hr />
+                </Col>
+              </>
+            ) : (
+              <>
+                <Col span={24}>
+                  <strong>{question?.title}</strong>
+                  <Typography>{question?.description}</Typography>
+                </Col>
+                <Col span={24}>
+                  <Radio.Group
+                    onChange={e => onSelectAnswer(e, question, questionIndex)}
+                  >
+                    <Row gutter={[16, 16]}>
+                      {question?.answers?.map(
+                        (answer: Answer, index: number) => (
+                          <Col key={String(index)}>
+                            <Radio value={answer?.id}>{answer?.content}</Radio>
+                          </Col>
+                        ),
+                      )}
+                    </Row>
+                  </Radio.Group>
+                </Col>
+                <Col span={24}>
+                  <hr />
+                </Col>
+              </>
+            )}
+          </Row>
+        </Col>
       ))}
+
       <Col span={24} className="flex justify-end gap-4">
         {index > 0 && (
-          <Button onClick={() => setCurrentTab(prevStageName)}>Trở về</Button>
+          <Button onClick={() => setCurrentTab(prevStageName)}>Back</Button>
         )}
         {index < totalStages - 1 && (
           <Button
@@ -136,7 +185,7 @@ export default function QuestionsCard({
               setCurrentTab(nextStageName);
             }}
           >
-            Tiếp theo
+            Next
           </Button>
         )}
         {index === totalStages - 1 && (
@@ -145,7 +194,7 @@ export default function QuestionsCard({
             htmlType="submit"
             type="primary"
           >
-            Kết thúc và nhận kết quả
+            Submit and receive result
           </Button>
         )}
       </Col>
