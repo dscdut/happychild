@@ -15,10 +15,11 @@ import { useNavigate } from 'react-router-dom';
 import styled from '@emotion/styled';
 import { Store } from 'antd/lib/form/interface';
 import { ref, push, onValue } from 'firebase/database';
-import { useEffect } from 'react';
+import { SetStateAction, useEffect, useState } from 'react';
 import { realTimeDatabase, auth } from '../../../shared/utils/firebase';
 import Children from '#/assets/images/children.jpg';
 import { DatePicker } from '#/shared/components/DatePicker';
+import SelectedRegisteredChild from './SelectRegisteredChild';
 
 const StyledCard = styled(Card)`
   .ant-card-body {
@@ -28,16 +29,27 @@ const StyledCard = styled(Card)`
 
 export default function Assessment() {
   const navigate = useNavigate();
+  const [isModalVisible, setIsModalVisible] = useState<boolean>(false);
+  const [registeredChildren, setRegisteredChildren] = useState<any>([]);
 
-  // check if user has already filled the form before
+  // check if user has already register a child before
   useEffect(() => {
     const childrenRef = ref(
       realTimeDatabase,
       `children/${auth.currentUser?.uid}`,
     );
-    onValue(childrenRef, snapshot => {
+    onValue(childrenRef, async snapshot => {
       if (snapshot.exists()) {
-        navigate('/assessment/start');
+        const childrenObj = await snapshot.val();
+
+        const childrenArray = Object.keys(childrenObj).map(key => {
+          return {
+            ...childrenObj[key],
+            id: key,
+          };
+        });
+
+        setRegisteredChildren(childrenArray);
       }
     });
   }, []);
@@ -55,9 +67,12 @@ export default function Assessment() {
       },
     };
 
-    push(ref(realTimeDatabase, `children/${auth.currentUser?.uid}`), data);
+    const newChildId = push(
+      ref(realTimeDatabase, `children/${auth.currentUser?.uid}`),
+      data,
+    );
 
-    navigate('/assessment/start');
+    navigate(`/assessment/start/${newChildId.key}`);
   };
 
   const calculateAgeInMonths = (birthday: string) => {
@@ -87,6 +102,29 @@ export default function Assessment() {
                 The system will record the information to collect additional
                 data for improving the evaluation system.
               </Typography>
+            </Col>
+            <Col span={24} className="flex flex-col gap-2">
+              <Typography className="text-xl text-success-color">
+                You have already registered your children. Click{' '}
+                <span
+                  onClick={() => {
+                    setIsModalVisible(true);
+                  }}
+                  className="cursor-pointer font-semibold"
+                  style={{ color: '#00A86B' }}
+                >
+                  here
+                </span>{' '}
+                to retake the assessment for your children.{' '}
+                <span className="text-primary-color">
+                  Or register a new one:
+                </span>
+              </Typography>
+              <SelectedRegisteredChild
+                registeredChildren={registeredChildren}
+                isModalVisible={isModalVisible}
+                setIsModalVisible={setIsModalVisible}
+              />
             </Col>
             <Col span={24} className="mt-4 flex flex-col gap-2">
               <Typography className="text-base">

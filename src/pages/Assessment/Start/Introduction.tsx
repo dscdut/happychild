@@ -80,10 +80,7 @@ export default function Introduction() {
           - YES (if the child performs regularly),
         </Typography>
         <Typography className="ml-8">
-          - SOMETIMES (if the child occasionally performs the activity),
-        </Typography>
-        <Typography className="ml-8">
-          - NOT YET (if the child has not yet performed the activity).
+          - NO (if the child has not yet performed the activity).
         </Typography>
         <Typography className="ml-4">
           You need to let the child try each activity before you mark the box.

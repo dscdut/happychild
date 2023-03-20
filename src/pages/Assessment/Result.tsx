@@ -6,7 +6,7 @@ import {
   SmileOutlined,
   RightCircleFilled,
 } from '@ant-design/icons';
-import { useNavigate } from 'react-router-dom';
+import { useNavigate, useParams } from 'react-router-dom';
 import { Col, Row, Typography, Image, Card, Button } from 'antd';
 import Slider, { SliderMarks } from 'antd/lib/slider';
 import dayjs from 'dayjs';
@@ -39,6 +39,8 @@ export default function Result() {
   const [stageName, setStageName] = useState<string>('');
   const [asqIndex, setAsqIndex] = useState<number>(0);
 
+  const { childId } = useParams();
+
   const calculateAgeInMonths = (birthday: string) => {
     const birthDate = new Date(birthday);
     const today = new Date();
@@ -57,10 +59,10 @@ export default function Result() {
     let ageInMonths = 0;
     onValue(childRef, async snapshot => {
       const child = snapshot.val();
-      const [childId] = Object.keys(child);
+      // const [childId] = Object.keys(child);
 
-      setChildInformation(child[childId].info);
-      ageInMonths = calculateAgeInMonths(child[childId].info.birthday);
+      setChildInformation(child[childId || ''].info);
+      ageInMonths = calculateAgeInMonths(child[childId || ''].info.birthday);
     });
 
     let ASQ_INDEX;
@@ -523,12 +525,11 @@ export default function Result() {
                   Overall review
                 </p>
                 <p className="text-gray text-lg">
-                  {results[0].result +
-                    results[1].result +
-                    results[2].result +
-                    results[3].result +
-                    results[4].result <=
-                  13 ? (
+                  {results[0].result <= 1 ||
+                  results[1].result <= 1 ||
+                  results[2].result <= 1 ||
+                  results[3].result <= 1 ||
+                  results[4].result <= 1 ? (
                     <>
                       <span className="font-medium leading-4">
                         Child name &nbsp;
@@ -548,9 +549,11 @@ export default function Result() {
                         in this field.
                       </span>
                     </>
-                  ) : results[2].result + results[3].result >= 4 &&
-                    results[0].result + results[4].result < 4 &&
-                    results[1].result < 2 ? (
+                  ) : results[2].result >= 2 &&
+                    results[3].result >= 2 &&
+                    results[0].result <= 1 &&
+                    results[4].result <= 1 &&
+                    results[1].result <= 1 ? (
                     <>
                       <Col span={24}>
                         <span className="font-medium">
@@ -588,6 +591,23 @@ export default function Result() {
                           other children at the same age."
                         </span>
                       </Col>
+                    </>
+                  ) : results[2].result >= 2 &&
+                    results[3].result >= 2 &&
+                    results[0].result >= 2 &&
+                    results[4].result >= 2 &&
+                    results[1].result >= 2 &&
+                    results[5].result >= 1 ? (
+                    <>
+                      <span className="font-medium">
+                        Child name &nbsp;
+                        <span className="font-semibold">
+                          {childInformation?.name}
+                        </span>{' '}
+                        &nbsp; has normal development in most of the skills.
+                        However your child displays some extra ordinary signs
+                        that are not common in children of the same age.
+                      </span>
                     </>
                   ) : (
                     <>
@@ -676,6 +696,12 @@ export default function Result() {
               ) : (
                 <></>
               )}
+            </Col>
+
+            <Col
+              span={24}
+              className="my-2  text-lg font-semibold text-primary-color "
+            >
               <Typography.Text className="text-gray text-lg">
                 <p className="font-medium">
                   Parents can refer to the intervention roadmap developed by
@@ -693,6 +719,7 @@ export default function Result() {
                 </p>
               </Typography.Text>
             </Col>
+
             <Col span={24} className=" mb-16">
               <Typography.Text className="text-gray text-lg">
                 If there are any concerns or queries, the family may directly

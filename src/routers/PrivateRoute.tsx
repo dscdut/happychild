@@ -25,8 +25,9 @@ function PrivateRoute() {
           path: 'form',
           element: <AssessmentForm />,
         },
-        { path: 'start', element: <AssessmentStart /> },
-        { path: 'results', element: <Result /> },
+        { path: 'start/:childId', element: <AssessmentStart /> },
+        // { path: 'start/', element: <AssessmentStart /> },
+        { path: 'results/:childId', element: <Result /> },
       ],
     },
     {
