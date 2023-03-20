@@ -9,7 +9,7 @@ function AboutAuthor() {
     <StyledCard className="pxshadow-sm">
       <div className="mb-5">
         <Title level={2} className="m-0 text-color-gray-10">
-          Tổng Quan Về Khóa Học
+            Course Overview
         </Title>
         <Text className="text-color-accent-blue">
           {`${'105,291'}`} recent views
@@ -17,7 +17,7 @@ function AboutAuthor() {
       </div>
       <div className="my-5">
         <Title level={4} className="m-0 mb-1">
-          Hỗ trợ trẻ tự kỷ trong lớp học
+          Supporting autistic children in the classroom
         </Title>
         <Paragraph
           ellipsis={{
@@ -28,19 +28,19 @@ function AboutAuthor() {
           className="mb-2 space-y-4 text-justify text-lg"
         >
           <Paragraph>
-            Bạn có muốn nâng cao hiểu biết của mình về chứng tự kỷ và học cách
-            thực hành tốt trong giáo dục tự kỷ không?
+            Would you like to improve your understanding of autism and 
+            learn good practices in autism education?
           </Paragraph>
           <Paragraph>
-            Khóa học kéo dài 4 tuần này giải quyết các câu hỏi quan trọng về
-            giáo dục tự kỷ để đảm bảo rằng trẻ em trong phổ tự kỷ được giáo dục
-            với tiềm năng lớn nhất của chúng.
+            This 4-week course addresses important questions about autism 
+            education to ensure that children on the autism spectrum are 
+            educated to their fullest potential.
           </Paragraph>
         </Paragraph>
       </div>
       <div className="my-5">
         <Title level={4} className="m-0 mb-1">
-          Hiểu biết về chứng tự kỷ trong giáo dục
+          Understanding autism in education
         </Title>
         <Paragraph
           ellipsis={{
@@ -51,21 +51,18 @@ function AboutAuthor() {
           className="mb-2 space-y-4 text-justify text-lg"
         >
           <Paragraph>
-            Khóa học sẽ bắt đầu bằng cách khám phá hiểu biết của bạn về chứng tự
-            kỷ, bao gồm các dấu hiệu, triệu chứng, chẩn đoán và nguyên nhân tiềm
-            ẩn. Bạn sẽ khám phá các nhu cầu giáo dục đặc biệt và khuyết tật có
-            thể ảnh hưởng đến khả năng học tập của một đứa trẻ như thế nào.
+            The course will start by discovering your knowledge of autism, 
+            including signs, symptoms, diagnosis and potential causes. You 
+            will explore the special educational needs and disability that 
+            can affect the learning ability of a child.
           </Paragraph>
           <Paragraph>
-            Sự hòa nhập trong lớp học là vô cùng quan trọng, vì vậy bạn sẽ khám
-            phá cách phát triển một chương trình giảng dạy hòa nhập cho học sinh
-            tự kỷ.
+            Integration in the classroom is extremely important, so you will 
+            explore how to develop an integral curriculum for autistic students.
           </Paragraph>
           <Paragraph>
-            Bạn cũng sẽ tìm hiểu về nhiều phương thức học tập cho học sinh mắc
-            chứng tự kỷ, bao gồm các trường đặc biệt nói chung, các trường đặc
-            biệt dành riêng cho chứng tự kỷ, các đơn vị tự kỷ trong các trường
-            phổ thông và học trong một lớp học chính thống.
+            You will also learn about many learning methods for students with 
+            ưautism, including special schools in general, special schools for autism, autistic units in high schools and Study in a mainstream class.
           </Paragraph>
         </Paragraph>
       </div>

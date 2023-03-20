@@ -57,46 +57,13 @@ function FooterComponent() {
             />
           </Link>
         </Col>
-        <Col className="col-span-2">
-          <div className="flex flex-col space-y-2 text-surface-primary">
-            <Title className="font-semibold text-primary-color">Công ty</Title>
-            <Category className="cursor-pointer text-color-dark-mode-80 hover:text-primary-color">
-              Về chúng tôi
-            </Category>
-            <Category className="cursor-pointer text-color-dark-mode-80 hover:text-primary-color">
-              Bài viết
-            </Category>
-            <Category className="cursor-pointer text-color-dark-mode-80 hover:text-primary-color">
-              Sự nghiệp
-            </Category>
-            <Category className="cursor-pointer text-color-dark-mode-80 hover:text-primary-color">
-              Liên hệ
-            </Category>
-          </div>
-        </Col>
-        <Col className="col-span-2">
-          <div className="flex flex-col space-y-2 text-surface-primary">
-            <Title className="font-semibold text-primary-color">Liên kết</Title>
-            <Category className="cursor-pointer text-color-dark-mode-80 hover:text-primary-color">
-              Cuộc họp
-            </Category>
-            <Category className="cursor-pointer text-color-dark-mode-80 hover:text-primary-color">
-              Văn phòng
-            </Category>
-            <Category className="cursor-pointer text-color-dark-mode-80 hover:text-primary-color">
-              Từ xa
-            </Category>
-            <Category className="cursor-pointer text-color-dark-mode-80 hover:text-primary-color">
-              Sự kiện
-            </Category>
-          </div>
-        </Col>
+
         <Col className="col-span-3">
           <div className="flex flex-col space-y-3 text-surface-primary">
-            <Title className="font-semibold text-primary-color">Liên hệ</Title>
+            <Title className="font-semibold text-primary-color">Contact</Title>
             <Category className="flex items-start text-color-dark-mode-80">
               <p className="mb-0 cursor-pointer hover:text-primary-color">
-                {`Toà nhà TPBank - 57 Lý Thường Kiệt - P.Trần Hưng Đạo - Q.Hoàn Kiếm - Tp.Hà Nội`}
+                {`TPBank Building - 57 Ly Thuong Kiet - Tran Hung Dao Ward - Hoan Kiem District - Hanoi City`}
               </p>
             </Category>
             <Category className="flex items-start text-color-dark-mode-80">

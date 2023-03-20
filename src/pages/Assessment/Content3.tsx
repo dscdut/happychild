@@ -3,59 +3,60 @@ export default function Content3() {
     <>
       <p>
         <span className="text-base font-bold text-primary-color">
-          Để có một kết quả đánh giá sự phát triển của trẻ chính xác nhất
+          To have the most accurate assessment of child development
         </span>{' '}
-        cần có sự phối hợp của các chuyên gia và gia đình bé. Đồng thời ba mẹ
-        cũng cần là người theo sát con trong suốt quá trình kiểm tra để hỗ trợ.
-        Khi ở với những người mà con đã rất quen thuộc trẻ sẽ bớt lo lắng và thể
-        hiện đúng với sự phát triển của con.
+        there needs to be collaboration between experts and the child’s family.
+        At the same time, parents also need to closely follow their child
+        throughout the testing process to provide support. When with people that
+        the child is already very familiar with, the child will be less anxious
+        and will perform according to their development.
       </p>
       <p>
-        Chuẩn bị cho việc đánh giá và trở thành người hỗ trợ cho em bé là hai
-        điều quan trọng nhất mẹ có thể làm để có được kết quả chính xác. Dưới
-        đây là một vài gợi ý cụ thể về việc ba mẹ nên làm gì:
+        Preparing for the assessment and being a support person for your baby
+        are the two most important things you can do to get accurate results.
+        Here are some specific suggestions on what parents should do:
       </p>
       <ul className="ml-4 flex flex-col gap-2">
         <li>
-          - Cả bố và mẹ nên tham dự tất cả cuộc gặp hoặc kiểm tra sàng lọc nếu
-          có thể. Mẹ có thể có thông tin hoặc ý tưởng khác nhau để đóng góp và
-          mẹ có thể so sánh các ghi chú để đảm bảo mẹ hiểu mọi thứ diễn ra. Nếu
-          bố của bé không thể tham dự, hãy rủ một người bạn hoặc người thân đi
-          cùng để được hỗ trợ.
+          - Both parents should attend all meetings or screening tests if
+          possible. You may have different information or ideas to contribute
+          and you can compare notes to make sure you understand everything that
+          is happening. If the baby’s father cannot attend, bring a friend or
+          relative along for support.
         </li>
         <li>
-          - Hãy chắc chắn rằng em bé khỏe mạnh và thoải mái trong quá trình đánh
-          giá. Ví dụ, em bé bị sợ hãi hoặc bị nhiễm trùng tai sẽ không thể thực
-          hiện một cách tốt nhất.
+          - Make sure your baby is healthy and comfortable during the
+          assessment. For example, a frightened or ear-infected baby will not
+          perform at their best.
         </li>
         <li>
-          - Em bé mới biết đi sẽ thoải mái hơn khi có sự chuẩn bị trước. Giải
-          thích những gì sẽ xảy ra: Một số bác sĩ sẽ hỏi bé vài câu hỏi và quan
-          sát bé thực hiện những việc mà bé làm hàng ngày, như chơi với đồ chơi.
+          - A newly walking baby will be more comfortable with some preparation
+          beforehand. Explain what will happen: Some doctors will ask your baby
+          a few questions and observe your baby doing things they do every day,
+          like playing with toys.
         </li>
         <li>
-          - Hãy chuẩn bị cho tất cả những câu hỏi mà các chuyên gia về phát
-          triển có thể hỏi. Mẹ có thể tìm hiểu trước các câu hỏi phổ biến, điều
-          đó có thể giúp mẹ biết những thông tin mẹ nên có. In ra và hoàn thành
-          những câu hỏi đó trước khi khám để giúp mẹ tận dụng tối đa lần đánh
-          giá đầu tiên đó.
+          - Prepare for all the questions that developmental experts may ask.
+          You can research common questions beforehand, which can help you know
+          what information you should have. Print out and complete those
+          questions before the exam to make the most of that first assessment.
         </li>
         <li>
-          - Hãy chắc chắn rằng mẹ nhận được một báo cáo bằng văn bản khi kết
-          thúc đánh giá và đặt câu hỏi về bất cứ điều gì mẹ không hiểu.
+          - Make sure you receive a written report when the assessment is
+          complete and ask questions about anything you don’t understand.
         </li>
         <li>
-          - Thực hiện đánh giá thứ hai trước khi bắt đầu điều trị - điều đó có
-          thể tốn kém, mất thời gian và làm chai cảm xúc của mẹ và em bé. Trước
-          khi mẹ cam kết điều trị, hãy chắc chắn rằng mẹ có một chẩn đoán chính
-          xác.
+          - Get a second assessment before starting treatment - it can be
+          expensive, time-consuming and emotionally draining for both you and
+          your baby. Before committing to treatment, make sure you have an
+          accurate diagnosis.
         </li>
         <li>
-          - Cho em bé đánh giá lại theo định kỳ. Trẻ em tăng trưởng và phát
-          triển rất nhanh với tốc độ khác nhau, điều quan trọng là phải đánh giá
-          thường xuyên. Em bé có thể chậm phát triển ở nhiều lĩnh vực hoặc có sự
-          chậm phát triển ở các lĩnh vực khác. Theo dõi liên tục để nắm bắt thay
-          đổi càng sớm càng tốt.
+          - Have your baby reassessed periodically. Children grow and develop
+          very quickly at different rates, so it’s important to assess
+          regularly. Your baby may be delayed in multiple areas or have delays
+          in different areas. Continuously monitor to catch changes as early as
+          possible.
         </li>
       </ul>
     </>

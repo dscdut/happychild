@@ -80,35 +80,6 @@ export default function QuestionsCard({
           {`${index + 1}, ${stageName}`}
         </Typography>
       </Col>
-      {/* {questions?.map((question, questionIndex) => (
-        <Col span={24} key={String(questionIndex)}>
-          <Row gutter={[16, 16]}>
-            <Col span={24}>
-              <strong>{question?.title}</strong>
-              <Typography>{question?.description}</Typography>
-            </Col>
-            {question?.image && (
-              <Col span={24}>
-                <Image src={question?.image} className="w-60" />
-              </Col>
-            )}
-            <Col span={24}>
-              <Radio.Group
-                onChange={e => onSelectAnswer(e, question, questionIndex)}
-              >
-                <Row gutter={[16, 16]}>
-                  {question?.answers?.map((answer: Answer, index: number) => (
-                    <Col key={String(index)}>
-                      <Radio value={answer?.id}>{answer?.content}</Radio>
-                    </Col>
-                  ))}
-                </Row>
-              </Radio.Group>
-            </Col>
-          </Row>
-        </Col>
-      ))} */}
-
       {questions?.map((question, questionIndex) => (
         <Col span={24} key={String(questionIndex)}>
           <Row gutter={[16, 16]}>

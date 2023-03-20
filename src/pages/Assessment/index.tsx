@@ -78,7 +78,7 @@ function Index() {
               onClick={() => navigate('/assessment/form')}
             >
               <ProfileOutlined />
-              Bắt đầu kiểm tra và đánh giá
+              Start testing and evaluation
               <RightOutlined style={{ fontSize: '20px', color: '#fff' }} />
             </Button>
           </Col>

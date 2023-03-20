@@ -37,7 +37,7 @@ function BlogPage() {
                 title={blog.title}
                 extra={
                   <Button type="primary">
-                    <Link to="/blogs/123">Chi tiết</Link>
+                    <Link to="/blogs/123">Detail</Link>
                   </Button>
                 }
                 style={{ width: '48%', marginBottom: 38 }}
@@ -67,46 +67,42 @@ function BlogPage() {
         <div className="col-span-3 flex flex-col gap-8">
           <Card>
             <p className="cursor-pointer text-lg text-primary-color">
-              Chuẩn đoán tự kỷ như thế nào?
+              How is autism diagnosed?
             </p>
             <p>
-              Việc chuẩn đoán tự kỷ nên được thực hiện bởi các sĩ chuyên khoa,
-              thông qua một loạt các hoạt động, các quan sát và các bài kiểm tra
-              được thiết kế dành riêng để thăm dò và chuẩn đoán có độ chính xác
-              cao.
+              The diagnosis of autism should be made by specialists, through a
+              series of activities, observations and tests designed specifically
+              for high-precision exploration and diagnosis.
             </p>
-            <p className="text-primary-color underline">Đọc trong 10 phút</p>
+            <p className="text-primary-color underline">Read in 10 minutes</p>
           </Card>
           <Card>
             <p className="cursor-pointer text-lg text-primary-color">
-              Có những phương pháp nào giúp trẻ tự kỷ hòa nhập?
+              What methods are available to help children with autism integrate?
             </p>
             <p>
-              Trẻ tự kỷ có thể sống một cuộc sống bình thường nếu đươc phát hiện
-              sớm các bất thường và tham gia an thiệp trị liệu kịp thời.
+              Children with autism can live a normal life if abnormalities are
+              detected early and intervention is timely.
             </p>
-            <p className="text-primary-color underline">Đọc trong 3 phút</p>
+            <p className="text-primary-color underline">Read in 3 minutes</p>
           </Card>
           <Card>
             <p className="cursor-pointer text-lg text-primary-color">
-              Trẻ tự kỷ thường có những triệu chứng nào?
+              What symptoms do children with autism often have?
             </p>
             <p>
-              Thời gian xuất hiện triệu chứng: 12 - 18 thàng tuổi - giai đoạn
-              này, các triệu chứng dần trở nên rỡ rệt và dễ nhận biết nhất. Nếu
-              được phát hiện kịp thời, cơ hội can thiệp sớm mang lại kết quả tốt
-              rất cao.
+              Time to appear symptoms: 12 - 18 months old - this stage, the
+              symptoms gradually become obvious and most recognizable. If
+              detected in time, the chance of early intervention is very high.
             </p>
-            <p className="text-primary-color underline">Đọc trong 7 phút</p>
+            <p className="text-primary-color underline">Read in 7 minutes</p>
           </Card>
         </div>
       </div>
       <div>
         <div className="mb-6 flex items-center justify-between">
-          <div className="text-2xl text-primary-color">
-            Các bài viết nâng cao
-          </div>
-          <Button>Xem tất cả</Button>
+          <div className="text-2xl text-primary-color">Advanced Articles</div>
+          <Button>View all</Button>
         </div>
         <div className="grid grid-cols-8 gap-4">
           {blogList.length > 0 &&
@@ -120,7 +116,7 @@ function BlogPage() {
                   title={blog.title}
                   extra={
                     <Button type="primary">
-                      <Link to="/blogs/123">Chi tiết</Link>
+                      <Link to="/blogs/123">Detail</Link>
                     </Button>
                   }
                   className="col-span-2"

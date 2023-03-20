@@ -17,7 +17,7 @@ export default function ChatBox() {
         <div className="relative flex items-center justify-between">
           <Avatar src={User} size={50} />
           <Typography className="font-bold">
-            Giáo sư Tiến sĩ Nguyễn Công Nhật Thiên
+            Professor Dr. Nguyen Cong Nhat Thien
           </Typography>
           <div className="flex items-center gap-2">
             <Button shape="circle" type="primary">

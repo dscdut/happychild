@@ -14,7 +14,7 @@ export default function ComingSoon() {
           Coming Soon
         </Typography.Title>
         <Typography.Text className="text-color-gray text-xl">
-          Tính năng đang trong quá trình phát triển. Vui lòng quay lại sau.
+          The feature is in development. Please come back later.
         </Typography.Text>
         <Row gutter={16} className="mt-12">
           <Col lg={10} md={12} sm={8} xs={24} className="mt-5 sm:mt-0">
@@ -24,7 +24,7 @@ export default function ComingSoon() {
               className="btn-primary py-2 text-base"
               onClick={() => navigate('/')}
             >
-              Trở về trang chủ
+              Back to Homepage
             </Button>
           </Col>
         </Row>
