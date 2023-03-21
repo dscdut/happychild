@@ -8,6 +8,7 @@ import { realTimeDatabase, auth } from '../../../shared/utils/firebase';
 import QuestionsCard from './QuestionsCard';
 import Introduction from './Introduction';
 import { scrollToTop } from '#/shared/utils/tools';
+import { useParams } from 'react-router-dom';
 
 import { Question } from '#/shared/utils/dataType';
 
@@ -19,11 +20,7 @@ export default function AssessmentStart() {
   const [questions, setQuestions] = useState<Question[]>([]);
 
   const childRef = ref(realTimeDatabase, `children/${auth.currentUser?.uid}`);
-  let childId = '';
-  onValue(childRef, snapshot => {
-    const child = snapshot.val();
-    [childId] = Object.keys(child);
-  });
+  const { childId } = useParams();
 
   const onSubmit = async ({ results }: Store) => {
     localStorage.setItem('results', JSON.stringify(results));
@@ -41,7 +38,7 @@ export default function AssessmentStart() {
         results,
       );
 
-      navigate('/assessment/results');
+      navigate(`/assessment/results/${childId}`);
     } catch (error) {
       console.log(error);
     }
@@ -61,10 +58,9 @@ export default function AssessmentStart() {
     let ageInMonths = 0;
     onValue(childRef, snapshot => {
       const child = snapshot.val();
-      const [childId] = Object.keys(child);
 
-      setChildName(child[childId].info.name);
-      ageInMonths = calculateAgeInMonths(child[childId].info.birthday);
+      setChildName(child[childId || ''].info.name);
+      ageInMonths = calculateAgeInMonths(child[childId || ''].info.birthday);
     });
 
     let ASQ_INDEX;

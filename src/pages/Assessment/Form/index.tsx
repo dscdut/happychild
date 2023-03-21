@@ -15,10 +15,11 @@ import { useNavigate } from 'react-router-dom';
 import styled from '@emotion/styled';
 import { Store } from 'antd/lib/form/interface';
 import { ref, push, onValue } from 'firebase/database';
-import { useEffect } from 'react';
+import { useEffect, useState } from 'react';
 import { realTimeDatabase, auth } from '../../../shared/utils/firebase';
 import Children from '#/assets/images/children.jpg';
 import { DatePicker } from '#/shared/components/DatePicker';
+import SelectedRegisteredChild from './SelectRegisteredChild';
 
 const StyledCard = styled(Card)`
   .ant-card-body {
@@ -28,16 +29,27 @@ const StyledCard = styled(Card)`
 
 export default function Assessment() {
   const navigate = useNavigate();
+  const [isModalVisible, setIsModalVisible] = useState<boolean>(false);
+  const [registeredChildren, setRegisteredChildren] = useState<any>([]);
 
-  // check if user has already filled the form before
+  // check if user has already register a child before
   useEffect(() => {
     const childrenRef = ref(
       realTimeDatabase,
       `children/${auth.currentUser?.uid}`,
     );
-    onValue(childrenRef, snapshot => {
+    onValue(childrenRef, async snapshot => {
       if (snapshot.exists()) {
-        navigate('/assessment/start');
+        const childrenObj = await snapshot.val();
+
+        const childrenArray = Object.keys(childrenObj).map(key => {
+          return {
+            ...childrenObj[key],
+            id: key,
+          };
+        });
+
+        setRegisteredChildren(childrenArray);
       }
     });
   }, []);
@@ -55,9 +67,12 @@ export default function Assessment() {
       },
     };
 
-    push(ref(realTimeDatabase, `children/${auth.currentUser?.uid}`), data);
+    const newChildId = push(
+      ref(realTimeDatabase, `children/${auth.currentUser?.uid}`),
+      data,
+    );
 
-    navigate('/assessment/start');
+    navigate(`/assessment/start/${newChildId.key}`);
   };
 
   const calculateAgeInMonths = (birthday: string) => {
@@ -88,6 +103,31 @@ export default function Assessment() {
                 data for improving the evaluation system.
               </Typography>
             </Col>
+            {registeredChildren.length > 0 && (
+              <Col span={24} className="flex flex-col gap-2">
+                <Typography className="text-xl text-success-color">
+                  You have already registered your children. Click{' '}
+                  <span
+                    onClick={() => {
+                      setIsModalVisible(true);
+                    }}
+                    className="cursor-pointer font-semibold"
+                    style={{ color: '#00A86B' }}
+                  >
+                    here
+                  </span>{' '}
+                  to retake the assessment for your children.{' '}
+                  <span className="text-primary-color">
+                    Or register a new one:
+                  </span>
+                </Typography>
+                <SelectedRegisteredChild
+                  registeredChildren={registeredChildren}
+                  isModalVisible={isModalVisible}
+                  setIsModalVisible={setIsModalVisible}
+                />
+              </Col>
+            )}
             <Col span={24} className="mt-4 flex flex-col gap-2">
               <Typography className="text-base">
                 The child’s full name. (
@@ -110,7 +150,7 @@ export default function Assessment() {
               <Row gutter={[16, 16]}>
                 <Col span={12}>
                   <Typography className="text-base">
-                    Baby’s Birthdate (
+                    Baby’s birthdate (
                     <span className="text-error-color">*</span>):
                   </Typography>
                   <Form.Item
@@ -119,7 +159,7 @@ export default function Assessment() {
                     rules={[
                       {
                         required: true,
-                        message: 'Please select Baby’s Birthdate',
+                        message: 'Please select child’s birthdate',
                       },
                       {
                         validator: (_, value) => {
@@ -142,7 +182,7 @@ export default function Assessment() {
                   >
                     <DatePicker
                       className="w-full"
-                      placeholder="Select Baby’s Birthdate"
+                      placeholder="Select child’s birthdate"
                     />
                   </Form.Item>
                 </Col>
@@ -155,7 +195,7 @@ export default function Assessment() {
                     rules={[
                       {
                         required: true,
-                        message: 'Please seltect Baby’s Gender',
+                        message: 'Please select child’s gender',
                       },
                     ]}
                     style={{ marginBottom: 0 }}
@@ -176,7 +216,7 @@ export default function Assessment() {
             </Col>
             <Col span={24} className="flex flex-col gap-2">
               <Typography className="text-base">
-                Parent/Guardian’s Permanent Address (
+                Parent/Guardian’s address (
                 <span className="text-error-color">*</span>):
               </Typography>
               <Form.Item
@@ -184,17 +224,17 @@ export default function Assessment() {
                 rules={[
                   {
                     required: true,
-                    message: 'Please Enter Permanent Address',
+                    message: 'Please enter Parent/Guardian’s address',
                   },
                 ]}
                 style={{ marginBottom: 0 }}
               >
-                <Input placeholder="Enter Permanent Address" />
+                <Input placeholder="Enter Parent/Guardian’s address" />
               </Form.Item>
             </Col>
             <Col span={24} className="flex flex-col gap-2">
               <Typography className="text-base">
-                Parent/Guardian’s Phone Number (
+                Parent/Guardian’s phone number (
                 <span className="text-error-color">*</span>):
               </Typography>
               <Form.Item
@@ -202,11 +242,11 @@ export default function Assessment() {
                 rules={[
                   {
                     required: true,
-                    message: 'Please enter Parent/Guardian’s Phone Number',
+                    message: 'Please enter Parent/Guardian’s phone number',
                   },
                   {
                     pattern: /^0[0-9]{9,10}$/,
-                    message: 'Invalid Phone Number',
+                    message: 'Invalid phone number',
                   },
                 ]}
                 style={{ marginBottom: 0 }}
@@ -277,8 +317,8 @@ export default function Assessment() {
             </Col>
             <Col span={24}>
               <Typography className="text-sm italic">
-                * If you have any questions, please contact our hotline:
-                0935573483
+                * If you have any questions, please contact our hotline: 0909
+                0909 0909
               </Typography>
             </Col>
             <Col span={24} className="flex items-center justify-end">
