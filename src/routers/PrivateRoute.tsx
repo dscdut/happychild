@@ -1,5 +1,6 @@
 import { useRoutes } from 'react-router-dom';
 import { loadable } from '#/shared/utils/loadable';
+import TrackingProgress from '#/pages/TrackingProgress';
 
 const Index = loadable(import('#/pages/index'));
 const BlogPage = loadable(import('#/pages/Blog'));
@@ -26,36 +27,44 @@ function PrivateRoute() {
           element: <AssessmentForm />,
         },
         { path: 'start/:childId', element: <AssessmentStart /> },
-        // { path: 'start/', element: <AssessmentStart /> },
         { path: 'results/:childId', element: <Result /> },
       ],
     },
     {
-      path: 'blogs',
+      path: 'tracking-progress',
       children: [
         {
           index: true,
-          element: <BlogPage />,
-        },
-        {
-          path: ':id',
-          element: <BlogDetail />,
+          element: <TrackingProgress />,
         },
       ],
     },
-    {
-      path: 'courses',
-      children: [
-        {
-          index: true,
-          element: <Courses />,
-        },
-        {
-          path: ':id',
-          element: <CoursesDetail />,
-        },
-      ],
-    },
+    // {
+    //   path: 'blogs',
+    //   children: [
+    //     {
+    //       index: true,
+    //       element: <BlogPage />,
+    //     },
+    //     {
+    //       path: ':id',
+    //       element: <BlogDetail />,
+    //     },
+    //   ],
+    // },
+    // {
+    //   path: 'courses',
+    //   children: [
+    //     {
+    //       index: true,
+    //       element: <Courses />,
+    //     },
+    //     {
+    //       path: ':id',
+    //       element: <CoursesDetail />,
+    //     },
+    //   ],
+    // },
     { path: '*', element: <ComingSoon /> },
   ]);
 
