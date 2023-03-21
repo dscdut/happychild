@@ -63,14 +63,14 @@ function FooterComponent() {
             <Title className="font-semibold text-primary-color">Contact</Title>
             <Category className="flex items-start text-color-dark-mode-80">
               <p className="mb-0 cursor-pointer hover:text-primary-color">
-                {`TPBank Building - 57 Ly Thuong Kiet - Tran Hung Dao Ward - Hoan Kiem District - Hanoi City`}
+                {`123 Nguyen Van Linh Street, Hai Chau District, Da Nang City`}
               </p>
             </Category>
             <Category className="flex items-start text-color-dark-mode-80">
-              <p className="mb-0 cursor-pointer hover:text-primary-color">{`tpbankdemo@gmail.com`}</p>
+              <p className="mb-0 cursor-pointer hover:text-primary-color">{`happychild@gmail.com`}</p>
             </Category>
             <Category className="flex items-start text-color-dark-mode-80">
-              <p className="mb-0 cursor-pointer hover:text-primary-color">{`0909 0909 0909 - 0808 080 0808`}</p>
+              <p className="mb-0 cursor-pointer hover:text-primary-color">{`0909 0909 0909`}</p>
             </Category>
           </div>
         </Col>

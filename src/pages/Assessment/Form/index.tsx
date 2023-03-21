@@ -15,7 +15,7 @@ import { useNavigate } from 'react-router-dom';
 import styled from '@emotion/styled';
 import { Store } from 'antd/lib/form/interface';
 import { ref, push, onValue } from 'firebase/database';
-import { SetStateAction, useEffect, useState } from 'react';
+import { useEffect, useState } from 'react';
 import { realTimeDatabase, auth } from '../../../shared/utils/firebase';
 import Children from '#/assets/images/children.jpg';
 import { DatePicker } from '#/shared/components/DatePicker';
@@ -150,7 +150,7 @@ export default function Assessment() {
               <Row gutter={[16, 16]}>
                 <Col span={12}>
                   <Typography className="text-base">
-                    Baby’s Birthdate (
+                    Baby’s birthdate (
                     <span className="text-error-color">*</span>):
                   </Typography>
                   <Form.Item
@@ -159,7 +159,7 @@ export default function Assessment() {
                     rules={[
                       {
                         required: true,
-                        message: 'Please select Baby’s Birthdate',
+                        message: 'Please select child’s birthdate',
                       },
                       {
                         validator: (_, value) => {
@@ -182,7 +182,7 @@ export default function Assessment() {
                   >
                     <DatePicker
                       className="w-full"
-                      placeholder="Select Baby’s Birthdate"
+                      placeholder="Select child’s birthdate"
                     />
                   </Form.Item>
                 </Col>
@@ -195,7 +195,7 @@ export default function Assessment() {
                     rules={[
                       {
                         required: true,
-                        message: 'Please seltect Baby’s Gender',
+                        message: 'Please select child’s gender',
                       },
                     ]}
                     style={{ marginBottom: 0 }}
@@ -216,7 +216,7 @@ export default function Assessment() {
             </Col>
             <Col span={24} className="flex flex-col gap-2">
               <Typography className="text-base">
-                Parent/Guardian’s Permanent Address (
+                Parent/Guardian’s address (
                 <span className="text-error-color">*</span>):
               </Typography>
               <Form.Item
@@ -224,17 +224,17 @@ export default function Assessment() {
                 rules={[
                   {
                     required: true,
-                    message: 'Please Enter Permanent Address',
+                    message: 'Please enter Parent/Guardian’s address',
                   },
                 ]}
                 style={{ marginBottom: 0 }}
               >
-                <Input placeholder="Enter Permanent Address" />
+                <Input placeholder="Enter Parent/Guardian’s address" />
               </Form.Item>
             </Col>
             <Col span={24} className="flex flex-col gap-2">
               <Typography className="text-base">
-                Parent/Guardian’s Phone Number (
+                Parent/Guardian’s phone number (
                 <span className="text-error-color">*</span>):
               </Typography>
               <Form.Item
@@ -242,11 +242,11 @@ export default function Assessment() {
                 rules={[
                   {
                     required: true,
-                    message: 'Please enter Parent/Guardian’s Phone Number',
+                    message: 'Please enter Parent/Guardian’s phone number',
                   },
                   {
                     pattern: /^0[0-9]{9,10}$/,
-                    message: 'Invalid Phone Number',
+                    message: 'Invalid phone number',
                   },
                 ]}
                 style={{ marginBottom: 0 }}
@@ -317,8 +317,8 @@ export default function Assessment() {
             </Col>
             <Col span={24}>
               <Typography className="text-sm italic">
-                * If you have any questions, please contact our hotline:
-                0935573483
+                * If you have any questions, please contact our hotline: 0909
+                0909 0909
               </Typography>
             </Col>
             <Col span={24} className="flex items-center justify-end">

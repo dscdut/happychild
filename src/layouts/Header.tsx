@@ -1,21 +1,23 @@
 import {
-  ContactsOutlined,
   HomeOutlined,
-  ProfileOutlined,
-  ReadOutlined,
   ScheduleOutlined,
   UsergroupAddOutlined,
   UserOutlined,
+  FormOutlined,
+  InfoCircleOutlined,
+  StockOutlined,
 } from '@ant-design/icons';
 import { Button, Typography, Image } from 'antd';
 import { Link, useLocation, useNavigate } from 'react-router-dom';
-import { onAuthStateChanged } from 'firebase/auth';
-import { useEffect, useState } from 'react';
-import { auth } from '../shared/utils/firebase';
 import UserInfo from './UserInfo';
 import HappyChild from '#/assets/images/happychild.jpg';
 
+import { onAuthStateChanged } from 'firebase/auth';
+import { useEffect, useState } from 'react';
+import { auth } from '../shared/utils/firebase';
+
 export function Header() {
+  const [navbarOpen, setNavbarOpen] = useState(false);
   const { pathname } = useLocation();
   const navigate = useNavigate();
   const [loggedIn, setLoggedIn] = useState(false);
@@ -36,37 +38,47 @@ export function Header() {
     {
       title: 'Homepage',
       to: '/',
-      icon: <HomeOutlined className="mr-2" />,
+      icon: <HomeOutlined className="mr-2 text-4xl lg:text-xl" />,
     },
     {
       title: 'Assessment',
       to: '/assessment',
-      icon: <ScheduleOutlined className="mr-2" />,
+      icon: <ScheduleOutlined className="mr-2 text-4xl lg:text-xl" />,
+    },
+    // {
+    //   title: 'Blogs',
+    //   to: '/blogs',
+    //   icon: <ProfileOutlined className="mr-2" />,
+    // },
+    // {
+    //   title: 'Courses',
+    //   to: '/courses',
+    //   icon: <ReadOutlined className="mr-2" />,
+    // },
+    {
+      title: 'Intervention guide',
+      to: '/contact-specialists',
+      icon: <StockOutlined className="mr-2 text-4xl lg:text-xl" />,
     },
     {
-      title: 'Blogs',
-      to: '/blogs',
-      icon: <ProfileOutlined className="mr-2" />,
-    },
-    {
-      title: 'Courses',
-      to: '/courses',
-      icon: <ReadOutlined className="mr-2" />,
+      title: 'Tracking progress',
+      to: '/tracking-progress',
+      icon: <FormOutlined className="mr-2 text-4xl lg:text-xl" />,
     },
     {
       title: 'Contact specialists',
       to: '/contact-specialists',
-      icon: <UserOutlined className="mr-2" />,
+      icon: <UserOutlined className="mr-2 text-4xl lg:text-xl" />,
     },
     {
       title: 'Community',
       to: '/community',
-      icon: <UsergroupAddOutlined className="mr-2" />,
+      icon: <UsergroupAddOutlined className="mr-2 text-4xl lg:text-xl" />,
     },
     {
       title: 'About us',
       to: '/about-us',
-      icon: <ContactsOutlined className="mr-2" />,
+      icon: <InfoCircleOutlined className="mr-2 text-4xl lg:text-xl" />,
     },
     {
       render: () =>
