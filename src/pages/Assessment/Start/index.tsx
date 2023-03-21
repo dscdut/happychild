@@ -7,7 +7,7 @@ import { onValue, ref, set } from 'firebase/database';
 import { realTimeDatabase, auth } from '../../../shared/utils/firebase';
 import QuestionsCard from './QuestionsCard';
 import Introduction from './Introduction';
-import { scrollToTop } from '#/shared/utils/tools';
+import { scrollToTop, calculateAgeInMonths } from '#/shared/utils/tools';
 import { useParams } from 'react-router-dom';
 
 import { Question } from '#/shared/utils/dataType';
@@ -42,15 +42,6 @@ export default function AssessmentStart() {
     } catch (error) {
       console.log(error);
     }
-  };
-
-  const calculateAgeInMonths = (birthday: string) => {
-    const birthDate = new Date(birthday);
-    const today = new Date();
-    const monthDiff = today.getMonth() - birthDate.getMonth();
-    const ageInMonths = today.getFullYear() - birthDate.getFullYear();
-
-    return ageInMonths * 12 + monthDiff;
   };
 
   useEffect(() => {

@@ -14,17 +14,11 @@ import Community from '#/assets/images/community.png';
 import Assessment from '#/assets/images/assessment.png';
 import { RefObject, useRef } from 'react';
 import { useNavigate } from 'react-router-dom';
+import { scrollToTop } from '#/shared/utils/tools';
 
 export default function Index() {
   const navigate = useNavigate();
   const introductionRef: RefObject<HTMLDivElement> = useRef(null);
-
-  const scrollToTop = () => {
-    window.scrollTo({
-      top: 0,
-      behavior: 'smooth',
-    });
-  };
 
   const handleLearnMoreClick = () => {
     if (introductionRef.current != null) {
@@ -142,7 +136,7 @@ export default function Index() {
               hover:bg-color-accent-sky hover:text-color-gray-10"
                 onClick={() => {
                   scrollToTop();
-                  navigate('/intervention-roadmap');
+                  navigate('/intervention-guide');
                 }}
               >
                 Learn more
