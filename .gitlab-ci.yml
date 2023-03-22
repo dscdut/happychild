@@ -1,0 +1,1 @@
+include: 'https://gitlab-ci-yaml-template.enouvo.com/react-web/.gitlab-ci.yml'
