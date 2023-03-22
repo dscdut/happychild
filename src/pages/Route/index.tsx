@@ -1,4 +1,4 @@
-import { Steps , Button ,message , Card , Typography , Input } from 'antd';
+import { Steps , Button ,message , Card , Typography , Input ,Alert } from 'antd';
 import { SmileOutlined } from '@ant-design/icons';
 import React, { useState , useEffect} from 'react'
 import { getDatabase, onValue, ref } from 'firebase/database';
@@ -27,12 +27,16 @@ interface routeName{
 
 const RouteKid:React.FC<routeName> = ({name}) => {//name is the age prop 
     const [intervent,setIntervent] = useState<intervention[]>([])
-    const { Title, Paragraph, Text, Link } = Typography;
+    const { Title, Paragraph, Link } = Typography;
     const [routeName,setRouteName] = useState('');
     const [current, setCurrent] = useState(0);
     const [currentSkill, setCurrentSkill] = useState(0);
-    const [id, setID] = useState(0);
 
+
+    if(name!=''){
+      console.log(name);
+      setRouteName(name)
+    }
     //Get data from database
     useEffect(() =>{
     const db = getDatabase();
@@ -59,7 +63,7 @@ const RouteKid:React.FC<routeName> = ({name}) => {//name is the age prop
     },
     {
       title: 'Last',
-      content: 'In conclution',
+      content: 'In conclusion',
     },];
     
 
@@ -74,7 +78,12 @@ const RouteKid:React.FC<routeName> = ({name}) => {//name is the age prop
     </Steps>
 
       <div className='mt-8 text-xl text-color-dark-blue'>
-         {steps[current].content}</div>
+         {steps[current].content}
+         {current == 1 &&routeName == '' &&(
+              <Alert className='my-2 m w-1/4 ' message="You should which age you want to read" type="info" />
+            )
+          }
+      </div>
       <div 
       style={{
         minHeight: "50vh",
@@ -99,7 +108,8 @@ const RouteKid:React.FC<routeName> = ({name}) => {//name is the age prop
         )
 
         }
-        {current == 1 && (
+        
+        {current == 1 && routeName !='' && (
           <div className='my-5 mx-8'>
             <>
             {intervent?.map(i => {

@@ -49,7 +49,7 @@ function App() {
     },
     {
       path: 'route',
-      element: <RouteKid name={'Three - month'} />,
+      element: <RouteKid name=''/>,
     },
     {
       path: 'courses',
