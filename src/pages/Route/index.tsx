@@ -1,8 +1,7 @@
-import { Steps , Button ,message , Card ,Radio ,Space ,Row ,Col } from 'antd';
+import { Steps , Button ,message , Card , Typography , Input } from 'antd';
+import { SmileOutlined } from '@ant-design/icons';
 import React, { useState , useEffect} from 'react'
-import { DataSnapshot, getDatabase, onValue, ref } from 'firebase/database';
-import { Route } from '@sentry/react/types/reactrouterv3';
-
+import { getDatabase, onValue, ref } from 'firebase/database';
 
 
 interface content{
@@ -28,7 +27,13 @@ interface routeName{
 
 const RouteKid:React.FC<routeName> = ({name}) => {//name is the age prop 
     const [intervent,setIntervent] = useState<intervention[]>([])
+    const { Title, Paragraph, Text, Link } = Typography;
+    const [routeName,setRouteName] = useState('');
+    const [current, setCurrent] = useState(0);
+    const [currentSkill, setCurrentSkill] = useState(0);
+    const [id, setID] = useState(0);
 
+    //Get data from database
     useEffect(() =>{
     const db = getDatabase();
     const list = ref(db,'intervention');
@@ -37,30 +42,28 @@ const RouteKid:React.FC<routeName> = ({name}) => {//name is the age prop
       setIntervent(temp);
     });
     },[]);
-    // console.log(intervent)
-    // intervent?.map(i => {console.log(i.stageName);})
+
+    //declare tag
+    const { Step } = Steps;
+    const { TextArea } = Input;
+
+    //data
+    const steps = [
+    {
+      title: 'First',
+      content: 'Choose the age for your route',
+    },
+    {
+      title: 'Second',
+      content: 'Review the route',
+    },
+    {
+      title: 'Last',
+      content: 'In conclution',
+    },];
+    
 
 
-
-  const { Step } = Steps;
-  const [routeName,setRouteName] = useState('');
-  const [current, setCurrent] = useState(0);
-  const [currentSkill, setCurrentSkill] = useState(0);
-  const [id, setID] = useState(0);
-  const steps = [
-  {
-    title: 'First',
-    content: 'Choose the age for your route',
-  },
-  {
-    title: 'Second',
-    content: 'Review the route',
-  },
-  {
-    title: 'Last',
-    content: 'In conclution',
-  },
-];
 
   return (
   <>
@@ -107,8 +110,6 @@ const RouteKid:React.FC<routeName> = ({name}) => {//name is the age prop
                     <div> This is route for {i.stageName}</div>
                     <Steps current={currentSkill} direction="vertical">
                       {i.skill?.map(s => {
-                        
-                        //console.log(s.id , currentSkill)
                         return <>
                            <Step title={s.skillName} description={s.description} onClick={()=>{setCurrentSkill(s.id-1)}}/>
                         </>    
@@ -138,10 +139,6 @@ const RouteKid:React.FC<routeName> = ({name}) => {//name is the age prop
                                   
                                 </>
                                 )}
-                                {/* <figcaption>{c.title}</figcaption> */}
-                                
-                                
-                                
                                 </>
                               })}
                               </div>
@@ -154,7 +151,39 @@ const RouteKid:React.FC<routeName> = ({name}) => {//name is the age prop
             </>
           </div>
         )}
+        { current == 2 && (
+          <div className='mx-5 my-5 grid grid-cols-2 gap-10'>
+            <div>
+              <Title level={2} className="text-primary-color">Thank you <SmileOutlined /></Title>
+              <Paragraph>
+                Thank you for coming today, and thank you for your attention and consideration.
+              </Paragraph>
+              <Paragraph>
+              <blockquote>Lorem ipsum dolor sit amet consectetur adipisicing elit. Ab, totam aperiam voluptatem deleniti libero ipsa laborum eligendi tempore hic deserunt.</blockquote>
+              <pre>
+                <Title level={4} className="text-primary-color">Source</Title>
+                <ul>
+                <li>
+                  <Link href="#">Link 1 </Link>
+                </li>
+                <li>
+                  <Link href="#">Link 2</Link>
+                </li>
+                <li>
+                  <Link href="#">Link 3</Link>
+                </li>
+              </ul>
+              </pre>
+            </Paragraph>
+            </div>
+            <TextArea rows={10} placeholder="Give your feedback here ..." maxLength={6} />
+          </div>
+        )
+
+        }
       </div>
+
+      {/* Button part */}
       <div className='my-8'>
         {current > 0 && (
           <Button style={{ margin: '0 8px' }} onClick={() => setCurrent(current - 1)}>
@@ -171,7 +200,6 @@ const RouteKid:React.FC<routeName> = ({name}) => {//name is the age prop
             Done
           </Button>
         )}
-        
 
       </div>
   </>
