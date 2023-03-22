@@ -13,6 +13,7 @@ import dayjs from 'dayjs';
 import { onValue, ref } from 'firebase/database';
 import { useEffect, useState } from 'react';
 import Children from '#/assets/images/group-diverse-cheerful-kids_53876-138030.jpg';
+import { calculateAgeInMonths } from '#/shared/utils/tools';
 
 import { realTimeDatabase, auth } from '#/shared/utils/firebase';
 
@@ -41,15 +42,6 @@ export default function Result() {
 
   const { childId } = useParams();
 
-  const calculateAgeInMonths = (birthday: string) => {
-    const birthDate = new Date(birthday);
-    const today = new Date();
-    const monthDiff = today.getMonth() - birthDate.getMonth();
-    const ageInMonths = today.getFullYear() - birthDate.getFullYear();
-
-    return ageInMonths * 12 + monthDiff;
-  };
-
   const results: ResultProps[] = JSON.parse(
     localStorage.getItem('results') as string,
   );
@@ -59,7 +51,6 @@ export default function Result() {
     let ageInMonths = 0;
     onValue(childRef, async snapshot => {
       const child = snapshot.val();
-      // const [childId] = Object.keys(child);
 
       setChildInformation(child[childId || ''].info);
       ageInMonths = calculateAgeInMonths(child[childId || ''].info.birthday);

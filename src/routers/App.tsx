@@ -24,19 +24,19 @@ function App() {
       path: 'contact-specialists',
       element: <ContactSpecialist />,
     },
-    {
-      path: 'blogs',
-      children: [
-        {
-          index: true,
-          element: <BlogPage />,
-        },
-        {
-          path: ':id',
-          element: <BlogDetail />,
-        },
-      ],
-    },
+    // {
+    //   path: 'blogs',
+    //   children: [
+    //     {
+    //       index: true,
+    //       element: <BlogPage />,
+    //     },
+    //     {
+    //       path: ':id',
+    //       element: <BlogDetail />,
+    //     },
+    //   ],
+    // },
     {
       path: 'assessment',
       element: <Assessment />,

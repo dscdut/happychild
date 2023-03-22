@@ -57,7 +57,7 @@ export function Header() {
     // },
     {
       title: 'Intervention guide',
-      to: '/contact-specialists',
+      to: '/intervention-guide',
       icon: <StockOutlined className="mr-2 text-4xl lg:text-xl" />,
     },
     {

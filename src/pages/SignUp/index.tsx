@@ -14,7 +14,7 @@ import { useNavigate } from 'react-router-dom';
 import { createUserWithEmailAndPassword, updateProfile } from 'firebase/auth';
 import { useState } from 'react';
 import { auth } from '../../shared/utils/firebase';
-import SignUp from '#/assets/images/signup.jpg';
+import SignUp from '#/assets/images/new-sign-up.jpg';
 import { DatePicker } from '#/shared/components/DatePicker';
 
 export default function SignUpPage() {
