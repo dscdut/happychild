@@ -38,7 +38,6 @@ function BlogPage() {
                 extra={
                   <Button type="primary">
                     <Link to="/blogs/123">Detail</Link>
-                    {/* <Link to="/blogs/123">Detail</Link> */}
                   </Button>
                 }
                 style={{ width: '48%', marginBottom: 38 }}
