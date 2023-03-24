@@ -700,7 +700,7 @@ export default function Result() {
                   development.
                   <br />
                   <Button
-                    className="hover:bg-primary-hover-color text-white rounded bg-primary-color py-2 px-4 font-semibold"
+                    className="hover:bg-primary-hover-color rounded bg-primary-color py-2 px-4 font-semibold text-[white]"
                     onClick={() => {
                       scrollToTop();
                       navigate(`/intervention-guide/${childId}`);

@@ -446,7 +446,7 @@ const InterventionGuide: React.FC<routeId> = ({ id, childId }) => {
                       Next
                     </Button>
                   )}
-                  {currentSkill === steps.length - 1 && (
+                  {childId != '' && currentSkill === steps.length - 1 && (
                     <Button
                       type="primary"
                       onClick={() => {
@@ -466,14 +466,16 @@ const InterventionGuide: React.FC<routeId> = ({ id, childId }) => {
                     </Button>
                   )}
                 </div>
-                <Button
-                  style={{ margin: '0 8px' }}
-                  onClick={() => {
-                    saveProgress();
-                  }}
-                >
-                  Save
-                </Button>
+                {childId != '' && (
+                  <Button
+                    style={{ margin: '0 8px' }}
+                    onClick={() => {
+                      saveProgress();
+                    }}
+                  >
+                    Save
+                  </Button>
+                )}
               </div>
             </>
           </div>
@@ -503,11 +505,7 @@ const InterventionGuide: React.FC<routeId> = ({ id, childId }) => {
                 </pre>
               </Paragraph>
             </div>
-            <TextArea
-              rows={10}
-              placeholder="Give your feedback here ..."
-              maxLength={6}
-            />
+            <TextArea rows={10} placeholder="Give your feedback here ..." />
 
             <div>
               <Button

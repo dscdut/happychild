@@ -1,5 +1,5 @@
 import { Image } from 'antd';
-import Dauhieutretuky from '#/assets/images/dauhieutretuky.jpg';
+import Dauhieutretuky from '#/assets/images/dauhieutretuky.png';
 
 export default function Content1() {
   return (

@@ -20,6 +20,7 @@ import { realTimeDatabase, auth } from '../../../shared/utils/firebase';
 import Children from '#/assets/images/children.jpg';
 import { DatePicker } from '#/shared/components/DatePicker';
 import SelectedRegisteredChild from './SelectRegisteredChild';
+import { scrollToTop } from '#/shared/utils/tools';
 
 const StyledCard = styled(Card)`
   .ant-card-body {
@@ -72,6 +73,7 @@ export default function Assessment() {
       data,
     );
 
+    scrollToTop();
     navigate(`/assessment/start/${newChildId.key}`);
   };
 
