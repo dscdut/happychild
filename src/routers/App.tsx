@@ -4,7 +4,6 @@ import GuardRoute from './GuardRoute';
 import PrivateRoute from './PrivateRoute';
 import { loadable } from '#/shared/utils/loadable';
 import Result from '#/pages/Assessment/Result';
-import Test from '#/pages/Test';
 import RouteKid from '#/pages/Route';
 
 const BlogPage = loadable(import('#/pages/Blog'));

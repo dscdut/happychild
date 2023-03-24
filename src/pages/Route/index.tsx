@@ -2,6 +2,7 @@ import { Steps , Button ,message , Card , Typography , Input ,Alert } from 'antd
 import { SmileOutlined } from '@ant-design/icons';
 import React, { useState , useEffect} from 'react'
 import { getDatabase, onValue, ref } from 'firebase/database';
+import { useNavigate } from 'react-router-dom';
 
 
 interface content{
@@ -31,7 +32,7 @@ const RouteKid:React.FC<routeName> = ({name}) => {//name is the age prop
     const [routeName,setRouteName] = useState('');
     const [current, setCurrent] = useState(0);
     const [currentSkill, setCurrentSkill] = useState(0);
-
+    const navigate = useNavigate();
 
     if(name!=''){
       console.log(name);
@@ -96,7 +97,7 @@ const RouteKid:React.FC<routeName> = ({name}) => {//name is the age prop
           <>
             <Card title="Age" className='mx-3'>
                 {intervent?.map(i => {
-                  return <Card.Grid style={{width : '25%' , textAlign :'center' , margin : '0'}} onClick={()=>{setRouteName(i.stageName); setCurrent(current+1);setCurrentSkill(0)}}>
+                  return <Card.Grid style={{width : '33.333333%' , textAlign :'center' , margin : '0'}} onClick={()=>{setRouteName(i.stageName); setCurrent(current+1);setCurrentSkill(0)}}>
                     <div className="grid grid-cols-2 gap-8">
                         <img className='w-40 ml-4' src="https://images.unsplash.com/photo-1627639679638-8485316a4b21?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxzZWFyY2h8Mnx8Y3V0ZSUyMGtpZHxlbnwwfHwwfHw%3D&w=1000&q=80" alt="" />
                         <p className='self-center'>{i.stageName}</p>
@@ -206,7 +207,7 @@ const RouteKid:React.FC<routeName> = ({name}) => {//name is the age prop
           </Button>
         )}
         {current === steps.length - 1 && (
-          <Button type="primary" onClick={() => message.success('Processing complete!')}>
+          <Button type="primary" onClick={() => {message.success('Processing complete!',1) ; navigate('/')}}>
             Done
           </Button>
         )}

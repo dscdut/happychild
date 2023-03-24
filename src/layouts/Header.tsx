@@ -52,7 +52,7 @@ export function Header() {
       to: '/blogs',
       icon: <ProfileOutlined className="mr-2" />,
     },
- {
+    {
       title: 'Lộ trình',
       to: '/route',
       icon: <StockOutlined className="mr-2 " />,
@@ -67,11 +67,6 @@ export function Header() {
       to: '/contact-specialists',
       icon: <UserOutlined className="mr-2" />,
     },
-    // {
-    //   title: 'Cộng Đồng',
-    //   to: '/community',
-    //   icon: <UsergroupAddOutlined className="mr-2" />,
-    // },
     {
       title: 'Về chúng tôi',
       to: '/about-us',

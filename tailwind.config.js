@@ -3,7 +3,7 @@ module.exports = {
   important: true,
   theme: {
     colors: {
-      'primary-color': '#81CEED',
+      'primary-color': '#2E86C1',
       'secondary-color': '#efa2a4',
 
       'primary-color-dark': '#ffb710',
