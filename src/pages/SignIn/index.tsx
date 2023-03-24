@@ -59,6 +59,10 @@ export default function SignInPage() {
     }
   };
 
+  const redirectToSignUp = () => {
+    navigate('/sign-up');
+  };
+
   return (
     <Form className="flex items-center" layout="vertical">
       <Row className="w-full rounded-xl shadow-2xl" align="middle">
@@ -78,9 +82,7 @@ export default function SignInPage() {
               </Typography>
               <Typography className="flex justify-center text-base text-secondary-color">
                 Don't have an account ?&nbsp;
-                <a href="/sign-up" rel="noopener" target="_blank">
-                  Sign up
-                </a>
+                <a onClick={redirectToSignUp}>Sign up</a>
               </Typography>
               <Typography.Text type="danger" className="flex justify-center">
                 {errorMessage}

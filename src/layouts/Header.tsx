@@ -10,7 +10,7 @@ import {
 import { Button, Typography, Image } from 'antd';
 import { Link, useLocation, useNavigate } from 'react-router-dom';
 import UserInfo from './UserInfo';
-import HappyChild from '#/assets/images/happychild.jpg';
+import HappyChild from '#/assets/images/new-logo.jpg';
 
 import { onAuthStateChanged } from 'firebase/auth';
 import { useEffect, useState } from 'react';
@@ -70,11 +70,11 @@ export function Header() {
       to: '/contact-specialists',
       icon: <UserOutlined className="mr-2 text-4xl lg:text-xl" />,
     },
-    {
-      title: 'Community',
-      to: '/community',
-      icon: <UsergroupAddOutlined className="mr-2 text-4xl lg:text-xl" />,
-    },
+    // {
+    //   title: 'Community',
+    //   to: '/community',
+    //   icon: <UsergroupAddOutlined className="mr-2 text-4xl lg:text-xl" />,
+    // },
     {
       title: 'About us',
       to: '/about-us',

@@ -32,19 +32,16 @@ export default function ChatBox() {
     >
       <Row gutter={[16, 16]}>
         <Col span={24}>
-          <LeftMessageBox content="Xin chào, tôi có thể giúp gì được?" />
+          <LeftMessageBox content="Hello, how can i help you ?" />
         </Col>
         <Col span={24} className="flex justify-end">
-          <RightMessageBox
-            content="Tôi muốn hỏi thêm về cách hướng dẫn cho trẻ để trẻ có thể chủ động giao
-        tiếp với người lớn khi gặp khó khăn"
-          />
+          <RightMessageBox content="I would like to inquire further about how to guide children so that they can actively communicate with adults when faced with difficulties" />
         </Col>
         <Col span={24}>
-          <LeftMessageBox content="Anh/ Chị có thể cho tôi xin thêm thông tin về cháu được không ạ?" />
+          <LeftMessageBox content="Could you please provide me with more information about your child ?" />
         </Col>
         <Col span={24} className="flex justify-end">
-          <RightMessageBox content="Cháu tên Trần Văn Kiệm, 4 tuổi, hiện đang có dấu hiệu ngại giao tiếp" />
+          <RightMessageBox content="His name is Vo Dinh Nam, 5 years old, he is having indications of communication apprehension" />
         </Col>
       </Row>
       <div className="absolute left-0 bottom-0 w-full">

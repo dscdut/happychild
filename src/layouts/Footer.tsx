@@ -8,7 +8,7 @@ import {
   TwitterOutlined,
 } from '@ant-design/icons';
 
-import HappyChild from '#/assets/images/happychild.jpg';
+import HappyChild from '#/assets/images/new-logo.jpg';
 
 const { Footer } = Layout;
 

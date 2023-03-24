@@ -13,7 +13,7 @@ import dayjs from 'dayjs';
 import { onValue, ref } from 'firebase/database';
 import { useEffect, useState } from 'react';
 import Children from '#/assets/images/group-diverse-cheerful-kids_53876-138030.jpg';
-import { calculateAgeInMonths } from '#/shared/utils/tools';
+import { calculateAgeInMonths, scrollToTop } from '#/shared/utils/tools';
 
 import { realTimeDatabase, auth } from '#/shared/utils/firebase';
 
@@ -702,7 +702,8 @@ export default function Result() {
                   <Button
                     className="hover:bg-primary-hover-color text-white rounded bg-primary-color py-2 px-4 font-semibold"
                     onClick={() => {
-                      navigate('/contact-specialists');
+                      scrollToTop();
+                      navigate(`/intervention-guide/${childId}`);
                     }}
                   >
                     INTERVENTION ROADMAP <RightCircleFilled />

@@ -1,6 +1,8 @@
-import { useRoutes } from 'react-router-dom';
+import { useParams, useRoutes } from 'react-router-dom';
 import { loadable } from '#/shared/utils/loadable';
 import TrackingProgress from '#/pages/TrackingProgress';
+import InterventionGuide from '#/pages/InterventionGuide';
+import InterventionGuideRoute from '#/pages/InterventionGuide/IntervetionGuideRoute';
 
 const Index = loadable(import('#/pages/index'));
 const BlogPage = loadable(import('#/pages/Blog'));
@@ -37,6 +39,13 @@ function PrivateRoute() {
           index: true,
           element: <TrackingProgress />,
         },
+      ],
+    },
+    {
+      path: 'intervention-guide',
+      children: [
+        { index: true, element: <InterventionGuide id="" childId="" /> },
+        { path: ':childId', element: <InterventionGuideRoute /> },
       ],
     },
     // {

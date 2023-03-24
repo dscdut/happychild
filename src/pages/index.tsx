@@ -7,7 +7,7 @@ import {
 } from '@ant-design/icons';
 import { Button, Card, Col, Divider, Image, Row, Typography } from 'antd';
 import { CourseStyledCard, StyledDiv } from './Courses/styles';
-import HappyChild from '#/assets/images/happychild.jpg';
+import HappyChild from '#/assets/images/new-logo.jpg';
 import Thumbnail from '#/assets/images/thumbnail.jpg';
 import Specialist from '#/assets/images/specialist.png';
 import Community from '#/assets/images/community.png';
@@ -99,7 +99,7 @@ export default function Index() {
                 </ul>
               </Typography.Paragraph>
               <Button
-                className="w-full bg-primary-color  
+                className="w-full bg-primary-color text-[white]  
               hover:bg-color-accent-sky hover:text-color-gray-10"
                 onClick={() => {
                   scrollToTop();
@@ -132,7 +132,7 @@ export default function Index() {
                 </ul>
               </Typography.Paragraph>
               <Button
-                className="w-full bg-primary-color  
+                className="w-full bg-primary-color text-[white]  
               hover:bg-color-accent-sky hover:text-color-gray-10"
                 onClick={() => {
                   scrollToTop();
@@ -169,7 +169,7 @@ export default function Index() {
                 </ul>
               </Typography.Paragraph>
               <Button
-                className="w-full bg-primary-color 
+                className="w-full bg-primary-color text-[white] 
                hover:bg-color-accent-sky hover:text-color-gray-10"
                 onClick={() => {
                   scrollToTop();
@@ -229,7 +229,7 @@ export default function Index() {
           </div>
           <Image src={Assessment} preview={false} width={150} />
         </div>
-        <div className="flex w-2/3 items-center justify-between rounded-xl bg-secondary-color p-8">
+        <div className="flex w-2/3 items-center justify-between rounded-xl bg-ternary-color p-8">
           <div className="flex flex-col justify-center gap-4">
             <Typography className="text-3xl font-bold text-[white]">
               Community

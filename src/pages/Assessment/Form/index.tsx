@@ -188,7 +188,7 @@ export default function Assessment() {
                 </Col>
                 <Col span={12} className="flex flex-col justify-start gap-2">
                   <Typography className="text-base">
-                    Sender (<span className="text-error-color">*</span>):
+                    Gender (<span className="text-error-color">*</span>):
                   </Typography>
                   <Form.Item
                     name="gender"

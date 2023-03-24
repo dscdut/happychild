@@ -4,13 +4,14 @@ import { useEffect, useState } from 'react';
 import styled from '@emotion/styled';
 import { realTimeDatabase, auth } from '#/shared/utils/firebase';
 import { ref, onValue } from 'firebase/database';
-import { calculateAgeInMonths } from '#/shared/utils/tools';
+import { calculateAgeInMonths, scrollToTop } from '#/shared/utils/tools';
 import RetakeTestModal from './RetakeTestModal';
+import { useNavigate } from 'react-router-dom';
 
 const StyledTable = styled(Table)`
   .ant-table-thead > tr > th {
     text-align: center;
-    background-color: #3498db;
+    background-color: #2e86c1;
     color: white;
     font-size: 16px;
   }
@@ -38,6 +39,7 @@ interface Child {
 }
 
 function TrackingProgress() {
+  const navigate = useNavigate();
   const [registeredChildren, setRegisteredChildren] = useState<any>([]);
   const [isModalVisible, setIsModalVisible] = useState(false);
   const [selectedChild, setSelectedChild] = useState<any>(null);
@@ -79,9 +81,11 @@ function TrackingProgress() {
       render: (record: any) => (
         <span>
           <Button
-            type="primary"
-            className="mr-2"
-            onClick={handleViewProgressClick}
+            style={{
+              backgroundColor: '#2e86c1',
+            }}
+            className="mr-2 text-[white]"
+            onClick={() => handleViewProgressClick(record)}
           >
             View Progress
           </Button>
@@ -109,7 +113,10 @@ function TrackingProgress() {
     setIsModalVisible(true);
   };
 
-  const handleViewProgressClick = () => {};
+  const handleViewProgressClick = (record: any) => {
+    scrollToTop();
+    navigate(`/intervention-guide/${record.key}`);
+  };
 
   const calculateResult = (asqIndex: number, results: any) => {
     const totalResult =
