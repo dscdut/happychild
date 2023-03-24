@@ -1,6 +1,7 @@
 import {
   Button,
   Col,
+  Divider,
   Image,
   Radio,
   RadioChangeEvent,
@@ -27,7 +28,6 @@ type CurrentValue = {
   selected: boolean;
   result: number;
 };
-
 export default function QuestionsCard({
   questions,
   index,
@@ -110,7 +110,11 @@ export default function QuestionsCard({
                   <Image src={question?.image} className="w-60" />
                 </Col>
                 <Col span={24}>
-                  <hr />
+                  <Divider
+                    style={{
+                      borderTop: '1px dotted #000',
+                    }}
+                  />
                 </Col>
               </>
             ) : (
@@ -135,7 +139,11 @@ export default function QuestionsCard({
                   </Radio.Group>
                 </Col>
                 <Col span={24}>
-                  <hr />
+                  <Divider
+                    style={{
+                      borderTop: '1px dotted #000',
+                    }}
+                  />
                 </Col>
               </>
             )}
