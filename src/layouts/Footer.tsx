@@ -8,7 +8,7 @@ import {
   TwitterOutlined,
 } from '@ant-design/icons';
 
-import HappyChild from '#/assets/images/new-logo.jpg';
+import HappyChild from '#/assets/images/logo-transparent.png';
 
 const { Footer } = Layout;
 
@@ -46,66 +46,91 @@ const Category = styled.span`
 
 function FooterComponent() {
   return (
-    <StyledFooter className=" bg-surface-primary text-surface-primary">
-      <Row gutter={[0, 40]} className="grid grid-cols-10">
-        <Col className="col-span-3">
-          <Link to="/">
-            <img
-              src={HappyChild}
-              alt="Happy child"
-              className="w-56 object-contain"
-            />
-          </Link>
-        </Col>
+    <div className="-mt-6">
+      <StyledFooter
+        className=" text-surface-primary"
+        style={{
+          backgroundColor: '#FFFFE8',
+        }}
+      >
+        <Row gutter={[0, 40]} className="grid grid-cols-10">
+          <Col className="col-span-3">
+            <Link to="/">
+              <img
+                src={HappyChild}
+                alt="Happy child"
+                className="w-56 object-contain"
+              />
+            </Link>
+          </Col>
 
-        <Col className="col-span-5">
-          <div className="flex flex-col space-y-3 text-surface-primary">
-            <Title className="font-semibold text-primary-color text-3xl">Contact</Title>
-            <Category className="text-color-dark-mode-80 text-lg">
-              <p className="mb-0">
-                Address : <span className='cursor-pointer hover:text-primary-color'>{`123 Nguyen Van Linh Street, Hai Chau District, Da Nang City`}</span>
-              </p>
-            </Category>
-            <Category className="flex items-start text-color-dark-mode-80 text-lg">
-              <p className="mb-0">
-                Gmail : <span className='cursor-pointer hover:text-primary-color'>{`happychild@gmail.com`}</span>
-              </p>
-            </Category>
-            <Category className="flex items-start text-color-dark-mode-80 text-lg">
-              <p className="mb-0">
-                Phone   : <span className='cursor-pointer hover:text-primary-color'>{`0909 0909 0909`}</span>
-              </p>
-            </Category>
-          </div>
-        </Col>
-      </Row>
-      <Divider className="border-white my-14" />
-      <Row className="mb-16 grid grid-cols-3 items-center">
-        <Space>
-          <a target="_blank" href="https://twitter.com/" rel="noreferrer">
-            <IconWrapper>
-              <TwitterOutlined />
-            </IconWrapper>
-          </a>
-          <a target="_blank" href="https://www.facebook.com/" rel="noreferrer">
-            <IconWrapper>
-              <FacebookOutlined />
-            </IconWrapper>
-          </a>
-          <a rel="noreferrer" href="https://linkedin.com/" target="_blank">
-            <IconWrapper>
-              <LinkedinOutlined />
-            </IconWrapper>
-          </a>
-        </Space>
-        <div className="mt-4 flex justify-center">
-          <Typography.Paragraph className="text-xl">
-            Happy Child
-          </Typography.Paragraph>
+          <Col className="col-span-5">
+            <div className="flex flex-col space-y-3 text-surface-primary">
+              <Title className="text-3xl font-semibold text-primary-color">
+                Contact
+              </Title>
+              <Category className="text-lg text-color-dark-mode-80">
+                <p className="mb-0">
+                  Address :{' '}
+                  <span className="cursor-pointer hover:text-primary-color">
+                    54 Nguyen Luong Bang Street, Lien Chieu District, Da Nang
+                    City
+                  </span>
+                </p>
+              </Category>
+              <Category className="flex items-start text-lg text-color-dark-mode-80">
+                <p className="mb-0">
+                  Gmail :{' '}
+                  <span className="cursor-pointer hover:text-primary-color">
+                    happychild@gmail.com
+                  </span>
+                </p>
+              </Category>
+              <Category className="flex items-start text-lg text-color-dark-mode-80">
+                <p className="mb-0">
+                  Phone :{' '}
+                  <span className="cursor-pointer hover:text-primary-color">
+                    0909 0909 0909
+                  </span>
+                </p>
+              </Category>
+            </div>
+          </Col>
+        </Row>
+        {/* <Divider className="border-white my-14" /> */}
+        <div className="bg-primary w-full">
+          <Row className="grid grid-cols-3 items-center p-6">
+            <Space>
+              <a target="_blank" href="https://twitter.com/" rel="noreferrer">
+                <IconWrapper>
+                  <TwitterOutlined />
+                </IconWrapper>
+              </a>
+              <a
+                target="_blank"
+                href="https://www.facebook.com/"
+                rel="noreferrer"
+              >
+                <IconWrapper>
+                  <FacebookOutlined />
+                </IconWrapper>
+              </a>
+              <a rel="noreferrer" href="https://linkedin.com/" target="_blank">
+                <IconWrapper>
+                  <LinkedinOutlined />
+                </IconWrapper>
+              </a>
+            </Space>
+            <div className="mt-4 flex justify-center">
+              <Typography.Paragraph className="text-xl">
+                Happy Child
+              </Typography.Paragraph>
+            </div>
+            {/* <Smartos className="ml-auto" /> */}
+          </Row>
         </div>
-        {/* <Smartos className="ml-auto" /> */}
-      </Row>
-    </StyledFooter>
+      </StyledFooter>
+    </div>
   );
 }
 
