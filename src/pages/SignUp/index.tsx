@@ -15,6 +15,7 @@ import { createUserWithEmailAndPassword, updateProfile } from 'firebase/auth';
 import { useState } from 'react';
 import { auth } from '../../shared/utils/firebase';
 import SignUp from '#/assets/images/new-sign-up.jpg';
+import HappyChild from '#/assets/images/new-logo.jpg';
 import { DatePicker } from '#/shared/components/DatePicker';
 
 export default function SignUpPage() {
@@ -54,6 +55,14 @@ export default function SignUpPage() {
         </Col>
         <Col span={12} className="mt-4 flex items-center px-8">
           <Row justify="center" gutter={[16, 16]}>
+            <Col span={24} className="flex justify-center">
+              <Image
+                src={HappyChild}
+                height={150}
+                className="rounded-l-xl object-cover"
+                preview={false}
+              />
+            </Col>
             <Col span={24}>
               <Typography className="flex justify-center text-3xl font-bold text-primary-color">
                 Sign up
