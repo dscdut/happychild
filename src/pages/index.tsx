@@ -46,7 +46,7 @@ export default function Index() {
         >
           <Typography.Title
             level={2}
-            className="text-center font-bold text-[white] text-5xl"
+            className="text-center text-5xl font-bold text-[white]"
           >
             HAPPYCHILD
           </Typography.Title>
@@ -75,9 +75,10 @@ export default function Index() {
           <CourseStyledCard
             className="mx-2 w-1/3 text-base shadow-xl transition duration-300 hover:scale-105"
             title={
-              <div className="py-4 text-lg font-bold"
+              <div
+                className="py-4 text-lg font-bold"
                 style={{
-                  minHeight:'95px'
+                  minHeight: '95px',
                 }}
               >
                 Taking test to assess the development level <br />
@@ -86,10 +87,11 @@ export default function Index() {
             }
             extra={<ScheduleOutlined className="text-4xl" />}
           >
-            <div className="flex h-full flex-col justify-between bg-info-color-light py-4 px-3 "
+            <div
+              className="flex h-full flex-col justify-between bg-info-color-light py-4 px-3 "
               style={{
-                minHeight:'350px',
-                display : ''
+                minHeight: '350px',
+                display: '',
               }}
             >
               <Typography.Paragraph className="mb-20">
@@ -122,9 +124,10 @@ export default function Index() {
           <CourseStyledCard
             className="mx-2  w-1/3 p-4 text-base shadow-xl transition duration-300 hover:scale-105"
             title={
-              <div className="py-4 text-lg font-bold"
+              <div
+                className="py-4 text-lg font-bold"
                 style={{
-                  minHeight:'95px'
+                  minHeight: '95px',
                 }}
               >
                 The intervention roadmap for children
@@ -132,10 +135,11 @@ export default function Index() {
             }
             extra={<StockOutlined className="text-4xl" />}
           >
-            <div className="flex h-full flex-col justify-between bg-info-color-light py-4 px-3 "
+            <div
+              className="flex h-full flex-col justify-between bg-info-color-light py-4 px-3 "
               style={{
-                minHeight:'350px',
-                display : ''
+                minHeight: '350px',
+                display: '',
               }}
             >
               <Typography.Paragraph className="row-span-2">
@@ -164,9 +168,10 @@ export default function Index() {
           <CourseStyledCard
             className="mx-2  w-1/3 p-4 text-base shadow-xl transition duration-300 hover:scale-105"
             title={
-              <div className="py-4 text-lg font-bold"
+              <div
+                className="py-4 text-lg font-bold"
                 style={{
-                  minHeight:'95px'
+                  minHeight: '95px',
                 }}
               >
                 Monitor the development of children <br />
@@ -175,10 +180,11 @@ export default function Index() {
             }
             extra={<FormOutlined className="text-4xl" />}
           >
-            <div className="flex h-full flex-col justify-between bg-info-color-light py-4 px-3 "
+            <div
+              className="flex h-full flex-col justify-between bg-info-color-light py-4 px-3 "
               style={{
-                minHeight:'350px',
-                display : ''
+                minHeight: '350px',
+                display: '',
               }}
             >
               <Typography.Paragraph className="mb-20">
@@ -235,27 +241,6 @@ export default function Index() {
           </div>
           <Image src={Specialist} preview={false} width={150} />
         </div>
-        <div className="flex w-2/3 items-center justify-between rounded-xl bg-primary-color p-8">
-          <div className="flex flex-col justify-center gap-4">
-            <Typography className="text-3xl font-bold text-[white]">
-              Diary to monitor the child's treatment progress
-            </Typography>
-            <Typography className="text-base italic text-[white]">
-              A tool to record the activities and assessment of young children
-              during treatment and follow-up from parents
-            </Typography>
-            <Button
-              className="w-[10rem]"
-              onClick={() => {
-                scrollToTop();
-                navigate('/tracking-progress');
-              }}
-            >
-              Learn more
-            </Button>
-          </div>
-          <Image src={Assessment} preview={false} width={150} />
-        </div>
         <div className="flex w-2/3 items-center justify-between rounded-xl bg-ternary-color p-8">
           <div className="flex flex-col justify-center gap-4">
             <Typography className="text-3xl font-bold text-[white]">
@@ -277,6 +262,27 @@ export default function Index() {
             </Button>
           </div>
           <Image src={Community} preview={false} width={200} />
+        </div>
+        <div className="flex w-2/3 items-center justify-between rounded-xl bg-primary-color p-8">
+          <div className="flex flex-col justify-center gap-4">
+            <Typography className="text-3xl font-bold text-[white]">
+              Diary to monitor the child's treatment progress
+            </Typography>
+            <Typography className="text-base italic text-[white]">
+              A tool to record the activities and assessment of young children
+              during treatment and follow-up from parents
+            </Typography>
+            <Button
+              className="w-[10rem]"
+              onClick={() => {
+                scrollToTop();
+                navigate('/tracking-progress');
+              }}
+            >
+              Learn more
+            </Button>
+          </div>
+          <Image src={Assessment} preview={false} width={150} />
         </div>
       </Col>
     </Row>
