@@ -100,7 +100,7 @@ export function Header() {
               type="primary"
               onClick={() => navigate('/sign-in')}
               style={{
-                fontSize: '1.2rem',
+                fontSize: '1rem',
               }}
             >
               Sign in
@@ -150,7 +150,7 @@ export function Header() {
                       ? 'text-primary-color'
                       : 'text-[black]'
                   }
-                  style={{ fontSize: '1.2rem' }}
+                  style={{ fontSize: '1rem', fontWeight: '100' }}
                 >
                   {item?.icon}
                   {item?.title}
