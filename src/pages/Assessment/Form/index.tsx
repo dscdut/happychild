@@ -107,13 +107,13 @@ export default function Assessment() {
             </Col>
             {registeredChildren.length > 0 && (
               <Col span={24} className="flex flex-col gap-2">
-                <Typography className="text-xl text-success-color">
+                <Typography className="text-xl ">
                   You have already registered your children. Click{' '}
                   <span
                     onClick={() => {
                       setIsModalVisible(true);
                     }}
-                    className="cursor-pointer font-semibold"
+                    className="underline-offset-6 cursor-pointer font-semibold underline"
                     style={{ color: '#00A86B' }}
                   >
                     here
