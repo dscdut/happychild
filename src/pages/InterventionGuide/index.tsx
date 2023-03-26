@@ -222,7 +222,7 @@ const InterventionGuide: React.FC<routeId> = ({ id, childId }) => {
               {intervention?.map(i => {
                 return (
                   <Card.Grid
-                    style={{ width: '25%', textAlign: 'center', margin: '0' }}
+                    style={{ width: '33.3333%', textAlign: 'center', margin: '0' }}
                     onClick={() => {
                       setRouteId(i.id);
                       setCurrent(current + 1);
@@ -235,7 +235,7 @@ const InterventionGuide: React.FC<routeId> = ({ id, childId }) => {
                         src="https://images.unsplash.com/photo-1627639679638-8485316a4b21?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxzZWFyY2h8Mnx8Y3V0ZSUyMGtpZHxlbnwwfHwwfHw%3D&w=1000&q=80"
                         alt=""
                       />
-                      <p className="self-center">{i.stageName}</p>
+                      <p className="self-center text-lg">{i.stageName}</p>
                     </div>
                   </Card.Grid>
                 );
@@ -265,7 +265,7 @@ const InterventionGuide: React.FC<routeId> = ({ id, childId }) => {
                           percent={Math.ceil(
                             (checkedItems.size / totalActivities) * 100,
                           )}
-                          strokeColor="#81CEED"
+                          strokeColor="#2E86C1"
                           className="mt-1 mb-1"
                         />
                       )}
@@ -303,7 +303,7 @@ const InterventionGuide: React.FC<routeId> = ({ id, childId }) => {
                                   {s.content?.map(c => {
                                     return (
                                       <>
-                                        <Typography.Text className="text-base font-bold text-color-accent-blue">
+                                        <Typography.Text className="text-base font-bold text-primary-color">
                                           {c.id} - {c.title}
                                         </Typography.Text>
                                         {childId != '' && (

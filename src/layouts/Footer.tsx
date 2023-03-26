@@ -58,19 +58,23 @@ function FooterComponent() {
           </Link>
         </Col>
 
-        <Col className="col-span-3">
+        <Col className="col-span-5">
           <div className="flex flex-col space-y-3 text-surface-primary">
-            <Title className="font-semibold text-primary-color">Contact</Title>
-            <Category className="flex items-start text-color-dark-mode-80">
-              <p className="mb-0 cursor-pointer hover:text-primary-color">
-                {`123 Nguyen Van Linh Street, Hai Chau District, Da Nang City`}
+            <Title className="font-semibold text-primary-color text-3xl">Contact</Title>
+            <Category className="text-color-dark-mode-80 text-lg">
+              <p className="mb-0">
+                Address : <span className='cursor-pointer hover:text-primary-color'>{`123 Nguyen Van Linh Street, Hai Chau District, Da Nang City`}</span>
               </p>
             </Category>
-            <Category className="flex items-start text-color-dark-mode-80">
-              <p className="mb-0 cursor-pointer hover:text-primary-color">{`happychild@gmail.com`}</p>
+            <Category className="flex items-start text-color-dark-mode-80 text-lg">
+              <p className="mb-0">
+                Gmail : <span className='cursor-pointer hover:text-primary-color'>{`happychild@gmail.com`}</span>
+              </p>
             </Category>
-            <Category className="flex items-start text-color-dark-mode-80">
-              <p className="mb-0 cursor-pointer hover:text-primary-color">{`0909 0909 0909`}</p>
+            <Category className="flex items-start text-color-dark-mode-80 text-lg">
+              <p className="mb-0">
+                Phone   : <span className='cursor-pointer hover:text-primary-color'>{`0909 0909 0909`}</span>
+              </p>
             </Category>
           </div>
         </Col>

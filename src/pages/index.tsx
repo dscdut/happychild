@@ -41,12 +41,12 @@ export default function Index() {
         }}
       >
         <Card
-          className="absolute top-[10rem] right-[9.375rem] w-2/6 rounded-xl bg-[black] bg-opacity-[64%] p-4 shadow-xl"
+          className="absolute top-[10rem] right-[9.375rem] w-2/6 rounded-xl bg-[#566573] bg-opacity-[80%] p-4 shadow-xl"
           bordered={false}
         >
           <Typography.Title
             level={2}
-            className="text-center italic text-[white]"
+            className="text-center font-bold text-[white] text-5xl"
           >
             HAPPYCHILD
           </Typography.Title>
@@ -73,16 +73,25 @@ export default function Index() {
         <Divider />
         <StyledDiv className="flex">
           <CourseStyledCard
-            className="mx-2 w-1/3 text-base shadow-xl hover:scale-105"
+            className="mx-2 w-1/3 text-base shadow-xl transition duration-300 hover:scale-105"
             title={
-              <Typography.Text className="py-4 text-lg font-bold">
+              <div className="py-4 text-lg font-bold"
+                style={{
+                  minHeight:'95px'
+                }}
+              >
                 Taking test to assess the development level <br />
                 and autism of young children
-              </Typography.Text>
+              </div>
             }
             extra={<ScheduleOutlined className="text-4xl" />}
           >
-            <div className="flex h-full flex-col justify-between bg-info-color-light py-4 px-3">
+            <div className="flex h-full flex-col justify-between bg-info-color-light py-4 px-3 "
+              style={{
+                minHeight:'350px',
+                display : ''
+              }}
+            >
               <Typography.Paragraph className="mb-20">
                 <ul className="m-0 list-none space-y-4 p-0">
                   <li>
@@ -111,16 +120,25 @@ export default function Index() {
             </div>
           </CourseStyledCard>
           <CourseStyledCard
-            className="mx-2 h-fit w-1/3 p-4 text-base shadow-xl hover:scale-105"
+            className="mx-2  w-1/3 p-4 text-base shadow-xl transition duration-300 hover:scale-105"
             title={
-              <Typography.Text className="py-4 text-lg font-bold">
+              <div className="py-4 text-lg font-bold"
+                style={{
+                  minHeight:'95px'
+                }}
+              >
                 The intervention roadmap for children
-              </Typography.Text>
+              </div>
             }
             extra={<StockOutlined className="text-4xl" />}
           >
-            <div className="bg-info-color-light py-4 px-3">
-              <Typography.Paragraph className="mb-20">
+            <div className="flex h-full flex-col justify-between bg-info-color-light py-4 px-3 "
+              style={{
+                minHeight:'350px',
+                display : ''
+              }}
+            >
+              <Typography.Paragraph className="row-span-2">
                 <ul className="m-0 list-none space-y-4 p-0">
                   <li>
                     In addition to helping parents detect early signs of
@@ -144,16 +162,25 @@ export default function Index() {
             </div>
           </CourseStyledCard>
           <CourseStyledCard
-            className="mx-2 h-fit w-1/3 p-4 text-base shadow-xl hover:scale-105"
+            className="mx-2  w-1/3 p-4 text-base shadow-xl transition duration-300 hover:scale-105"
             title={
-              <Typography.Text className="py-4 text-lg font-bold">
+              <div className="py-4 text-lg font-bold"
+                style={{
+                  minHeight:'95px'
+                }}
+              >
                 Monitor the development of children <br />
                 through tracking log
-              </Typography.Text>
+              </div>
             }
             extra={<FormOutlined className="text-4xl" />}
           >
-            <div className="bg-info-color-light py-4 px-3">
+            <div className="flex h-full flex-col justify-between bg-info-color-light py-4 px-3 "
+              style={{
+                minHeight:'350px',
+                display : ''
+              }}
+            >
               <Typography.Paragraph className="mb-20">
                 <ul className="m-0 list-none space-y-4 p-0">
                   <li>
