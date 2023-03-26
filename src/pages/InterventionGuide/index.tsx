@@ -35,6 +35,7 @@ interface Content {
 
 interface InterventionStage {
   id: string;
+  thumbnail: string;
   stageName: string;
   skill: Skill[];
 }
@@ -222,7 +223,11 @@ const InterventionGuide: React.FC<routeId> = ({ id, childId }) => {
               {intervention?.map(i => {
                 return (
                   <Card.Grid
-                    style={{ width: '33.3333%', textAlign: 'center', margin: '0' }}
+                    style={{
+                      width: '33.3333%',
+                      textAlign: 'center',
+                      margin: '0',
+                    }}
                     onClick={() => {
                       setRouteId(i.id);
                       setCurrent(current + 1);
@@ -230,10 +235,11 @@ const InterventionGuide: React.FC<routeId> = ({ id, childId }) => {
                     }}
                   >
                     <div className="grid grid-cols-2 gap-8">
-                      <img
+                      <Image
                         className="ml-4 w-60"
-                        src="https://images.unsplash.com/photo-1627639679638-8485316a4b21?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxzZWFyY2h8Mnx8Y3V0ZSUyMGtpZHxlbnwwfHwwfHw%3D&w=1000&q=80"
+                        src={i?.thumbnail || ''}
                         alt=""
+                        preview={false}
                       />
                       <p className="self-center text-lg">{i.stageName}</p>
                     </div>
