@@ -114,7 +114,7 @@ export function Header() {
     <>
       <div
         className="grid w-full grid-cols-6 "
-        style={{ height: '5rem', backgroundColor: '#FFFFE8' }}
+        style={{ height: '5rem', backgroundColor: '#FFFFFF' }}
       >
         <div>
           <Image
