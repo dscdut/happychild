@@ -12,7 +12,7 @@ import User from '#/assets/images/user.png';
 export default function ChatBox() {
   return (
     <Card
-      className="h-[800px] shadow-xl"
+      className="h-[650px] shadow-xl"
       title={
         <div className="relative flex items-center justify-between">
           <Avatar src={User} size={50} />

@@ -46,7 +46,7 @@ const Category = styled.span`
 
 function FooterComponent() {
   return (
-    <div className="-mt-6">
+    <div className="-mt-6 w-full">
       <StyledFooter
         className=" text-surface-primary"
         style={{
@@ -99,7 +99,7 @@ function FooterComponent() {
         </Row>
         {/* <Divider className="border-white my-14" /> */}
         <div className="bg-primary w-full">
-          <Row className="grid grid-cols-3 items-center p-6">
+          <Row className="grid grid-cols-3 items-center ml-3 p-6 text-2xl">
             <Space>
               <a target="_blank" href="https://twitter.com/" rel="noreferrer">
                 <IconWrapper>
@@ -123,7 +123,7 @@ function FooterComponent() {
             </Space>
             <div className="mt-4 flex justify-center">
               <Typography.Paragraph className="text-xl">
-                Happy Child
+                Copyright © Happy Child All rights reserved
               </Typography.Paragraph>
             </div>
             {/* <Smartos className="ml-auto" /> */}
