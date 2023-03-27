@@ -130,7 +130,7 @@ export function Header() {
           />
         </div>
         <div
-          className="col-span-5 flex items-center justify-start gap-6 xl:ml-10"
+          className="col-span-5 flex items-center justify-start gap-6 ml-[5rem]"
           // style={{ marginLeft: '0' }}
         >
           {MENU_ITEMS?.map(item =>
