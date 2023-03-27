@@ -76,7 +76,7 @@ export default function Index() {
             className="mx-2 w-1/3 text-base shadow-xl transition duration-300 hover:scale-105"
             title={
               <div
-                className="py-4 text-lg font-bold"
+                className="py-4 text-lg font-bold mr-5"
                 style={{
                   minHeight: '95px',
                 }}
@@ -85,7 +85,7 @@ export default function Index() {
                 and autism of young children
               </div>
             }
-            extra={<ScheduleOutlined className="text-4xl" />}
+            extra={<ScheduleOutlined className="text-3xl" />}
           >
             <div
               className="flex h-full flex-col justify-between bg-info-color-light py-4 px-3 "
@@ -125,7 +125,7 @@ export default function Index() {
             className="mx-2  w-1/3 p-4 text-base shadow-xl transition duration-300 hover:scale-105"
             title={
               <div
-                className="py-4 text-lg font-bold"
+                className="py-4 text-lg font-bold mr-5"
                 style={{
                   minHeight: '95px',
                 }}
@@ -133,7 +133,7 @@ export default function Index() {
                 The intervention roadmap for children
               </div>
             }
-            extra={<StockOutlined className="text-4xl" />}
+            extra={<StockOutlined className="text-3xl" />}
           >
             <div
               className="flex h-full flex-col justify-between bg-info-color-light py-4 px-3 "
@@ -169,7 +169,7 @@ export default function Index() {
             className="mx-2  w-1/3 p-4 text-base shadow-xl transition duration-300 hover:scale-105"
             title={
               <div
-                className="py-4 text-lg font-bold"
+                className="py-4 text-lg font-bold mr-5"
                 style={{
                   minHeight: '95px',
                 }}
@@ -178,7 +178,7 @@ export default function Index() {
                 through tracking log
               </div>
             }
-            extra={<FormOutlined className="text-4xl" />}
+            extra={<FormOutlined className="text-3xl" />}
           >
             <div
               className="flex h-full flex-col justify-between bg-info-color-light py-4 px-3 "

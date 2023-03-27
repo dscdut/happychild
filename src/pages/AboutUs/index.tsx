@@ -5,15 +5,14 @@ const AboutUs = () => {
   const videoURL = 'http://techslides.com/demos/sample-videos/small.mp4';
   return (
     <>
-      <div className="">
+      <div className="w-full">
         <div className="sticky top-24 ml-24 w-1/3 max-w-md pt-24">
-          <h1 className="text-9xl font-bold">Meet our team</h1>
+          <h1 className="text-9xl  2xl:text-9xl font-bold">Meet our team</h1>
           <h2 className="text-blue-300 mt-5 text-3xl font-light"></h2>
         </div>
         <div
-          className=" mr-40 w-7/12"
+          className="ml-[35rem] 2xl:ml-0 mr-40 w-7/12"
           style={{
-            marginLeft: '35rem',
             marginTop: '-33rem',
           }}
         >

@@ -57,13 +57,17 @@ export default function UserInfo() {
   return (
     <div className="flex items-center gap-2">
       <Avatar size={60} src={user?.photoURL || UserImage} />
-      <div className="flex flex-col items-end justify-end gap-2">
+      <div className="flex flex-row items-center gap-2 mt-6">
         <Typography className="text-sm">
-          Hello, {user?.displayName || user?.email || 'Guest'}
+          <span>
+            Hello, {user?.displayName || user?.email || 'Guest'}
+          </span>
         </Typography>
-        <Dropdown
+          <Dropdown
+          className='text-xl'
           overlay={
             <Menu
+            
               items={menus.map(menu => ({
                 key: menu.key,
                 label: (
@@ -81,7 +85,7 @@ export default function UserInfo() {
           placement="bottomRight"
         >
           <DownCircleFilled className="text-primary-color" />
-        </Dropdown>
+        </Dropdown>       
       </div>
     </div>
   );
