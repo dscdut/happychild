@@ -83,7 +83,10 @@ export function Header() {
     {
       render: () =>
         loggedIn && auth.currentUser ? (
-          <UserInfo />
+          <div className="ml-auto mr-5 ">
+            <UserInfo />
+          </div>
+         
         ) : (
           <div
             className="ml-auto mr-5 flex items-center gap-4"
@@ -127,7 +130,7 @@ export function Header() {
           />
         </div>
         <div
-          className="col-span-5 flex items-center justify-start gap-6"
+          className="col-span-5 flex items-center justify-start gap-6 xl:ml-10"
           // style={{ marginLeft: '0' }}
         >
           {MENU_ITEMS?.map(item =>
@@ -150,9 +153,9 @@ export function Header() {
                       ? 'text-primary-color'
                       : 'text-[black]'
                   }
-                  style={{ fontSize: '1rem', fontWeight: '100' }}
+                  style={{  fontWeight: '100' }}
                 >
-                  {item?.icon}
+                  <span className='hidden text-[0.7rem] xl:inline-block lg:hidden'>{item?.icon}</span>
                   {item?.title}
                 </Link>
               </div>
