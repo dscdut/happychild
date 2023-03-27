@@ -12,7 +12,7 @@ import User from '#/assets/images/user.png';
 export default function ChatBox() {
   return (
     <Card
-      className="h-[650px] shadow-xl"
+      className="h-[550px] shadow-xl"
       title={
         <div className="relative flex items-center justify-between">
           <Avatar src={User} size={50} />
@@ -35,10 +35,10 @@ export default function ChatBox() {
           <LeftMessageBox content="Hello, how can i help you ?" />
         </Col>
         <Col span={24} className="flex justify-end">
-          <RightMessageBox content="I would like to inquire further about how to guide children so that they can actively communicate with adults when faced with difficulties" />
+          <RightMessageBox content="I would like to inquire further about how to guide children" />
         </Col>
         <Col span={24}>
-          <LeftMessageBox content="Could you please provide me with more information about your child ?" />
+          <LeftMessageBox content="Could you please provide me with more information?" />
         </Col>
         <Col span={24} className="flex justify-end">
           <RightMessageBox content="His name is Vo Dinh Nam, 5 years old, he is having indications of communication apprehension" />
