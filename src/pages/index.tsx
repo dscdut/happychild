@@ -10,7 +10,8 @@ import { CourseStyledCard, StyledDiv } from './Courses/styles';
 import HappyChild from '#/assets/images/new-logo.jpg';
 import Thumbnail from '#/assets/images/thumbnail.jpg';
 import Specialist from '#/assets/images/specialist.png';
-import Community from '#/assets/images/community.png';
+import Intervention from '#/assets/images/intervention-roadmap-homepage.png';
+
 import Assessment from '#/assets/images/assessment.png';
 import { RefObject, useRef } from 'react';
 import { useNavigate } from 'react-router-dom';
@@ -76,7 +77,7 @@ export default function Index() {
             className="mx-2 w-1/3 text-base shadow-xl transition duration-300 hover:scale-105"
             title={
               <div
-                className="py-4 text-lg font-bold mr-5"
+                className="mr-5 py-4 text-lg font-bold"
                 style={{
                   minHeight: '95px',
                 }}
@@ -125,7 +126,7 @@ export default function Index() {
             className="mx-2  w-1/3 p-4 text-base shadow-xl transition duration-300 hover:scale-105"
             title={
               <div
-                className="py-4 text-lg font-bold mr-5"
+                className="mr-5 py-4 text-lg font-bold"
                 style={{
                   minHeight: '95px',
                 }}
@@ -169,7 +170,7 @@ export default function Index() {
             className="mx-2  w-1/3 p-4 text-base shadow-xl transition duration-300 hover:scale-105"
             title={
               <div
-                className="py-4 text-lg font-bold mr-5"
+                className="mr-5 py-4 text-lg font-bold"
                 style={{
                   minHeight: '95px',
                 }}
@@ -243,25 +244,24 @@ export default function Index() {
         </div>
         <div className="flex w-2/3 items-center justify-between rounded-xl bg-ternary-color p-8">
           <div className="flex flex-col justify-center gap-4">
-            <Typography className="text-3xl font-bold text-[white]">
-              Community
+            <Typography className="text-3xl font-bold text-[gray]">
+              Intervention guide
             </Typography>
-            <Typography className="text-base italic text-[white]">
-              Through forums, parents can share experiences and knowledge to
-              support each other, thereby spreading awareness to everyone around
-              them.
+            <Typography className="text-base italic text-[gray]">
+              Providing appropriate intervention guide to each child's age
+              group.
             </Typography>
             <Button
               className="w-[10rem]"
               onClick={() => {
                 scrollToTop();
-                navigate('/community');
+                navigate('/intervention-guide');
               }}
             >
               Learn more
             </Button>
           </div>
-          <Image src={Community} preview={false} width={200} />
+          <Image src={Intervention} preview={false} width={200} />
         </div>
         <div className="flex w-2/3 items-center justify-between rounded-xl bg-primary-color p-8">
           <div className="flex flex-col justify-center gap-4">

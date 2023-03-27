@@ -99,7 +99,7 @@ export default function Introduction() {
         </Typography>
         <Typography className="ml-4">
           <a
-            href="http://vci.vnu.edu.vn/upload/15022/pdf/576382617f8b9a62578b4595.pdf"
+            href="http://www.bestkc.com/wp-content/uploads/2017/05/3-year-ASQ-ENGLISH.pdf"
             target="_blank"
             rel="noreferrer"
           >
