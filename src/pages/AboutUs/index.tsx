@@ -17,7 +17,7 @@ const AboutUs = () => {
           }}
         >
           <img
-            className="brightness-50"
+            // className="brightness-50"
             src="https://images.pexels.com/photos/1756665/pexels-photo-1756665.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1"
             alt=""
           />
