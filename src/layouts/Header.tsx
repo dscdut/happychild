@@ -150,7 +150,7 @@ export function Header() {
                       ? 'text-primary-color'
                       : 'text-[black]'
                   }
-                  style={{ fontSize: '1rem', fontWeight: '100' }}
+                  style={{ fontSize: '0.8rem', fontWeight: '100' }}
                 >
                   {item?.icon}
                   {item?.title}
