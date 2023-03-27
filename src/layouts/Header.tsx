@@ -1,7 +1,6 @@
 import {
   HomeOutlined,
   ScheduleOutlined,
-  UsergroupAddOutlined,
   UserOutlined,
   FormOutlined,
   InfoCircleOutlined,
@@ -86,7 +85,6 @@ export function Header() {
           <div className="ml-auto mr-5 ">
             <UserInfo />
           </div>
-         
         ) : (
           <div
             className="ml-auto mr-5 flex items-center gap-4"
@@ -130,7 +128,7 @@ export function Header() {
           />
         </div>
         <div
-          className="col-span-5 flex items-center justify-start gap-6 ml-[5rem]"
+          className="col-span-5 ml-[5rem] flex items-center justify-start gap-6"
           // style={{ marginLeft: '0' }}
         >
           {MENU_ITEMS?.map(item =>
@@ -153,9 +151,11 @@ export function Header() {
                       ? 'text-primary-color'
                       : 'text-[black]'
                   }
-                  style={{  fontWeight: '100' }}
+                  style={{ fontWeight: '100' }}
                 >
-                  <span className='hidden text-[0.7rem] xl:inline-block lg:hidden'>{item?.icon}</span>
+                  <span className="hidden text-[0.7rem] lg:hidden xl:inline-block">
+                    {item?.icon}
+                  </span>
                   {item?.title}
                 </Link>
               </div>
