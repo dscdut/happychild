@@ -5,14 +5,14 @@
 </p>
 
 ## Introduction
-
-HappyChild is a platform that supports parents to evaluate, refer to suggested solutions and methods of educating children with speech delay, developmental delay and autism.
-
 <p align="center">
     <a href="https://ibb.co/bFMLSPj">
         <img src="https://i.ibb.co/8bL2W0n/ava.jpg" alt="ava" border="0" width="300px">
     </a>
 </p>
+HappyChild is a platform that supports parents to evaluate, refer to suggested solutions and methods of educating children with speech delay, developmental delay and autism - created by GDSC - DUT team.
+
+This project will join [GDSC Solution Challenge 2023](https://developers.google.com/community/gdsc-solution-challenge).
 
 ## Link to our website
 
