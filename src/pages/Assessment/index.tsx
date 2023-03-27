@@ -13,7 +13,7 @@ import AssessmentImage1 from '#/assets/images/assessmentImage1.png';
 import AssessmentImage2 from '#/assets/images/assessmentImage2.jpg';
 import AssessmentImage3 from '#/assets/images/assessmentImage3.jpg';
 import AssessmentImage4 from '#/assets/images/assessmentImage4.jpg';
-import AssessmentImage5 from '#/assets/images/assessmentImage5.jpg';
+import AssessmentImage6 from '#/assets/images/assessmentImage6.jpg';
 
 function Index() {
   const navigate = useNavigate();
@@ -50,7 +50,7 @@ function Index() {
               height={600}
             />
             <Image
-              src={AssessmentImage5}
+              src={AssessmentImage6}
               className="rounded-l-xl object-cover"
               preview={false}
               height={600}
@@ -78,7 +78,7 @@ function Index() {
               onClick={() => navigate('/assessment/form')}
             >
               <ProfileOutlined />
-              Bắt đầu kiểm tra và đánh giá
+              Start testing and evaluation
               <RightOutlined style={{ fontSize: '20px', color: '#fff' }} />
             </Button>
           </Col>

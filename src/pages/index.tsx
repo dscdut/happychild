@@ -1,17 +1,33 @@
 import {
-  LineChartOutlined,
+  FormOutlined,
   PlusCircleFilled,
+  ScheduleOutlined,
   SmileOutlined,
+  StockOutlined,
 } from '@ant-design/icons';
 import { Button, Card, Col, Divider, Image, Row, Typography } from 'antd';
 import { CourseStyledCard, StyledDiv } from './Courses/styles';
-import HappyChild from '#/assets/images/happychild.jpg';
+import HappyChild from '#/assets/images/new-logo.jpg';
 import Thumbnail from '#/assets/images/thumbnail.jpg';
 import Specialist from '#/assets/images/specialist.png';
 import Community from '#/assets/images/community.png';
 import Assessment from '#/assets/images/assessment.png';
+import { RefObject, useRef } from 'react';
+import { useNavigate } from 'react-router-dom';
+import { scrollToTop } from '#/shared/utils/tools';
 
 export default function Index() {
+  const navigate = useNavigate();
+  const introductionRef: RefObject<HTMLDivElement> = useRef(null);
+
+  const handleLearnMoreClick = () => {
+    if (introductionRef.current != null) {
+      introductionRef.current.scrollIntoView({
+        behavior: 'smooth',
+      });
+    }
+  };
+
   return (
     <Row gutter={[24, 24]}>
       <Col
@@ -25,119 +41,175 @@ export default function Index() {
         }}
       >
         <Card
-          className="absolute top-[10rem] right-[9.375rem] w-2/6 rounded-xl bg-[black] bg-opacity-[64%] p-4 shadow-xl"
+          className="absolute top-[10rem] right-[9.375rem] w-2/6 rounded-xl bg-[#566573] bg-opacity-[80%] p-4 shadow-xl"
           bordered={false}
         >
           <Typography.Title
             level={2}
-            className="text-center italic text-[white]"
+            className="text-center text-5xl font-bold text-[white]"
           >
             HAPPYCHILD
           </Typography.Title>
           <Typography.Paragraph className="text-base text-[white]">
-            Nền tảng hỗ trợ phụ huynh đánh giá, tham khảo đề xuất giải pháp và
-            cách thức giáo dục trẻ gặp vấn đề chậm nói, chậm phát triển và tự
-            kỷ.
+            A platform that supports parents to evaluate, refer to suggested
+            solutions and methods of educating children with speech delay,
+            developmental delay and autism.
           </Typography.Paragraph>
-          <Button block>
-            Tìm hiểu thêm <PlusCircleFilled />
+          <Button block onClick={handleLearnMoreClick}>
+            Find out more <PlusCircleFilled />
           </Button>
         </Card>
       </Col>
       <Col span={24}>
-        <div className="flex flex-col items-center justify-center">
+        <div
+          className="flex flex-col items-center justify-center"
+          ref={introductionRef}
+        >
           <Image src={HappyChild} preview={false} width={150} />
           <Typography className="text-3xl font-bold text-primary-color">
-            Có những gì? <SmileOutlined />
+            What are there? <SmileOutlined />
           </Typography>
         </div>
         <Divider />
         <StyledDiv className="flex">
           <CourseStyledCard
-            className="mx-2 w-1/3 text-base shadow-xl hover:scale-105"
+            className="mx-2 w-1/3 text-base shadow-xl transition duration-300 hover:scale-105"
             title={
-              <Typography.Text className="py-4 text-lg font-bold">
-                Theo dõi phát triển, phối hợp đánh giá <br /> mức độ phát triển,
-                tự kỷ của trẻ nhỏ
-              </Typography.Text>
+              <div
+                className="py-4 text-lg font-bold mr-5"
+                style={{
+                  minHeight: '95px',
+                }}
+              >
+                Taking test to assess the development level <br />
+                and autism of young children
+              </div>
             }
-            extra={<LineChartOutlined className="text-4xl" />}
+            extra={<ScheduleOutlined className="text-3xl" />}
           >
-            <div className="flex h-full flex-col justify-between bg-info-color-light py-4 px-3">
+            <div
+              className="flex h-full flex-col justify-between bg-info-color-light py-4 px-3 "
+              style={{
+                minHeight: '350px',
+                display: '',
+              }}
+            >
               <Typography.Paragraph className="mb-20">
                 <ul className="m-0 list-none space-y-4 p-0">
                   <li>
-                    Nếu vấn đề chậm phát triển ở trẻ không được phát hiện sớm,
-                    trẻ sẽ không nhận được sự hỗ trợ cần thiết và kịp thời. Điều
-                    này khiến trẻ gặp khó khăn khi đến trường, hòa nhập xã hội
-                    và sống độc lập về sau.
+                    If developmental delays in children are not detected early,
+                    they will not receive the necessary and timely support. This
+                    makes it difficult for them to go to school, integrate into
+                    society and live independently later on.
                   </li>
                   <li>
-                    Hệ thống cung cấp những công cụ và những bài đánh giá chuyên
-                    môn giúp phụ huynh có định hướng cũng như cách thức quan
-                    sát, theo dõi những hoạt động con trẻ nhỏ.
+                    The system provides tools and professional assessments to
+                    help parents have orientation and ways to observe and
+                    monitor the activities of young children.
                   </li>
                 </ul>
               </Typography.Paragraph>
-              <Button className="w-full bg-primary-color  hover:bg-color-accent-sky hover:text-color-gray-10">
-                Tìm hiểu thêm
+              <Button
+                className="w-full bg-primary-color text-[white]  
+              hover:bg-color-accent-sky hover:text-color-gray-10"
+                onClick={() => {
+                  scrollToTop();
+                  navigate('/assessment');
+                }}
+              >
+                Learn more
               </Button>
             </div>
           </CourseStyledCard>
           <CourseStyledCard
-            className="mx-2 h-fit w-1/3 p-4 text-base shadow-xl hover:scale-105"
+            className="mx-2  w-1/3 p-4 text-base shadow-xl transition duration-300 hover:scale-105"
             title={
-              <Typography.Text className="py-4 text-lg font-bold">
-                Blog kiến thức và các khóa học
-              </Typography.Text>
+              <div
+                className="py-4 text-lg font-bold mr-5"
+                style={{
+                  minHeight: '95px',
+                }}
+              >
+                The intervention roadmap for children
+              </div>
             }
-            extra={<LineChartOutlined className="text-4xl" />}
+            extra={<StockOutlined className="text-3xl" />}
           >
-            <div className="bg-info-color-light py-4 px-3">
-              <Typography.Paragraph className="mb-20">
+            <div
+              className="flex h-full flex-col justify-between bg-info-color-light py-4 px-3 "
+              style={{
+                minHeight: '350px',
+                display: '',
+              }}
+            >
+              <Typography.Paragraph className="row-span-2">
                 <ul className="m-0 list-none space-y-4 p-0">
                   <li>
-                    Cung cấp những blog kiến thức từ những chuyên gia đến từ
-                    những trung tâm y tế và các tổ chức thiện nguyên với mong
-                    muốn lan tỏa kiến thức về cách giáo dục trẻ nhỏ khi gặp phải
-                    các vấn đề chậm nói, chậm phát triển, tự kỷ
-                  </li>
-                  <li>
-                    Cung cấp các khóa học giúp phụ huynh có được lộ trình và
-                    kiến thức rõ ràng, chắc chắn
+                    In addition to helping parents detect early signs of
+                    developmental delays in their children, HappyChild also
+                    provides timely intervention roadmaps to help parents
+                    improve their children's conditions, such as slow speech
+                    development, slow development, and signs of autism,...
                   </li>
                 </ul>
               </Typography.Paragraph>
-              <Button className="w-full bg-primary-color  hover:bg-color-accent-sky hover:text-color-gray-10">
-                Tìm hiểu thêm
+              <Button
+                className="w-full bg-primary-color text-[white]  
+              hover:bg-color-accent-sky hover:text-color-gray-10"
+                onClick={() => {
+                  scrollToTop();
+                  navigate('/intervention-guide');
+                }}
+              >
+                Learn more
               </Button>
             </div>
           </CourseStyledCard>
           <CourseStyledCard
-            className="mx-2 h-fit w-1/3 p-4 text-base shadow-xl hover:scale-105"
+            className="mx-2  w-1/3 p-4 text-base shadow-xl transition duration-300 hover:scale-105"
             title={
-              <Typography.Text className="py-4 text-lg font-bold">
-                Và hơn thế nữa...
-              </Typography.Text>
+              <div
+                className="py-4 text-lg font-bold mr-5"
+                style={{
+                  minHeight: '95px',
+                }}
+              >
+                Monitor the development of children <br />
+                through tracking log
+              </div>
             }
-            extra={<LineChartOutlined className="text-4xl" />}
+            extra={<FormOutlined className="text-3xl" />}
           >
-            <div className="bg-info-color-light py-4 px-3">
+            <div
+              className="flex h-full flex-col justify-between bg-info-color-light py-4 px-3 "
+              style={{
+                minHeight: '350px',
+                display: '',
+              }}
+            >
               <Typography.Paragraph className="mb-20">
                 <ul className="m-0 list-none space-y-4 p-0">
                   <li>
-                    Nền tảng HappyChild còn nhắm tới việc lan tỏa kiến thức và
-                    nhận thức cho cộng đồng
+                    HappyChild provides a diary tracking feature that allows
+                    parents to monitor their child's development, thereby
+                    providing accurate guidance on the child's condition.
                   </li>
                   <li>
-                    Giúp trẻ nhỏ gặp khó khăn về việc phát triển được hòa nhập
-                    cộng đồng, được đón nhận và yêu thương như những đứa trẻ
-                    bình thường
+                    The data in the diary can be used by healthcare
+                    organizations to improve the efficiency of diagnosis and
+                    child care.
                   </li>
                 </ul>
               </Typography.Paragraph>
-              <Button className="w-full bg-primary-color  hover:bg-color-accent-sky hover:text-color-gray-10">
-                Tìm hiểu thêm
+              <Button
+                className="w-full bg-primary-color text-[white] 
+               hover:bg-color-accent-sky hover:text-color-gray-10"
+                onClick={() => {
+                  scrollToTop();
+                  navigate('/tracking-progress');
+                }}
+              >
+                Learn more
               </Button>
             </div>
           </CourseStyledCard>
@@ -146,47 +218,71 @@ export default function Index() {
       </Col>
       <Col span={24} className="flex flex-col items-center gap-4">
         <Typography className="text-3xl font-bold text-primary-color">
-          Đang trong giai đoạn phát triển
+          Progressing towards development
         </Typography>
         <div className="flex w-2/3 items-center justify-between rounded-xl bg-secondary-color p-8">
           <div className="flex flex-col justify-center gap-4">
             <Typography className="text-3xl font-bold text-[white]">
-              Liên hệ các chuyên gia
+              Contact the experts
             </Typography>
             <Typography className="text-base italic text-[white]">
-              Kết nối, trò chuyện, video call, xem các buổi livestream chuyên đề
-              và hỏi đáp,....
+              Connect, chat, video call, watch thematic livestreams and
+              Q&A,.......
             </Typography>
-            <Button className="w-[10rem]">Tìm hiểu thêm</Button>
+            <Button
+              className="w-[10rem]"
+              onClick={() => {
+                scrollToTop();
+                navigate('/contact-specialists');
+              }}
+            >
+              Learn more
+            </Button>
           </div>
           <Image src={Specialist} preview={false} width={150} />
+        </div>
+        <div className="flex w-2/3 items-center justify-between rounded-xl bg-ternary-color p-8">
+          <div className="flex flex-col justify-center gap-4">
+            <Typography className="text-3xl font-bold text-[white]">
+              Community
+            </Typography>
+            <Typography className="text-base italic text-[white]">
+              Through forums, parents can share experiences and knowledge to
+              support each other, thereby spreading awareness to everyone around
+              them.
+            </Typography>
+            <Button
+              className="w-[10rem]"
+              onClick={() => {
+                scrollToTop();
+                navigate('/community');
+              }}
+            >
+              Learn more
+            </Button>
+          </div>
+          <Image src={Community} preview={false} width={200} />
         </div>
         <div className="flex w-2/3 items-center justify-between rounded-xl bg-primary-color p-8">
           <div className="flex flex-col justify-center gap-4">
             <Typography className="text-3xl font-bold text-[white]">
-              Nhật ký theo dõi quá trình chữa trị của trẻ
+              Diary to monitor the child's treatment progress
             </Typography>
             <Typography className="text-base italic text-[white]">
-              Công cụ để ghi lại những hoạt động, đánh giá của trẻ nhỏ trong quá
-              trình điều trị và theo dõi từ bố mẹ
+              A tool to record the activities and assessment of young children
+              during treatment and follow-up from parents
             </Typography>
-            <Button className="w-[10rem]">Tìm hiểu thêm</Button>
+            <Button
+              className="w-[10rem]"
+              onClick={() => {
+                scrollToTop();
+                navigate('/tracking-progress');
+              }}
+            >
+              Learn more
+            </Button>
           </div>
           <Image src={Assessment} preview={false} width={150} />
-        </div>
-        <div className="flex w-2/3 items-center justify-between rounded-xl bg-secondary-color p-8">
-          <div className="flex flex-col justify-center gap-4">
-            <Typography className="text-3xl font-bold text-[white]">
-              Cộng đồng
-            </Typography>
-            <Typography className="text-base italic text-[white]">
-              Thông qua các diễn đàn, phụ huynh có thể chia sẻ những kinh nghiệm
-              và kiến thức để hỗ trợ lẫn nhau, từ đó lan tỏa nhận thức đến mọi
-              người xung quanh
-            </Typography>
-            <Button className="w-[10rem]">Tìm hiểu thêm</Button>
-          </div>
-          <Image src={Community} preview={false} width={200} />
         </div>
       </Col>
     </Row>

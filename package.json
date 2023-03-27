@@ -51,6 +51,7 @@
     "react-dom": "^18.2.0",
     "react-i18next": "^11.17.4",
     "react-router-dom": "6.3.0",
+    "recharts": "^2.5.0",
     "vite-plugin-antd-dayjs": "^1.0.0",
     "vite-plugin-imp": "^2.2.0",
     "vite-plugin-sentry": "^1.0.18"

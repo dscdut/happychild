@@ -2,26 +2,27 @@ import { Select, SelectProps } from 'antd';
 
 const options = [
   {
-    label: 'Chậm phát triển ở trẻ nhỏ là gì?',
+    label: 'What is delayed development in children?',
     value: 1,
   },
   {
-    label: 'Vì sao cần theo dõi và sàng lọc phát triển lại quan trọng?',
+    label:
+      'Why is it important to monitor and screen for developmental delays?',
     value: 2,
   },
   {
-    label: 'Để theo dõi sự phát triển của trẻ tôi cần làm gì?',
+    label: 'What can I do to monitor my child’s development?',
     value: 3,
   },
 
   {
     label:
-      'Các bộ câu hỏi chuyên môn dùng cho việc đánh giá mức độ chậm phát triển, chậm nói, tự kỷ ở trẻ',
+      'Professional questionnaires used to assess developmental delays, speech delays, and autism in children',
     value: 4,
   },
   {
     label:
-      'Khi trẻ em được xác định có nguy cơ chậm phát triển hoặc tự kỷ tôi cần làm gì?',
+      'If your child is identified as being at risk for developmental delays or autism, what should you do',
     value: 5,
   },
 ];

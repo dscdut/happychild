@@ -28,3 +28,12 @@ export const getPopupContainer = (
 export const scrollToTop = () => {
   window.scrollTo(0, 0);
 };
+
+export const calculateAgeInMonths = (birthday: string) => {
+  const birthDate = new Date(birthday);
+  const today = new Date();
+  const monthDiff = today.getMonth() - birthDate.getMonth();
+  const ageInMonths = today.getFullYear() - birthDate.getFullYear();
+
+  return ageInMonths * 12 + monthDiff;
+};

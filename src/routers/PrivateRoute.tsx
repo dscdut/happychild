@@ -1,5 +1,8 @@
-import { useRoutes } from 'react-router-dom';
+import { useParams, useRoutes } from 'react-router-dom';
 import { loadable } from '#/shared/utils/loadable';
+import TrackingProgress from '#/pages/TrackingProgress';
+import InterventionGuide from '#/pages/InterventionGuide';
+import InterventionGuideRoute from '#/pages/InterventionGuide/IntervetionGuideRoute';
 
 const Index = loadable(import('#/pages/index'));
 const BlogPage = loadable(import('#/pages/Blog'));
@@ -25,36 +28,52 @@ function PrivateRoute() {
           path: 'form',
           element: <AssessmentForm />,
         },
-        { path: 'start', element: <AssessmentStart /> },
-        { path: 'results', element: <Result /> },
+        { path: 'start/:childId', element: <AssessmentStart /> },
+        { path: 'results/:childId', element: <Result /> },
       ],
     },
     {
-      path: 'blogs',
+      path: 'tracking-progress',
       children: [
         {
           index: true,
-          element: <BlogPage />,
-        },
-        {
-          path: ':id',
-          element: <BlogDetail />,
+          element: <TrackingProgress />,
         },
       ],
     },
     {
-      path: 'courses',
+      path: 'intervention-guide',
       children: [
-        {
-          index: true,
-          element: <Courses />,
-        },
-        {
-          path: ':id',
-          element: <CoursesDetail />,
-        },
+        { index: true, element: <InterventionGuide id="" childId="" /> },
+        { path: ':childId', element: <InterventionGuideRoute /> },
       ],
     },
+    // {
+    //   path: 'blogs',
+    //   children: [
+    //     {
+    //       index: true,
+    //       element: <BlogPage />,
+    //     },
+    //     {
+    //       path: ':id',
+    //       element: <BlogDetail />,
+    //     },
+    //   ],
+    // },
+    // {
+    //   path: 'courses',
+    //   children: [
+    //     {
+    //       index: true,
+    //       element: <Courses />,
+    //     },
+    //     {
+    //       path: ':id',
+    //       element: <CoursesDetail />,
+    //     },
+    //   ],
+    // },
     { path: '*', element: <ComingSoon /> },
   ]);
 

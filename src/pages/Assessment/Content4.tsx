@@ -3,75 +3,83 @@ export default function Content4() {
     <>
       <p>
         <span className="text-base font-bold text-primary-color">
-          Nếu bạn là người trực tiếp chăm sóc trẻ, bạn có thể kiểm tra
+          If you are the primary caregiver for a child,
         </span>{' '}
-        các mốc phát triển của trẻ do Trung tâm phòng chống dịch bệnh (CDC) của
-        Mỹ xây dựng. Bạn cũng có thể tự thực hiện{' '}
+        you can check their developmental milestones using the CDC’s resources.
+        You can also self-administer{' '}
         <a
           href="https://a365.vn/kien-thuc/bai-viet/gioi-thieu-bo-cong-cu-theo-doi-phat-trien-asq-3-df1c54e3f5"
           className="text-primary-color"
         >
-          bộ câu hỏi ASQ®-3
+          the ASQ®-3 questionnaire
         </a>{' '}
-        để biết được con mình có phát triển tương đương với các trẻ khác hay có
-        nguy cơ chậm phát triển hay không. Nếu bạn băn khoăn liệu con mình có
-        nguy cơ tự kỷ hay không, bạn có thể làm bài . Hay nếu bạn lo lắng về các
-        vấn đề về cảm xúc và hành vi của con, bạn có thể làm bài . Dựa vào kết
-        quả ban đầu của bài kiểm tra, bạn sẽ có cơ sở để quyết định có nên đưa
-        trẻ đến gặp cán bộ y tế hay không?
+        to see if your child is developing on par with other children or if they
+        are at risk for developmental delays. If you are concerned about whether
+        your child is at risk for autism, you can take the M-CHAT tool. Or if
+        you are worried about emotional and behavioral issues in your child, you
+        can take the PSC tool. Based on the initial results of these tests, you
+        will have a basis to decide whether or not to take your child to see a
+        healthcare professional?
       </p>
-      <div className="my-2">Nếu bạn băn khoăn liệu con mình:</div>
+      <div className="my-2">
+        If you are concerned about whether your child:{' '}
+      </div>
       <ul className="my-3 list-disc space-y-2 pl-4">
         <li>
-          Có nguy cơ tự kỷ hay không, bạn có thể làm bộ công cụ{' '}
+          Is at risk for autism, you can take the{' '}
           <a
             href="https://a365.vn/kien-thuc/bai-viet/gioi-thieu-bo-cong-cu-sang-loc-nhung-van-de-ve-cam-xuc-va-hanh-vi-psc-6c4e17a922"
             className="text-primary-color"
           >
-            M-CHAT.
-          </a>
+            M-CHAT
+          </a>{' '}
+          tool.
         </li>
         <li>
-          Có các vấn đề về cảm xúc và hành vi, bạn có thể làm làm bộ công cụ{' '}
+          Has emotional and behavioral issues, you can take the{' '}
           <a
             href="https://a365.vn/kien-thuc/bai-viet/gioi-thieu-bo-cong-cu-sang-loc-nhung-van-de-ve-cam-xuc-va-hanh-vi-psc-6c4e17a922"
             className="text-primary-color"
           >
-            PSC.
-          </a>
+            PSC
+          </a>{' '}
+          tool.
         </li>
         <li>
-          Có các vấn đề về giấc ngủ, bạn có thể làm bộ làm bộ công cụ{' '}
+          Has sleep problems, you can take the{' '}
           <a
             href="https://a365.vn/kien-thuc/bai-viet/gioi-thieu-bo-cong-cu-sang-loc-nhung-van-de-ve-cam-xuc-va-hanh-vi-psc-6c4e17a922"
             className="text-primary-color"
           >
-            CSHQ.
-          </a>
+            CSHQ
+          </a>{' '}
+          tool.
         </li>
         <li>
-          Có các vấn đề về ăn uống, bạn có thể làm bộ sàng lọc về hành vi trong
-          lúc ăn ở trẻ tự kỷ{' '}
+          Has eating problems, you can take the{' '}
           <a
             href="https://a365.vn/kien-thuc/bai-viet/gioi-thieu-bo-cong-cu-sang-loc-nhung-van-de-ve-cam-xuc-va-hanh-vi-psc-6c4e17a922"
             className="text-primary-color"
           >
-            BAMBI.
-          </a>
+            BAMBI
+          </a>{' '}
+          screening tool for eating behavior in children with autism.
         </li>
         <li>
-          Có vấn đề về Tăng động- giảm chú ý, bạn có thể làm bộ{' '}
+          Have Attention-Deficit Hyperactivity Problem, you can take the{' '}
           <a
             href="https://a365.vn/kien-thuc/bai-viet/gioi-thieu-bo-cong-cu-sang-loc-nhung-van-de-ve-cam-xuc-va-hanh-vi-psc-6c4e17a922"
             className="text-primary-color"
           >
-            VADRS.
-          </a>
+            VADRS
+          </a>{' '}
+          tool.
         </li>
       </ul>
       <p>
-        Dựa vào kết quả ban đầu của bài kiểm tra, bạn sẽ có cơ sở để quyết định
-        có nên đưa trẻ đến gặp cán bộ y tế hay không?
+        Based on the initial results of these tests, you will have a basis to
+        decide whether or not to take your child to see a healthcare
+        professional?
       </p>
     </>
   );

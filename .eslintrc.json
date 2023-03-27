@@ -1,3 +1,4 @@
 {
-  "extends": ["@enouvo-packages/eslint-config-react"]
+  // "extends": ["@enouvo-packages/eslint-config-react"]
+  "extends": []
 }

@@ -4,27 +4,28 @@ export function Content5() {
       <ul className="space-y-3">
         <li>
           <span className="text-base font-bold text-primary-color">
-            Các cán bộ y tế
+            Healthcare professionals
           </span>{' '}
-          (có thể là một nhóm đa ngành về nhi khoa, tâm lý, phục hồi chức năng)
-          sẽ thực hiện thêm các đánh giá chuyên sâu về các lĩnh vực cần quan
-          tâm, sử dụng các bảng hỏi, bản kiểm quan sát chi tiết nhằm đưa ra được
-          kết luận về sự phát triển của trẻ. Thông qua đó cán bộ y tế có thể xác
-          định tình trạng rối loạn phát triển của trẻ và gợi ý liệu trẻ có cần
-          can thiệp hay không và nên can thiệp như thế nào.
+          (potentially a multidisciplinary team specializing in pediatrics,
+          psychology, and rehabilitation) will conduct in-depth assessments in
+          areas of concern using questionnaires and detailed observation
+          checklists to draw conclusions about the child’s development. Through
+          this, healthcare professionals can determine the child’s developmental
+          disorder status and suggest whether intervention is necessary and how
+          it should be carried out.
         </li>
         <li>
-          Khi trẻ được chẩn đoán rối loạn phát triển, hoặc tự kỷ, hoặc ngay khi
-          trẻ mới có kết quả có nguy cơ chậm phát triển, hoặc nguy cơ tự kỷ, Hãy
-          vào mục{' '}
+          When a child is diagnosed with a developmental disorder or autism, or
+          even when a child is found to be at risk for delayed development or
+          autism, please refer to the{' '}
           <a
             href="https://a365.vn/kien-thuc/bai-viet/gioi-thieu-bo-cong-cu-theo-doi-phat-trien-asq-3-df1c54e3f5"
             className="text-primary-color"
           >
-            Hướng dẫn can thiệp
+            Intervention Guide
           </a>{' '}
-          để tiếp cận với các kiến thức, chiến lược can thiệp và các video bài
-          tập can thiệp mẫu cho trẻ tại nhà.
+          for access to knowledge, intervention strategies, and sample
+          intervention exercise videos for children at home.
         </li>
       </ul>
     </>

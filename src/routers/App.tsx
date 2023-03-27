@@ -4,7 +4,6 @@ import GuardRoute from './GuardRoute';
 import PrivateRoute from './PrivateRoute';
 import { loadable } from '#/shared/utils/loadable';
 import Result from '#/pages/Assessment/Result';
-import RouteKid from '#/pages/Route';
 
 const BlogPage = loadable(import('#/pages/Blog'));
 const BlogDetail = loadable(import('#/pages/BlogDetail'));
@@ -18,6 +17,7 @@ const CoursesDetail = loadable(
 const Assessment = loadable(import('#/pages/Assessment'));
 const Community = loadable(import('#/pages/Community'));
 const ContactSpecialist = loadable(import('#/pages/ContactSpecialists'));
+const AboutUs = loadable(import('#/pages/AboutUs'));
 
 function App() {
   const routes = useRoutes([
@@ -25,19 +25,19 @@ function App() {
       path: 'contact-specialists',
       element: <ContactSpecialist />,
     },
-    {
-      path: 'blogs',
-      children: [
-        {
-          index: true,
-          element: <BlogPage />,
-        },
-        {
-          path: ':id',
-          element: <BlogDetail />,
-        },
-      ],
-    },
+    // {
+    //   path: 'blogs',
+    //   children: [
+    //     {
+    //       index: true,
+    //       element: <BlogPage />,
+    //     },
+    //     {
+    //       path: ':id',
+    //       element: <BlogDetail />,
+    //     },
+    //   ],
+    // },
     {
       path: 'assessment',
       element: <Assessment />,
@@ -45,10 +45,6 @@ function App() {
     {
       path: 'community',
       element: <Community />,
-    },
-    {
-      path: 'route',
-      element: <RouteKid name=''/>,
     },
     {
       path: 'courses',
@@ -71,6 +67,10 @@ function App() {
           element: <Result />,
         },
       ],
+    },
+    {
+      path: 'about-us',
+      element: <AboutUs />
     },
     {
       path: '/',

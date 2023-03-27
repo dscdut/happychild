@@ -3,8 +3,9 @@ module.exports = {
   important: true,
   theme: {
     colors: {
-      'primary-color': '#2E86C1',
+      'primary-color': '#2e86c1',
       'secondary-color': '#efa2a4',
+      'ternary-color': '#f4d03f',
 
       'primary-color-dark': '#ffb710',
       'primary-color-dark-10': '#f3b503',

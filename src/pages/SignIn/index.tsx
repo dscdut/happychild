@@ -39,7 +39,7 @@ export default function SignInPage() {
             navigate('/');
           })
           .catch(() => {
-            setErrorMessage('Email hoặc mật khẩu không chính xác');
+            setErrorMessage('Email or password is incorrect');
           });
       }
     } catch (error) {
@@ -59,6 +59,10 @@ export default function SignInPage() {
     }
   };
 
+  const redirectToSignUp = () => {
+    navigate('/sign-up');
+  };
+
   return (
     <Form className="flex items-center" layout="vertical">
       <Row className="w-full rounded-xl shadow-2xl" align="middle">
@@ -74,13 +78,11 @@ export default function SignInPage() {
           <Row justify="center" gutter={[16, 16]}>
             <Col span={24}>
               <Typography className="flex justify-center text-3xl font-bold text-primary-color">
-                ĐĂNG NHẬP
+                Log in
               </Typography>
               <Typography className="flex justify-center text-base text-secondary-color">
-                Bạn chưa có tài khoản ?&nbsp;
-                <a href="/sign-up" rel="noopener" target="_blank">
-                  Đăng ký
-                </a>
+                Don't have an account ?&nbsp;
+                <a onClick={redirectToSignUp}>Sign up</a>
               </Typography>
               <Typography.Text type="danger" className="flex justify-center">
                 {errorMessage}
@@ -90,7 +92,7 @@ export default function SignInPage() {
               <Typography className="text-base">Email:</Typography>
               <Form.Item noStyle>
                 <Input
-                  placeholder="Nhập email"
+                  placeholder="Enter email"
                   onChange={e => {
                     setEmail(e.target.value);
                   }}
@@ -98,10 +100,10 @@ export default function SignInPage() {
               </Form.Item>
             </Col>
             <Col span={24} className="mb-4 flex flex-col gap-2">
-              <Typography className="text-base">Mật khẩu:</Typography>
+              <Typography className="text-base">Password:</Typography>
               <Form.Item noStyle>
                 <Input.Password
-                  placeholder="Nhập mật khẩu"
+                  placeholder="Enter Password"
                   onChange={e => {
                     setPassword(e.target.value);
                   }}
@@ -110,11 +112,11 @@ export default function SignInPage() {
             </Col>
             <Col span={24} className="flex items-center justify-between">
               <Typography className="flex cursor-pointer gap-2 border-surface-white text-primary-color">
-                Quên mật khẩu?
+                Forgot password?
               </Typography>
               <div className="flex items-center gap-2">
                 <Checkbox />
-                Lưu mật khẩu
+                Remeber password
               </div>
             </Col>
             <Col span={24}>
@@ -124,7 +126,7 @@ export default function SignInPage() {
                 htmlType="button"
                 onClick={loginWithEmailAndPassword}
               >
-                Đăng nhập
+                Log in
               </Button>
             </Col>
             <Col span={24}>
@@ -133,7 +135,7 @@ export default function SignInPage() {
                 className="bg-[white] text-[black]"
                 onClick={loginWithGoogleAccount}
               >
-                Đăng nhập với Google
+                Log in with Google
                 <GoogleOutlined className="text-error-color" />
               </Button>
             </Col>

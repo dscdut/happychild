@@ -4,87 +4,87 @@ import PostGroup, { PostGroupProps } from './PostGroup';
 
 const firstItems: PostGroupProps['items'] = [
   {
-    title: 'Thảo luận',
+    title: 'Discuss',
     thread: '16',
     message: '40',
     avatar: 'https://picsum.photos/200',
-    hashtag: 'Thảo luận',
+    hashtag: 'Discuss',
     hashtagColor: '#81CEED',
     date: '21/11/2021',
-    subTitle: 'Thông báo khẩn',
+    subTitle: 'Emergency notification',
   },
   {
-    title: 'Góp ý',
+    title: 'Suggestions',
     thread: '2.7K',
     message: '47K',
     avatar: 'https://picsum.photos/200',
-    hashtag: 'Góp ý',
+    hashtag: 'Suggestions',
     hashtagColor: '#ffb710',
     date: '21/11/2021',
-    subTitle: 'Một vài góp ý',
+    subTitle: 'A few suggestions',
   },
   {
-    title: 'Thắc mắc',
+    title: 'Question',
     thread: '16',
     message: '40',
     avatar: 'https://picsum.photos/200',
-    hashtag: 'Thắc mắc',
+    hashtag: 'Question',
     hashtagColor: '#efa2a4',
     date: '21/11/2021',
-    subTitle: 'Thắc mắc về tự kỷ',
+    subTitle: 'Question about autism',
   },
 ];
 
 const secondItems: PostGroupProps['items'] = [
   {
-    title: 'Dấu hiệu tự kỷ',
+    title: 'Signs of autism',
     thread: '16',
     message: '40',
     avatar: 'https://picsum.photos/200',
-    hashtag: 'Thảo luận',
+    hashtag: 'Discuss',
     hashtagColor: '#81CEED',
     date: '21/11/2021',
-    subTitle: 'Một vài dấu hiệu đ...',
+    subTitle: 'A few signs...',
   },
   {
-    title: 'Các triệu chứng tự kỷ',
+    title: 'Symptoms of Autism',
     thread: '2.7K',
     message: '47K',
     avatar: 'https://picsum.photos/200',
-    hashtag: 'Góp ý',
+    hashtag: 'Feedback',
     hashtagColor: '#ffb710',
     date: '21/11/2021',
-    subTitle: 'Triệu chứng tiềm tàng...',
+    subTitle: 'Potential symptoms...',
   },
   {
-    title: 'Cách phòng chống',
+    title: 'Prevention',
     thread: '16',
     message: '40',
     avatar: 'https://picsum.photos/200',
-    hashtag: 'Thắc mắc',
+    hashtag: 'Question',
     hashtagColor: '#efa2a4',
     date: '21/11/2021',
-    subTitle: 'Phòng chống một ...',
+    subTitle: 'Prevention one ...',
   },
   {
-    title: 'Các dấu hiệu đầu tiên',
+    title: 'The first signs',
     thread: '2.7K',
     message: '47K',
     avatar: 'https://picsum.photos/200',
-    hashtag: 'Góp ý',
+    hashtag: 'Susgesstion',
     hashtagColor: '#ffb710',
     date: '21/11/2021',
-    subTitle: 'Dấu hiệu phổ thông ở...',
+    subTitle: 'Common signs in...',
   },
   {
-    title: 'Làm sao để hoà nhập',
+    title: 'How to fit in?',
     thread: '16',
     message: '40',
     avatar: 'https://picsum.photos/200',
-    hashtag: 'Thắc mắc',
+    hashtag: 'Question',
     hashtagColor: '#efa2a4',
     date: '21/11/2021',
-    subTitle: 'Hoà nhập liệu có khó',
+    subTitle: 'Is integration difficult?',
   },
 ];
 
@@ -92,8 +92,8 @@ function Community() {
   return (
     <div className="grid grid-cols-3 gap-8">
       <div className="col-span-2 flex flex-col gap-8">
-        <PostGroup title="Đại sảnh" items={firstItems} />
-        <PostGroup title="Kiến thức phổ thông" items={secondItems} />
+        <PostGroup title="Hall" items={firstItems} />
+        <PostGroup title="Basic knowledges" items={secondItems} />
       </div>
       <div className="col-span-1">
         <Card
@@ -102,45 +102,45 @@ function Community() {
             top: 'calc(5rem + 16px)',
           }}
         >
-          <div className="text-lg text-primary-color">Bài viết gần đây</div>
+          <div className="text-lg text-primary-color">Recent Posts</div>
           <Post
             className="mt-4 cursor-pointer"
             image="https://picsum.photos/200"
-            hashtag="Thảo luận"
+            hashtag="Discuss"
             title="Làm sao để bớt tự kỷ hơn"
-            description="Latest: Minh Nguyễn 26 phút trước"
+            description="Latest: Minh Nguyen 26 minutes ago"
             color="#81CEED"
           />
           <Post
             className="mt-4 cursor-pointer"
             image="https://picsum.photos/190"
-            hashtag="Thảo luận"
+            hashtag="Discuss"
             title="Con em nó phá quá các bác ơi"
-            description="Latest: Kiệm Trần 13 phút trước"
+            description="Latest: Kiem Tran 13 minutes ago"
             color="#81CEED"
           />
           <Post
             className="mt-4 cursor-pointer"
             image="https://picsum.photos/180"
-            hashtag="Thắc mắc"
+            hashtag="Question"
             title="Làm sao để chồng bớt tự kỷ ạ"
-            description="Latest: Quyên Nguyễn 24 phút trước"
+            description="Latest: Quyen Nguyen 24 minutes ago"
             color="#efa2a4"
           />
           <Post
             className="mt-4 cursor-pointer"
             image="https://picsum.photos/170"
-            hashtag="Thảo luận"
+            hashtag="Discuss"
             title="Con mình đã vượt qua tự kỷ..."
-            description="Latest: Thiên Nguyễn 34 phút trước"
+            description="Latest: Thien Nguyen 34 minutes ago"
             color="#81CEED"
           />
           <Post
             className="mt-4 cursor-pointer"
             image="https://picsum.photos/160"
-            hashtag="Thắc mắc"
+            hashtag="Question"
             title="Con mình đang có dấu..."
-            description="Latest: Huy Trương 24 phút trước"
+            description="Latest: Huy Truong 24 minutes ago"
             color="#efa2a4"
           />
         </Card>

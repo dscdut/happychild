@@ -3,22 +3,23 @@ export function Content2() {
     <>
       <p>
         <span className="text-base font-bold text-primary-color">
-          Nếu vấn đề chậm phát triển ở trẻ không được phát hiện sớm
+          If a child's developmental delay is not detected early
         </span>{' '}
-        trẻ sẽ không nhận được sự hỗ trợ cần thiết và kịp thời.
+        children will not receive the necessary and timely support.
       </p>
       <p>
-        Điều này khiến trẻ gặp khó khăn khi đến trường, hòa nhập xã hội và sống
-        độc lập về sau. Theo số liệu thống kê của Mỹ, có tới 17% trẻ trong độ
-        tuổi từ 3-17 có một hoặc nhiều khuyết tật phát triển và hành vi, như rối
-        loạn phổ tự kỷ , khuyết tật trí tuệ (còn được gọi là chậm phát triển trí
-        tuệ) , khó khăn về học, tăng động giảm chú ý (ADHD) . Bên cạnh đó, có
-        nhiều trẻ có các rối loạn về phát triển về ngôn ngữ cũng như những lĩnh
-        vực khác.
+        This can cause difficulties for children when they start school,
+        socialize and live independently later on. According to US statistics,
+        up to 17% of children aged 3-17 have one or more developmental and
+        behavioral disabilities, such as autism spectrum disorder, intellectual
+        disability (also known as intellectual developmental delay), learning
+        difficulties, attention deficit hyperactivity disorder (ADHD). In
+        addition, many children have language development disorders as well as
+        other areas.
       </p>
       <p>
-        Tuy nhiên, chưa đến một nửa những trẻ khuyết tật phát triển này được
-        phát hiện trước khi vào cấp 1.
+        However, less than half of these children with developmental
+        disabilities are detected before entering first grade
       </p>
     </>
   );

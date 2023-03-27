@@ -1,51 +1,52 @@
 import { Image } from 'antd';
-import Dauhieutretuky from '#/assets/images/dauhieutretuky.jpg';
+import Dauhieutretuky from '#/assets/images/dauhieutretuky.png';
 
 export default function Content1() {
   return (
     <>
       <p>
         <span className="text-base font-bold text-primary-color">
-          Tình trạng chậm phát triển
+          Developmental delay
         </span>{' '}
-        ở trẻ xảy ra khi bé bị tụt lại đằng sau so với các bạn đồng trang lứa
-        trong một hoặc nhiều lĩnh vực về mặt cảm xúc, thể chất hoặc tinh thần.
-        Nếu trẻ bị chậm phát triển, việc điều trị bệnh sớm là cách tốt nhất giúp
-        bé tiến bộ và bắt kịp với những đứa trẻ khác.
+        in children occurs when they fall behind their peers in one or more
+        areas of emotional, physical or mental development. Early intervention
+        is the best way to help a child with developmental delays make progress
+        and catch up with other children..
       </p>
       <p>
-        Thực tế, có nhiều dạng chậm phát triển ở trẻ sơ sinh và trẻ nhỏ, bao gồm
-        các vấn đề sau đây:
+        In fact, there are many types of developmental delays in infants and
+        young children, including the following issues:
       </p>
       <ul className="ml-4 flex flex-col gap-2">
-        <li>- Thị lực hoặc tầm nhìn</li>
-        <li>- Ngôn ngữ hoặc lời nói</li>
-        <li>- Kỹ năng vận động</li>
-        <li>- Kỹ năng tư duy - nhận thức</li>
-        <li>- Kỹ năng xã hội – tình cảm</li>
+        <li>- Vision or sight</li>
+        <li>- Language or speech</li>
+        <li>- Motor skills</li>
+        <li>- Thinking - cognition skills</li>
+        <li>- Social- emotional skills</li>
       </ul>
       <p>
-        Đôi khi, sự chậm phát triển đáng kể ở trẻ có thể xảy ra ở hai hoặc nhiều
-        lĩnh vực trên. Tình trạng này thường được gọi là chậm phát triển toàn
-        diện (GDD), chủ yếu đề cập đến trẻ sơ sinh và trẻ mẫu giáo đến 5 tuổi có
-        dấu hiệu chậm phát triển kéo dài ít nhất 6 tháng.
+        Sometimes, significant developmental delays in children can occur in two
+        or more of these areas. This condition is often referred to as Global
+        Developmental Delay (GDD), primarily referring to infants and
+        preschoolers up to 5 years old who show signs of developmental delay for
+        at least 6 months.
       </p>
       <p>
-        Tuy nhiên, chúng ta cần phân biệt được rằng chậm phát triển ở trẻ không
-        giống với khuyết tật phát triển. Tình trạng khuyết tật phát triển thường
-        bao gồm các vấn đề như khiếm thính, bại não hoặc rối loạn phổ tự kỷ, có
-        xu hướng kéo dài suốt đời.
+        However, it is important to distinguish that developmental delay in
+        children is not the same as a developmental disability. Developmental
+        disabilities often include issues such as hearing loss, cerebral palsy
+        or autism spectrum disorder and tend to last a lifetime.
       </p>
       <div className="my-2 flex items-center justify-center">
         <Image preview={false} width={300} src={Dauhieutretuky} />
       </div>
-      <p>Các dạng chậm phát triển phổ biến ở trẻ</p>
+      <p>Common types of developmental delays in children:</p>
       <ul className="ml-4 flex flex-col gap-2">
-        <li>- Chậm phát triển về ngôn ngữ và lời nói</li>
-        <li>- Chậm phát triển ở trẻ về thị lực</li>
-        <li>- Chậm phát triển các kỹ năng vận động ở trẻ</li>
-        <li>- Sự chậm phát triển về mặt xã hội và cảm xúc ở trẻ</li>
-        <li>- Chậm phát triển nhận thức ở trẻ</li>
+        <li>- Language and speech delay</li>
+        <li>- Delayed development in children in terms of vision</li>
+        <li>- Delayed development of motor skills in children</li>
+        <li>- Social and emotional retardation in children</li>
+        <li>- Cognitive retardation in children</li>
       </ul>
     </>
   );

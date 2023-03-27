@@ -46,7 +46,7 @@ function CourseHeader() {
                   </Text>
                 </div>
               </div>
-              <Button block>Tìm hiểu thêm</Button>
+              <Button block>Learn more</Button>
             </Card>
           </Row>
         </div>

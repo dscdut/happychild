@@ -1,25 +1,23 @@
 import {
-  ContactsOutlined,
   HomeOutlined,
-  ProfileOutlined,
-  QuestionOutlined,
-  ReadOutlined,
   ScheduleOutlined,
-  StockOutlined,
   UsergroupAddOutlined,
   UserOutlined,
+  FormOutlined,
+  InfoCircleOutlined,
+  StockOutlined,
 } from '@ant-design/icons';
 import { Button, Typography, Image } from 'antd';
 import { Link, useLocation, useNavigate } from 'react-router-dom';
+import UserInfo from './UserInfo';
+import HappyChild from '#/assets/images/logo-transparent.png';
+
 import { onAuthStateChanged } from 'firebase/auth';
 import { useEffect, useState } from 'react';
 import { auth } from '../shared/utils/firebase';
-import UserInfo from './UserInfo';
-import HappyChild from '#/assets/images/happychild.jpg';
-
-
 
 export function Header() {
+  const [navbarOpen, setNavbarOpen] = useState(false);
   const { pathname } = useLocation();
   const navigate = useNavigate();
   const [loggedIn, setLoggedIn] = useState(false);
@@ -38,53 +36,77 @@ export function Header() {
 
   const MENU_ITEMS = [
     {
-      title: 'Trang chủ',
+      title: 'Homepage',
       to: '/',
-      icon: <HomeOutlined className="mr-2" />,
+      icon: <HomeOutlined className="mr-2 text-4xl lg:text-xl" />,
     },
     {
-      title: 'Đánh giá',
+      title: 'Assessment',
       to: '/assessment',
-      icon: <ScheduleOutlined className="mr-2" />,
+      icon: <ScheduleOutlined className="mr-2 text-4xl lg:text-xl" />,
+    },
+    // {
+    //   title: 'Blogs',
+    //   to: '/blogs',
+    //   icon: <ProfileOutlined className="mr-2" />,
+    // },
+    // {
+    //   title: 'Courses',
+    //   to: '/courses',
+    //   icon: <ReadOutlined className="mr-2" />,
+    // },
+    {
+      title: 'Intervention guide',
+      to: '/intervention-guide',
+      icon: <StockOutlined className="mr-2 text-4xl lg:text-xl" />,
     },
     {
-      title: 'Bài viết',
-      to: '/blogs',
-      icon: <ProfileOutlined className="mr-2" />,
+      title: 'Tracking progress',
+      to: '/tracking-progress',
+      icon: <FormOutlined className="mr-2 text-4xl lg:text-xl" />,
     },
     {
-      title: 'Lộ trình',
-      to: '/route',
-      icon: <StockOutlined className="mr-2 " />,
-    },
-    {
-      title: 'Khoá học',
-      to: '/courses',
-      icon: <ReadOutlined className="mr-2" />,
-    },
-    {
-      title: 'Liên hệ chuyên gia',
+      title: 'Contact specialists',
       to: '/contact-specialists',
-      icon: <UserOutlined className="mr-2" />,
+      icon: <UserOutlined className="mr-2 text-4xl lg:text-xl" />,
     },
+    // {
+    //   title: 'Community',
+    //   to: '/community',
+    //   icon: <UsergroupAddOutlined className="mr-2 text-4xl lg:text-xl" />,
+    // },
     {
-      title: 'Về chúng tôi',
+      title: 'About us',
       to: '/about-us',
-      icon: <ContactsOutlined className="mr-2" />,
+      icon: <InfoCircleOutlined className="mr-2 text-4xl lg:text-xl" />,
     },
     {
       render: () =>
         loggedIn && auth.currentUser ? (
-          <UserInfo />
+          <div className="ml-auto mr-5 ">
+            <UserInfo />
+          </div>
+         
         ) : (
-          <div className="flex items-center gap-4">
-            <div className="mr-4 border-b-primary-color transition-all hover:border-b-4">
+          <div
+            className="ml-auto mr-5 flex items-center gap-4"
+            style={{
+              fontSize: '1.2rem',
+            }}
+          >
+            <div className="border-b-primary-color transition-all hover:border-b-4">
               <Link to="/sign-up" className="flex items-center">
-                <Typography>Đăng ký</Typography>
+                <Typography>Sign up</Typography>
               </Link>
             </div>
-            <Button type="primary" onClick={() => navigate('/sign-in')}>
-              Đăng nhập
+            <Button
+              type="primary"
+              onClick={() => navigate('/sign-in')}
+              style={{
+                fontSize: '1rem',
+              }}
+            >
+              Sign in
             </Button>
           </div>
         ),
@@ -93,44 +115,53 @@ export function Header() {
 
   return (
     <>
-      <div>
-        <Image
-          src={HappyChild}
-          preview={false}
-          width={100}
-          height={80}
-          className="cursor-pointer object-contain"
-          onClick={() => navigate('/')}
-        />
-      </div>
-      <div className="flex items-center justify-center gap-10">
-        {MENU_ITEMS?.map(item =>
-          item?.render ? (
-            item?.render()
-          ) : (
-            <div
-              className={`transition-all hover:border-b-4 hover:border-b-primary-color ${
-                (item?.to !== '/' && pathname?.includes(item?.to)) ||
-                (item?.to === '/' && pathname === item?.to)
-                  ? 'border-b-4 border-b-primary-color'
-                  : ''
-              }`}
-            >
-              <Link
-                to={item?.to}
-                className={
+      <div
+        className="grid w-full grid-cols-6 "
+        style={{ height: '5rem', backgroundColor: '#FFFFFF' }}
+      >
+        <div>
+          <Image
+            src={HappyChild}
+            preview={false}
+            width={80}
+            height={50}
+            className="mt-3 cursor-pointer object-contain"
+            onClick={() => navigate('/')}
+          />
+        </div>
+        <div
+          className="col-span-5 flex items-center justify-start gap-6 ml-[5rem]"
+          // style={{ marginLeft: '0' }}
+        >
+          {MENU_ITEMS?.map(item =>
+            item?.render && item?.title != '' ? (
+              item?.render()
+            ) : (
+              <div
+                className={`cursor-pointer transition-all hover:border-b-4 hover:border-b-primary-color ${
                   (item?.to !== '/' && pathname?.includes(item?.to)) ||
                   (item?.to === '/' && pathname === item?.to)
-                    ? 'text-primary-color'
-                    : 'text-[black]'
-                }
+                    ? 'border-b-4 border-b-primary-color'
+                    : ''
+                }`}
               >
-                {item?.icon}
-                {item?.title}
-              </Link>
-            </div>
-          ),
-        )}
+                <Link
+                  to={item?.to}
+                  className={
+                    (item?.to !== '/' && pathname?.includes(item?.to)) ||
+                    (item?.to === '/' && pathname === item?.to)
+                      ? 'text-primary-color'
+                      : 'text-[black]'
+                  }
+                  style={{  fontWeight: '100' }}
+                >
+                  <span className='hidden text-[0.7rem] xl:inline-block lg:hidden'>{item?.icon}</span>
+                  {item?.title}
+                </Link>
+              </div>
+            ),
+          )}
+        </div>
       </div>
     </>
   );

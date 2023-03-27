@@ -10,7 +10,7 @@ export default function ContactSpecialist() {
         <Col span={8} className="flex flex-col gap-8">
           <Input
             className="rounded-xl shadow-lg"
-            placeholder="Tìm kiếm thông tên chuyên gia"
+            placeholder="Search for information by Experts"
             size="large"
             suffix={<SearchOutlined />}
           />
