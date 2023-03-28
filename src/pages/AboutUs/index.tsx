@@ -13,14 +13,11 @@ const AboutUs = () => {
         <div
           className="ml-[35rem] 2xl:ml-0 mr-40 w-7/12"
           style={{
-            marginTop: '-33rem',
+            marginTop: '-30rem',
           }}
         >
-          <img
-            // className="brightness-50"
-            src="https://images.pexels.com/photos/1756665/pexels-photo-1756665.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1"
-            alt=""
-          />
+          <iframe className='border-4 border-primary-color w-[53rem] rounded-lg' width="885" height="498" src="https://www.youtube.com/embed/LDrhHYYUJsY" title="HappyChild - GDSC Solution Challenge 2023" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowFullScreen></iframe>
+          
           <div className="mt-20 mb-20">
             <div className="mx-5 my-5 text-3xl text-primary-color">
               Yesterday is a history. Tomorrow is a mystery. Only today is a
@@ -44,10 +41,10 @@ const AboutUs = () => {
               />
             </div>
           </div>
-
+          
           <img
-            className="mt-3"
-            src="https://images.pexels.com/photos/1198171/pexels-photo-1198171.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1"
+             className="mt-8 ml-[6rem] "
+            src="https://i.ibb.co/61C9NmB/Logo2-01.png"
             alt=""
           />
         </div>
