@@ -53,15 +53,15 @@ export default function SignUpPage() {
             preview={false}
           />
         </Col>
-        <Col span={12} className="mt-4 flex items-center px-8">
+        <Col span={12} className="flex items-center px-8 -mt-40">
           <Row justify="center" gutter={[16, 16]}>
             <Col span={24} className="flex justify-center">
-              <Image
+              {/* <Image
                 src={HappyChild}
                 height={150}
                 className="rounded-l-xl object-cover"
                 preview={false}
-              />
+              /> */}
             </Col>
             <Col span={24}>
               <Typography className="flex justify-center text-3xl font-bold text-primary-color">

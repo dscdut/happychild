@@ -13,7 +13,7 @@ import HappyChild from '#/assets/images/logo-transparent.png';
 const { Footer } = Layout;
 
 const StyledFooter = styled(Footer)`
-  padding-top: 6rem;
+  padding-top: 2rem;
   position: relative;
 `;
 const IconWrapper = styled.div`
@@ -53,20 +53,20 @@ function FooterComponent() {
           backgroundColor: '#FFFFE8',
         }}
       >
-        <Row gutter={[0, 40]} className="grid grid-cols-10">
-          <Col className="col-span-3">
+        <Row className="grid grid-cols-8">
+          <Col className="mt-6 ml-8 col-span-3">
             <Link to="/">
               <img
                 src={HappyChild}
                 alt="Happy child"
-                className="w-56 object-contain"
+                className="w-40 object-contain"
               />
             </Link>
           </Col>
 
           <Col className="col-span-5">
             <div className="flex flex-col space-y-3 text-surface-primary">
-              <Title className="text-3xl font-semibold text-primary-color">
+              <Title className="text-3xl mt-8 font-semibold text-primary-color">
                 Contact
               </Title>
               <Category className="text-lg text-color-dark-mode-80">
@@ -99,7 +99,7 @@ function FooterComponent() {
         </Row>
         {/* <Divider className="border-white my-14" /> */}
         <div className="bg-primary w-full">
-          <Row className="grid grid-cols-3 items-center ml-3 p-6 text-2xl">
+          <Row className="grid grid-cols-3 items-center ml-9  text-2xl">
             <Space>
               <a target="_blank" href="https://twitter.com/" rel="noreferrer">
                 <IconWrapper>

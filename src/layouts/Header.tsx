@@ -89,19 +89,29 @@ export function Header() {
           <div
             className="ml-auto mr-5 flex items-center gap-4"
             style={{
-              fontSize: '1.2rem',
+              fontSize: '0.9rem',
             }}
           >
-            <div className="border-b-primary-color transition-all hover:border-b-4">
+            <Button className='hover:border-b-4 '>
+              <Link to="/sign-up" className="flex items-center">
+                <Typography
+                   style={{
+                    fontSize: '0.9rem',
+                  }}
+                >Sign up</Typography>
+              </Link>
+            </Button>
+            {/* <div className="border-b-primary-color transition-all hover:border-b-4">
               <Link to="/sign-up" className="flex items-center">
                 <Typography>Sign up</Typography>
               </Link>
-            </div>
+            </div> */}
             <Button
+            className='hover:border-b-4 border-b-primary-color transition-all'
               type="primary"
               onClick={() => navigate('/sign-in')}
               style={{
-                fontSize: '1rem',
+                fontSize: '0.9rem',
               }}
             >
               Sign in
@@ -114,7 +124,7 @@ export function Header() {
   return (
     <>
       <div
-        className="grid w-full grid-cols-6 "
+        className="ml-7 grid w-full grid-cols-6 "
         style={{ height: '5rem', backgroundColor: '#FFFFFF' }}
       >
         <div>
@@ -128,9 +138,7 @@ export function Header() {
           />
         </div>
         <div
-          className="col-span-5 ml-[5rem] flex items-center justify-start gap-6"
-          // style={{ marginLeft: '0' }}
-        >
+          className="col-span-5 flex items-center justify-start gap-6 ml-[4rem]">
           {MENU_ITEMS?.map(item =>
             item?.render && item?.title != '' ? (
               item?.render()
