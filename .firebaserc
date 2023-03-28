@@ -1,5 +1,8 @@
 {
   "projects": {
-    "default": "chemical-equation-2ada6"
-  }
+    "default": "gdsc-happychild",
+    "gdsc-HC": "gdsc-happychild"
+  },
+  "targets": {},
+  "etags": {}
 }

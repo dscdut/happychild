@@ -1,6 +1,6 @@
 {
   "hosting": {
-    "public": "GDSC-HappyChild",
+    "public": "build",
     "ignore": [
       "firebase.json",
       "**/.*",
