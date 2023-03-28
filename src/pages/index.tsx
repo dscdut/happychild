@@ -227,8 +227,7 @@ export default function Index() {
               Contact the experts
             </Typography>
             <Typography className="text-base italic text-[white]">
-              Connect, chat, video call, watch thematic livestreams and
-              Q&A,.......
+              Connect, chat, video call, watch thematic livestreams and Q&A,...
             </Typography>
             <Button
               className="w-[10rem]"
@@ -244,10 +243,10 @@ export default function Index() {
         </div>
         <div className="flex w-2/3 items-center justify-between rounded-xl bg-ternary-color p-8">
           <div className="flex flex-col justify-center gap-4">
-            <Typography className="text-3xl font-bold text-[gray]">
+            <Typography className="text-3xl font-bold text-[black]">
               Intervention guide
             </Typography>
-            <Typography className="text-base italic text-[gray]">
+            <Typography className="text-base italic text-[black]">
               Providing appropriate intervention guide to each child's age
               group.
             </Typography>
@@ -270,7 +269,7 @@ export default function Index() {
             </Typography>
             <Typography className="text-base italic text-[white]">
               A tool to record the activities and assessment of young children
-              during treatment and follow-up from parents
+              during treatment and follow-up from parents.
             </Typography>
             <Button
               className="w-[10rem]"

@@ -54,7 +54,7 @@ function FooterComponent() {
         }}
       >
         <Row className="grid grid-cols-8">
-          <Col className="mt-6 ml-8 col-span-3">
+          <Col className="col-span-3 mt-6 ml-8">
             <Link to="/">
               <img
                 src={HappyChild}
@@ -66,12 +66,12 @@ function FooterComponent() {
 
           <Col className="col-span-5">
             <div className="flex flex-col space-y-3 text-surface-primary">
-              <Title className="text-3xl mt-8 font-semibold text-primary-color">
+              <Title className="mt-8 text-3xl font-semibold text-primary-color">
                 Contact
               </Title>
               <Category className="text-lg text-color-dark-mode-80">
                 <p className="mb-0">
-                  Address :{' '}
+                  Address:{' '}
                   <span className="cursor-pointer hover:text-primary-color">
                     54 Nguyen Luong Bang Street, Lien Chieu District, Da Nang
                     City
@@ -80,7 +80,7 @@ function FooterComponent() {
               </Category>
               <Category className="flex items-start text-lg text-color-dark-mode-80">
                 <p className="mb-0">
-                  Gmail :{' '}
+                  Gmail:{' '}
                   <span className="cursor-pointer hover:text-primary-color">
                     happychild@gmail.com
                   </span>
@@ -88,7 +88,7 @@ function FooterComponent() {
               </Category>
               <Category className="flex items-start text-lg text-color-dark-mode-80">
                 <p className="mb-0">
-                  Phone :{' '}
+                  Phone:{' '}
                   <span className="cursor-pointer hover:text-primary-color">
                     0909 0909 0909
                   </span>
@@ -99,7 +99,7 @@ function FooterComponent() {
         </Row>
         {/* <Divider className="border-white my-14" /> */}
         <div className="bg-primary w-full">
-          <Row className="grid grid-cols-3 items-center ml-9  text-2xl">
+          <Row className="ml-9 grid grid-cols-3 items-center  text-2xl">
             <Space>
               <a target="_blank" href="https://twitter.com/" rel="noreferrer">
                 <IconWrapper>
