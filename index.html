@@ -16,6 +16,37 @@
 
   <body>
     <div id="root"></div>
+    <script>
+        //notify khi khong view web
+        document.addEventListener("visibilitychange", () => {
+            if (document.visibilityState === "hidden") {
+              new Notification("Notify from HappyChild", {
+                body: "Web is hidden",
+                
+              })
+            } 
+          //   else {
+          //     new Notification("Notify from HappyChild", {
+          //     body: "Web is visible",
+
+          //   })
+          // }
+          })
+        
+         //Notify sau khi wweb đóng 5s 
+         const webClose = () => {
+          window.onbeforeunload = () => {
+             setTimeout(5000);
+             new Notification("Notify from HappyChild", {
+               body: "Web is close",
+
+             })
+           };
+         }
+
+         setInterval(webClose,5000)
+         
+    </script>
     <script type="module" src="/src/main.tsx"></script>
   </body>
 </html>

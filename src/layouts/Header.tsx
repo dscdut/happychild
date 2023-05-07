@@ -15,7 +15,7 @@ import { onAuthStateChanged } from 'firebase/auth';
 import { useEffect, useState } from 'react';
 import { auth } from '../shared/utils/firebase';
 
-export function Header() {
+const Header = () => {
   const [navbarOpen, setNavbarOpen] = useState(false);
   const { pathname } = useLocation();
   const navigate = useNavigate();
@@ -82,11 +82,12 @@ export function Header() {
     {
       render: () =>
         loggedIn && auth.currentUser ? (
-          <div className="ml-auto mr-5 ">
+          <div key={"LoggedIn"} className="ml-auto mr-5 ">
             <UserInfo />
           </div>
         ) : (
           <div
+            key={"unLoggedIn"}
             className="ml-auto mr-5 flex items-center gap-4"
             style={{
               fontSize: '0.9rem',
@@ -144,6 +145,7 @@ export function Header() {
               item?.render()
             ) : (
               <div
+                key={item?.title}
                 className={`cursor-pointer transition-all hover:border-b-4 hover:border-b-primary-color ${
                   (item?.to !== '/' && pathname?.includes(item?.to)) ||
                   (item?.to === '/' && pathname === item?.to)
@@ -174,3 +176,6 @@ export function Header() {
     </>
   );
 }
+
+
+export default Header

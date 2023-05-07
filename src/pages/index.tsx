@@ -42,7 +42,7 @@ export default function Index() {
         }}
       >
         <Card
-          className="absolute top-[10rem] right-[9.375rem] w-2/6 rounded-xl bg-[#566573] bg-opacity-[80%] p-4 shadow-xl"
+          className="sm:absolute  px-2 top-[10rem] sm:right-[9.375rem] sm:w-2/6 rounded-xl bg-[#566573] bg-opacity-[80%] p-4 shadow-xl"
           bordered={false}
         >
           <Typography.Title
@@ -72,9 +72,9 @@ export default function Index() {
           </Typography>
         </div>
         <Divider />
-        <StyledDiv className="flex">
+        <StyledDiv className="flex flex-col sm:flex-row w-full">
           <CourseStyledCard
-            className="mx-2 w-1/3 text-base shadow-xl transition duration-300 hover:scale-105"
+            className="mx-2 sm:w-1/3 my-5 text-base shadow-xl transition duration-300 hover:scale-105"
             title={
               <div
                 className="mr-5 py-4 text-lg font-bold"
@@ -123,7 +123,7 @@ export default function Index() {
             </div>
           </CourseStyledCard>
           <CourseStyledCard
-            className="mx-2  w-1/3 p-4 text-base shadow-xl transition duration-300 hover:scale-105"
+            className="mx-2 sm:w-1/3 my-5 p-4 text-base shadow-xl transition duration-300 hover:scale-105"
             title={
               <div
                 className="mr-5 py-4 text-lg font-bold"
@@ -167,7 +167,7 @@ export default function Index() {
             </div>
           </CourseStyledCard>
           <CourseStyledCard
-            className="mx-2  w-1/3 p-4 text-base shadow-xl transition duration-300 hover:scale-105"
+            className="mx-2 sm:w-1/3 my-5 p-4 text-base shadow-xl transition duration-300 hover:scale-105"
             title={
               <div
                 className="mr-5 py-4 text-lg font-bold"
@@ -217,8 +217,8 @@ export default function Index() {
         </StyledDiv>
         <Divider />
       </Col>
-      <Col span={24} className="flex flex-col items-center gap-4">
-        <Typography className="text-3xl font-bold text-primary-color">
+      <Col span={24} className="flex flex-col items-center gap-4 ">
+        <Typography className="text-3xl text-center font-bold text-primary-color">
           Progressing towards development
         </Typography>
         <div className="flex w-2/3 items-center justify-between rounded-xl bg-secondary-color p-8">
