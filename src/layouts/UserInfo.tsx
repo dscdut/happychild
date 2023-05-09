@@ -56,7 +56,7 @@ export default function UserInfo() {
 
   return (
     <div className="flex items-center gap-2">
-      <Avatar size={60} src={user?.photoURL || UserImage} />
+      <Avatar className='hidden sm:block' size={40} src={user?.photoURL || UserImage} />
       <div className="mt-6 flex flex-row items-center gap-2">
         <Typography className="text-sm">
           <span>Hello, {user?.displayName || user?.email || 'Guest'}</span>

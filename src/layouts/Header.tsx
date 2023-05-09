@@ -5,6 +5,7 @@ import {
   FormOutlined,
   InfoCircleOutlined,
   StockOutlined,
+  MenuOutlined
 } from '@ant-design/icons';
 import { Button, Typography, Image } from 'antd';
 import { Link, useLocation, useNavigate } from 'react-router-dom';
@@ -15,7 +16,7 @@ import { onAuthStateChanged } from 'firebase/auth';
 import { useEffect, useState } from 'react';
 import { auth } from '../shared/utils/firebase';
 
-export function Header() {
+const Header = () => {
   const [navbarOpen, setNavbarOpen] = useState(false);
   const { pathname } = useLocation();
   const navigate = useNavigate();
@@ -31,6 +32,7 @@ export function Header() {
 
   useEffect(() => {
     setAuth();
+    if(window.innerWidth >= 768){setNavbarOpen(true)}
   }, []);
 
   const MENU_ITEMS = [
@@ -82,11 +84,12 @@ export function Header() {
     {
       render: () =>
         loggedIn && auth.currentUser ? (
-          <div className="ml-auto mr-5 ">
+          <div key={"LoggedIn"} className="ml-auto mr-5 ">
             <UserInfo />
           </div>
         ) : (
           <div
+            key={"unLoggedIn"}
             className="ml-auto mr-5 flex items-center gap-4"
             style={{
               fontSize: '0.9rem',
@@ -138,17 +141,18 @@ export function Header() {
           />
         </div>
         <div
-          className="col-span-5 flex items-center justify-start gap-6 ml-[4rem]">
-          {MENU_ITEMS?.map(item =>
+          className="col-span-5 flex flex-col ml-auto mt-[5rem] px-8 sm:px-0 sm:mt-0 bg-[#ccc] sm:bg-transparent sm:flex-row items-center justify-start sm:gap-6 sm:ml-[4rem]">
+          {navbarOpen!=false && MENU_ITEMS?.map(item =>
             item?.render && item?.title != '' ? (
               item?.render()
             ) : (
               <div
+                key={item?.title}
                 className={`cursor-pointer transition-all hover:border-b-4 hover:border-b-primary-color ${
                   (item?.to !== '/' && pathname?.includes(item?.to)) ||
                   (item?.to === '/' && pathname === item?.to)
                     ? 'border-b-4 border-b-primary-color'
-                    : ''
+                    : 'border-b-4 border-transparent'
                 }`}
               >
                 <Link
@@ -161,16 +165,23 @@ export function Header() {
                   }
                   style={{ fontWeight: '100' }}
                 >
-                  <span className="hidden text-[0.7rem] lg:hidden xl:inline-block">
+                  <span className="text-[0.7rem] hidden sm:inline-block">
                     {item?.icon}
                   </span>
-                  {item?.title}
+                  <span className=''>{item?.title}</span>
                 </Link>
               </div>
             ),
           )}
-        </div>
+          <div onClick={() => setNavbarOpen(!navbarOpen)} className='sm:hidden absolute top-7 right-3'>
+            <MenuOutlined className="w-5 scale-150"/>
+          </div>
+        </div>      
       </div>
+      
     </>
   );
 }
+
+
+export default Header

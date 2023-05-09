@@ -1,8 +1,9 @@
 import { HeartOutlined } from '@ant-design/icons';
+import { notification } from 'antd';
 import React from 'react';
 
 const AboutUs = () => {
-  const videoURL = 'http://techslides.com/demos/sample-videos/small.mp4';
+
   return (
     <>
       <div className="w-full">
