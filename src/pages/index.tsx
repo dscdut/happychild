@@ -217,11 +217,11 @@ export default function Index() {
         </StyledDiv>
         <Divider />
       </Col>
-      <Col span={24} className="flex flex-col items-center gap-4 ">
+      <Col span={24} className="flex flex-col items-center gap-4">
         <Typography className="text-3xl text-center font-bold text-primary-color">
           Progressing towards development
         </Typography>
-        <div className="flex w-2/3 items-center justify-between rounded-xl bg-secondary-color p-8">
+        <div className="flex w-[20rem] sm:w-2/3 items-center justify-between rounded-xl bg-secondary-color p-8">
           <div className="flex flex-col justify-center gap-4">
             <Typography className="text-3xl font-bold text-[white]">
               Contact the experts
@@ -241,7 +241,7 @@ export default function Index() {
           </div>
           <Image src={Specialist} preview={false} width={150} />
         </div>
-        <div className="flex w-2/3 items-center justify-between rounded-xl bg-ternary-color p-8">
+        <div className="flex w-[20rem] sm:w-2/3 items-center justify-between rounded-xl bg-ternary-color p-8">
           <div className="flex flex-col justify-center gap-4">
             <Typography className="text-3xl font-bold text-[black]">
               Intervention guide
@@ -262,7 +262,7 @@ export default function Index() {
           </div>
           <Image src={Intervention} preview={false} width={200} />
         </div>
-        <div className="flex w-2/3 items-center justify-between rounded-xl bg-primary-color p-8">
+        <div className="flex w-[20rem] sm:w-2/3 items-center justify-between rounded-xl bg-primary-color p-8">
           <div className="flex flex-col justify-center gap-4">
             <Typography className="text-3xl font-bold text-[white]">
               Diary to monitor the child's treatment progress

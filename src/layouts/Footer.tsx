@@ -53,7 +53,7 @@ function FooterComponent() {
           backgroundColor: '#FFFFE8',
         }}
       >
-        <Row className="grid grid-cols-8">
+        <Row className="grid sm:grid-cols-8 ">
           <Col className="col-span-3 mt-6 ml-8">
             <Link to="/">
               <img
@@ -94,12 +94,17 @@ function FooterComponent() {
                   </span>
                 </p>
               </Category>
+              <div className="mt-4 flex justify-center">
+              <Typography.Paragraph className="text-xl">
+                Copyright © Happy Child All rights reserved
+              </Typography.Paragraph>
+            </div>
             </div>
           </Col>
         </Row>
         {/* <Divider className="border-white my-14" /> */}
         <div className="bg-primary w-full">
-          <Row className="ml-9 grid grid-cols-3 items-center  text-2xl">
+          <Row className="sm:ml-9 grid grid-cols-3 items-center  text-2xl">
             <Space>
               <a target="_blank" href="https://twitter.com/" rel="noreferrer">
                 <IconWrapper>
@@ -121,11 +126,7 @@ function FooterComponent() {
                 </IconWrapper>
               </a>
             </Space>
-            <div className="mt-4 flex justify-center">
-              <Typography.Paragraph className="text-xl">
-                Copyright © Happy Child All rights reserved
-              </Typography.Paragraph>
-            </div>
+            
             {/* <Smartos className="ml-auto" /> */}
           </Row>
         </div>

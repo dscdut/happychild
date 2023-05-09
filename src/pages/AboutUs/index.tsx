@@ -3,18 +3,7 @@ import { notification } from 'antd';
 import React from 'react';
 
 const AboutUs = () => {
-  const videoURL = 'http://techslides.com/demos/sample-videos/small.mp4';
 
-  //notify khi nhấn nút
-  const handeClick = () =>{
-    Notification.requestPermission().then((perm) =>{
-      if(perm=="granted"){
-        new Notification("Notify from HappyChild",{
-          body:"This is for testing"
-        })
-      }
-    })
-  }
   return (
     <>
       <div className="w-full">
@@ -59,9 +48,6 @@ const AboutUs = () => {
             src="https://i.ibb.co/61C9NmB/Logo2-01.png"
             alt=""
           />
-          <button onClick={handeClick} className='p-4 bg-primary-color-light-40 hover:bg-primary-color-dark-50'>
-            Send Notification
-          </button>
         </div>
       </div>
     </>
