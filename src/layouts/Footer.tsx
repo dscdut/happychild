@@ -126,8 +126,6 @@ function FooterComponent() {
                 </IconWrapper>
               </a>
             </Space>
-            
-            {/* <Smartos className="ml-auto" /> */}
           </Row>
         </div>
       </StyledFooter>
