@@ -95,16 +95,16 @@ function FooterComponent() {
                 </p>
               </Category>
               <div className="mt-4 flex justify-center">
-              <Typography.Paragraph className="text-xl">
-                Copyright © Happy Child All rights reserved
-              </Typography.Paragraph>
-            </div>
+                <Typography.Paragraph className="text-xl">
+                  Copyright © Happy Child All rights reserved
+                </Typography.Paragraph>
+              </div>
             </div>
           </Col>
         </Row>
         {/* <Divider className="border-white my-14" /> */}
         <div className="bg-primary w-full">
-          <Row className="sm:ml-9 grid grid-cols-3 items-center  text-2xl">
+          <Row className="grid grid-cols-3 items-center text-2xl  sm:ml-9">
             <Space>
               <a target="_blank" href="https://twitter.com/" rel="noreferrer">
                 <IconWrapper>
@@ -126,8 +126,6 @@ function FooterComponent() {
                 </IconWrapper>
               </a>
             </Space>
-            
-            {/* <Smartos className="ml-auto" /> */}
           </Row>
         </div>
       </StyledFooter>
