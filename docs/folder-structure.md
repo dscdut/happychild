@@ -1,4 +1,4 @@
-# Superadmin Structure
+# Smartos Superadmin Structure
 
 This style guide is mostly based on the standards that are currently prevalent in JavaScript. Let's discuss if you have better idea on how to improve it.
 
