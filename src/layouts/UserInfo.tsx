@@ -9,7 +9,7 @@ import {
 import { useNavigate } from 'react-router-dom';
 import { signOut } from 'firebase/auth';
 import { auth } from '../shared/utils/firebase';
-import UserImage from '#/assets/images/user.png';
+import UserImage from '#/assets/images/avatar.png';
 
 type MenuType = {
   key: string | number;
@@ -56,12 +56,13 @@ export default function UserInfo() {
 
   return (
     <div className="flex items-center gap-2">
-      <Avatar size={60} src={user?.photoURL || UserImage} />
-      <div className="flex flex-col items-end justify-end gap-2">
+      <Avatar className='hidden sm:block' size={40} src={user?.photoURL || UserImage} />
+      <div className="mt-6 flex flex-row items-center gap-2">
         <Typography className="text-sm">
-          Hello, {user?.displayName || user?.email || 'Guest'}
+          <span>Hello, {user?.displayName || user?.email || 'Guest'}</span>
         </Typography>
         <Dropdown
+          className="text-xl"
           overlay={
             <Menu
               items={menus.map(menu => ({

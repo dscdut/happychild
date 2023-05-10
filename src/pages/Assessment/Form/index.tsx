@@ -20,6 +20,7 @@ import { realTimeDatabase, auth } from '../../../shared/utils/firebase';
 import Children from '#/assets/images/children.jpg';
 import { DatePicker } from '#/shared/components/DatePicker';
 import SelectedRegisteredChild from './SelectRegisteredChild';
+import { scrollToTop } from '#/shared/utils/tools';
 
 const StyledCard = styled(Card)`
   .ant-card-body {
@@ -72,6 +73,7 @@ export default function Assessment() {
       data,
     );
 
+    scrollToTop();
     navigate(`/assessment/start/${newChildId.key}`);
   };
 
@@ -105,13 +107,13 @@ export default function Assessment() {
             </Col>
             {registeredChildren.length > 0 && (
               <Col span={24} className="flex flex-col gap-2">
-                <Typography className="text-xl text-success-color">
+                <Typography className="text-xl ">
                   You have already registered your children. Click{' '}
                   <span
                     onClick={() => {
                       setIsModalVisible(true);
                     }}
-                    className="cursor-pointer font-semibold"
+                    className="underline-offset-6 cursor-pointer font-semibold underline"
                     style={{ color: '#00A86B' }}
                   >
                     here

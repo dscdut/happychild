@@ -10,7 +10,8 @@ import { CourseStyledCard, StyledDiv } from './Courses/styles';
 import HappyChild from '#/assets/images/new-logo.jpg';
 import Thumbnail from '#/assets/images/thumbnail.jpg';
 import Specialist from '#/assets/images/specialist.png';
-import Community from '#/assets/images/community.png';
+import Intervention from '#/assets/images/intervention-roadmap-homepage.png';
+
 import Assessment from '#/assets/images/assessment.png';
 import { RefObject, useRef } from 'react';
 import { useNavigate } from 'react-router-dom';
@@ -41,12 +42,12 @@ export default function Index() {
         }}
       >
         <Card
-          className="absolute top-[10rem] right-[9.375rem] w-2/6 rounded-xl bg-[black] bg-opacity-[64%] p-4 shadow-xl"
+          className="sm:absolute  px-2 top-[10rem] sm:right-[9.375rem] sm:w-2/6 rounded-xl bg-[#566573] bg-opacity-[80%] p-4 shadow-xl"
           bordered={false}
         >
           <Typography.Title
             level={2}
-            className="text-center italic text-[white]"
+            className="text-center text-5xl font-bold text-[white]"
           >
             HAPPYCHILD
           </Typography.Title>
@@ -71,18 +72,29 @@ export default function Index() {
           </Typography>
         </div>
         <Divider />
-        <StyledDiv className="flex">
+        <StyledDiv className="flex flex-col sm:flex-row w-full">
           <CourseStyledCard
-            className="mx-2 w-1/3 text-base shadow-xl hover:scale-105"
+            className="mx-2 sm:w-1/3 my-5 text-base shadow-xl transition duration-300 hover:scale-105"
             title={
-              <Typography.Text className="py-4 text-lg font-bold">
+              <div
+                className="mr-5 py-4 text-lg font-bold"
+                style={{
+                  minHeight: '95px',
+                }}
+              >
                 Taking test to assess the development level <br />
                 and autism of young children
-              </Typography.Text>
+              </div>
             }
-            extra={<ScheduleOutlined className="text-4xl" />}
+            extra={<ScheduleOutlined className="text-3xl" />}
           >
-            <div className="flex h-full flex-col justify-between bg-info-color-light py-4 px-3">
+            <div
+              className="flex h-full flex-col justify-between bg-info-color-light py-4 px-3 "
+              style={{
+                minHeight: '350px',
+                display: '',
+              }}
+            >
               <Typography.Paragraph className="mb-20">
                 <ul className="m-0 list-none space-y-4 p-0">
                   <li>
@@ -111,16 +123,27 @@ export default function Index() {
             </div>
           </CourseStyledCard>
           <CourseStyledCard
-            className="mx-2 h-fit w-1/3 p-4 text-base shadow-xl hover:scale-105"
+            className="mx-2 sm:w-1/3 my-5 p-4 text-base shadow-xl transition duration-300 hover:scale-105"
             title={
-              <Typography.Text className="py-4 text-lg font-bold">
+              <div
+                className="mr-5 py-4 text-lg font-bold"
+                style={{
+                  minHeight: '95px',
+                }}
+              >
                 The intervention roadmap for children
-              </Typography.Text>
+              </div>
             }
-            extra={<StockOutlined className="text-4xl" />}
+            extra={<StockOutlined className="text-3xl" />}
           >
-            <div className="bg-info-color-light py-4 px-3">
-              <Typography.Paragraph className="mb-20">
+            <div
+              className="flex h-full flex-col justify-between bg-info-color-light py-4 px-3 "
+              style={{
+                minHeight: '350px',
+                display: '',
+              }}
+            >
+              <Typography.Paragraph className="row-span-2">
                 <ul className="m-0 list-none space-y-4 p-0">
                   <li>
                     In addition to helping parents detect early signs of
@@ -144,16 +167,27 @@ export default function Index() {
             </div>
           </CourseStyledCard>
           <CourseStyledCard
-            className="mx-2 h-fit w-1/3 p-4 text-base shadow-xl hover:scale-105"
+            className="mx-2 sm:w-1/3 my-5 p-4 text-base shadow-xl transition duration-300 hover:scale-105"
             title={
-              <Typography.Text className="py-4 text-lg font-bold">
+              <div
+                className="mr-5 py-4 text-lg font-bold"
+                style={{
+                  minHeight: '95px',
+                }}
+              >
                 Monitor the development of children <br />
                 through tracking log
-              </Typography.Text>
+              </div>
             }
-            extra={<FormOutlined className="text-4xl" />}
+            extra={<FormOutlined className="text-3xl" />}
           >
-            <div className="bg-info-color-light py-4 px-3">
+            <div
+              className="flex h-full flex-col justify-between bg-info-color-light py-4 px-3 "
+              style={{
+                minHeight: '350px',
+                display: '',
+              }}
+            >
               <Typography.Paragraph className="mb-20">
                 <ul className="m-0 list-none space-y-4 p-0">
                   <li>
@@ -184,17 +218,16 @@ export default function Index() {
         <Divider />
       </Col>
       <Col span={24} className="flex flex-col items-center gap-4">
-        <Typography className="text-3xl font-bold text-primary-color">
+        <Typography className="text-3xl text-center font-bold text-primary-color">
           Progressing towards development
         </Typography>
-        <div className="flex w-2/3 items-center justify-between rounded-xl bg-secondary-color p-8">
+        <div className="flex w-[20rem] sm:w-2/3 items-center justify-between rounded-xl bg-secondary-color p-8">
           <div className="flex flex-col justify-center gap-4">
             <Typography className="text-3xl font-bold text-[white]">
               Contact the experts
             </Typography>
             <Typography className="text-base italic text-[white]">
-              Connect, chat, video call, watch thematic livestreams and
-              Q&A,.......
+              Connect, chat, video call, watch thematic livestreams and Q&A,...
             </Typography>
             <Button
               className="w-[10rem]"
@@ -208,14 +241,35 @@ export default function Index() {
           </div>
           <Image src={Specialist} preview={false} width={150} />
         </div>
-        <div className="flex w-2/3 items-center justify-between rounded-xl bg-primary-color p-8">
+        <div className="flex w-[20rem] sm:w-2/3 items-center justify-between rounded-xl bg-ternary-color p-8">
+          <div className="flex flex-col justify-center gap-4">
+            <Typography className="text-3xl font-bold text-[black]">
+              Intervention guide
+            </Typography>
+            <Typography className="text-base italic text-[black]">
+              Providing appropriate intervention guide to each child's age
+              group.
+            </Typography>
+            <Button
+              className="w-[10rem]"
+              onClick={() => {
+                scrollToTop();
+                navigate('/intervention-guide');
+              }}
+            >
+              Learn more
+            </Button>
+          </div>
+          <Image src={Intervention} preview={false} width={200} />
+        </div>
+        <div className="flex w-[20rem] sm:w-2/3 items-center justify-between rounded-xl bg-primary-color p-8">
           <div className="flex flex-col justify-center gap-4">
             <Typography className="text-3xl font-bold text-[white]">
               Diary to monitor the child's treatment progress
             </Typography>
             <Typography className="text-base italic text-[white]">
               A tool to record the activities and assessment of young children
-              during treatment and follow-up from parents
+              during treatment and follow-up from parents.
             </Typography>
             <Button
               className="w-[10rem]"
@@ -228,28 +282,6 @@ export default function Index() {
             </Button>
           </div>
           <Image src={Assessment} preview={false} width={150} />
-        </div>
-        <div className="flex w-2/3 items-center justify-between rounded-xl bg-ternary-color p-8">
-          <div className="flex flex-col justify-center gap-4">
-            <Typography className="text-3xl font-bold text-[white]">
-              Community
-            </Typography>
-            <Typography className="text-base italic text-[white]">
-              Through forums, parents can share experiences and knowledge to
-              support each other, thereby spreading awareness to everyone around
-              them.
-            </Typography>
-            <Button
-              className="w-[10rem]"
-              onClick={() => {
-                scrollToTop();
-                navigate('/community');
-              }}
-            >
-              Learn more
-            </Button>
-          </div>
-          <Image src={Community} preview={false} width={200} />
         </div>
       </Col>
     </Row>

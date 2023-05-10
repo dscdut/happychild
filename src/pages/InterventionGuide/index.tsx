@@ -35,6 +35,7 @@ interface Content {
 
 interface InterventionStage {
   id: string;
+  thumbnail: string;
   stageName: string;
   skill: Skill[];
 }
@@ -222,7 +223,11 @@ const InterventionGuide: React.FC<routeId> = ({ id, childId }) => {
               {intervention?.map(i => {
                 return (
                   <Card.Grid
-                    style={{ width: '25%', textAlign: 'center', margin: '0' }}
+                    style={{
+                      width: '33.3333%',
+                      textAlign: 'center',
+                      margin: '0',
+                    }}
                     onClick={() => {
                       setRouteId(i.id);
                       setCurrent(current + 1);
@@ -230,12 +235,13 @@ const InterventionGuide: React.FC<routeId> = ({ id, childId }) => {
                     }}
                   >
                     <div className="grid grid-cols-2 gap-8">
-                      <img
+                      <Image
                         className="ml-4 w-60"
-                        src="https://images.unsplash.com/photo-1627639679638-8485316a4b21?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxzZWFyY2h8Mnx8Y3V0ZSUyMGtpZHxlbnwwfHwwfHw%3D&w=1000&q=80"
+                        src={i?.thumbnail || ''}
                         alt=""
+                        preview={false}
                       />
-                      <p className="self-center">{i.stageName}</p>
+                      <p className="self-center text-lg">{i.stageName}</p>
                     </div>
                   </Card.Grid>
                 );
@@ -265,7 +271,7 @@ const InterventionGuide: React.FC<routeId> = ({ id, childId }) => {
                           percent={Math.ceil(
                             (checkedItems.size / totalActivities) * 100,
                           )}
-                          strokeColor="#81CEED"
+                          strokeColor="#2E86C1"
                           className="mt-1 mb-1"
                         />
                       )}
@@ -303,7 +309,7 @@ const InterventionGuide: React.FC<routeId> = ({ id, childId }) => {
                                   {s.content?.map(c => {
                                     return (
                                       <>
-                                        <Typography.Text className="text-base font-bold text-color-accent-blue">
+                                        <Typography.Text className="text-base font-bold text-primary-color">
                                           {c.id} - {c.title}
                                         </Typography.Text>
                                         {childId != '' && (
@@ -446,7 +452,7 @@ const InterventionGuide: React.FC<routeId> = ({ id, childId }) => {
                       Next
                     </Button>
                   )}
-                  {currentSkill === steps.length - 1 && (
+                  {childId != '' && currentSkill === steps.length - 1 && (
                     <Button
                       type="primary"
                       onClick={() => {
@@ -466,14 +472,16 @@ const InterventionGuide: React.FC<routeId> = ({ id, childId }) => {
                     </Button>
                   )}
                 </div>
-                <Button
-                  style={{ margin: '0 8px' }}
-                  onClick={() => {
-                    saveProgress();
-                  }}
-                >
-                  Save
-                </Button>
+                {childId != '' && (
+                  <Button
+                    style={{ margin: '0 8px' }}
+                    onClick={() => {
+                      saveProgress();
+                    }}
+                  >
+                    Save
+                  </Button>
+                )}
               </div>
             </>
           </div>
@@ -503,11 +511,7 @@ const InterventionGuide: React.FC<routeId> = ({ id, childId }) => {
                 </pre>
               </Paragraph>
             </div>
-            <TextArea
-              rows={10}
-              placeholder="Give your feedback here ..."
-              maxLength={6}
-            />
+            <TextArea rows={10} placeholder="Give your feedback here ..." />
 
             <div>
               <Button

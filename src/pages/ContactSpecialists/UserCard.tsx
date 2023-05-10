@@ -6,7 +6,7 @@ export default function UserCard() {
   return (
     <Card className="shadow-xl transition-all hover:scale-[105%]">
       <Row align="middle" className="flex items-center gap-4">
-        <div className="absolute z-50 h-[50px] w-[50px]">
+        <div className="absolute z-40 h-[50px] w-[50px]">
           <div className="absolute right-0 bottom-0 h-3 w-3 rounded-full bg-success-color"></div>
         </div>
         <Avatar src={User} size={50} />

@@ -18,7 +18,6 @@ export default function ContactSpecialist() {
           <UserCard />
           <UserCard />
           <UserCard />
-          <UserCard />
         </Col>
         <Col span={16}>
           <ChatBox />

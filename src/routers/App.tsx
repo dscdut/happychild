@@ -17,6 +17,7 @@ const CoursesDetail = loadable(
 const Assessment = loadable(import('#/pages/Assessment'));
 const Community = loadable(import('#/pages/Community'));
 const ContactSpecialist = loadable(import('#/pages/ContactSpecialists'));
+const AboutUs = loadable(import('#/pages/AboutUs'));
 
 function App() {
   const routes = useRoutes([
@@ -66,6 +67,10 @@ function App() {
           element: <Result />,
         },
       ],
+    },
+    {
+      path: 'about-us',
+      element: <AboutUs />
     },
     {
       path: '/',

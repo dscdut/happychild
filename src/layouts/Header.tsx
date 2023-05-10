@@ -1,22 +1,22 @@
 import {
   HomeOutlined,
   ScheduleOutlined,
-  UsergroupAddOutlined,
   UserOutlined,
   FormOutlined,
   InfoCircleOutlined,
   StockOutlined,
+  MenuOutlined
 } from '@ant-design/icons';
 import { Button, Typography, Image } from 'antd';
 import { Link, useLocation, useNavigate } from 'react-router-dom';
 import UserInfo from './UserInfo';
-import HappyChild from '#/assets/images/new-logo.jpg';
+import HappyChild from '#/assets/images/logo-transparent.png';
 
 import { onAuthStateChanged } from 'firebase/auth';
 import { useEffect, useState } from 'react';
 import { auth } from '../shared/utils/firebase';
 
-export function Header() {
+const Header = () => {
   const [navbarOpen, setNavbarOpen] = useState(false);
   const { pathname } = useLocation();
   const navigate = useNavigate();
@@ -32,6 +32,7 @@ export function Header() {
 
   useEffect(() => {
     setAuth();
+    if(window.innerWidth >= 768){setNavbarOpen(true)}
   }, []);
 
   const MENU_ITEMS = [
@@ -83,15 +84,39 @@ export function Header() {
     {
       render: () =>
         loggedIn && auth.currentUser ? (
-          <UserInfo />
+          <div key={"LoggedIn"} className="ml-auto mr-5 ">
+            <UserInfo />
+          </div>
         ) : (
-          <div className="flex items-center gap-4">
-            <div className="mr-4 border-b-primary-color transition-all hover:border-b-4">
+          <div
+            key={"unLoggedIn"}
+            className="ml-auto mr-5 flex items-center gap-4"
+            style={{
+              fontSize: '0.9rem',
+            }}
+          >
+            <Button className='hover:border-b-4 '>
+              <Link to="/sign-up" className="flex items-center">
+                <Typography
+                   style={{
+                    fontSize: '0.9rem',
+                  }}
+                >Sign up</Typography>
+              </Link>
+            </Button>
+            {/* <div className="border-b-primary-color transition-all hover:border-b-4">
               <Link to="/sign-up" className="flex items-center">
                 <Typography>Sign up</Typography>
               </Link>
-            </div>
-            <Button type="primary" onClick={() => navigate('/sign-in')}>
+            </div> */}
+            <Button
+            className='hover:border-b-4 border-b-primary-color transition-all'
+              type="primary"
+              onClick={() => navigate('/sign-in')}
+              style={{
+                fontSize: '0.9rem',
+              }}
+            >
               Sign in
             </Button>
           </div>
@@ -101,45 +126,62 @@ export function Header() {
 
   return (
     <>
-      <div>
-        <Image
-          src={HappyChild}
-          preview={false}
-          width={100}
-          height={80}
-          className="cursor-pointer object-contain"
-          onClick={() => navigate('/')}
-        />
-      </div>
-      <div className="flex items-center justify-center gap-10">
-        {MENU_ITEMS?.map(item =>
-          item?.render ? (
-            item?.render()
-          ) : (
-            <div
-              className={`transition-all hover:border-b-4 hover:border-b-primary-color ${
-                (item?.to !== '/' && pathname?.includes(item?.to)) ||
-                (item?.to === '/' && pathname === item?.to)
-                  ? 'border-b-4 border-b-primary-color'
-                  : ''
-              }`}
-            >
-              <Link
-                to={item?.to}
-                className={
+      <div
+        className="ml-7 grid w-full grid-cols-6 "
+        style={{ height: '5rem', backgroundColor: '#FFFFFF' }}
+      >
+        <div>
+          <Image
+            src={HappyChild}
+            preview={false}
+            width={80}
+            height={50}
+            className="mt-3 cursor-pointer object-contain"
+            onClick={() => navigate('/')}
+          />
+        </div>
+        <div
+          className="col-span-5 flex flex-col ml-auto mt-[5rem] px-8 sm:px-0 sm:mt-0 bg-[#ccc] sm:bg-transparent sm:flex-row items-center justify-start sm:gap-6 sm:ml-[4rem]">
+          {navbarOpen!=false && MENU_ITEMS?.map(item =>
+            item?.render && item?.title != '' ? (
+              item?.render()
+            ) : (
+              <div
+                key={item?.title}
+                className={`cursor-pointer transition-all hover:border-b-4 hover:border-b-primary-color ${
                   (item?.to !== '/' && pathname?.includes(item?.to)) ||
                   (item?.to === '/' && pathname === item?.to)
-                    ? 'text-primary-color'
-                    : 'text-[black]'
-                }
+                    ? 'border-b-4 border-b-primary-color'
+                    : 'border-b-4 border-transparent'
+                }`}
               >
-                {item?.icon}
-                {item?.title}
-              </Link>
-            </div>
-          ),
-        )}
+                <Link
+                  to={item?.to}
+                  className={
+                    (item?.to !== '/' && pathname?.includes(item?.to)) ||
+                    (item?.to === '/' && pathname === item?.to)
+                      ? 'text-primary-color'
+                      : 'text-[black]'
+                  }
+                  style={{ fontWeight: '100' }}
+                >
+                  <span className="text-[0.7rem] hidden sm:inline-block">
+                    {item?.icon}
+                  </span>
+                  <span className=''>{item?.title}</span>
+                </Link>
+              </div>
+            ),
+          )}
+          <div onClick={() => setNavbarOpen(!navbarOpen)} className='sm:hidden absolute top-7 right-3'>
+            <MenuOutlined className="w-5 scale-150"/>
+          </div>
+        </div>      
       </div>
+      
     </>
   );
 }
+
+
+export default Header

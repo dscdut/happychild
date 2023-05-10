@@ -1,17 +1,32 @@
 <p align="center">
-  <a href="https://nextjs.org">
-    <h1 align="center">HappyChild</h1>
+  <a href="https://happychild.vercel.app/">
+    <h1 align="center">HappyChild </h1>
   </a>
 </p>
 
-## Built With
+## Introduction
+<p align="center">
+    <a href="https://ibb.co/bFMLSPj">
+        <img src="https://i.ibb.co/8bL2W0n/ava.jpg" alt="ava" border="0" width="300px">
+    </a>
+</p>
+HappyChild is a platform that supports parents to evaluate, refer to suggested solutions and methods of educating children with speech delay, developmental delay and autism - created by GDSC - DUT team.
+
+This project will join [GDSC Solution Challenge 2023](https://developers.google.com/community/gdsc-solution-challenge).
+
+## Link to our website
+
+[HappyChild](https://happychild.vercel.app/)
+
+## Tech
 
 - [React.js](https://reactjs.org/)
 - [Typescript](https://www.typescriptlang.org/)
 - [Tailwind](https://tailwindcss.com/)
 - [Ant Design](https://ant.design/)
+- [Firebase](https://firebase.google.com/)
 
-## Getting Started
+## Installation
 
 ### Prerequisites
 
@@ -29,7 +44,7 @@
 1. Clone the repo
 
    ```sh
-   git clone git@bitbucket.org:geotechgroupservices/linked-office-web.git
+   git clone git@github.com:dscdut/happychild.git
    ```
 
 2. Install NPM packages
@@ -38,9 +53,7 @@
    yarn install
    ```
 
-3. Copy `.env.example` to `.env` and update the variables.
-
-4. Run the development server:
+3. Run the development server:
 
    ```bash
    #npm run dev
@@ -50,27 +63,7 @@
    yarn dev
    ```
 
-5. Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
-
-### Testing
-
-##### Unit test
-
-```
-yarn test
-```
-
-##### Integration test
-
-```
-yarn run test-integration
-```
-
-##### e2e test
-
-```
-yarn run test-e2e
-```
+4. Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
 
 ## Documentations
 
