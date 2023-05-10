@@ -99,7 +99,6 @@ function FooterComponent() {
             Happy Child
           </Typography.Paragraph>
         </div>
-        {/* <Smartos className="ml-auto" /> */}
       </Row>
     </StyledFooter>
   );
