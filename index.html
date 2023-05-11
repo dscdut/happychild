@@ -1,6 +1,34 @@
 <!DOCTYPE html>
 <html lang="en">
   <head>
+    <!-- Google tag (gtag.js) -->
+    <script
+      async
+      src="https://www.googletagmanager.com/gtag/js?id=G-D9R40NBPBM"
+    ></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag() {
+        dataLayer.push(arguments);
+      }
+      gtag('js', new Date());
+
+      gtag('config', 'G-D9R40NBPBM');
+    </script>
+    <!-- Google Tag Manager -->
+    <script>
+      (function (w, d, s, l, i) {
+        w[l] = w[l] || [];
+        w[l].push({ 'gtm.start': new Date().getTime(), event: 'gtm.js' });
+        var f = d.getElementsByTagName(s)[0],
+          j = d.createElement(s),
+          dl = l != 'dataLayer' ? '&l=' + l : '';
+        j.async = true;
+        j.src = 'https://www.googletagmanager.com/gtm.js?id=' + i + dl;
+        f.parentNode.insertBefore(j, f);
+      })(window, document, 'script', 'dataLayer', 'GTM-TRQQV26');
+    </script>
+    <!-- End Google Tag Manager -->
     <meta charset="UTF-8" />
     <link rel="icon" type="image/svg+xml" href="src/favicon.ico" />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
@@ -15,53 +43,67 @@
   </head>
 
   <body>
+    <!-- Google Tag Manager (noscript) -->
+    <noscript
+      ><iframe
+        src="https://www.googletagmanager.com/ns.html?id=GTM-TRQQV26"
+        height="0"
+        width="0"
+        style="display: none; visibility: hidden"
+      ></iframe
+    ></noscript>
+    <!-- End Google Tag Manager (noscript) -->
     <div id="root"></div>
     <script>
-        //notify khi khong view web
-        // document.addEventListener("visibilitychange", () => {
-        //     if (document.visibilityState === "hidden") {
-        //       new Notification("Notify from HappyChild", {
-        //         body: "Web is hidden",
-                
-        //       })
-        //     } 
-        //   //   else {
-        //   //     new Notification("Notify from HappyChild", {
-        //   //     body: "Web is visible",
+      //notify khi khong view web
+      // document.addEventListener("visibilitychange", () => {
+      //     if (document.visibilityState === "hidden") {
+      //       new Notification("Notify from HappyChild", {
+      //         body: "Web is hidden",
 
-        //   //   })
-        //   // }
-        //   })
-        
-         //Notify sau khi wweb đóng 5s 
-        //  const webClose = () => {
-        //   window.onbeforeunload = () => {
-        //      setTimeout(5000);
-        //      new Notification("Notify from HappyChild", {
-        //        body: "Web is close",
+      //       })
+      //     }
+      //   //   else {
+      //   //     new Notification("Notify from HappyChild", {
+      //   //     body: "Web is visible",
 
-        //      })
-        //    };
-        //  }
+      //   //   })
+      //   // }
+      //   })
 
-        //  setInterval(webClose,5000)
+      //Notify sau khi wweb đóng 5s
+      //  const webClose = () => {
+      //   window.onbeforeunload = () => {
+      //      setTimeout(5000);
+      //      new Notification("Notify from HappyChild", {
+      //        body: "Web is close",
 
-          const clock = () => {
-              const today = new Date();
-              if (today.getHours() == 8 && today.getMinutes() == 57 && today.getSeconds() == 0) {
-              alert("Alert")
-              new Notification("Notify from HappyChild", {
-                body: "This is " + today.getHours()+ ":" + today.getMinutes()+ ":" + today.getSeconds(),
+      //      })
+      //    };
+      //  }
 
-              })
-            }
-              
-            };
-            setInterval(clock, 1000);
-          
-          
-         
-         
+      //  setInterval(webClose,5000)
+
+      const clock = () => {
+        const today = new Date();
+        if (
+          today.getHours() == 8 &&
+          today.getMinutes() == 57 &&
+          today.getSeconds() == 0
+        ) {
+          alert('Alert');
+          new Notification('Notify from HappyChild', {
+            body:
+              'This is ' +
+              today.getHours() +
+              ':' +
+              today.getMinutes() +
+              ':' +
+              today.getSeconds(),
+          });
+        }
+      };
+      setInterval(clock, 1000);
     </script>
     <script type="module" src="/src/main.tsx"></script>
   </body>
