@@ -15,7 +15,7 @@ const InterventionGuideRoute = () => {
     onValue(childRef, async snapshot => {
       const child = await snapshot.val();
 
-      const ageInMonths = await calculateAgeInMonths(
+      const ageInMonths = calculateAgeInMonths(
         child[childId || ''].info.birthday,
       );
 

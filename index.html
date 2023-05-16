@@ -48,16 +48,21 @@
 
           const clock = () => {
               const today = new Date();
-              if (today.getHours() == 8 && today.getMinutes() == 57 && today.getSeconds() == 0) {
-              alert("Alert")
-              new Notification("Notify from HappyChild", {
-                body: "This is " + today.getHours()+ ":" + today.getMinutes()+ ":" + today.getSeconds(),
+               console.log(today.getHours());
+              // if (today.getHours() == 19 && today.getMinutes() == 50 && today.getSeconds() == 0) {
+              // alert("Alert")
+              // new Notification("Notify from HappyChild", {
+              //   body: "This is " + today.getHours()+ ":" + today.getMinutes()+ ":" + today.getSeconds(),
 
-              })
+              // })
+              new Notification("Notify from HappyChild", {
+                  body: "This is " + today.getHours() + ":" + today.getMinutes() + ":" + today.getSeconds(),
+
+                })
             }
               
-            };
-            setInterval(clock, 1000);
+            
+            setInterval(clock, 300000);
           
           
          
