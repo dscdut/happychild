@@ -16,7 +16,7 @@ This project will join [GDSC Solution Challenge 2023](https://developers.google.
 
 ## Link to our website
 
-[HappyChild](https://happychild.vercel.app/)
+[HappyChild](https://happychild.gdsc.dev/)
 
 ## Tech
 

@@ -14,7 +14,7 @@ Platform:
   darwin x64
 
 Trace: 
-  SyntaxError: /Users/mac/Documents/projects/smartos-superadmin-web-new/package.json: Unexpected token < in JSON at position 1083
+  SyntaxError: /Users/mac/Documents/projects/web-new/package.json: Unexpected token < in JSON at position 1083
       at JSON.parse (<anonymous>)
       at /Users/mac/.config/yarn/global/node_modules/yarn/lib/cli.js:1625:59
       at Generator.next (<anonymous>)
@@ -23,7 +23,7 @@ Trace:
 
 npm manifest: 
   {
-    "name": "smartos-superadmin-web-new",
+    "name": "web-new",
     "version": "0.0.0",
     "license": "MIT",
     "scripts": {
@@ -91,7 +91,6 @@ npm manifest:
     "devDependencies": {
       "@commitlint/cli": "^17.0.0",
       "@commitlint/config-conventional": "^17.0.0",
-      "@enouvo-packages/eslint-config-react": "^1.1.3",
       "@graphql-codegen/cli": "^2.6.2",
       "@graphql-codegen/fragment-matcher": "^3.2.1",
       "@graphql-codegen/import-types-preset": "^2.1.18",
@@ -2831,7 +2830,6 @@ Lockfile:
   
   "@base-projects/web-uikit@^1.7.17":
     version "1.7.17"
-    resolved "https://gitlab.enouvo.com/api/v4/projects/227/packages/npm/@base-projects/web-uikit/-/@base-projects/web-uikit-1.7.17.tgz#cd1e212b9e3676e4d42f1c729bfed97bbe7f5777"
     integrity sha1-zR4hK542duTULxxym/7Ze75/V3c=
     dependencies:
       "@ant-design/pro-layout" "^6.27.2"
@@ -3125,9 +3123,9 @@ Lockfile:
       ts-node "^9"
       tslib "^2"
   
-  "@enouvo-packages/eslint-config-react@^1.1.3":
+  "@packages/eslint-config-react@^1.1.3":
     version "1.1.3"
-    resolved "https://gitlab.enouvo.com/api/v4/projects/343/packages/npm/@enouvo-packages/eslint-config-react/-/@enouvo-packages/eslint-config-react-1.1.3.tgz#5419af667e4022a5ff85126a9d6652afa5c4adce"
+    resolved "https://gitlab.com/api/v4/projects/343/packages/npm/@packages/eslint-config-react/-/@packages/eslint-config-react-1.1.3.tgz#5419af667e4022a5ff85126a9d6652afa5c4adce"
     integrity sha1-VBmvZn5AIqX/hRJqnWZSr6XErc4=
     dependencies:
       "@typescript-eslint/parser" "^5.19.0"
