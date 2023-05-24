@@ -166,7 +166,7 @@ const Header = () => {
             ) : (
               <div
                 key={item?.title}
-                onClick={() => setNavbarOpen(!navbarOpen)}
+                onClick={() => {if(window.innerWidth < 768 )setNavbarOpen(!navbarOpen)}}
                 className={`cursor-pointer transition-all hover:border-b-4 hover:border-b-primary-color ${
                   (item?.to !== '/' && pathname?.includes(item?.to)) ||
                   (item?.to === '/' && pathname === item?.to)
