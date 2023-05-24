@@ -90,7 +90,7 @@ const Header = () => {
         ) : (
           <div
             key={"unLoggedIn"}
-            className="sm:ml-auto sm:mr-5 flex flex-col items-center gap-4"
+            className="sm:ml-auto sm:mr-5 flex sm:flex-row flex-col items-center gap-4"
             style={{
               fontSize: '0.9rem',
             }}
