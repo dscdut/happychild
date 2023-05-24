@@ -13,7 +13,7 @@ const AboutUs = () => {
         </div>
         <div
           className="sm:ml-[35rem] 2xl:ml-0 sm:mr-40 sm:w-7/12 sm:-mt-[30rem]">
-          <iframe className='border-4 block border-primary-color sm:w-[53rem] w-[20rem] rounded-lg' width="885" height="498" src="https://www.youtube.com/embed/LDrhHYYUJsY" title="HappyChild - GDSC Solution Challenge 2023" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowFullScreen></iframe>
+          <iframe className='border-4 block border-primary-color sm:w-[53rem] w-full rounded-lg' width="885" height="498" src="https://www.youtube.com/embed/LDrhHYYUJsY" title="HappyChild - GDSC Solution Challenge 2023" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowFullScreen></iframe>
           
           <div className="mt-20 mb-20 grid">
             <div className="mx-5 my-5 text-3xl text-primary-color">

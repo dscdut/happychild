@@ -1,4 +1,4 @@
-import { Button, Card, Table, Tag, Typography } from 'antd';
+import { Button, Card, List, Table, Tag, Typography } from 'antd';
 import Children from '#/assets/images/children-raise.png';
 import { useEffect, useState } from 'react';
 import styled from '@emotion/styled';
@@ -38,11 +38,21 @@ interface Child {
   results: any;
 }
 
+interface RowsChild{
+  id : string
+  key: string,
+  name: string,
+  birthday: string,
+  gender: string,
+  tag: Number,
+  result: any,
+}
 function TrackingProgress() {
   const navigate = useNavigate();
   const [registeredChildren, setRegisteredChildren] = useState<any>([]);
   const [isModalVisible, setIsModalVisible] = useState(false);
   const [selectedChild, setSelectedChild] = useState<any>(null);
+  let children : RowsChild[] = [];
 
   const columns = [
     {
@@ -162,7 +172,7 @@ function TrackingProgress() {
     });
   }, []);
 
-  let children = [];
+  
   if (registeredChildren.length > 0) {
     children = registeredChildren.map((child: Child) => {
       let ageInMonths = calculateAgeInMonths(child.info.birthday);
@@ -174,7 +184,7 @@ function TrackingProgress() {
       }
 
       const latestResult = Object.entries(child.results).pop();
-
+      
       return {
         key: child.id,
         name: child.info.name,
@@ -183,26 +193,111 @@ function TrackingProgress() {
         tag: calculateResult(asqIndex, latestResult?.[1]),
         result: child.results,
       };
+      
     });
+    
   }
 
+  //console.log(children[0].key);
   return (
-    <div className="grid grid-cols-8">
+    <div className="sm:grid sm:grid-cols-8">
       <Card
+        //className="sm:col-span-8 sm:col-start-2 scale-50/ w-full"
         className="col-span-6 col-start-2"
         hoverable
-        cover={<img alt="example" src={Children} style={{ height: '250px' }} />}
+        cover={<img alt="example h-[250px]" className="w-full object-contain" src={Children} />}
       >
         <Typography className="text-center">
           <Typography.Title level={3}>
             Track progress of your child
           </Typography.Title>
         </Typography>
+        {window.innerWidth > 720 ? 
         <StyledTable
           columns={columns}
           dataSource={children}
           pagination={false}
+        /> : <div>
+          <List
+          size="large"
+          header={<div>Header</div>}
+          footer={<div>Footer</div>}
+          bordered
+          dataSource={children}
+          renderItem={(item) => 
+          <div>
+
+            <List.Item
+                  >
+                    <List.Item.Meta 
+                      title={"Name of Child"}
+                    />
+                    <div>
+                      {item?.name}
+                      
+                    </div>
+            </List.Item>
+            <List.Item
+                  >
+                    <List.Item.Meta 
+                      title={"Birthday"}
+                    />
+                    <div>
+                      {item?.birthday}
+                    </div>
+            </List.Item>
+            <List.Item
+                  >
+                    <List.Item.Meta 
+                      title={"Gender"}
+                    />
+                    <div>
+                      {item?.gender}
+                    </div>
+            </List.Item>
+            <List.Item
+                  >
+                    <List.Item.Meta 
+                      title={"Current Status"}
+                    />
+                    <div className={`${item?.tag === 1 ? 'text-[#fff] bg-secondary-color rounded-md px-2': 'text-color-accent-green'}`}>
+                        
+                          {item?.tag === 1 ? 'Developmental delay' : 'Normal'}
+                        
+                    </div>
+            </List.Item>
+            <List.Item
+                  >
+                    <List.Item.Meta 
+                      title={"Action"}
+                    />
+                    <div className='flex flex-col'>
+                        <button
+                          className="text-[white] bg-[#2e86c1] p-[0.25rem] rounded cursor-pointer mb-1"
+                          onClick={() => handleViewProgressClick(item?.result)}
+                        >
+                          View Progress
+                        </button>
+                        <button
+                        className='bg-[#efa2a4] text-[#fff] rounded cursor-pointer p-[0.25rem]'
+                          style={{
+                            transition: 'background-color 0.3s ease-in-out',
+                          }}
+                          onClick={() => handleRetakeTestClick(item?.result)}
+                        >
+                          Retake Test
+                        </button>
+                    </div>
+            </List.Item>            
+          </div>}
+          
         />
+          
+        </div>}
+        
+        {/* <div className='bg-secondary-color w-8 h-8 text-warning-color'>
+          {children?.name}
+        </div> */}
         <RetakeTestModal
           isModalVisible={isModalVisible}
           setIsModalVisible={setIsModalVisible}

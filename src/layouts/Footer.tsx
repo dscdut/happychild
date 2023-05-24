@@ -94,8 +94,8 @@ function FooterComponent() {
                   </span>
                 </p>
               </Category>
-              <div className="mt-4 flex justify-center">
-              <Typography.Paragraph className="text-xl">
+              <div className="flex justify-center sm:justify-start">
+              <Typography.Paragraph className="text-sm opacity-75 mt-[4rem]">
                 Copyright © Happy Child All rights reserved
               </Typography.Paragraph>
             </div>
@@ -104,7 +104,7 @@ function FooterComponent() {
         </Row>
         {/* <Divider className="border-white my-14" /> */}
         <div className="bg-primary w-full">
-          <Row className="sm:ml-9 grid grid-cols-3 items-center  text-2xl">
+          <Row className="sm:ml-9 grid grid-cols-3 items-center  text-2xl -mt-[4rem]">
             <Space>
               <a target="_blank" href="https://twitter.com/" rel="noreferrer">
                 <IconWrapper>

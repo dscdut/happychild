@@ -12,7 +12,7 @@ import {
 } from 'antd';
 import { useNavigate } from 'react-router-dom';
 import { createUserWithEmailAndPassword, updateProfile } from 'firebase/auth';
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import { auth } from '../../shared/utils/firebase';
 import SignUp from '#/assets/images/new-sign-up.jpg';
 import HappyChild from '#/assets/images/new-logo.jpg';
@@ -23,6 +23,15 @@ export default function SignUpPage() {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const [fullName, setFullName] = useState('');
+  const [colSpan , setColSpan] = useState(12);
+  const [heightImage , setHeightImage] = useState(1000);
+
+  useEffect(()=>{
+    if(window.innerWidth < 768 ){
+      setColSpan(24);
+      setHeightImage(400);
+    }
+  },[])
 
   const onSubmit = async () => {
     try {
@@ -45,15 +54,15 @@ export default function SignUpPage() {
   return (
     <Form className="flex items-center" onFinish={onSubmit} layout="vertical">
       <Row className="w-full rounded-xl shadow-2xl" align="middle">
-        <Col span={12} className="flex">
+        <Col span={colSpan} className="flex">
           <Image
             src={SignUp}
-            height={1000}
-            className="rounded-l-xl object-cover"
+            height={heightImage}
+            className="sm:rounded-l-xl object-cover"
             preview={false}
           />
         </Col>
-        <Col span={12} className="flex items-center px-8 -mt-40">
+        <Col span={colSpan} className="flex items-center px-8 sm:-mt-40 mb-8 sm:mb-0">
           <Row justify="center" gutter={[16, 16]}>
             <Col span={24} className="flex justify-center">
               {/* <Image
@@ -200,7 +209,7 @@ export default function SignUpPage() {
             </Col>
             <Col span={24} className="flex flex-col gap-2">
               <Row gutter={[16, 16]}>
-                <Col span={12}>
+                <Col span={colSpan}>
                   <Typography className="text-base">
                     <span style={{ color: 'red' }} className="mr-1">
                       *

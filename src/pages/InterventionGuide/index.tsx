@@ -207,7 +207,7 @@ const InterventionGuide: React.FC<routeId> = ({ id, childId }) => {
         {steps[current].content}
         {current == 1 && routeId == '' && (
           <Alert
-            className="m my-2 w-1/4 "
+            className="m my-2 sm:w-1/4 "
             message="You should which age you want to read"
             type="info"
           />
