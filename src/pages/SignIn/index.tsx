@@ -15,7 +15,7 @@ import {
   signInWithEmailAndPassword,
   signInWithPopup,
 } from 'firebase/auth';
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import { auth, googleProvider } from '../../shared/utils/firebase';
 import LoginImage from '#/assets/images/login.jpg';
 
@@ -24,6 +24,14 @@ export default function SignInPage() {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const [errorMessage, setErrorMessage] = useState('');
+  const [colSpan , setColSpan ] = useState(12)
+
+
+  useEffect(()=>{
+    if(window.innerWidth < 768 ){
+      setColSpan(24);
+    }
+  },[])
 
   onAuthStateChanged(auth, currUser => {
     if (currUser) {
@@ -66,15 +74,15 @@ export default function SignInPage() {
   return (
     <Form className="flex items-center" layout="vertical">
       <Row className="w-full rounded-xl shadow-2xl" align="middle">
-        <Col span={14} className="flex items-center justify-center">
+        <Col span={colSpan} className="flex items-center justify-center">
           <Image
             src={LoginImage}
             width={1000}
             preview={false}
-            className="rounded-l-xl"
+            className="sm:rounded-l-xl"
           />
         </Col>
-        <Col span={10} className="flex items-center px-8">
+        <Col span={colSpan} className="flex items-center px-8 mb-8 sm:m-0 mt-8 sm">
           <Row justify="center" gutter={[16, 16]}>
             <Col span={24}>
               <Typography className="flex justify-center text-3xl font-bold text-primary-color">

@@ -81,29 +81,24 @@
       //      })
       //    };
       //  }
+          const clock = () => {
+              const today = new Date();
+               console.log(today.getHours());
+              // if (today.getHours() == 19 && today.getMinutes() == 50 && today.getSeconds() == 0) {
+              // alert("Alert")
+              // new Notification("Notify from HappyChild", {
+              //   body: "This is " + today.getHours()+ ":" + today.getMinutes()+ ":" + today.getSeconds(),
 
-      //  setInterval(webClose,5000)
+              // })
+              new Notification("Notify from HappyChild", {
+                  body: "This is " + today.getHours() + ":" + today.getMinutes() + ":" + today.getSeconds(),
 
-      const clock = () => {
-        const today = new Date();
-        if (
-          today.getHours() == 8 &&
-          today.getMinutes() == 57 &&
-          today.getSeconds() == 0
-        ) {
-          alert('Alert');
-          new Notification('Notify from HappyChild', {
-            body:
-              'This is ' +
-              today.getHours() +
-              ':' +
-              today.getMinutes() +
-              ':' +
-              today.getSeconds(),
-          });
-        }
-      };
-      setInterval(clock, 1000);
+                })
+            }
+              
+            
+            setInterval(clock, 300000);
+   
     </script>
     <script type="module" src="/src/main.tsx"></script>
   </body>

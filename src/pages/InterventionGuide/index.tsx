@@ -66,6 +66,11 @@ const InterventionGuide: React.FC<routeId> = ({ id, childId }) => {
     { activityId: string; feedback: string }[]
   >([]);
 
+  const [colSpan,setColSpan] = useState(24);
+  useEffect(()=>{
+    if(window.innerWidth >= 768){setColSpan(12)}
+  },[])
+
   const handleCheckboxChange = (
     e: { target: { checked: any } },
     contentId: string,
@@ -202,7 +207,7 @@ const InterventionGuide: React.FC<routeId> = ({ id, childId }) => {
         {steps[current].content}
         {current == 1 && routeId == '' && (
           <Alert
-            className="m my-2 w-1/4 "
+            className="m my-2 sm:w-1/4 "
             message="You should which age you want to read"
             type="info"
           />
@@ -219,10 +224,11 @@ const InterventionGuide: React.FC<routeId> = ({ id, childId }) => {
       >
         {current == 0 && (
           <>
-            <Card title="Age" className="mx-3">
+            <Card title="Age" className="sm:mx-3">
               {intervention?.map(i => {
                 return (
                   <Card.Grid
+                    key={i?.stageName}
                     style={{
                       width: '33.3333%',
                       textAlign: 'center',
@@ -234,14 +240,14 @@ const InterventionGuide: React.FC<routeId> = ({ id, childId }) => {
                       setCurrentSkill(0);
                     }}
                   >
-                    <div className="grid grid-cols-2 gap-8">
+                    <div className="grid sm:grid-cols-2 gap-8">
                       <Image
-                        className="ml-4 w-60"
+                        className="sm:ml-4 w-60"
                         src={i?.thumbnail || ''}
                         alt=""
                         preview={false}
                       />
-                      <p className="self-center text-lg">{i.stageName}</p>
+                      <p className="self-center sm:text-lg">{i.stageName}</p>
                     </div>
                   </Card.Grid>
                 );
@@ -327,7 +333,7 @@ const InterventionGuide: React.FC<routeId> = ({ id, childId }) => {
                                         <Row gutter={[16, 16]}>
                                           {c?.image ? (
                                             <>
-                                              <Col span={12}>
+                                              <Col span={colSpan}>
                                                 <div className="feedback-section mb-2">
                                                   <Typography.Paragraph className="text-justify text-base">
                                                     {c.description}
@@ -353,7 +359,7 @@ const InterventionGuide: React.FC<routeId> = ({ id, childId }) => {
                                                 </div>
                                               </Col>
                                               <Col
-                                                span={12}
+                                                span={colSpan}
                                                 className="text-center"
                                               >
                                                 <Image
@@ -370,7 +376,7 @@ const InterventionGuide: React.FC<routeId> = ({ id, childId }) => {
                                             </>
                                           ) : (
                                             <>
-                                              <Col span={12}>
+                                              <Col span={colSpan}>
                                                 <div className="feedback-section mb-2">
                                                   <Typography.Paragraph className="text-justify text-base">
                                                     {c.description}
@@ -378,7 +384,7 @@ const InterventionGuide: React.FC<routeId> = ({ id, childId }) => {
                                                 </div>
                                               </Col>
                                               {childId != '' && (
-                                                <Col span={12}>
+                                                <Col span={colSpan}>
                                                   <textarea
                                                     id={
                                                       c.id + '-feedback' || ''

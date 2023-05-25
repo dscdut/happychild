@@ -42,12 +42,12 @@ export default function Index() {
         }}
       >
         <Card
-          className="sm:absolute  px-2 top-[10rem] sm:right-[9.375rem] sm:w-2/6 rounded-xl bg-[#566573] bg-opacity-[80%] p-4 shadow-xl"
+          className="sm:absolute  px-2 top-[8rem] sm:top-[10rem] sm:right-[9.375rem] sm:w-2/6 rounded-xl bg-[#566573] bg-opacity-[80%] p-4 shadow-xl"
           bordered={false}
         >
           <Typography.Title
             level={2}
-            className="text-center text-5xl font-bold text-[white]"
+            className="text-center sm:text-5xl font-bold text-[white]"
           >
             HAPPYCHILD
           </Typography.Title>
@@ -77,23 +77,16 @@ export default function Index() {
             className="mx-2 sm:w-1/3 my-5 text-base shadow-xl transition duration-300 hover:scale-105"
             title={
               <div
-                className="mr-5 py-4 text-lg font-bold"
-                style={{
-                  minHeight: '95px',
-                }}
+                className="mr-5 py-4 text-lg font-bold w-full break-words min-h-[95px] whitespace-normal"
               >
-                Taking test to assess the development level <br />
-                and autism of young children
+                Taking test to assess the development level
+                and autism of young children 
               </div>
             }
             extra={<ScheduleOutlined className="text-3xl" />}
           >
             <div
-              className="flex h-full flex-col justify-between bg-info-color-light py-4 px-3 "
-              style={{
-                minHeight: '350px',
-                display: '',
-              }}
+              className="flex h-full flex-col justify-between bg-info-color-light py-4 px-3 min-h-[350px]"
             >
               <Typography.Paragraph className="mb-20">
                 <ul className="m-0 list-none space-y-4 p-0">
@@ -126,10 +119,7 @@ export default function Index() {
             className="mx-2 sm:w-1/3 my-5 p-4 text-base shadow-xl transition duration-300 hover:scale-105"
             title={
               <div
-                className="mr-5 py-4 text-lg font-bold"
-                style={{
-                  minHeight: '95px',
-                }}
+                className="mr-5 py-4 text-lg font-bold min-h-[95px] whitespace-normal"
               >
                 The intervention roadmap for children
               </div>
@@ -137,11 +127,7 @@ export default function Index() {
             extra={<StockOutlined className="text-3xl" />}
           >
             <div
-              className="flex h-full flex-col justify-between bg-info-color-light py-4 px-3 "
-              style={{
-                minHeight: '350px',
-                display: '',
-              }}
+              className="flex h-full flex-col justify-between bg-info-color-light py-4 px-3 min-h-[350px]"
             >
               <Typography.Paragraph className="row-span-2">
                 <ul className="m-0 list-none space-y-4 p-0">
@@ -170,13 +156,9 @@ export default function Index() {
             className="mx-2 sm:w-1/3 my-5 p-4 text-base shadow-xl transition duration-300 hover:scale-105"
             title={
               <div
-                className="mr-5 py-4 text-lg font-bold"
-                style={{
-                  minHeight: '95px',
-                }}
+                className="mr-5 py-4 text-lg font-bold min-h-[95px] whitespace-normal"
               >
-                Monitor the development of children <br />
-                through tracking log
+                Monitor the development of children through tracking log
               </div>
             }
             extra={<FormOutlined className="text-3xl" />}

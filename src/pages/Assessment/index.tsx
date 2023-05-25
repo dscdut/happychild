@@ -1,6 +1,6 @@
 import { ProfileOutlined, RightOutlined } from '@ant-design/icons';
 import { Button, Carousel, Col, Image, Row } from 'antd';
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { CourseStyledCard } from '../Courses/styles';
 import Content1 from './Content1';
@@ -18,46 +18,54 @@ import AssessmentImage6 from '#/assets/images/assessmentImage6.jpg';
 function Index() {
   const navigate = useNavigate();
   const [currentValue, setCurrentValue] = useState(1);
-
+  const [heightImage ,setHeightImage ] = useState(600);
+  const [colSpan , setColSpan ] = useState(12)
+  useEffect(() =>{
+    if(window.innerWidth < 768) {
+      setHeightImage(300);
+      setColSpan(32);
+    }
+  },[])
   return (
     <CourseStyledCard className="shadow-xl">
       <Row gutter={[16, 16]}>
-        <Col span={9}>
+        <Col span={colSpan}>
           <Carousel autoplay autoplaySpeed={2000} effect="fade">
             <Image
               src={AssessmentImage1}
-              className="rounded-l-xl object-cover"
-              height={600}
+              className="rounded sm:rounded-l-xl object-cover"
+              height={heightImage}
               width="100%"
               preview={false}
             />
             <Image
               src={AssessmentImage2}
-              className="rounded-l-xl object-cover"
+              className="rounded sm:rounded-l-xl object-cover"
               preview={false}
-              height={600}
+              height={heightImage}
             />
             <Image
               src={AssessmentImage3}
-              className="rounded-l-xl object-cover"
+              className="rounded sm:rounded-l-xl object-cover"
               preview={false}
-              height={600}
+              height={heightImage}
             />
             <Image
               src={AssessmentImage4}
-              className="rounded-l-xl object-cover"
+              className="rounded sm:rounded-l-xl object-cover"
               preview={false}
-              height={600}
+              height={heightImage}
             />
             <Image
               src={AssessmentImage6}
-              className="rounded-l-xl object-cover"
+              className="rounded sm:rounded-l-xl object-cover"
               preview={false}
-              height={600}
+              height={heightImage}
             />
           </Carousel>
         </Col>
-        <Col span={15} className="flex flex-col justify-between gap-2 p-4">
+
+        <Col span={colSpan} className="flex flex-col justify-between gap-2 p-4 ">
           <ContentSelector
             value={currentValue}
             onChange={value => setCurrentValue(value)}
@@ -82,9 +90,11 @@ function Index() {
               <RightOutlined style={{ fontSize: '20px', color: '#fff' }} />
             </Button>
           </Col>
-        </Col>
+        </Col> 
+        
       </Row>
     </CourseStyledCard>
+
   );
 }
 

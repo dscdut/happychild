@@ -90,11 +90,12 @@ const Header = () => {
         ) : (
           <div
             key={"unLoggedIn"}
-            className="ml-auto mr-5 flex items-center gap-4"
+            className="sm:ml-auto sm:mr-5 flex sm:flex-row flex-col items-center gap-4"
             style={{
               fontSize: '0.9rem',
             }}
           >
+            {window.innerWidth >= 768 ? <>
             <Button className='hover:border-b-4 '>
               <Link to="/sign-up" className="flex items-center">
                 <Typography
@@ -104,11 +105,6 @@ const Header = () => {
                 >Sign up</Typography>
               </Link>
             </Button>
-            {/* <div className="border-b-primary-color transition-all hover:border-b-4">
-              <Link to="/sign-up" className="flex items-center">
-                <Typography>Sign up</Typography>
-              </Link>
-            </div> */}
             <Button
             className='hover:border-b-4 border-b-primary-color transition-all'
               type="primary"
@@ -119,6 +115,27 @@ const Header = () => {
             >
               Sign in
             </Button>
+            </> : <>
+            <div>
+              <Link to="/sign-up" className="items-center text-[0.9rem]">
+                Sign up
+              </Link>
+            </div>
+            <div
+              className='transition-all text-secondary-color -mt-[1rem] cursor-pointer'
+              //type="primary"
+              onClick={() => navigate('/sign-in')}
+              style={{
+                fontSize: '0.95rem',
+              }}
+            >
+              Sign in
+            </div>
+            
+
+            </>}
+            
+            
           </div>
         ),
     },
@@ -141,13 +158,15 @@ const Header = () => {
           />
         </div>
         <div
-          className="col-span-5 flex flex-col ml-auto mt-[5rem] px-8 sm:px-0 sm:mt-0 bg-[#ccc] sm:bg-transparent sm:flex-row items-center justify-start sm:gap-6 sm:ml-[4rem]">
+          className={`col-span-5 flex flex-col ml-auto mt-[5.5rem] px-8 sm:px-0 sm:mt-0 bg-[#fff] mr-2 sm:mr-0 sm:bg-transparent sm:flex-row items-center justify-start sm:gap-6 sm:ml-[4rem] 
+            ${navbarOpen && window.innerWidth < 768 ? 'border-[1px] border-[#ccc] shadow-xl':''}`}>
           {navbarOpen!=false && MENU_ITEMS?.map(item =>
             item?.render && item?.title != '' ? (
               item?.render()
             ) : (
               <div
                 key={item?.title}
+                onClick={() => {if(window.innerWidth < 768 )setNavbarOpen(!navbarOpen)}}
                 className={`cursor-pointer transition-all hover:border-b-4 hover:border-b-primary-color ${
                   (item?.to !== '/' && pathname?.includes(item?.to)) ||
                   (item?.to === '/' && pathname === item?.to)
@@ -157,6 +176,7 @@ const Header = () => {
               >
                 <Link
                   to={item?.to}
+                  
                   className={
                     (item?.to !== '/' && pathname?.includes(item?.to)) ||
                     (item?.to === '/' && pathname === item?.to)
