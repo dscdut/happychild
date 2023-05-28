@@ -27,7 +27,7 @@ export default function SignUpPage() {
   const [heightImage , setHeightImage] = useState(1000);
 
   useEffect(()=>{
-    if(window.innerWidth < 768 ){
+    if(window.innerWidth < 1280 ){
       setColSpan(24);
       setHeightImage(400);
     }
@@ -58,11 +58,17 @@ export default function SignUpPage() {
           <Image
             src={SignUp}
             height={heightImage}
-            className="sm:rounded-l-xl object-cover"
+            width={
+              window.innerWidth < 1280 ? `${(colSpan / 24) * 100}%` : undefined
+            }
+            className="w-full object-cover lg:rounded-l-xl"
             preview={false}
           />
         </Col>
-        <Col span={colSpan} className="flex items-center px-8 sm:-mt-40 mb-8 sm:mb-0">
+        <Col
+          span={colSpan}
+          className="mb-8 flex items-center px-8 lg:-mt-40 lg:mb-0"
+        >
           <Row justify="center" gutter={[16, 16]}>
             <Col span={24} className="flex justify-center">
               {/* <Image
@@ -150,9 +156,10 @@ export default function SignUpPage() {
                     message: 'Password must be at least 8 characters',
                   },
                   {
-                    pattern: /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)[a-zA-Z\d]{8,}$/,
+                    pattern:
+                      /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)|(?=.*[!@#$%^&*])[a-zA-Z\d!@#$%^&*]{8,}$/,
                     message:
-                      'Password must contain at least 1 uppercase letter, 1 lowercase letter and 1 number',
+                      'Password must contain at least 1 uppercase letter, 1 lowercase letter, 1 number, or special character',
                   },
                 ]}
                 style={{ marginBottom: 0 }}

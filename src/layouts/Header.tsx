@@ -79,58 +79,62 @@ const Header = () => {
     {
       render: () =>
         loggedIn && auth.currentUser ? (
-          <div key={"LoggedIn"} className="ml-auto mr-5 ">
+          <div key={'LoggedIn'} className="ml-auto mr-5 ">
             <UserInfo />
           </div>
         ) : (
           <div
-            key={"unLoggedIn"}
-            className="sm:ml-auto sm:mr-5 flex sm:flex-row flex-col items-center gap-4"
+            key={'unLoggedIn'}
+            className="flex flex-col items-center gap-4 lg:ml-auto lg:mr-5 sm:flex-row"
             style={{
               fontSize: '0.9rem',
             }}
           >
-            {window.innerWidth >= 1280 ? <>
-            <Button className='hover:border-b-4 '>
-              <Link to="/sign-up" className="flex items-center">
-                <Typography
-                   style={{
+            {window.innerWidth >= 1280 ? (
+              <>
+                <Button className="hover:border-b-4 ">
+                  <Link to="/sign-up" className="flex items-center">
+                    <Typography
+                      style={{
+                        fontSize: '0.9rem',
+                      }}
+                    >
+                      Sign up
+                    </Typography>
+                  </Link>
+                </Button>
+                <Button
+                  className="border-b-primary-color transition-all hover:border-b-4"
+                  type="primary"
+                  onClick={() => navigate('/sign-in')}
+                  style={{
                     fontSize: '0.9rem',
                   }}
-                >Sign up</Typography>
-              </Link>
-            </Button>
-            <Button
-            className='hover:border-b-4 border-b-primary-color transition-all'
-              type="primary"
-              onClick={() => navigate('/sign-in')}
-              style={{
-                fontSize: '0.9rem',
-              }}
-            >
-              Sign in
-            </Button>
-            </> : <>
-            <div>
-              <Link to="/sign-up" className="items-center text-[0.9rem]">
-                Sign up
-              </Link>
-            </div>
-            <div
-              className='transition-all text-secondary-color -mt-[1rem] cursor-pointer'
-              //type="primary"
-              onClick={() => navigate('/sign-in')}
-              style={{
-                fontSize: '0.95rem',
-              }}
-            >
-              Sign in
-            </div>
-            
-
-            </>}
-            
-            
+                >
+                  Sign in
+                </Button>
+              </>
+            ) : (
+              <>
+                <div className="flex flex-col items-center">
+                  <div className="block w-full">
+                    <Link to="/sign-up" className="items-center text-[0.9rem]">
+                      Sign up
+                    </Link>
+                  </div>
+                  <div
+                    className="cursor-pointer text-secondary-color transition-all"
+                    //type="primary"
+                    onClick={() => navigate('/sign-in')}
+                    style={{
+                      fontSize: '0.95rem',
+                    }}
+                  >
+                    Sign in
+                  </div>
+                </div>
+              </>
+            )}
           </div>
         ),
     },
