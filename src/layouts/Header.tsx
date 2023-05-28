@@ -32,7 +32,7 @@ const Header = () => {
 
   useEffect(() => {
     setAuth();
-    if(window.innerWidth >= 768){setNavbarOpen(true)}
+    if(window.innerWidth >= 1280){setNavbarOpen(true)}
   }, []);
 
   const MENU_ITEMS = [
@@ -71,11 +71,6 @@ const Header = () => {
       to: '/contact-specialists',
       icon: <UserOutlined className="mr-2 text-4xl lg:text-xl" />,
     },
-    // {
-    //   title: 'Community',
-    //   to: '/community',
-    //   icon: <UsergroupAddOutlined className="mr-2 text-4xl lg:text-xl" />,
-    // },
     {
       title: 'About us',
       to: '/about-us',
@@ -95,7 +90,7 @@ const Header = () => {
               fontSize: '0.9rem',
             }}
           >
-            {window.innerWidth >= 768 ? <>
+            {window.innerWidth >= 1280 ? <>
             <Button className='hover:border-b-4 '>
               <Link to="/sign-up" className="flex items-center">
                 <Typography
@@ -158,15 +153,15 @@ const Header = () => {
           />
         </div>
         <div
-          className={`col-span-5 flex flex-col ml-auto mt-[5.5rem] px-8 sm:px-0 sm:mt-0 bg-[#fff] mr-2 sm:mr-0 sm:bg-transparent sm:flex-row items-center justify-start sm:gap-6 sm:ml-[4rem] 
-            ${navbarOpen && window.innerWidth < 768 ? 'border-[1px] border-[#ccc] shadow-xl':''}`}>
+          className={`col-span-5 flex flex-col ml-auto mt-[5.5rem] px-8 xl:px-0 xl:mt-0 bg-[#fff] mr-2 xl:mr-0 xl:bg-transparent xl:flex-row items-center justify-start xl:gap-6 xl:ml-[4rem] 
+            ${navbarOpen && window.innerWidth < 1280 ? 'border-[1px] border-[#ccc] shadow-xl':''}`}>
           {navbarOpen!=false && MENU_ITEMS?.map(item =>
             item?.render && item?.title != '' ? (
               item?.render()
             ) : (
               <div
                 key={item?.title}
-                onClick={() => {if(window.innerWidth < 768 )setNavbarOpen(!navbarOpen)}}
+                onClick={() => {if(window.innerWidth < 1280 )setNavbarOpen(!navbarOpen)}}
                 className={`cursor-pointer transition-all hover:border-b-4 hover:border-b-primary-color ${
                   (item?.to !== '/' && pathname?.includes(item?.to)) ||
                   (item?.to === '/' && pathname === item?.to)
@@ -185,7 +180,7 @@ const Header = () => {
                   }
                   style={{ fontWeight: '100' }}
                 >
-                  <span className="text-[0.7rem] hidden sm:inline-block">
+                  <span className="text-[0.7rem] hidden xl:inline-block">
                     {item?.icon}
                   </span>
                   <span className=''>{item?.title}</span>
@@ -193,7 +188,7 @@ const Header = () => {
               </div>
             ),
           )}
-          <div onClick={() => setNavbarOpen(!navbarOpen)} className='sm:hidden absolute top-7 right-3'>
+          <div onClick={() => setNavbarOpen(!navbarOpen)} className='xl:hidden absolute top-7 right-3'>
             <MenuOutlined className="w-5 scale-150"/>
           </div>
         </div>      

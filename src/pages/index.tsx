@@ -42,12 +42,12 @@ export default function Index() {
         }}
       >
         <Card
-          className="sm:absolute  px-2 top-[8rem] sm:top-[10rem] sm:right-[9.375rem] sm:w-2/6 rounded-xl bg-[#566573] bg-opacity-[80%] p-4 shadow-xl"
+          className="top-[8rem] rounded-xl bg-[#566573] bg-opacity-[80%] p-4 px-2 shadow-xl sm:absolute sm:right-[9.375rem] sm:w-3/6 lg:w-2/6 lg:top-[10rem]"
           bordered={false}
         >
           <Typography.Title
             level={2}
-            className="text-center sm:text-5xl font-bold text-[white]"
+            className="text-center font-bold text-[white] lg:text-5xl"
           >
             HAPPYCHILD
           </Typography.Title>
@@ -72,22 +72,18 @@ export default function Index() {
           </Typography>
         </div>
         <Divider />
-        <StyledDiv className="flex flex-col sm:flex-row w-full">
+        <StyledDiv className="flex w-full flex-col justify-self-center items-center lg:flex-row">
           <CourseStyledCard
-            className="mx-2 sm:w-1/3 my-5 text-base shadow-xl transition duration-300 hover:scale-105"
+            className="mx-2 my-5 w-2/3 lg:w-1/3 text-base shadow-xl transition duration-300 hover:scale-105"
             title={
-              <div
-                className="mr-5 py-4 text-lg font-bold w-full break-words min-h-[95px] whitespace-normal"
-              >
-                Taking test to assess the development level
-                and autism of young children 
+              <div className="mr-5 min-h-[95px] w-full whitespace-normal break-words py-4 text-lg font-bold">
+                Taking test to assess the development level and autism of young
+                children
               </div>
             }
             extra={<ScheduleOutlined className="text-3xl" />}
           >
-            <div
-              className="flex h-full flex-col justify-between bg-info-color-light py-4 px-3 min-h-[350px]"
-            >
+            <div className="flex h-full min-h-[350px] flex-col justify-between bg-info-color-light py-4 px-3">
               <Typography.Paragraph className="mb-20">
                 <ul className="m-0 list-none space-y-4 p-0">
                   <li>
@@ -116,19 +112,15 @@ export default function Index() {
             </div>
           </CourseStyledCard>
           <CourseStyledCard
-            className="mx-2 sm:w-1/3 my-5 p-4 text-base shadow-xl transition duration-300 hover:scale-105"
+            className="mx-2 my-5 p-4 text-base shadow-xl transition duration-300 hover:scale-105 lg:w-1/3 w-2/3"
             title={
-              <div
-                className="mr-5 py-4 text-lg font-bold min-h-[95px] whitespace-normal"
-              >
+              <div className="mr-5 min-h-[95px] whitespace-normal py-4 text-lg font-bold">
                 The intervention roadmap for children
               </div>
             }
             extra={<StockOutlined className="text-3xl" />}
           >
-            <div
-              className="flex h-full flex-col justify-between bg-info-color-light py-4 px-3 min-h-[350px]"
-            >
+            <div className="flex h-full min-h-[350px] flex-col justify-between bg-info-color-light py-4 px-3">
               <Typography.Paragraph className="row-span-2">
                 <ul className="m-0 list-none space-y-4 p-0">
                   <li>
@@ -153,11 +145,9 @@ export default function Index() {
             </div>
           </CourseStyledCard>
           <CourseStyledCard
-            className="mx-2 sm:w-1/3 my-5 p-4 text-base shadow-xl transition duration-300 hover:scale-105"
+            className="mx-2 my-5 w-2/3 p-4 text-base shadow-xl transition duration-300 hover:scale-105 lg:w-1/3"
             title={
-              <div
-                className="mr-5 py-4 text-lg font-bold min-h-[95px] whitespace-normal"
-              >
+              <div className="mr-5 min-h-[95px] whitespace-normal py-4 text-lg font-bold">
                 Monitor the development of children through tracking log
               </div>
             }
@@ -200,10 +190,10 @@ export default function Index() {
         <Divider />
       </Col>
       <Col span={24} className="flex flex-col items-center gap-4">
-        <Typography className="text-3xl text-center font-bold text-primary-color">
+        <Typography className="text-center text-3xl font-bold text-primary-color">
           Progressing towards development
         </Typography>
-        <div className="flex w-[20rem] sm:w-2/3 items-center justify-between rounded-xl bg-secondary-color p-8">
+        <div className="flex w-[20rem] items-center justify-between rounded-xl bg-secondary-color p-8 sm:w-2/3">
           <div className="flex flex-col justify-center gap-4">
             <Typography className="text-3xl font-bold text-[white]">
               Contact the experts
@@ -223,7 +213,7 @@ export default function Index() {
           </div>
           <Image src={Specialist} preview={false} width={150} />
         </div>
-        <div className="flex w-[20rem] sm:w-2/3 items-center justify-between rounded-xl bg-ternary-color p-8">
+        <div className="flex w-[20rem] items-center justify-between rounded-xl bg-ternary-color p-8 sm:w-2/3">
           <div className="flex flex-col justify-center gap-4">
             <Typography className="text-3xl font-bold text-[black]">
               Intervention guide
@@ -244,7 +234,7 @@ export default function Index() {
           </div>
           <Image src={Intervention} preview={false} width={200} />
         </div>
-        <div className="flex w-[20rem] sm:w-2/3 items-center justify-between rounded-xl bg-primary-color p-8">
+        <div className="flex w-[20rem] items-center justify-between rounded-xl bg-primary-color p-8 sm:w-2/3">
           <div className="flex flex-col justify-center gap-4">
             <Typography className="text-3xl font-bold text-[white]">
               Diary to monitor the child's treatment progress

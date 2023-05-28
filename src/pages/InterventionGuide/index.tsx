@@ -58,6 +58,7 @@ const InterventionGuide: React.FC<routeId> = ({ id, childId }) => {
   const [current, setCurrent] = useState(0);
   const [currentSkill, setCurrentSkill] = useState(0);
   const [checkedItems, setCheckedItems] = useState(new Set());
+
   const [childInfo, setChildInfo] = useState<ChildInfo>({
     name: '',
     birthday: '',
@@ -230,7 +231,7 @@ const InterventionGuide: React.FC<routeId> = ({ id, childId }) => {
                   <Card.Grid
                     key={i?.stageName}
                     style={{
-                      width: '33.3333%',
+                      width: window.innerWidth < 768 ? '100%' : '33.33333%',
                       textAlign: 'center',
                       margin: '0',
                     }}
@@ -240,7 +241,7 @@ const InterventionGuide: React.FC<routeId> = ({ id, childId }) => {
                       setCurrentSkill(0);
                     }}
                   >
-                    <div className="grid sm:grid-cols-2 gap-8">
+                    <div className="sm:grid sm:grid-cols-2 gap-8">
                       <Image
                         className="sm:ml-4 w-60"
                         src={i?.thumbnail || ''}

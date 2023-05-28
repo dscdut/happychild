@@ -54,17 +54,54 @@ function FooterComponent() {
         }}
       >
         <Row className="grid sm:grid-cols-8 ">
-          <Col className="col-span-3 mt-6 ml-8">
-            <Link to="/">
-              <img
-                src={HappyChild}
-                alt="Happy child"
-                className="w-40 object-contain"
-              />
-            </Link>
+          <Col className="mt-6 sm:ml-8 col-span-2">
+            <div className="grid grid-cols-3 lg:grid-cols-2">
+              <Link to="/" className="col-span-2">
+                <img
+                  src={HappyChild}
+                  alt="Happy child"
+                  className="w-20 object-contain lg:w-40"
+                />
+              </Link>
+              <div className=" hidden lg:block bg-primary w-full">
+                <Row className="mt-[4rem] grid grid-cols-3 items-center text-2xl ">
+                  <Space>
+                    <a
+                      target="_blank"
+                      href="https://twitter.com/"
+                      rel="noreferrer"
+                    >
+                      <IconWrapper>
+                        <TwitterOutlined />
+                      </IconWrapper>
+                    </a>
+                    <a
+                      target="_blank"
+                      href="https://www.facebook.com/"
+                      rel="noreferrer"
+                    >
+                      <IconWrapper>
+                        <FacebookOutlined />
+                      </IconWrapper>
+                    </a>
+                    <a
+                      rel="noreferrer"
+                      href="https://linkedin.com/"
+                      target="_blank"
+                    >
+                      <IconWrapper>
+                        <LinkedinOutlined />
+                      </IconWrapper>
+                    </a>
+                  </Space>
+
+                  {/* <Smartos className="ml-auto" /> */}
+                </Row>
+              </div>
+            </div>
           </Col>
 
-          <Col className="col-span-5">
+          <Col className="col-span-4">
             <div className="flex flex-col space-y-3 text-surface-primary">
               <Title className="mt-8 text-3xl font-semibold text-primary-color">
                 Contact
@@ -94,42 +131,54 @@ function FooterComponent() {
                   </span>
                 </p>
               </Category>
-              <div className="flex justify-center sm:justify-start">
-              <Typography.Paragraph className="text-sm opacity-75 mt-[4rem]">
-                Copyright © Happy Child All rights reserved
-              </Typography.Paragraph>
-            </div>
+              <div className="flex flex-col justify-center text-[#000] sm:justify-start">
+                {window.innerWidth < 1280 && (
+                  <>
+                    <div className="bg-primary w-full">
+                      <Row className="grid grid-cols-3 items-center text-2xl ">
+                        <Space>
+                          <a
+                            target="_blank"
+                            href="https://twitter.com/"
+                            rel="noreferrer"
+                          >
+                            <IconWrapper>
+                              <TwitterOutlined />
+                            </IconWrapper>
+                          </a>
+                          <a
+                            target="_blank"
+                            href="https://www.facebook.com/"
+                            rel="noreferrer"
+                          >
+                            <IconWrapper>
+                              <FacebookOutlined />
+                            </IconWrapper>
+                          </a>
+                          <a
+                            rel="noreferrer"
+                            href="https://linkedin.com/"
+                            target="_blank"
+                          >
+                            <IconWrapper>
+                              <LinkedinOutlined />
+                            </IconWrapper>
+                          </a>
+                        </Space>
+
+                        {/* <Smartos className="ml-auto" /> */}
+                      </Row>
+                    </div>
+                  </>
+                )}
+                <p className="mt-[2rem] text-sm opacity-75 justify-self-center">
+                  Copyright © Happy Child All rights reserved
+                </p>
+              </div>
             </div>
           </Col>
         </Row>
         {/* <Divider className="border-white my-14" /> */}
-        <div className="bg-primary w-full">
-          <Row className="sm:ml-9 grid grid-cols-3 items-center  text-2xl -mt-[4rem]">
-            <Space>
-              <a target="_blank" href="https://twitter.com/" rel="noreferrer">
-                <IconWrapper>
-                  <TwitterOutlined />
-                </IconWrapper>
-              </a>
-              <a
-                target="_blank"
-                href="https://www.facebook.com/"
-                rel="noreferrer"
-              >
-                <IconWrapper>
-                  <FacebookOutlined />
-                </IconWrapper>
-              </a>
-              <a rel="noreferrer" href="https://linkedin.com/" target="_blank">
-                <IconWrapper>
-                  <LinkedinOutlined />
-                </IconWrapper>
-              </a>
-            </Space>
-            
-            {/* <Smartos className="ml-auto" /> */}
-          </Row>
-        </div>
       </StyledFooter>
     </div>
   );

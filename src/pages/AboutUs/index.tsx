@@ -7,7 +7,7 @@ const AboutUs = () => {
   return (
     <>
       <div className="w-full">
-        <div className="sm:sticky sm:block hidden sm:top-24 sm:ml-24 w-1/3 max-w-md sm:pt-24">
+        <div className="sm:sticky xl:block hidden sm:top-24 sm:ml-24 w-1/3 max-w-md sm:pt-24">
           <h1 className="text-9xl  2xl:text-9xl font-bold">Meet our team</h1>
           <h2 className="text-blue-300 mt-5 text-3xl font-light"></h2>
         </div>

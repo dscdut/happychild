@@ -220,8 +220,6 @@ function TrackingProgress() {
         /> : <div>
           <List
           size="large"
-          header={<div>Header</div>}
-          footer={<div>Footer</div>}
           bordered
           dataSource={children}
           renderItem={(item) => 
