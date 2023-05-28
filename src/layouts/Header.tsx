@@ -85,7 +85,7 @@ const Header = () => {
         ) : (
           <div
             key={'unLoggedIn'}
-            className="flex flex-col items-center gap-4 lg:ml-auto lg:mr-5 sm:flex-row"
+            className="flex flex-col items-center gap-4 sm:flex-row lg:ml-auto lg:mr-5"
             style={{
               fontSize: '0.9rem',
             }}
@@ -116,16 +116,24 @@ const Header = () => {
               </>
             ) : (
               <>
-                <div className="flex flex-col items-center">
-                  <div className="block w-full">
+                <div className="mb-2 flex flex-col items-center">
+                  <div
+                    className="block w-full border-b-4 border-transparent hover:border-b-primary-color "
+                    onClick={() => {
+                      if (window.innerWidth < 1280) setNavbarOpen(!navbarOpen);
+                    }}
+                  >
                     <Link to="/sign-up" className="items-center text-[0.9rem]">
                       Sign up
                     </Link>
                   </div>
                   <div
-                    className="cursor-pointer text-secondary-color transition-all"
+                    className="cursor-pointer border-b-4 border-transparent text-secondary-color transition-all hover:border-b-primary-color"
                     //type="primary"
-                    onClick={() => navigate('/sign-in')}
+                    onClick={() => {
+                      navigate('/sign-in');
+                      if (window.innerWidth < 1280) setNavbarOpen(!navbarOpen);
+                    }}
                     style={{
                       fontSize: '0.95rem',
                     }}
@@ -157,7 +165,7 @@ const Header = () => {
           />
         </div>
         <div
-          className={`col-span-5 flex flex-col ml-auto mt-[5.5rem] px-8 xl:px-0 xl:mt-0 bg-[#fff] mr-2 xl:mr-0 xl:bg-transparent xl:flex-row items-center justify-start xl:gap-6 xl:ml-[4rem] 
+          className={`col-span-5 flex flex-col ml-auto mt-[5.5rem] pt-2 px-8 xl:px-0 xl:mt-0 bg-[#fff] mr-2 xl:mr-0 xl:bg-transparent xl:flex-row items-center justify-start xl:gap-6 xl:ml-[4rem] 
             ${navbarOpen && window.innerWidth < 1280 ? 'border-[1px] border-[#ccc] shadow-xl':''}`}>
           {navbarOpen!=false && MENU_ITEMS?.map(item =>
             item?.render && item?.title != '' ? (
@@ -166,7 +174,7 @@ const Header = () => {
               <div
                 key={item?.title}
                 onClick={() => {if(window.innerWidth < 1280 )setNavbarOpen(!navbarOpen)}}
-                className={`cursor-pointer transition-all hover:border-b-4 hover:border-b-primary-color ${
+                className={` cursor-pointer transition-all hover:border-b-4 hover:border-b-primary-color ${
                   (item?.to !== '/' && pathname?.includes(item?.to)) ||
                   (item?.to === '/' && pathname === item?.to)
                     ? 'border-b-4 border-b-primary-color'
