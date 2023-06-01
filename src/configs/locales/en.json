@@ -1,7 +1,7 @@
 {
   "appInfo": {
     "footer": "",
-    "name": "Smartos"
+    "name": "HappyChild"
   },
   "ZERO_RESULTS": "Address not found",
   "sideBar": {
@@ -406,7 +406,7 @@
     "businessOwnerEmail": "Business Owner Email",
     "businessPhoto": "Business Photo",
     "domainAdmin": "Domain Admin:",
-    "adminUrl": "https://{{businessName}}.staging.smartos.space",
+    "adminUrl": "https://{{businessName}}.staging.happychild.space",
     "contact": "Contact",
     "socialChanel": "Social Channel",
     "businessName": "Business Name",
