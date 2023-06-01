@@ -137,7 +137,7 @@ export default function SignInPage() {
                 Log in
               </Button>
             </Col>
-            <Col span={24}>
+            <Col span={24} className='mb-4'>
               <Button
                 block
                 className="bg-[white] text-[black]"

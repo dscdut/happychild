@@ -165,47 +165,56 @@ const Header = () => {
           />
         </div>
         <div
-          className={`col-span-5 flex flex-col ml-auto mt-[5.5rem] pt-2 px-8 xl:px-0 xl:mt-0 bg-[#fff] mr-2 xl:mr-0 xl:bg-transparent xl:flex-row items-center justify-start xl:gap-6 xl:ml-[4rem] 
-            ${navbarOpen && window.innerWidth < 1280 ? 'border-[1px] border-[#ccc] shadow-xl':''}`}>
-          {navbarOpen!=false && MENU_ITEMS?.map(item =>
-            item?.render && item?.title != '' ? (
-              item?.render()
-            ) : (
-              <div
-                key={item?.title}
-                onClick={() => {if(window.innerWidth < 1280 )setNavbarOpen(!navbarOpen)}}
-                className={` cursor-pointer transition-all hover:border-b-4 hover:border-b-primary-color ${
-                  (item?.to !== '/' && pathname?.includes(item?.to)) ||
-                  (item?.to === '/' && pathname === item?.to)
-                    ? 'border-b-4 border-b-primary-color'
-                    : 'border-b-4 border-transparent'
-                }`}
-              >
-                <Link
-                  to={item?.to}
-                  
-                  className={
+          className={`col-span-5 ml-auto mt-[5.5rem] mr-2 flex flex-col items-center justify-start bg-[#fff] px-8 pt-2 xl:mt-0 xl:mr-0 xl:ml-[4rem] xl:flex-row xl:gap-6 xl:bg-transparent xl:px-0 
+            ${
+              navbarOpen && window.innerWidth < 1280
+                ? 'border-[1px] border-[#ccc] bg-transparent shadow-xl'
+                : 'bg-transparent'
+            }`}
+        >
+          {navbarOpen != false &&
+            MENU_ITEMS?.map(item =>
+              item?.render && item?.title != '' ? (
+                item?.render()
+              ) : (
+                <div
+                  key={item?.title}
+                  onClick={() => {
+                    if (window.innerWidth < 1280) setNavbarOpen(!navbarOpen);
+                  }}
+                  className={`cursor-pointer transition-all hover:border-b-4 hover:border-b-primary-color ${
                     (item?.to !== '/' && pathname?.includes(item?.to)) ||
                     (item?.to === '/' && pathname === item?.to)
-                      ? 'text-primary-color'
-                      : 'text-[black]'
-                  }
-                  style={{ fontWeight: '100' }}
+                      ? 'border-b-4 border-b-primary-color'
+                      : 'border-b-4 border-transparent'
+                  }`}
                 >
-                  <span className="text-[0.7rem] hidden xl:inline-block">
-                    {item?.icon}
-                  </span>
-                  <span className=''>{item?.title}</span>
-                </Link>
-              </div>
-            ),
-          )}
-          <div onClick={() => setNavbarOpen(!navbarOpen)} className='xl:hidden absolute top-7 right-3'>
-            <MenuOutlined className="w-5 scale-150"/>
+                  <Link
+                    to={item?.to}
+                    className={
+                      (item?.to !== '/' && pathname?.includes(item?.to)) ||
+                      (item?.to === '/' && pathname === item?.to)
+                        ? 'text-primary-color'
+                        : 'text-[black]'
+                    }
+                    style={{ fontWeight: '100' }}
+                  >
+                    <span className="hidden text-[0.7rem] xl:inline-block">
+                      {item?.icon}
+                    </span>
+                    <span className="">{item?.title}</span>
+                  </Link>
+                </div>
+              ),
+            )}
+          <div
+            onClick={() => setNavbarOpen(!navbarOpen)}
+            className="absolute top-7 right-3 xl:hidden"
+          >
+            <MenuOutlined className="w-5 scale-150" />
           </div>
-        </div>      
+        </div>
       </div>
-      
     </>
   );
 }

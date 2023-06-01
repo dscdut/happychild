@@ -46,15 +46,10 @@ const Category = styled.span`
 
 function FooterComponent() {
   return (
-    <div className="-mt-6 w-full">
-      <StyledFooter
-        className=" text-surface-primary"
-        style={{
-          backgroundColor: '#FFFFE8',
-        }}
-      >
+    <div className="border-primary-color shadow-xl -mt-6 w-full border-t-4">
+      <StyledFooter className=" bg-[#fff] text-surface-primary ">
         <Row className="grid sm:grid-cols-8 ">
-          <Col className="mt-6 sm:ml-8 col-span-2">
+          <Col className="col-span-2 mt-6 sm:ml-8">
             <div className="grid grid-cols-3 lg:grid-cols-2">
               <Link to="/" className="col-span-2">
                 <img
@@ -63,7 +58,7 @@ function FooterComponent() {
                   className="w-20 object-contain lg:w-40"
                 />
               </Link>
-              <div className=" hidden lg:block bg-primary w-full">
+              <div className=" bg-primary hidden w-full lg:block">
                 <Row className="mt-[4rem] grid grid-cols-3 items-center text-2xl ">
                   <Space>
                     <a
@@ -171,7 +166,7 @@ function FooterComponent() {
                     </div>
                   </>
                 )}
-                <p className="mt-[2rem] text-sm opacity-75 justify-self-center">
+                <p className="mt-[2rem] justify-self-center text-sm opacity-75">
                   Copyright © Happy Child All rights reserved
                 </p>
               </div>

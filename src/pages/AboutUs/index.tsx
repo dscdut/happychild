@@ -17,11 +17,20 @@ const AboutUs = () => {
             className="block w-full rounded-lg border-4 border-primary-color"
             width="885"
             height="498"
-            src="https://www.youtube.com/embed/LDrhHYYUJsY"
+            src="https://www.youtube.com/embed/IV3NSE3jjyk"
             title="HappyChild - GDSC Solution Challenge 2023"
             allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
             allowFullScreen
           ></iframe>
+          {/* <iframe
+            className="block w-full rounded-lg border-4 border-primary-color"
+            width="885"
+            height="498"
+            src="https://www.youtube.com/embed/LDrhHYYUJsY"
+            title="HappyChild - GDSC Solution Challenge 2023"
+            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+            allowFullScreen
+          ></iframe> */}
 
           <div className="mt-20 mb-20 grid">
             <div className="mx-5 my-5 text-3xl text-primary-color">
