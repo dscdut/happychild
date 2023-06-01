@@ -6,16 +6,15 @@ const AboutUs = () => {
 
   return (
     <>
-      <div className="grid w-full justify-center lg:grid-cols-2">
+      <div className="grid w-full justify-center lg:grid-cols-3">
         <div className="col-span-1">
           <h1 className="ml-[5rem] w-1/4 text-9xl font-bold lg:sticky lg:top-48 2xl:text-9xl ">
             Meet our team
           </h1>
         </div>
-        <div className="col-span-1 lg:mr-[4rem] lg:mt-[4rem]">
+        <div className="col-span-2 lg:mr-[4rem] lg:mt-[4rem]">
           <iframe
             className="block w-full rounded-lg border-4 border-primary-color"
-            width="885"
             height="498"
             src="https://www.youtube.com/embed/IV3NSE3jjyk"
             title="HappyChild - GDSC Solution Challenge 2023"
