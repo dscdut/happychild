@@ -5,7 +5,7 @@ import {
   FormOutlined,
   InfoCircleOutlined,
   StockOutlined,
-  MenuOutlined
+  MenuOutlined,
 } from '@ant-design/icons';
 import { Button, Typography, Image } from 'antd';
 import { Link, useLocation, useNavigate } from 'react-router-dom';
@@ -32,7 +32,9 @@ const Header = () => {
 
   useEffect(() => {
     setAuth();
-    if(window.innerWidth >= 1280){setNavbarOpen(true)}
+    if (window.innerWidth >= 1280) {
+      setNavbarOpen(true);
+    }
   }, []);
 
   const MENU_ITEMS = [
@@ -165,11 +167,12 @@ const Header = () => {
           />
         </div>
         <div
-          className={`col-span-5 ml-auto mt-[5.5rem] mr-2 flex flex-col items-center justify-start bg-[#fff] px-8 pt-2 xl:mt-0 xl:mr-0 xl:ml-[4rem] xl:flex-row xl:gap-6 xl:bg-transparent xl:px-0 
+          className={`col-span-5 ml-auto mt-[5.5rem] mr-2 flex flex-col items-center justify-start  px-8 xl:mt-0 xl:mr-0 xl:ml-[4rem] xl:flex-row xl:gap-6 xl:bg-transparent xl:px-0 
+            ${navbarOpen ? ' bg-[#fff] pt-2' : 'pt-0 border-none'}
             ${
-              navbarOpen && window.innerWidth < 1280
-                ? 'border-[1px] border-[#ccc] bg-transparent shadow-xl'
-                : 'bg-transparent'
+              window.innerWidth < 1280
+                ? 'border-[1px] border-[#ccc] '
+                : ' border-[0px] border-transparent'
             }`}
         >
           {navbarOpen != false &&
@@ -217,7 +220,6 @@ const Header = () => {
       </div>
     </>
   );
-}
+};
 
-
-export default Header
+export default Header;
