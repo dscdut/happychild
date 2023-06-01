@@ -5,7 +5,7 @@ import {
   FormOutlined,
   InfoCircleOutlined,
   StockOutlined,
-  MenuOutlined
+  MenuOutlined,
 } from '@ant-design/icons';
 import { Button, Typography, Image } from 'antd';
 import { Link, useLocation, useNavigate } from 'react-router-dom';
@@ -32,7 +32,9 @@ const Header = () => {
 
   useEffect(() => {
     setAuth();
-    if(window.innerWidth >= 768){setNavbarOpen(true)}
+    if (window.innerWidth >= 1280) {
+      setNavbarOpen(true);
+    }
   }, []);
 
   const MENU_ITEMS = [
@@ -71,11 +73,6 @@ const Header = () => {
       to: '/contact-specialists',
       icon: <UserOutlined className="mr-2 text-4xl lg:text-xl" />,
     },
-    // {
-    //   title: 'Community',
-    //   to: '/community',
-    //   icon: <UsergroupAddOutlined className="mr-2 text-4xl lg:text-xl" />,
-    // },
     {
       title: 'About us',
       to: '/about-us',
@@ -84,58 +81,70 @@ const Header = () => {
     {
       render: () =>
         loggedIn && auth.currentUser ? (
-          <div key={"LoggedIn"} className="ml-auto mr-5 ">
+          <div key={'LoggedIn'} className="ml-auto mr-5 ">
             <UserInfo />
           </div>
         ) : (
           <div
-            key={"unLoggedIn"}
-            className="sm:ml-auto sm:mr-5 flex sm:flex-row flex-col items-center gap-4"
+            key={'unLoggedIn'}
+            className="flex flex-col items-center gap-4 sm:flex-row lg:ml-auto lg:mr-5"
             style={{
               fontSize: '0.9rem',
             }}
           >
-            {window.innerWidth >= 768 ? <>
-            <Button className='hover:border-b-4 '>
-              <Link to="/sign-up" className="flex items-center">
-                <Typography
-                   style={{
+            {window.innerWidth >= 1280 ? (
+              <>
+                <Button className="hover:border-b-4 ">
+                  <Link to="/sign-up" className="flex items-center">
+                    <Typography
+                      style={{
+                        fontSize: '0.9rem',
+                      }}
+                    >
+                      Sign up
+                    </Typography>
+                  </Link>
+                </Button>
+                <Button
+                  className="border-b-primary-color transition-all hover:border-b-4"
+                  type="primary"
+                  onClick={() => navigate('/sign-in')}
+                  style={{
                     fontSize: '0.9rem',
                   }}
-                >Sign up</Typography>
-              </Link>
-            </Button>
-            <Button
-            className='hover:border-b-4 border-b-primary-color transition-all'
-              type="primary"
-              onClick={() => navigate('/sign-in')}
-              style={{
-                fontSize: '0.9rem',
-              }}
-            >
-              Sign in
-            </Button>
-            </> : <>
-            <div>
-              <Link to="/sign-up" className="items-center text-[0.9rem]">
-                Sign up
-              </Link>
-            </div>
-            <div
-              className='transition-all text-secondary-color -mt-[1rem] cursor-pointer'
-              //type="primary"
-              onClick={() => navigate('/sign-in')}
-              style={{
-                fontSize: '0.95rem',
-              }}
-            >
-              Sign in
-            </div>
-            
-
-            </>}
-            
-            
+                >
+                  Sign in
+                </Button>
+              </>
+            ) : (
+              <>
+                <div className="mb-2 flex flex-col items-center">
+                  <div
+                    className="block w-full border-b-4 border-transparent hover:border-b-primary-color "
+                    onClick={() => {
+                      if (window.innerWidth < 1280) setNavbarOpen(!navbarOpen);
+                    }}
+                  >
+                    <Link to="/sign-up" className="items-center text-[0.9rem]">
+                      Sign up
+                    </Link>
+                  </div>
+                  <div
+                    className="cursor-pointer border-b-4 border-transparent text-secondary-color transition-all hover:border-b-primary-color"
+                    //type="primary"
+                    onClick={() => {
+                      navigate('/sign-in');
+                      if (window.innerWidth < 1280) setNavbarOpen(!navbarOpen);
+                    }}
+                    style={{
+                      fontSize: '0.95rem',
+                    }}
+                  >
+                    Sign in
+                  </div>
+                </div>
+              </>
+            )}
           </div>
         ),
     },
@@ -158,50 +167,59 @@ const Header = () => {
           />
         </div>
         <div
-          className={`col-span-5 flex flex-col ml-auto mt-[5.5rem] px-8 sm:px-0 sm:mt-0 bg-[#fff] mr-2 sm:mr-0 sm:bg-transparent sm:flex-row items-center justify-start sm:gap-6 sm:ml-[4rem] 
-            ${navbarOpen && window.innerWidth < 768 ? 'border-[1px] border-[#ccc] shadow-xl':''}`}>
-          {navbarOpen!=false && MENU_ITEMS?.map(item =>
-            item?.render && item?.title != '' ? (
-              item?.render()
-            ) : (
-              <div
-                key={item?.title}
-                onClick={() => {if(window.innerWidth < 768 )setNavbarOpen(!navbarOpen)}}
-                className={`cursor-pointer transition-all hover:border-b-4 hover:border-b-primary-color ${
-                  (item?.to !== '/' && pathname?.includes(item?.to)) ||
-                  (item?.to === '/' && pathname === item?.to)
-                    ? 'border-b-4 border-b-primary-color'
-                    : 'border-b-4 border-transparent'
-                }`}
-              >
-                <Link
-                  to={item?.to}
-                  
-                  className={
+          className={`col-span-5 ml-auto mt-[5.5rem] mr-2 flex flex-col items-center justify-start  px-8 xl:mt-0 xl:mr-0 xl:ml-[4rem] xl:flex-row xl:gap-6 xl:bg-transparent xl:px-0 
+            ${navbarOpen ? ' bg-[#fff] pt-2' : 'pt-0 border-none'}
+            ${
+              window.innerWidth < 1280
+                ? 'border-[1px] border-[#ccc] '
+                : ' border-[0px] border-transparent'
+            }`}
+        >
+          {navbarOpen != false &&
+            MENU_ITEMS?.map(item =>
+              item?.render && item?.title != '' ? (
+                item?.render()
+              ) : (
+                <div
+                  key={item?.title}
+                  onClick={() => {
+                    if (window.innerWidth < 1280) setNavbarOpen(!navbarOpen);
+                  }}
+                  className={`cursor-pointer transition-all hover:border-b-4 hover:border-b-primary-color ${
                     (item?.to !== '/' && pathname?.includes(item?.to)) ||
                     (item?.to === '/' && pathname === item?.to)
-                      ? 'text-primary-color'
-                      : 'text-[black]'
-                  }
-                  style={{ fontWeight: '100' }}
+                      ? 'border-b-4 border-b-primary-color'
+                      : 'border-b-4 border-transparent'
+                  }`}
                 >
-                  <span className="text-[0.7rem] hidden sm:inline-block">
-                    {item?.icon}
-                  </span>
-                  <span className=''>{item?.title}</span>
-                </Link>
-              </div>
-            ),
-          )}
-          <div onClick={() => setNavbarOpen(!navbarOpen)} className='sm:hidden absolute top-7 right-3'>
-            <MenuOutlined className="w-5 scale-150"/>
+                  <Link
+                    to={item?.to}
+                    className={
+                      (item?.to !== '/' && pathname?.includes(item?.to)) ||
+                      (item?.to === '/' && pathname === item?.to)
+                        ? 'text-primary-color'
+                        : 'text-[black]'
+                    }
+                    style={{ fontWeight: '100' }}
+                  >
+                    <span className="hidden text-[0.7rem] xl:inline-block">
+                      {item?.icon}
+                    </span>
+                    <span className="">{item?.title}</span>
+                  </Link>
+                </div>
+              ),
+            )}
+          <div
+            onClick={() => setNavbarOpen(!navbarOpen)}
+            className="absolute top-7 right-3 xl:hidden"
+          >
+            <MenuOutlined className="w-5 scale-150" />
           </div>
-        </div>      
+        </div>
       </div>
-      
     </>
   );
-}
+};
 
-
-export default Header
+export default Header;

@@ -5,6 +5,7 @@ import PrivateRoute from './PrivateRoute';
 import { loadable } from '#/shared/utils/loadable';
 import Result from '#/pages/Assessment/Result';
 
+
 const BlogPage = loadable(import('#/pages/Blog'));
 const BlogDetail = loadable(import('#/pages/BlogDetail'));
 const Index = loadable(import('#/pages/index'));
@@ -70,7 +71,7 @@ function App() {
     },
     {
       path: 'about-us',
-      element: <AboutUs />
+      element: <AboutUs />,
     },
     {
       path: '/',

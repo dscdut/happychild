@@ -15,7 +15,7 @@ export function PublicLayout({ children }: Props) {
       </div>
       <div className="mt-[5rem] min-h-screen px-8 py-4">{children}</div>
       {/* <Divider className="bg-primary-color" /> */}
-      <div className="mt-10 overflow-x-hidden ">
+      <div className="mt-10 overflow-x-hidden border-t-[0.1rem] border-t-[#ccc] sha">
         <Footer />
       </div>
     </div>

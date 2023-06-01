@@ -200,7 +200,7 @@ function TrackingProgress() {
 
   //console.log(children[0].key);
   return (
-    <div className="sm:grid sm:grid-cols-8">
+    <div className="lg:grid lg:grid-cols-8">
       <Card
         //className="sm:col-span-8 sm:col-start-2 scale-50/ w-full"
         className="col-span-6 col-start-2"
@@ -218,80 +218,69 @@ function TrackingProgress() {
           dataSource={children}
           pagination={false}
         /> : <div>
-          <List
-          size="large"
-          header={<div>Header</div>}
-          footer={<div>Footer</div>}
-          bordered
-          dataSource={children}
-          renderItem={(item) => 
-          <div>
-
-            <List.Item
-                  >
-                    <List.Item.Meta 
-                      title={"Name of Child"}
-                    />
-                    <div>
-                      {item?.name}
-                      
-                    </div>
-            </List.Item>
-            <List.Item
-                  >
-                    <List.Item.Meta 
-                      title={"Birthday"}
-                    />
-                    <div>
-                      {item?.birthday}
-                    </div>
-            </List.Item>
-            <List.Item
-                  >
-                    <List.Item.Meta 
-                      title={"Gender"}
-                    />
-                    <div>
-                      {item?.gender}
-                    </div>
-            </List.Item>
-            <List.Item
-                  >
-                    <List.Item.Meta 
-                      title={"Current Status"}
-                    />
-                    <div className={`${item?.tag === 1 ? 'text-[#fff] bg-secondary-color rounded-md px-2': 'text-color-accent-green'}`}>
-                        
-                          {item?.tag === 1 ? 'Developmental delay' : 'Normal'}
-                        
-                    </div>
-            </List.Item>
-            <List.Item
-                  >
-                    <List.Item.Meta 
-                      title={"Action"}
-                    />
-                    <div className='flex flex-col'>
+          <>
+            {children?.map((e) => {
+              return(
+              <>
+              <List
+                className='mb-5'
+                size="large"
+                bordered
+                dataSource={[e]}
+                renderItem={() => (
+                  <div>
+                    <List.Item>
+                      <List.Item.Meta title={'Name of Child'} />
+                      <div>{e?.name}</div>
+                    </List.Item>
+                    <List.Item>
+                      <List.Item.Meta title={'Birthday'} />
+                      <div>{e?.birthday}</div>
+                    </List.Item>
+                    <List.Item>
+                      <List.Item.Meta title={'Gender'} />
+                      <div>{e?.gender}</div>
+                    </List.Item>
+                    <List.Item>
+                      <List.Item.Meta title={'Current Status'} />
+                      <div
+                        className={`${
+                          e?.tag === 1
+                            ? 'rounded-md bg-secondary-color px-2 text-[#fff]'
+                            : 'text-color-accent-green'
+                        }`}
+                      >
+                        {e?.tag === 1 ? 'Developmental delay' : 'Normal'}
+                      </div>
+                    </List.Item>
+                    <List.Item>
+                      <List.Item.Meta title={'Action'} />
+                      <div className="flex flex-col">
                         <button
-                          className="text-[white] bg-[#2e86c1] p-[0.25rem] rounded cursor-pointer mb-1"
-                          onClick={() => handleViewProgressClick(item?.result)}
+                          className="mb-1 cursor-pointer rounded bg-[#2e86c1] p-[0.25rem] text-[white]"
+                          onClick={() => handleViewProgressClick(e?.result)}
                         >
                           View Progress
                         </button>
                         <button
-                        className='bg-[#efa2a4] text-[#fff] rounded cursor-pointer p-[0.25rem]'
+                          className="cursor-pointer rounded bg-[#efa2a4] p-[0.25rem] text-[#fff]"
                           style={{
                             transition: 'background-color 0.3s ease-in-out',
                           }}
-                          onClick={() => handleRetakeTestClick(item?.result)}
+                          onClick={() => handleRetakeTestClick(e?.result)}
                         >
                           Retake Test
                         </button>
-                    </div>
-            </List.Item>            
-          </div>}
-          
-        />
+                      </div>
+                    </List.Item>
+
+                  </div>
+                )}
+              />
+              </>
+              )  
+            })}
+          </>
           
         </div>}
         
